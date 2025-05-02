@@ -1,23 +1,45 @@
+
 .langSwitcher {
   display: flex;
-  gap: 10px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  /* розмір шрифта */
+  padding: 10px;
 }
 
 .langButton {
-  background-color: transparent;
+  background-color: #a9cdf3;
+  color: white;
+  padding: 8px 16px;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .langButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #5ca0e8;
 }
 
-.langButton:focus {
-  outline: none;
+/* Для планшетів */
+@media (min-width: 600px) {
+  .langSwitcher {
+    font-size: 1.2rem;
+  }
+
+  .langButton {
+    padding: 10px 20px;
+  }
+}
+
+/* Для десктопів */
+@media (min-width: 1024px) {
+  .langSwitcher {
+    font-size: 1.5rem;
+  }
+
+  .langButton {
+    padding: 12px 24px;
+  }
 }

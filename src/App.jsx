@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import translations from './translations/translations';
 import { ThemeProvider } from './context/ThemeContext';
 import LangSwitcher from './components/LangSwitcher/LangSwitcher';
-import ThemeToggleButton from './components/ThemeToggleButton/ThemeToggleButton';
 import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
 import Header from './components/Header/Header';
 import BenefitsSection from './components/BenefitsSection/BenefitsSection';
@@ -10,8 +9,11 @@ import PortfolioSection from './components/PortfolioSection/PortfolioSection';
 import ContactsSection from './components/ContactsSection/ContactsSection';
 import Footer from './components/Footer/Footer';
 import styles from './styles/App.module.css';
+import { useTheme } from './hooks/useTheme';
 
 function MainApp() {
+  const { theme, toggleTheme } = useTheme();
+
   const savedLang = localStorage.getItem('lang') || 'de';
   const [lang, setLang] = useState(savedLang);
   const t = translations[lang];
@@ -20,26 +22,20 @@ function MainApp() {
     localStorage.setItem('lang', lang);
   }, [lang]);
 
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  const [theme, setTheme] = useState(savedTheme);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
-
   useEffect(() => {
-    document.body.className = theme;
+    document.body.classList.remove('light-theme', 'dark-theme');
+    document.body.classList.add(`${theme}-theme`);
   }, [theme]);
 
+
   return (
-    <>
+    <div className={styles.app}>
       <LangSwitcher className={styles.switcher} setLang={setLang} />
-      <ThemeToggleButton toggleTheme={toggleTheme} theme={theme} />
+      <button onClick={toggleTheme} className={styles.themeButton} title="Змінити тему">
+        {theme === 'light' ? '🌙' : '🌞'}
+      </button>
       <ScrollToTop />
       <Header t={t} />
-
       <BenefitsSection title={t.benefitsTitle} benefits={t.benefits} />
       <PortfolioSection
         title={t.portfolioTitle}
@@ -60,7 +56,7 @@ function MainApp() {
         portfolioLink="https://artem-sydorov-frontend-cv.vercel.app/"
       />
       <Footer footerText={t.footer} />
-    </>
+    </div>
   );
 }
 

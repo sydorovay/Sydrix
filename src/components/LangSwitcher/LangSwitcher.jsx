@@ -5,7 +5,7 @@ const LangSwitcher = ({ setLang }) => {
   return (
     <div className={styles.langSwitcher}>
       {['de', 'gb', 'pl', 'ua'].map(code => (
-        <button
+        <button 
           key={code}
           onClick={() => setLang(code)}
           className={styles.langButton}

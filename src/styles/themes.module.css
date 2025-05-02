@@ -23,10 +23,3 @@
   --color-border: #444;
   --color-footer: #eee;
 }
-
-/* ===== Body Theming (optional reset) ===== */
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  transition: background-color var(--transition-slow), color var(--transition-slow);
-}
