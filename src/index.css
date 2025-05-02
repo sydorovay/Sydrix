@@ -1,0 +1,34 @@
+/* src/index.css */
+:root {
+  --text-color: #111;
+  --background-color: #fff;
+  --button-bg: #333;
+  --button-text: #fff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-color: #ccc;
+}
+
+body.light {
+  --text-color: #111;
+  --background-color: #fff;
+  --button-bg: #333;
+  --button-text: #fff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-color: #ccc;
+}
+
+body.dark {
+  --text-color: #f1f1f1;
+  --background-color: #1e1e1e;
+  --button-bg: #f1f1f1;
+  --button-text: #1e1e1e;
+  --shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  --border-color: #444;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

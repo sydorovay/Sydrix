@@ -1,0 +1,21 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-accent: #007bff;
+    --primary-color: #007bff;
+      --highlight-color: #ff5733;
+}
+
+body.dark {
+  --color-bg: #121212;
+  --color-text: #f0f0f0;
+  --color-accent: #4facfe;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
