@@ -1,5 +1,5 @@
 import Flag from 'react-world-flags';
-import styles from './Langswitcher.module.cssgit ';
+import styles from './Langswitcher.module.css';
 
 const LangSwitcher = ({ setLang }) => {
   return (
