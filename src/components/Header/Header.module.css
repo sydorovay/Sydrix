@@ -1,8 +1,6 @@
 .header {
   text-align: center;
   padding: 2rem;
-  /* background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); */
-  color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 16px 16px;
 }

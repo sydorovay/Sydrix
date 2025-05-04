@@ -15,8 +15,8 @@ const Logo = ({ lang = 'gb', className = '' }) => {
       src={logoSrc}
       alt="Sydrix Logo"
       className={className}
-      width={400}
-      height={160}
+      width={320}
+      height={100}
       loading="lazy"
     />
   );

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import styles from './BackgroundAnimationCanvas.module.css';
+import styles from './StarsBackground.module.css';
 
 const NUM_STARS = 250;
 const STAR_COLORS_LIGHT = ['#ffffff', '#ffe9c4', '#d4fbff'];
@@ -12,9 +12,9 @@ function random(min, max) {
 const createStar = (w, h, colors) => ({
   x: Math.random() * w,
   y: Math.random() * h,
-  radius: Math.random() * 1.1 + 0.2,
+  radius: Math.random() * 1.1 + 0.3,
   opacity: Math.random() * 0.7 + 0.3,
-  twinkleSpeed: random(0.001, 0.004),
+  twinkleSpeed: random(0.0001, 0.003),
   color: colors[Math.floor(Math.random() * colors.length)],
   dy: random(0.5, 1.5)
 });
@@ -24,8 +24,8 @@ const createFallingStar = (w, h, colors) => ({
   y: random(0, h), // Падає з випадкового місця
   radius: random(0.5, 1.5), // Маленькі зірки
   opacity: 1,
-  speed: random(1, 2), // Невелика швидкість падіння
-  angle: random(45, 75), // Кут падіння зірки (від 45 до 75 градусів)
+  speed: random(2, 4), // Невелика швидкість падіння
+  angle: random(45, 65), // Кут падіння зірки (від 45 до 65 градусів)
   color: colors[Math.floor(Math.random() * colors.length)],
   falling: true,
 });
@@ -120,7 +120,7 @@ export default function StarsBackgroundWithNebula({ theme }) {
       });
 
       // Створення нових падаючих зірок через певний інтервал
-      if (Math.random() < 0.001) { // Ще менша ймовірність падіння зірки
+      if (Math.random() < 0.003) { // Ще менша ймовірність падіння зірки
         fallingStars.current.push(createFallingStar(width, height, starColors));
       }
 
