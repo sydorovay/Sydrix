@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Flag from 'react-world-flags';
-import styles from './LangSwitcher.module.css';
+import styles from './Langswitcher.module.css';
 
 const LANGUAGES = [
   { code: 'de', label: 'Deutsch' },
