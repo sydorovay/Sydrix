@@ -16,6 +16,7 @@ const createStar = (w, h, colors) => ({
   opacity: Math.random() * 0.7 + 0.3,
   twinkleSpeed: random(0.001, 0.004),
   color: colors[Math.floor(Math.random() * colors.length)],
+  dy: random(0.5, 1.5)
 });
 
 const createFallingStar = (w, h, colors) => ({
