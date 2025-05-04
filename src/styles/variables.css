@@ -27,19 +27,23 @@
   --font-family: 'Segoe UI', sans-serif;
   --transition: 0.3s ease;
 
-  /* Світла тема */
-  --bg-gradient-light: linear-gradient(135deg, #f0f4ff, #e0e7ff, #ffffff);
-  --text-color-light: #111827;
-  --button-bg-light: #3b82f6;
-  --button-text-light: #fff;
-  --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --border-light: #ddd;
+  /* ----- style ------ */
+
+/* Світла тема */
+  :root {
+    --background-color-light: #f3f4f6;
+    --text-color-light: #333;
+    --link-color-light: #007bff;
+    --highlight-light: rgba(0, 123, 255, 0.8);
+    --line-color-light: #007bff;
+  }
 
   /* Темна тема */
-  --bg-gradient-dark: linear-gradient(135deg, #0f172a, #1e293b, #334155);
-  --text-color-dark: #f1f5f9;
-  --button-bg-dark: #2563eb;
-  --button-text-dark: #fff;
-  --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --border-dark: #444;
+  :root {
+    --background-color-dark: #121212;
+    --text-color-dark: #f1f1f1;
+    --link-color-dark: #4d94ff;
+    --highlight-dark: rgba(0, 123, 255, 1);
+    --line-color-dark: #00ff00;
+  }
 }

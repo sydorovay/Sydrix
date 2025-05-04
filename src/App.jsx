@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import translations from './translations/translations';
-import { ThemeProvider } from './context/ThemeContext';
-import LangSwitcher from './components/LangSwitcher/LangSwitcher';
+import { useTheme } from './hooks/useTheme';
 import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
+import TopBar from './components/TopBar/TopBar';
+import translations from './translations/translations';
 import Header from './components/Header/Header';
 import BenefitsSection from './components/BenefitsSection/BenefitsSection';
 import PortfolioSection from './components/PortfolioSection/PortfolioSection';
 import ContactsSection from './components/ContactsSection/ContactsSection';
 import Footer from './components/Footer/Footer';
 import styles from './styles/App.module.css';
-import { useTheme } from './hooks/useTheme';
+import './styles/variables.css';
+import BackgroundAnimationCanvas from './components/BackgroundFiberCanvas/BackgroundAnimationCanvas';
 
 function MainApp() {
   const { theme, toggleTheme } = useTheme();
@@ -27,27 +28,18 @@ function MainApp() {
     document.body.classList.add(`${theme}-theme`);
   }, [theme]);
 
-
   return (
     <div className={styles.app}>
-      <LangSwitcher className={styles.switcher} setLang={setLang} />
-      <button onClick={toggleTheme} className={styles.themeButton} title="Змінити тему">
-        {theme === 'light' ? '🌙' : '🌞'}
-      </button>
+      <BackgroundAnimationCanvas theme={theme} />
+      {/* <BackgroundAnimationCanvas theme={theme} />  */}
+      <TopBar lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
       <ScrollToTop />
       <Header t={t} />
       <BenefitsSection title={t.benefitsTitle} benefits={t.benefits} />
       <PortfolioSection
         title={t.portfolioTitle}
         text={t.portfolioText}
-        portfolioItems={[
-          {
-            name: 'Portfolio CV Site',
-            link: 'https://artem-sydorov-frontend-cv.vercel.app/',
-            imgSrc: 'https://via.placeholder.com/300x180?text=CV+Portfolio',
-            altText: 'Portfolio',
-          },
-        ]}
+        portfolioItems={[{ name: 'Portfolio CV Site', link: 'https://artem-sydorov-frontend-cv.vercel.app/', imgSrc: '/Sydorov-CV.jpg', altText: 'Portfolio' }]}
       />
       <ContactsSection
         title={t.contactsTitle}
@@ -61,9 +53,5 @@ function MainApp() {
 }
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      <MainApp />
-    </ThemeProvider>
-  );
+  return <MainApp />;
 }

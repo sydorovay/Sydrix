@@ -1,13 +1,4 @@
-/* src/index.css */
-:root {
-  --text-color: #111;
-  --background-color: #fff;
-  --button-bg: #333;
-  --button-text: #fff;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --border-color: #ccc;
-}
-
+/* src/index.css
 body.light {
   --text-color: #111;
   --background-color: #fff;
@@ -26,9 +17,5 @@ body.dark {
   --border-color: #444;
 }
 
-body {
-  margin: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+
+ */

@@ -1,0 +1,56 @@
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: var(--background-color);
+}
+
+.logoSection {
+  display: flex;
+flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  /* відстань між логотипом і слоганом */
+}
+
+.logoImg {
+  height: 40px;
+}
+
+.slogan {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.langThemeWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.themeButton {
+  padding: 0.5rem 1rem;
+  font-size: var(--font-size-base);
+  border: 1px solid black;
+  border-radius: var(--radius-md);
+  color: var(--button-text);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.themeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.1);
+}

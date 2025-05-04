@@ -1,53 +1,18 @@
-/* ======== ЗМІННІ ======== */
-:root {
-  --font-family: 'Segoe UI', sans-serif;
-  --transition: 0.3s ease;
-
-  /* Світла тема */
-  --bg-gradient-light: linear-gradient(135deg, #f0f4ff, #e0e7ff, #ffffff);
-  --text-color-light: #111827;
-  --button-bg-light: #3b82f6;
-  --button-text-light: #ffffff;
-  --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --border-light: #dddddd;
-
-  /* Темна тема */
-  --bg-gradient-dark: linear-gradient(135deg, #0f172a, #1e293b, #334155);
-  --text-color-dark: #f1f5f9;
-  --button-bg-dark: #2563eb;
-  --button-text-dark: #ffffff;
-  --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --border-dark: #444444;
-}
-
-/* ======== ТЕМИ ======== */
-body.light {
-  background: var(--bg-gradient-light);
-  color: var(--text-color-light);
-  --button-bg: var(--button-bg-light);
-  --button-text: var(--button-text-light);
-  --shadow: var(--shadow-light);
-  --border-color: var(--border-light);
-}
-
-body.dark {
-  background: var(--bg-gradient-dark);
-  color: var(--text-color-dark);
-  --button-bg: var(--button-bg-dark);
-  --button-text: var(--button-text-dark);
-  --shadow: var(--shadow-dark);
-  --border-color: var(--border-dark);
-}
-
-/* ======== ГЛОБАЛЬНІ ======== */
+/* ======== Global ======== */
 body {
   font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
   transition: background-color var(--transition), color var(--transition);
+  background-image: var(--header-gradient);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 * {
   box-sizing: border-box;
-  transition: background-color var(--transition), color var(--transition);
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
 }
 
 button {
@@ -58,82 +23,85 @@ button {
 }
 
 /* ======== APP ======== */
+
 .app {
   min-height: 100vh;
-  padding: 1rem;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  padding: var(--spacing-md);
+  background: linear-gradient(45deg,
+      var(--gradient-from),
+      var(--gradient-via),
+      var(--gradient-to),
+      var(--gradient-from));
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
 }
 
-/* ======== HEADER / TOGGLES ======== */
-.langThemeWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.langSwitcher button {
-  margin-right: 8px;
-  background: transparent;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.langSwitcher button:hover {
-  transform: scale(1.1);
-}
-
-.themeToggle,
-.themeButton {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  transition: background-color var(--transition);
-}
-
-.themeButton:hover {
-  background-color: #1d4ed8;
-  /* темніший синій */
-}
-
-/* ======== СЕКЦІЇ ======== */
+/* ======== Sections ======== */
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-xl);
+  background: var(--section-bg);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
 }
 
 /* ======== BENEFITS ======== */
 .benefitsList {
-  padding-left: 1.5rem;
+  padding-left: var(--spacing-md);
+  list-style: disc;
+  color: var(--text-color);
 }
 
 /* ======== PORTFOLIO ======== */
 .portfolioGrid {
   display: grid;
-  gap: 1rem;
+  gap: var(--spacing-md);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .portfolioItem {
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease;
+  background: var(--section-bg);
+  transition: transform var(--transition);
 }
 
 .portfolioItem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ======== FOOTER ======== */
 .footer {
   text-align: center;
-  padding: 1rem 0;
+  padding: var(--spacing-md) 0;
   border-top: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
 }
 
-.switcher {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Темна тема */
+.dark-theme {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.light-theme {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
 }
