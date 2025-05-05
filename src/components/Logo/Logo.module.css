@@ -1,0 +1,41 @@
+/* Стилі для логотипу */
+.logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 80px;
+}
+
+/* Стилі для букви "S" */
+.sLetter {
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Анімація для пікселів, що випадають */
+.pixelFall {
+  animation: fall 3s infinite ease-in-out;
+  opacity: 0;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}

@@ -1,4 +1,4 @@
-.topBar {
+/* .topBar {
   display: flex;
   justify-content: space-between;
 align-items: start;
@@ -42,4 +42,58 @@ align-items: start;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   filter: brightness(1.1);
+} */
+
+/* TopBar.module.css */
+.topBar {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.Section {
+  display: flex;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.switcher {
+  font-size: 1rem;
+}
+
+.themeButton {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* 🌐 Desktop styles */
+@media (min-width: 768px) {
+  .topBar {
+    height: 64px;
+    padding: 0 24px;
+  }
+
+  .switcher {
+    font-size: 1.1rem;
+  }
+
+  .themeButton {
+    font-size: 1.8rem;
+  }
 }
