@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import styles from './StarsBackground.module.css';
 
 const NUM_STARS = 250;
-const STAR_COLORS_LIGHT = ['#ffffff', '#ffe9c4', '#d4fbff'];
-const STAR_COLORS_DARK = ['#ffecb3', '#bbdefb', '#90caf9'];
+const STAR_COLORS_LIGHT = ['#ffffff', '#bbdefb', '#90caf9'];
+const STAR_COLORS_DARK = ['#ffffff', '#bbdefb', '#90caf9'];
 
 function random(min, max) {
   return Math.random() * (max - min) + min;
@@ -21,30 +21,28 @@ const createStar = (w, h, colors) => ({
 
 const createFallingStar = (w, h, colors) => ({
   x: random(0, w),
-  y: random(0, h), // Падає з випадкового місця
-  radius: random(0.5, 1.5), // Маленькі зірки
+  y: random(0, h),
+  radius: random(0.5, 1.5),
   opacity: 1,
-  speed: random(2, 4), // Невелика швидкість падіння
-  angle: random(45, 65), // Кут падіння зірки (від 45 до 65 градусів)
+  speed: random(6, 10),
+  angle: random(35, 65),
   color: colors[Math.floor(Math.random() * colors.length)],
   falling: true,
 });
 
-const createNebulaParticle = (w, h) => ({
+const createCloud = (w, h) => ({
   x: Math.random() * w,
-  y: Math.random() * h,
-  radius: random(80, 200),
-  dx: random(-0.05, 0.05),
-  dy: random(-0.05, 0.05),
-  opacity: random(0.02, 0.07),
-  color: `rgba(${Math.floor(random(100, 180))}, ${Math.floor(random(50, 100))}, ${Math.floor(random(120, 200))},`,
+  y: Math.random() * h * 0.6,
+  opacity: random(0.02, 0.06),
+  speed: random(0.02, 0.05),
+  scale: random(1.5, 2.5),
 });
 
 export default function StarsBackgroundWithNebula({ theme }) {
   const canvasRef = useRef(null);
   const stars = useRef([]);
   const fallingStars = useRef([]);
-  const nebulae = useRef([]);
+  const clouds = useRef([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -52,55 +50,83 @@ export default function StarsBackgroundWithNebula({ theme }) {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Вибір кольорів залежно від теми
     const starColors = theme === 'light' ? STAR_COLORS_LIGHT : STAR_COLORS_DARK;
 
     const resize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
       stars.current = Array.from({ length: NUM_STARS }, () => createStar(width, height, starColors));
-      nebulae.current = Array.from({ length: 12 }, () => createNebulaParticle(width, height));
+      clouds.current = Array.from({ length: 4 }, () => createCloud(width, height));
     };
 
     resize();
     window.addEventListener('resize', resize);
 
+    const drawSmoothCloud = (ctx, cloud, t) => {
+      const x = cloud.x;
+      const y = cloud.y;
+      const scale = cloud.scale;
+      const alpha = cloud.opacity + Math.sin(t * 0.001) * 0.015;
+
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(scale, scale);
+      ctx.beginPath();
+
+      for (let i = 0; i < 5; i++) {
+        const angle = (Math.PI * 2 * i) / 5;
+        const cx = Math.cos(angle) * 30;
+        const cy = Math.sin(angle) * 20;
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(cx, cy, 0, 0);
+      }
+
+      ctx.closePath();
+      ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+      ctx.shadowBlur = 50;
+      ctx.shadowColor = `rgba(255, 255, 255, ${alpha})`;
+      ctx.fill();
+      ctx.restore();
+
+      cloud.x += cloud.speed;
+      if (cloud.x > width + 100) cloud.x = -100;
+    };
+
     const render = (t) => {
       ctx.clearRect(0, 0, width, height);
+      if (theme === 'light') {
+        const gradientSky = ctx.createLinearGradient(0, 0, 0, height);
+        gradientSky.addColorStop(0, '#000000');
+        gradientSky.addColorStop(0.1, '#043157');
+        gradientSky.addColorStop(0.3, '#1786b1');
+        gradientSky.addColorStop(0.5, '#86C6D7');
+        gradientSky.addColorStop(0.6, '#C5DED4');
+        gradientSky.addColorStop(0.7, '#E8E2C0');
+        gradientSky.addColorStop(0.8, '#F4D6B2');
+        gradientSky.addColorStop(1, '#e1a9a9');
+        ctx.fillStyle = gradientSky;
+        ctx.fillRect(0, 0, width, height);
 
-      // Зоряна туманність
-      nebulae.current.forEach(p => {
+        // Розмитий серпанок поверх неба
         ctx.save();
-        ctx.beginPath();
-
-        // Градієнтне світіння
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
-        gradient.addColorStop(0, `${p.color} ${p.opacity})`);
-        gradient.addColorStop(1, `${p.color} 0)`);
-
-        ctx.fillStyle = gradient;
-        ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
-        ctx.fill();
+        ctx.filter = 'blur(60px)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+        ctx.fillRect(0, 0, width, height);
         ctx.restore();
+      }
+      clouds.current.forEach(cloud => drawSmoothCloud(ctx, cloud, t));
 
-        // Рух
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < -p.radius || p.x > width + p.radius) p.dx *= -1;
-        if (p.y < -p.radius || p.y > height + p.radius) p.dy *= -1;
-      });
-
-      // Зірки
       stars.current.forEach(s => {
-        const flicker = 0.5 + Math.abs(Math.sin(t * s.twinkleSpeed)) * 0.5;
+        const flicker = 0.5 + Math.abs(Math.sin(t * s.twinkleSpeed)) * 0.8;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
-        ctx.fillStyle = `rgba(255, 255, 255, ${s.opacity * flicker})`;
+        ctx.fillStyle =
+          theme === 'light'
+            ? `rgba(200, 255, 255, ${s.opacity * flicker})`
+            : `rgba(255, 255, 255, ${s.opacity * flicker})`;
         ctx.fill();
       });
 
-      // Падаючі зірки
       fallingStars.current.forEach((star, index) => {
         if (star.falling) {
           ctx.beginPath();
@@ -108,19 +134,16 @@ export default function StarsBackgroundWithNebula({ theme }) {
           ctx.fillStyle = star.color;
           ctx.fill();
 
-          // Оновлення координат падаючої зірки (падіння під кутом)
-          star.x += Math.sin((star.angle * Math.PI) / 180) * star.speed;  // Використовуємо кут для горизонтального руху
-          star.y += Math.cos((star.angle * Math.PI) / 180) * star.speed;  // Падіння по вертикалі
+          star.x += Math.sin((star.angle * Math.PI) / 180) * star.speed;
+          star.y += Math.cos((star.angle * Math.PI) / 180) * star.speed;
 
-          // Коли зірка падає за межі екрану, видаляємо її
           if (star.y > height || star.x < 0 || star.x > width) {
             fallingStars.current.splice(index, 1);
           }
         }
       });
 
-      // Створення нових падаючих зірок через певний інтервал
-      if (Math.random() < 0.003) { // Ще менша ймовірність падіння зірки
+      if (Math.random() < 0.004) {
         fallingStars.current.push(createFallingStar(width, height, starColors));
       }
 
@@ -128,9 +151,8 @@ export default function StarsBackgroundWithNebula({ theme }) {
     };
 
     requestAnimationFrame(render);
-
     return () => window.removeEventListener('resize', resize);
-  }, [theme]); // Додаємо theme до залежностей useEffect
+  }, [theme]);
 
   return <canvas ref={canvasRef} className={styles.canvas} />;
 }
