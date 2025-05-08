@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import styles from './ScrollToTop.module.css';
 
-export const ScrollToTop = () => {
+export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   const toggleVisible = () => {

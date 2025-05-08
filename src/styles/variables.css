@@ -39,11 +39,27 @@
 
 
   /* Темна тема */
-  
-    --background-color-dark: #121212;
+    --text-gradient: linear-gradient(rgba(189, 255, 255, 0.937), rgba(255, 239, 222, 0.94));
+    --background-color-dark: #0b0522;
     --text-color-dark: #f1f1f1;
     --link-color-dark: #4d94ff;
     --highlight-dark: rgba(0, 123, 255, 1);
     --line-color-dark: #00ff00;
+      --bg-dropdown: rgba(20, 20, 30, 0.9);
+        --border-dropdown: rgba(80, 80, 100, 0.8);
+        --hover-color: rgba(100, 150, 255, 0.6);
+        --flag-shadow: rgba(100, 150, 255, 0.8);
+        --label-color: #eee;
+
+        
+
+    --bg-dropdown: #a7f4fed4;
+      --border-dropdown: #ffffffd2;
+      --hover-color: rgba(170, 234, 255, 0.9);
+      --flag-shadow: rgba(173, 216, 230, 0.9);
+      --label-color: #333;
+
+        --thumb-offset-light: 0px;
+          --thumb-offset-dark: 24px;
 
 }

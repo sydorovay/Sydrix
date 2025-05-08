@@ -1,27 +1,43 @@
+// TopBar.jsx
+import { useState } from 'react';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
 import Logo from '../Logo/Logo';
 import styles from './TopBar.module.css';
+import NavMenu from '../NavMenu/NavMenu';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
-export default function TopBar({ lang, setLang, theme, toggleTheme }) {
+export default function TopBar({ lang, setLang, toggleTheme }) {
+  const [isToggling, setIsToggling] = useState(false);
+
   const handleThemeToggle = () => {
-    toggleTheme(); // Викликаємо функцію toggleTheme, щоб змінити тему
+    setIsToggling(true);
+    toggleTheme();
+    setTimeout(() => setIsToggling(false), 1000);
   };
 
   return (
-    <div className={styles.topBar}>
-      <div className={styles.Section}>
-        <Logo lang={lang} />
+    <>
+    
+      {/* main taskbar */}
+      <div className={styles.topBar}>
+        <div className={styles.topRow}>
+          {/* Logo */}
+          <div className={styles.logoOuter}>
+            <Logo lang={lang} />
+          </div>
+          <NavMenu className={styles.navigation} />
+          <div className={styles.controls}>
+            <button
+              onClick={handleThemeToggle}
+              className={`${styles.themeToggle} ${isToggling ? styles.toggling : ''}`}
+              title="Change theme"
+            >
+              <ThemeToggle />
+            </button>
+            <LangSwitcher lang={lang} setLang={setLang} />
+          </div>
+        </div>
       </div>
-      <div className={styles.controls}>
-        <LangSwitcher className={styles.switcher} lang={lang} setLang={setLang} />
-        <button
-          onClick={handleThemeToggle} // Додаємо обробник для переключення теми
-          className={styles.themeButton}
-          title="Change theme"
-        >
-          {theme === 'light' ? '🌙' : '🌞'} {/* Відображаємо іконку в залежності від теми */}
-        </button>
-      </div>
-    </div>
+    </>
   );
 }

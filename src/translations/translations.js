@@ -76,6 +76,27 @@ const translations = {
     email: "E-mail",
     portfolio: "Link do portfolio",
     footer: "Wszystkie prawa zastrzeżone"
+  },
+  it: {
+    title: "Sviluppo Frontend per il tuo business",
+    subtitle: "Creo siti web moderni, responsivi e veloci",
+    button: "Contattami",
+    benefitsTitle: "Perché lavorare con me",
+    benefits: [
+      "Design reattivo",
+      "Caricamento veloce",
+      "Ottimizzazione SEO",
+      "Tecnologie moderne",
+      "Codice pulito",
+      "Supporto post-lancio"
+    ],
+    portfolioTitle: "Portfolio",
+    portfolioText: "Scopri i miei progetti",
+    contactsTitle: "Contatti",
+    phone: "Telefono",
+    email: "Email",
+    portfolio: "Portfolio",
+    footer: "Sviluppato da Artem Sydorov"
   }
 };
 

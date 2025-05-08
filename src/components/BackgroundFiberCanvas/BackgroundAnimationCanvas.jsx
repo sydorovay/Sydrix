@@ -101,7 +101,9 @@ export default function StarsBackgroundWithNebula({ theme }) {
 const drawBackground = () => {
   if (theme === 'light') {
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
+
     gradient.addColorStop(0, '#000000');
+    gradient.addColorStop(0., '#000036');
     gradient.addColorStop(0.15, '#043157');
     gradient.addColorStop(0.4, '#1786b1');
     gradient.addColorStop(0.55, '#86C6D7');

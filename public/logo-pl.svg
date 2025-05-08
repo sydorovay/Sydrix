@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="160">
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="120" viewBox="0 0 320 120">
   <defs>
     <linearGradient id="grad" x1="0%" x2="100%" y1="0%" y2="0%">
       <stop offset="0%" stop-color="#0097a7">
@@ -15,16 +15,26 @@
       </stop>
     </linearGradient>
     <filter id="soft-shadow" width="140%" height="140%" x="-20%" y="-20%">
-      <feDropShadow dx="1" dy="1" flood-color="rgba(0,0,0,0.1)" stdDeviation="2"/>
+      <feDropShadow dx="2" dy="2" flood-color="rgba(0,0,0,0.2)" stdDeviation="3"/>
     </filter>
-    <style>
-      text#logo:hover { transform: scale(1.05); transform-origin: center; }
-    </style>
   </defs>
-  <text id="logo" x="50%" y="50" fill="url(#grad)" dominant-baseline="middle"
-        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="48"
-        text-anchor="middle">SYDRIX</text>
-  <text id="slogan" x="50%" y="110" fill="url(#grad)" dominant-baseline="middle"
-        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="16"
-        text-anchor="middle">Myśl odważnie. Buduj mądrze.</text>
+
+  <!-- Думай сміливо -->
+  <text x="160" y="20" fill="url(#grad)" text-anchor="middle"
+        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="14">
+    Myśl odważnie
+  </text>
+
+  <!-- SYDRIX -->
+  <text x="160" y="60" fill="url(#grad)" text-anchor="middle"
+        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="40">
+    SYDRIX
+  </text>
+
+  <!-- Будуй розумно -->
+  <text x="160" y="80" fill="url(#grad)" text-anchor="middle"
+        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="14">
+    Twórz mądrze
+  </text>
 </svg>
+

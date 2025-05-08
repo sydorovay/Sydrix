@@ -1,0 +1,121 @@
+.toggleBtn {
+
+  
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+/* Основа-перемикач */
+.track {
+  position: relative;
+  width: 55px;
+  height: 20px;
+  border-radius: 30px;
+  /* background: linear-gradient(to bottom, #c7eaff, #cccccc); */
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.7),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow:
+      inset -2px -2px 4px rgba(255, 255, 255, 0.7),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Іконки */
+.sun,
+.moon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+}
+
+.sun {
+  left: 6px;
+  color: #ffc337;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.moon {
+  right: 6px;
+  color: #747fa9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Thumb */
+.thumb {
+  position: absolute;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid fff;
+  border-radius: 50%;
+
+  background: linear-gradient(to bottom, #ffffff, #163558);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Тема */
+.thumb.light {
+  transform: translateX(0);
+}
+
+.thumb.dark {
+  transform: translateX(30px);
+  background: linear-gradient(to bottom, #ffefb0, #ff9100);
+}
+
+/* Натиск */
+.toggling .thumb {
+  transform: scale(1.05) translateY(-50%);
+    box-shadow:
+      inset -1px -1px 2px rgba(0, 0, 0, 0.2),
+      0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Динаміка теми */
+body.light .sun {
+  opacity: 1;
+
+    transform: translateY(-50%) scale(1);
+}
+
+body.light .moon {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.8);;
+}
+
+body.dark .sun {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.8);
+}
+
+body.dark .moon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+body.light .thumb {
+  transform: translate(3px, -50%);
+}
+
+body.dark .thumb {
+  transform: translate(33px, -50%);
+}
+
+/* Темна тема для треку */
+body.dark .track {
+  background: linear-gradient(to bottom, #555, #333);
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+}

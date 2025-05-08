@@ -1,0 +1,40 @@
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Verdana', sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0097a7, #00bcd4, #1de9b6, #00897b, #00796b);
+
+  background-size: 400% 100%;
+  color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.button:hover {
+  background-position: 100% 0;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 0%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.button {
+  animation: gradientAnimation 8s infinite ease-in-out;
+}

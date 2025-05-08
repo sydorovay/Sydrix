@@ -3,40 +3,189 @@
   display: inline-block;
 }
 
+.open {}
+
 .selectedBtn {
-  background: transparent;
+  background: none;
   border: none;
   cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow:
+    inset -2px -2px 4px rgba(0, 139, 252, 0.31),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+  /* додаткова зовнішня тінь */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 24px;
+}
+
+.selectedBtn:hover {
+  transform: scale(1.05);
+  background: rgba(28, 52, 92, 0.1);
+  box-shadow:
+    inset -1px -1px 3px rgba(0, 139, 252, 0.8),
+    inset 1px 1px 3px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  /* збільшена зовнішня тінь */
+  transition: transform 0.3s ease, box-shadow 0.3s ease-in-out, ;
+}
+
+.selectedBtn:hover .flag {
+  transform: scale(1.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.open .selectedBtn:hover,
+.open .selectedBtn:focus {
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.open .selectedBtn:active {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px var(--hover-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20%;
+    transform: scale(1.05);
+      background: rgba(28, 52, 92, 0.1);
+      box-shadow:
+        inset -1px -1px 2px rgba(0, 139, 252, 0.4),
+        inset 1px 1px 3px rgba(0, 0, 0, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+      /* збільшена зовнішня тінь */
+      transition: transform 0.2s ease, box-shadow 0.3s ease-in-out, ;
+}
+
+
+.flag {
+  box-shadow: 1px 1px 5px rgba(0, 139, 252, 0.4),
+      inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.flag:active{
+  transform: scale(1.01);
+    box-shadow: none;
+}
+
+.flag:hover {
+  transform: scale(1.01);
+  box-shadow: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .dropdown {
   position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 6px;
+  top: 36px;
+  right: 0;
+background: linear-gradient(90deg,
+      rgba(1, 155, 211, 0.375) 0%,
+      rgba(79, 195, 245, 0.537) 25%,
+      rgba(18, 222, 249, 0.535) 50%,
+      rgba(7, 238, 230, 0.424)75%,
+      rgba(1, 199, 249, 0.371) 100%);
+    /* напівпрозорий білий */
+    -webkit-backdrop-filter: blur(12px);
+      /* Safari */
+    backdrop-filter: blur(12px);
+    /* сам ефект розмиття */
+
+  border-radius: 8px;
+  
+  /* -------------------------------------- */
+  box-shadow:
+      -2px -2px 4px rgba(68, 75, 158, 0.466),
+      2px 2px 6px rgba(40, 6, 78, 0.2),
+      0 1px 2px rgba(31, 0, 24, 0.15);
+
+  /* ------------------------------------ */
   list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  z-index: 999;
+  min-width: 150px;
+  border: none;
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Плавне відкриття */
+.open .dropdown {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Плавне відкриття */
+.open .dropdown {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.open .dropdown {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Коли список відкритий (додано клас .open до батьківського елемента) */
+.open .dropdown {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 .langOption {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 12px;
   background: none;
   border: none;
-  width: 100%;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.langOption:hover {
-  background-color: var(--hover-color, #f0f0f0);
+.langOption:hover .sunnyFlag,
+.langOption:focus-within .sunnyFlag {
+  transform: scale(1.2);
+  box-shadow: 0 0 14px rgb(12, 70, 195);
+  transition: transform border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 20%;
 }
 
-.label {
-  font-size: 14px;
+.sunnyFlag {
+  border-radius: 2px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.label:hover,
+.label:focus {
+  transform: scale(1.05);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  color: var(--text-color-dark);
+}
+
+.open .selectedBtn {
+  transform: scale(1.05);
+  background: rgba(28, 52, 92, 0.1);
+  box-shadow:
+    inset -1px -1px 2px rgba(0, 139, 252, 0.4),
+    inset 1px 1px 3px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* І прапорець всередині кнопки теж «відскочить» */
+.open .selectedBtn .flag {
+  transform: scale(1.02);
 }

@@ -1,13 +1,16 @@
 /* ======== Global ======== */
 body {
+  position: relative;
+  z-index: 0;
   font-family: var(--font-family);
-  background-color: var(--background-color);
+  background-color: var(--background-color-dark);
   color: var(--text-color);
   transition: background-color var(--transition), color var(--transition);
   background-image: var(--header-gradient);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  padding: 15px;
 }
 
 * {

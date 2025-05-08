@@ -1,57 +1,62 @@
-import { useState, useEffect } from 'react';
-import { useTheme } from './hooks/useTheme';
-import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
+import { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+
 import TopBar from './components/TopBar/TopBar';
-import translations from './translations/translations';
-import Header from './components/Header/Header';
-import BenefitsSection from './components/BenefitsSection/BenefitsSection';
-import PortfolioSection from './components/PortfolioSection/PortfolioSection';
-import ContactsSection from './components/ContactsSection/ContactsSection';
-import Footer from './components/Footer/Footer';
-import styles from './styles/App.module.css';
-import './styles/variables.css';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import BackgroundAnimationCanvas from './components/BackgroundFiberCanvas/BackgroundAnimationCanvas';
 
-function MainApp() {
-  const { theme, toggleTheme } = useTheme();
+import HomePage from './pages/HomePage';
 
-  const savedLang = localStorage.getItem('lang') || 'de';
-  const [lang, setLang] = useState(savedLang);
-  const t = translations[lang];
+import { useTheme } from './hooks/useTheme';
+import useLanguage from './hooks/useLanguage';
 
-  useEffect(() => {
-    localStorage.setItem('lang', lang);
-  }, [lang]);
+import styles from './styles/App.module.css';
+import './styles/variables.css';
 
-  useEffect(() => {
-    document.body.classList.remove('light-theme', 'dark-theme');
-    document.body.classList.add(`${theme}-theme`);
-  }, [theme]);
+import AboutPage from './pages/AboutPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ContactsPage from './pages/ContactsPage';
 
-  return (
-    <div className={styles.app}>
-      <BackgroundAnimationCanvas theme={theme} />
-      {/* <BackgroundAnimationCanvas theme={theme} />  */}
-      <TopBar lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
-      <ScrollToTop />
-      <Header t={t} />
-      <BenefitsSection title={t.benefitsTitle} benefits={t.benefits} />
-      <PortfolioSection
-        title={t.portfolioTitle}
-        text={t.portfolioText}
-        portfolioItems={[{ name: 'Portfolio CV Site', link: 'https://artem-sydorov-frontend-cv.vercel.app/', imgSrc: '/Sydorov-CV.jpg', altText: 'Portfolio' }]}
-      />
-      <ContactsSection
-        title={t.contactsTitle}
-        phone={t.phone}
-        email="sydorovay@gmail.com"
-        portfolioLink="https://artem-sydorov-frontend-cv.vercel.app/"
-      />
-      <Footer footerText={t.footer} />
-    </div>
-  );
-}
+function AppContent() {
+    const { theme, toggleTheme } = useTheme();
+    const { lang, setLang, t } = useLanguage();
+
+    useEffect(() => {
+      const saved = localStorage.getItem('theme') || 'light';
+      document.body.classList.remove('light-theme', 'dark-theme');
+      document.body.classList.add(`${saved}-theme`);
+      localStorage.setItem('theme', saved);
+    }, [theme]);
+
+    useEffect(() => {
+      localStorage.setItem('lang', lang);
+    }, [lang]);
+
+    return (
+      <div className={styles.app}>
+        <BackgroundAnimationCanvas theme={theme} />
+        <TopBar lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
+        <ScrollToTop />
+
+        <Routes>
+          <Route path="/" element={<HomePage t={t} />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Routes>
+      </div>
+    );
+  }
+
 
 export default function App() {
-  return <MainApp />;
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
 }
