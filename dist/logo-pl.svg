@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="120" viewBox="0 0 320 120">
+  <defs>
+    <linearGradient id="grad" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#0097a7">
+        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite"
+          values="#0097a7;#00bcd4;#1de9b6;#00897b;#00796b;#0097a7"/>
+      </stop>
+      <stop offset="50%" stop-color="#1de9b6">
+        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite"
+          values="#1de9b6;#00897b;#00796b;#0097a7;#00bcd4;#1de9b6"/>
+      </stop>
+      <stop offset="100%" stop-color="#00796b">
+        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite"
+          values="#00796b;#0097a7;#00bcd4;#1de9b6;#00897b;#00796b"/>
+      </stop>
+    </linearGradient>
+    <filter id="soft-shadow" width="140%" height="140%" x="-20%" y="-20%">
+      <feDropShadow dx="2" dy="2" flood-color="rgba(0,0,0,0.2)" stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Думай сміливо -->
+  <text x="160" y="20" fill="url(#grad)" text-anchor="middle"
+        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="14">
+    Myśl odważnie
+  </text>
+
+  <!-- SYDRIX -->
+  <text x="160" y="60" fill="url(#grad)" text-anchor="middle"
+        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="40">
+    SYDRIX
+  </text>
+
+  <!-- Будуй розумно -->
+  <text x="160" y="80" fill="url(#grad)" text-anchor="middle"
+        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="14">
+    Twórz mądrze
+  </text>
+</svg>
+
