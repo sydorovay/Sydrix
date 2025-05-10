@@ -24,7 +24,9 @@
   height: 24px;
 }
 
-.selectedBtn:hover {
+.selectedBtn:hover,
+.selectedBtn:focus,
+.open .selectedBtn:active {
   transform: scale(1.05);
   background: rgba(28, 52, 92, 0.1);
   box-shadow:
@@ -40,26 +42,10 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.open .selectedBtn:hover,
-.open .selectedBtn:focus {
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .open .selectedBtn:active {
   transform: scale(1.05);
   box-shadow: 0 0 14px var(--hover-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 20%;
-    transform: scale(1.05);
-      background: rgba(28, 52, 92, 0.1);
-      box-shadow:
-        inset -1px -1px 2px rgba(0, 139, 252, 0.4),
-        inset 1px 1px 3px rgba(0, 0, 0, 0.2),
-        0 4px 8px rgba(0, 0, 0, 0.2);
-      /* збільшена зовнішня тінь */
-      transition: transform 0.2s ease, box-shadow 0.3s ease-in-out, ;
+  border-radius: 20%;;
 }
 
 
@@ -67,9 +53,11 @@
   box-shadow: 1px 1px 5px rgba(0, 139, 252, 0.4),
       inset 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
 }
 
-.flag:active{
+.flag:active, 
+.sunnyFlag:active{
   transform: scale(1.01);
     box-shadow: none;
 }
@@ -114,7 +102,7 @@ background: linear-gradient(90deg,
   opacity: 0;
   transform: scale(0.95);
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease
 }
 
 /* Плавне відкриття */
@@ -125,12 +113,6 @@ background: linear-gradient(90deg,
 }
 
 /* Плавне відкриття */
-.open .dropdown {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
 .open .dropdown {
   opacity: 1;
   transform: scale(1);
@@ -158,15 +140,15 @@ background: linear-gradient(90deg,
 
 .langOption:hover .sunnyFlag,
 .langOption:focus-within .sunnyFlag {
-  transform: scale(1.2);
+  transform: scale(1.02);
   box-shadow: 0 0 14px rgb(12, 70, 195);
-  transition: transform border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 20%;
 }
-
+.flag,
 .sunnyFlag {
   border-radius: 2px;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .label:hover,
@@ -188,4 +170,15 @@ background: linear-gradient(90deg,
 /* І прапорець всередині кнопки теж «відскочить» */
 .open .selectedBtn .flag {
   transform: scale(1.02);
+}
+
+@media (max-width: 600px) {
+  .selectedBtn {
+    width: 40px;
+    height: 20px;
+  }
+
+  .langOption {
+    font-size: 14px;
+  }
 }

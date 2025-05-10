@@ -49,7 +49,9 @@ export default function LangSwitcher({ lang, setLang }) {
         onClick={toggleDropdown}
         className={styles.selectedBtn}
         aria-label="Select language"
+        aria-expanded={open}
       >
+
         <Flag
           code={selected.code.toUpperCase()}
           alt={selected.label}

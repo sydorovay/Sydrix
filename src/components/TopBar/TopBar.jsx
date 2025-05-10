@@ -21,9 +21,10 @@ export default function TopBar({ lang, setLang, toggleTheme }) {
         <div className={styles.topRow}>
           {/* Logo */}
           <div className={styles.logoOuter}>
-            <img src={'/sx.svg'} alt="Logo" width='80'className="logo-image" />
             <Logo lang={lang} />
+           
           </div>
+          <img src={'/sx.svg'} alt="Logo" width='32' height='32' className={styles.logoSx} />
           <NavMenu className={styles.navigation} />
           <div className={styles.controls}>
             <div

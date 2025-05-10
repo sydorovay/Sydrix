@@ -9,7 +9,7 @@ const languageToFile = {
   it: '/logo-it.svg',
 };
 
-export default function Logo({ lang = 'gb', className = '' }) {
+export default function Logo({ lang = 'de', className = '' }) {
 const logoSrc = languageToFile[lang] || languageToFile.gb;
 
   const [isToggling, setIsToggling] = useState(false);
