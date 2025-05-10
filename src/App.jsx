@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,7 +12,7 @@ import BackgroundAnimationCanvas from './components/BackgroundFiberCanvas/Backgr
 import HomePage from './pages/HomePage';
 
 import { useTheme } from './hooks/useTheme';
-import useLanguage from './hooks/useLanguage';
+import { LanguageContext } from './context/LanguageContext'
 
 import styles from './styles/App.module.css';
 import './styles/variables.css';
@@ -23,7 +23,7 @@ import ContactsPage from './pages/ContactsPage';
 
 function AppContent() {
     const { theme, toggleTheme } = useTheme();
-    const { lang, setLang, t } = useLanguage();
+    const { lang, setLang, t } = useContext(LanguageContext);
 
     useEffect(() => {
       const saved = localStorage.getItem('theme') || 'light';

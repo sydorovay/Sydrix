@@ -1,6 +1,11 @@
 // src/translations/translations.js
 const translations = {
   ua: {
+    home: "Головна",
+    about: "Про мене",
+    portfolio: "Портфоліо",
+    contacts: "Контакти",
+    // --------------------------
     title: "Фронтенд розробка для вашого бізнесу",
     subtitle: "Я створю сучасні, адаптивні та швидкі сайти",
     button: "Зв'язатися зі мною",
@@ -18,10 +23,15 @@ const translations = {
     contactsTitle: "Контакти",
     phone: "Телефон",
     email: "Email",
-    portfolio: "Портфоліо",
-    footer: "Розроблено Артемом Сидоровим"
+    footer: "Розроблено Артемом Сидоровим",
+    portfolioLabel: "Портфоліо",
+    goTo: "перейти"
   },
   gb: {
+    home: "Home",
+    about: "About",
+    contacts: "Contacts",
+    // ----------------------------
     title: "Frontend development for your business",
     subtitle: "I build modern, responsive and fast websites",
     button: "Contact me",
@@ -40,9 +50,16 @@ const translations = {
     phone: "Phone",
     email: "Email",
     portfolio: "Portfolio",
-    footer: "Developed by Artem Sydorov"
+    footer: "Developed by Artem Sydorov",
+    portfolioLabel: "Portfolio",
+    goTo: "go to"
   },
   de: {
+    home: "Startseite",
+    about: "Über mich",
+    portfolio: "Portfolio",
+    contacts: "Kontakt",
+    // -----------------------
     title: "Frontend-Entwicklung für Ihr Unternehmen",
     subtitle: "Ich erstelle moderne, responsive und schnelle Webseiten",
     button: "Kontaktieren Sie mich",
@@ -60,10 +77,16 @@ const translations = {
     contactsTitle: "Kontakte",
     phone: "Telefon",
     email: "Email",
-    portfolio: "Portfolio",
-    footer: "Erstellt von Artem Sydorov"
+    footer: "Erstellt von Artem Sydorov",
+    portfolioLabel: "Portfolio",
+    goTo: "öffnen"
   },
   pl: {
+    home: "Strona główna",
+    about: "O mnie",
+    portfolio: "Portfolio",
+    contacts: "Kontakt",
+    // --------------------
     title: "Witaj na moim portfolio",
     subtitle: "Jestem Front-End Developerem",
     button: "Skontaktuj się ze mną",
@@ -74,10 +97,16 @@ const translations = {
     contactsTitle: "Kontakt",
     phone: "Telefon",
     email: "E-mail",
-    portfolio: "Link do portfolio",
-    footer: "Wszystkie prawa zastrzeżone"
+    footer: "Wszystkie prawa zastrzeżone",
+    portfolioLabel: "Portfolio",
+    goTo: "przejdź"
   },
   it: {
+    home: "Home",
+    about: "Chi sono",
+    portfolio: "Portfolio",
+    contacts: "Contatti",
+    // -----------------
     title: "Sviluppo Frontend per il tuo business",
     subtitle: "Creo siti web moderni, responsivi e veloci",
     button: "Contattami",
@@ -95,8 +124,9 @@ const translations = {
     contactsTitle: "Contatti",
     phone: "Telefono",
     email: "Email",
-    portfolio: "Portfolio",
-    footer: "Sviluppato da Artem Sydorov"
+    footer: "Sviluppato da Artem Sydorov",
+    portfolioLabel: "Portfolio",
+    goTo: "vai"
   }
 };
 

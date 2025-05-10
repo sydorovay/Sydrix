@@ -14,14 +14,14 @@ export default function ThemeToggle() {
     document.body.classList.remove('light', 'dark');
     document.body.classList.add(theme);
     localStorage.setItem('theme', theme);
-  }, [theme]); // <-- Тут було зайве [theme] після закриття useEffect
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
   return (
-    <button
+    <div
       className={styles.toggleBtn}
       onClick={toggleTheme}
       title="Change theme"
@@ -32,6 +32,6 @@ export default function ThemeToggle() {
         <FaMoon className={`${styles.moon} ${theme === 'dark' ? styles.visible : styles.hidden}`} />
         <div className={`${styles.thumb} ${theme === 'dark' ? styles.dark : styles.light}`}></div>
       </div>
-    </button>
+    </div>
   );
 }

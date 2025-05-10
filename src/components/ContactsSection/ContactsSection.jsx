@@ -1,12 +1,15 @@
 import styles from './ContactsSection.module.css';
+import useLanguage from '../../hooks/useLanguage';
 
-const ContactsSection = ({ title, phone, email, portfolioLink }) => {
+const ContactsSection = ({ phone, email, portfolioLink }) => {
+  const { t } = useLanguage();
+
   return (
     <section className={styles.section}>
-      <h2>{title}</h2>
-      <p>{phone}: +49 172 7616858</p>
-      <p>{email}: <a href={`mailto:${email}`}>{email}</a></p>
-      <p>{portfolioLink}: <a href={portfolioLink} target="_blank" rel="noopener noreferrer">перейти</a></p>
+      <h2>{t.contactsTitle}</h2>
+      <p>{t.phoneLabel}: {phone}</p>
+      <p>{t.emailLabel}: <a href={`mailto:${email}`}>{email}</a></p>
+      <p>{t.portfolioLabel}: <a href={portfolioLink} target="_blank" rel="noopener noreferrer">{t.goTo}</a></p>
     </section>
   );
 };
