@@ -13,7 +13,7 @@ const LANGUAGES = [
 export default function LangSwitcher({ lang, setLang }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
-  const selected = LANGUAGES.find(l => l.code === lang);
+  const selected = LANGUAGES.find(l => l.code === lang) || LANGUAGES[0];
 
   const toggleDropdown = () => setOpen(prev => !prev);
   const closeDropdown = () => setOpen(false);
@@ -46,23 +46,25 @@ export default function LangSwitcher({ lang, setLang }) {
   return (
     <div ref={rootRef} className={rootClass}>
       <button
-        onClick={toggleDropdown}
+        onClick={(e) => {
+          e.stopPropagation(); 
+          toggleDropdown();
+        }}
         className={styles.selectedBtn}
         aria-label="Select language"
         aria-expanded={open}
       >
-
         <Flag
           code={selected.code.toUpperCase()}
           alt={selected.label}
-          style={{ width: 24, height: 16 }}
+          style={{ width: 16, height: 16 }}
           className={styles.flag}
         />
       </button>
 
       {open && (
         <ul className={styles.dropdown} role="menu">
-          {LANGUAGES.filter(l => l.code !== lang).map(({ code, label }) => (
+          {LANGUAGES.filter(l => l.code !== selected.code).map(({ code, label }) => (
             <li key={code} role="none">
               <button
                 onClick={() => handleSelect(code)}
@@ -72,7 +74,7 @@ export default function LangSwitcher({ lang, setLang }) {
                 <Flag
                   code={code.toUpperCase()}
                   alt={label}
-                  style={{ width: 16, height: 11 }}
+                  style={{ width: 14, height: 10 }}
                   className={styles.sunnyFlag}
                 />
                 <span className={styles.label}>{label}</span>

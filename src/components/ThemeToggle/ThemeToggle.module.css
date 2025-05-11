@@ -1,6 +1,4 @@
 .toggleBtn {
-
-  
   background: none;
   border: none;
   padding: 0;
@@ -11,18 +9,21 @@
   outline: none;
 }
 
+
+
 /* Основа-перемикач */
 .track {
   position: relative;
-  width: 55px;
-  height: 20px;
+  width: 40px;
+  height: 16px;
   border-radius: 30px;
   /* background: linear-gradient(to bottom, #c7eaff, #cccccc); */
-  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.7),
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: inset -2px -2px 4px rgba(0, 139, 252, 0.31),
+        inset 2px 2px 6px rgba(0, 0, 0, 0.2),
+        0 1px 2px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     box-shadow:
-      inset -2px -2px 4px rgba(255, 255, 255, 0.7),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.4),
       inset 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
@@ -32,21 +33,21 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
+  font-size: 10px;
   pointer-events: none;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
 }
 
 .sun {
-  left: 6px;
-  color: #ffc337;
+  left: 4px;
+  color: #f9eb93;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .moon {
-  right: 6px;
-  color: #747fa9;
+  right: 4px;
+  color: #58696b;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -54,12 +55,12 @@
 .thumb {
   position: absolute;
   left: 3px;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border: 1px solid fff;
   border-radius: 50%;
 
-  background: linear-gradient(to bottom, #ffffff, #163558);
+  background: linear-gradient(to right, #f6fdeb, #07344a);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -71,8 +72,8 @@
 }
 
 .thumb.dark {
-  transform: translateX(30px);
-  background: linear-gradient(to bottom, #ffefb0, #ff9100);
+  transform: translateX(20px);
+  background: linear-gradient(to right, #fffea5, #703807c6);
 }
 
 /* Натиск */

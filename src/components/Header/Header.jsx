@@ -1,11 +1,16 @@
+import Logo from '../Logo/Logo';
 import styles from './Header.module.css';
 
-function Header({ t }) {
+function Header({ t, lang }) {
   return (
     <header className={styles.header}>
-      <h1>{t.title}</h1>
-      <p>{t.subtitle}</p>
-      <a href="mailto:sydorovay@gmail.com" className="button">{t.button}</a>
+    
+      <h1 className={styles.title}>{t.title}</h1>
+      <Logo lang={lang} />
+      <h2 className={styles.subtitle}>
+        {t.subtitle}
+      </h2>
+      <a href="mailto:sydorovay@gmail.com" className={styles.button}>{t.button}</a>
     </header>
   );
 }

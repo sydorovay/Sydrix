@@ -7,7 +7,7 @@ const translations = {
     contacts: "Контакти",
     // --------------------------
     title: "Фронтенд розробка для вашого бізнесу",
-    subtitle: "Я створю сучасні, адаптивні та швидкі сайти",
+    subtitle: "Швидкість, що вражає.\n Дизайн, що запам’ятовується.\n Досвід, що захоплює.",
     button: "Зв'язатися зі мною",
     benefitsTitle: "Чому варто працювати зі мною",
     benefits: [
@@ -33,7 +33,7 @@ const translations = {
     contacts: "Contacts",
     // ----------------------------
     title: "Frontend development for your business",
-    subtitle: "I build modern, responsive and fast websites",
+    subtitle: "Speed that impresses. Design that sticks. Experience that excites.",
     button: "Contact me",
     benefitsTitle: "Why work with me",
     benefits: [
@@ -61,7 +61,7 @@ const translations = {
     contacts: "Kontakt",
     // -----------------------
     title: "Frontend-Entwicklung für Ihr Unternehmen",
-    subtitle: "Ich erstelle moderne, responsive und schnelle Webseiten",
+    subtitle: "Geschwindigkeit, die beeindruckt.Design, das im Gedächtnis bleibt.Erlebnis, das begeistert.",
     button: "Kontaktieren Sie mich",
     benefitsTitle: "Warum mit mir arbeiten?",
     benefits: [
@@ -82,13 +82,13 @@ const translations = {
     goTo: "öffnen"
   },
   pl: {
-    home: "Strona główna",
+    home: "Główna",
     about: "O mnie",
     portfolio: "Portfolio",
     contacts: "Kontakt",
     // --------------------
     title: "Witaj na moim portfolio",
-    subtitle: "Jestem Front-End Developerem",
+    subtitle: "Szybkość, która zachwyca. Design, który zapada w pamięć. Doświadczenie, które angażuje.",
     button: "Skontaktuj się ze mną",
     benefitsTitle: "Korzyści",
     benefits: ["Responsywny design", "Wydajność", "Kompatybilność z przeglądarkami"],
@@ -108,7 +108,7 @@ const translations = {
     contacts: "Contatti",
     // -----------------
     title: "Sviluppo Frontend per il tuo business",
-    subtitle: "Creo siti web moderni, responsivi e veloci",
+    subtitle: "Velocità che stupisce. Design che si ricorda. Esperienza che entusiasma.",
     button: "Contattami",
     benefitsTitle: "Perché lavorare con me",
     benefits: [

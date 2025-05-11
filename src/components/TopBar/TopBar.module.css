@@ -2,12 +2,12 @@
 .topBar {
   position: fixed;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: start;
   background-color: var(--color-background);
   border-bottom: 1px solid var(--color-border);
-  padding: 8px 12px;
+  padding: 6px 10px;
   width: 100%;
+  height: auto;
   top: 0;
   /* Встановлюємо верхню відстань до краю екрана */
   left: 0;
@@ -16,82 +16,46 @@
   /* піднімаємо поверх інших елементів */
 }
 
-/* Верхній рядок з логотипом і контролами */
-.topRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-/* Логотип */
-.logoOuter {
-  position: relative;
-}
-
-.sectionLeft {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
-
 .logoSx {
   display: block;
   position: absolute;
+  height: auto;
   top: 0;
-  left: 76px;
-  /* Додаємо відступ праворуч */
-}
-
-/* Секція з перемикачами */
-.controls {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  position: absolute;
-  top: 8px;
-  right: 12px;
-}
-
-/* Навігація по центру */
-.navRow {
-  display: flex;
-  justify-content: center;
-  width: 90%;
+  left: 0;
 }
 
 .themeToggle {
-  background-color: transparent;
+  /* background-color: transparent; */
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
 }
+
+/* Кнопка бургер-меню */
+.burgerBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  color: var(--color-text);
+}
+
+
 
 /* Медіа-запити для мобільних пристроїв */
 @media (max-width: 768px) {
   .topBar {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 12px;
   }
 
-  .topRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
   .controls {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 8px;
     right: 12px;
-    gap: 10px;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .topBar {
-    width: 100%;
-    /* Замінили на 100% замість 100vw */
-    left: 0;
-    /* Забезпечуємо правильне розташування */
+    gap: 15px;
   }
 }
 

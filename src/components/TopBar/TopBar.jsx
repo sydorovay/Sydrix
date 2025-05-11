@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
-import Logo from '../Logo/Logo';
 import styles from './TopBar.module.css';
 import NavMenu from '../NavMenu/NavMenu';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
@@ -16,15 +15,8 @@ export default function TopBar({ lang, setLang, toggleTheme }) {
 
   return (
     <>
-      {/* main taskbar */}
       <div className={styles.topBar}>
-        <div className={styles.topRow}>
-          {/* Logo */}
-          <div className={styles.logoOuter}>
-            <Logo lang={lang} />
-           
-          </div>
-          <img src={'/sx.svg'} alt="Logo" width='32' height='32' className={styles.logoSx} />
+          <img src={'/sx_logo.png'} alt="Logo" width='40' className="logoImage" />
           <NavMenu className={styles.navigation} />
           <div className={styles.controls}>
             <div
@@ -33,7 +25,6 @@ export default function TopBar({ lang, setLang, toggleTheme }) {
               title="Change theme"
             >
               <ThemeToggle />
-            </div>
             <LangSwitcher lang={lang} setLang={setLang} />
           </div>
         </div>

@@ -3,14 +3,14 @@ import styles from './Logo.module.css';
 
 const languageToFile = {
   gb: '/logo-en.svg',
-  ua: '/logo-uk.svg',
+  ua: '/public/logo-uk.svg',
   de: '/logo-de.svg',
   pl: '/logo-pl.svg',
   it: '/logo-it.svg',
 };
 
 export default function Logo({ lang = 'de', className = '' }) {
-const logoSrc = languageToFile[lang] || languageToFile.gb;
+const logoSrc = languageToFile[lang] || languageToFile.de;
 
   const [isToggling, setIsToggling] = useState(false);
 

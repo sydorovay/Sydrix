@@ -1,23 +1,16 @@
 .navMenu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(4px, 2vw, 20px);
-  /* адаптивний проміжок між лінками */
-  margin-top: 10%;
-  padding: 2px;
+  width: 100%;
 }
 
 /* Стилізація лінків */
 .link {
-  color: #d1fcf9;
+  color: hsla(192, 100%, 81%, 0.82);
   text-decoration: none;
   font-weight: bold;
-  font-size: clamp(14px, 2vw, 18px);
-  /* адаптивний розмір шрифта */
-  padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px);
-  /* адаптивні відступи */
+  font-size: clamp(12px, 2vw, 24px);
+  padding:  clamp(1px, 2vw, 16px);
   transition: text-decoration 0.3s;
 }
 
@@ -30,9 +23,7 @@
 /* Мобільна версія до 768px */
 @media (max-width: 768px) {
   .navMenu {
-    width: 100%;
+    width: 80%;
     justify-content: flex-start;
-    padding: 8px 0;
-      margin-top: 5%;
   }
 }
