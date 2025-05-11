@@ -1,26 +1,30 @@
 .header {
   display: flex;
+  flex-direction: column;
   width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1rem;
+  padding: 0.2rem;
   background-color: var(--color-background);
   border-bottom: 2px solid var(--color-border);
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
 }
 
 .subtitle {
-  font-size: 1.5rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.4;
   color: var(--color-text-light);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .button {
@@ -41,13 +45,9 @@
 
 /* Адаптивність для мобільних пристроїв */
 @media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
-  }
+  .title {}
 
-  .subtitle {
-    font-size: 1.2rem;
-  }
+  .subtitle {}
 
   .button {
     padding: 0.4rem 0.8rem;

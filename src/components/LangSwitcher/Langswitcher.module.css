@@ -1,16 +1,19 @@
 .langSwitcher {
   position: relative;
-  width: 10;
-    height: 10;
+  display: flex;
+  width: 10px;
+  height: 10px;
   display: inline-block;
+  left: 0;
+  bottom: 0;
 }
 
-
 .selectedBtn {
+  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 2px;
   border-radius: 8px;
   box-shadow:
     inset -2px -2px 4px rgba(0, 139, 252, 0.31),
@@ -21,8 +24,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-top: 16px;
+left: 0px;
+  margin-top: 40px;
 }
 
 .selectedBtn:hover,

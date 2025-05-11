@@ -7,7 +7,11 @@ const translations = {
     contacts: "Контакти",
     // --------------------------
     title: "Фронтенд розробка для вашого бізнесу",
-    subtitle: "Швидкість, що вражає.\n Дизайн, що запам’ятовується.\n Досвід, що захоплює.",
+    subtitle: [
+      "Швидкість, що вражає",
+      " Дизайн, що запам’ятовується.",
+      " Досвід, що захоплює."
+    ],
     button: "Зв'язатися зі мною",
     benefitsTitle: "Чому варто працювати зі мною",
     benefits: [
@@ -33,7 +37,11 @@ const translations = {
     contacts: "Contacts",
     // ----------------------------
     title: "Frontend development for your business",
-    subtitle: "Speed that impresses. Design that sticks. Experience that excites.",
+    subtitle: [
+      "Speed that impresses.",
+      "Design that sticks.",
+      "Experience that excites."
+    ],
     button: "Contact me",
     benefitsTitle: "Why work with me",
     benefits: [
@@ -61,7 +69,11 @@ const translations = {
     contacts: "Kontakt",
     // -----------------------
     title: "Frontend-Entwicklung für Ihr Unternehmen",
-    subtitle: "Geschwindigkeit, die beeindruckt.Design, das im Gedächtnis bleibt.Erlebnis, das begeistert.",
+    subtitle: [
+      "Geschwindigkeit, die beeindruckt.",
+      "Design, das im Gedächtnis bleibt.",
+      "Erlebnis, das begeistert."
+    ],
     button: "Kontaktieren Sie mich",
     benefitsTitle: "Warum mit mir arbeiten?",
     benefits: [
@@ -87,8 +99,12 @@ const translations = {
     portfolio: "Portfolio",
     contacts: "Kontakt",
     // --------------------
-    title: "Witaj na moim portfolio",
-    subtitle: "Szybkość, która zachwyca. Design, który zapada w pamięć. Doświadczenie, które angażuje.",
+    title: "Tworzenie frontendu dla Twojej firmy",
+    subtitle: [
+      "Szybkość, która zachwyca.",
+      " Design, który zapada w pamięć.",
+      " Doświadczenie, które angażuje."
+    ],
     button: "Skontaktuj się ze mną",
     benefitsTitle: "Korzyści",
     benefits: ["Responsywny design", "Wydajność", "Kompatybilność z przeglądarkami"],
@@ -108,7 +124,11 @@ const translations = {
     contacts: "Contatti",
     // -----------------
     title: "Sviluppo Frontend per il tuo business",
-    subtitle: "Velocità che stupisce. Design che si ricorda. Esperienza che entusiasma.",
+    subtitle: [
+      "Velocità che stupisce.",
+      " Design che si ricorda.",
+      " Esperienza che entusiasma."
+    ],
     button: "Contattami",
     benefitsTitle: "Perché lavorare con me",
     benefits: [

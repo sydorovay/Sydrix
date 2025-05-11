@@ -16,7 +16,12 @@ export default function TopBar({ lang, setLang, toggleTheme }) {
   return (
     <>
       <div className={styles.topBar}>
-          <img src={'/sx_logo.png'} alt="Logo" width='40' className="logoImage" />
+        <div className={styles.topLeft}>
+          <img src={'/sx_logo.png'} alt="Logo" width='40' className={styles.logoSx} />
+       
+
+        </div>
+        <LangSwitcher lang={lang} setLang={setLang} />
           <NavMenu className={styles.navigation} />
           <div className={styles.controls}>
             <div
@@ -25,7 +30,7 @@ export default function TopBar({ lang, setLang, toggleTheme }) {
               title="Change theme"
             >
               <ThemeToggle />
-            <LangSwitcher lang={lang} setLang={setLang} />
+            
           </div>
         </div>
       </div>

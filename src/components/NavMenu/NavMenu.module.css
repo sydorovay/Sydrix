@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  margin: 0 42px;
 }
 
 /* Стилізація лінків */
@@ -23,7 +24,7 @@
 /* Мобільна версія до 768px */
 @media (max-width: 768px) {
   .navMenu {
-    width: 80%;
+    width: 75%;
     justify-content: flex-start;
   }
 }
