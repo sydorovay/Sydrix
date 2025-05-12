@@ -1,35 +1,48 @@
+// src/pages/HomePage.jsx
+import React from 'react';
 import Header from '../components/Header/Header';
 import BenefitsSection from '../components/BenefitsSection/BenefitsSection';
 import PortfolioSection from '../components/PortfolioSection/PortfolioSection';
 import ContactsSection from '../components/ContactsSection/ContactsSection';
 import Footer from '../components/Footer/Footer';
 
-const HomePage = ({ t }) => {
+export default function HomePage({ t, theme }) {
+  const handleContact = () => {
+    window.location.href = `mailto:${t.email}`;
+  };
+
   return (
     <>
-      <Header t={t} />
-      <BenefitsSection title={t.benefitsTitle} benefits={t.benefits} />
+      <Header t={t} theme={theme} />
+
+      <BenefitsSection
+        title={t.benefitsTitle}
+        benefits={t.benefits}
+        buttonText={t.button}
+        onButtonClick={handleContact}
+      />
+
       <PortfolioSection
         title={t.portfolioTitle}
         text={t.portfolioText}
         portfolioItems={[
           {
             name: 'Portfolio CV Site',
-            link: 'https://artem-sydorov-frontend-cv.vercel.app/',
+            link: t.portfolioLink,
             imgSrc: '/Sydorov-CV.jpg',
-            altText: 'Portfolio',
+            altText: 'Portfolio CV Site',
           },
         ]}
       />
+
       <ContactsSection
         title={t.contactsTitle}
         phone={t.phone}
-        email="sydorovay@gmail.com"
-        portfolioLink="https://artem-sydorov-frontend-cv.vercel.app/"
+        email={t.email}
+        portfolioLink={t.portfolioLink}
       />
+
       <Footer footerText={t.footer} />
     </>
   );
-};
-
-export default HomePage;
+}

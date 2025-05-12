@@ -9,15 +9,15 @@
   padding: 0.2rem;
   background-color: var(--color-background);
   border-bottom: 2px solid var(--color-border);
-  margin-top: 40px;
+  margin-top: 60px;
   position: relative;
   z-index: 1;
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
-  margin-bottom: 0.2rem;
+
 }
 
 .subtitle {
@@ -28,12 +28,12 @@
 }
 
 .button {
-  padding: 0.8rem 1.5rem;
-  background-color: #7df6d885;
+  padding: 0.4rem 0.6rem;
+  background-color: #2e77b2b8;
   color: var(--color-text-inverse);
   font-weight: bold;
   text-transform: uppercase;
-  border: none;
+  border: 1 px solid var(--border-dropdown);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -45,11 +45,5 @@
 
 /* Адаптивність для мобільних пристроїв */
 @media (max-width: 768px) {
-  .title {}
 
-  .subtitle {}
-
-  .button {
-    padding: 0.4rem 0.8rem;
-  }
 }

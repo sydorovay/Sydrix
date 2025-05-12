@@ -1,15 +1,14 @@
 import React, { useContext, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import TopBar from './components/TopBar/TopBar';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import BackgroundAnimationCanvas from './components/BackgroundFiberCanvas/BackgroundAnimationCanvas';
+import StarsBackgroundWithNebula from './components/BackgroundFiberCanvas/StarsBackgroundWithNebula.';
 
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ContactsPage from './pages/ContactsPage';
 
 import { useTheme } from './hooks/useTheme';
 import LanguageContext from './context/LanguageContext';
@@ -17,10 +16,6 @@ import LanguageProvider from './context/LanguageProvider';
 
 import styles from './styles/App.module.css';
 import './styles/variables.css';
-
-import AboutPage from './pages/AboutPage';
-import PortfolioPage from './pages/PortfolioPage';
-import ContactsPage from './pages/ContactsPage';
 
 function AppContent() {
   const { theme, toggleTheme } = useTheme();
@@ -39,23 +34,34 @@ function AppContent() {
 
   return (
     <div className={styles.app}>
-      <BackgroundAnimationCanvas theme={theme} />
-      <TopBar lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
-      <ScrollToTop />
+      {/* Верхня половина сторінки */}
+      <div className={styles.topHalf}>
+        <StarsBackgroundWithNebula theme={theme} />
+        <TopBar
+          lang={lang}
+          setLang={setLang}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+      </div>
 
-      <Routes>
-        <Route path="/" element={<HomePage t={t} />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-      </Routes>
+      {/* Нижня половина сторінки */}
+      <div className={styles.bottomHalf}>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage t={t} theme={theme} />} />
+          <Route path="/about" element={<AboutPage theme={theme} />} />
+          <Route path="/portfolio" element={<PortfolioPage theme={theme} />} />
+          <Route path="/contacts" element={<ContactsPage theme={theme} />} />
+        </Routes>
+      </div>
     </div>
   );
 }
 
 export default function App() {
   return (
-    <LanguageProvider> {/* Перемістили LanguageProvider сюди */}
+    <LanguageProvider>
       <Router>
         <AppContent />
       </Router>

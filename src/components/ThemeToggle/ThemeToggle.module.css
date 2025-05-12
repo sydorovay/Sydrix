@@ -1,11 +1,9 @@
 .toggleBtn {
+  display: flex;
   background: none;
   border: none;
-  padding: 0;
+  padding: 2px;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   outline: none;
 }
 

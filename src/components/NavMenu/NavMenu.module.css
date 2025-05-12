@@ -1,17 +1,20 @@
 .navMenu {
   display: flex;
+  align-items: end;
   flex-wrap: wrap;
   width: 100%;
-  margin: 0 42px;
+  margin-bottom: 5px;
+  margin-left:  50px;
+  
 }
 
 /* Стилізація лінків */
 .link {
-  color: hsla(192, 100%, 81%, 0.82);
+  color: hsla(192, 90%, 88%, 0.657);
   text-decoration: none;
   font-weight: bold;
-  font-size: clamp(12px, 2vw, 24px);
-  padding:  clamp(1px, 2vw, 16px);
+  font-size: clamp(12px, 1vw, 24px);
+  padding:  clamp(1px, 1vw, 14px);
   transition: text-decoration 0.3s;
 }
 
@@ -23,8 +26,5 @@
 
 /* Мобільна версія до 768px */
 @media (max-width: 768px) {
-  .navMenu {
-    width: 75%;
-    justify-content: flex-start;
-  }
+
 }
