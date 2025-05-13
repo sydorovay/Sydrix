@@ -1,37 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="120" viewBox="0 0 320 120">
-  <defs>
-    <linearGradient id="grad" x1="0%" x2="100%" y1="0%" y2="0%">
-      <stop offset="0%" stop-color="#0097a7">
-        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite"
-          values="#0097a7;#00bcd4;#1de9b6;#00897b;#00796b;#0097a7"/>
-      </stop>
-      <stop offset="50%" stop-color="#1de9b6">
-        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite"
-          values="#1de9b6;#00897b;#00796b;#0097a7;#00bcd4;#1de9b6"/>
-      </stop>
-      <stop offset="100%" stop-color="#00796b">
-        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite"
-          values="#00796b;#0097a7;#00bcd4;#1de9b6;#00897b;#00796b"/>
-      </stop>
-    </linearGradient>
-    <filter id="soft-shadow" width="140%" height="140%" x="-20%" y="-20%">
-      <feDropShadow dx="2" dy="2" flood-color="rgba(0,0,0,0.2)" stdDeviation="3"/>
-    </filter>
-  </defs>
-
-  <!-- Думай сміливо -->
-  <text x="160" y="20" fill="url(#grad)" text-anchor="middle"
-        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="14">
-    Think boldly
-  </text>
-  <!-- SYDRIX -->
-  <text x="160" y="60" fill="url(#grad)" text-anchor="middle"
-        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="40">
-    SYDRIX
-  </text>
-  <!-- Будуй розумно -->
-  <text x="160" y="80" fill="url(#grad)" text-anchor="middle"
-        filter="url(#soft-shadow)" font-family="Verdana, sans-serif" font-size="14">
-   Create wisely
-  </text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120"><defs><filter id="embossShadow" width="200%" height="200%" x="-50%" y="-50%"><feDropShadow dx="2" dy="2" flood-color="rgba(0,0,0,0.3)" stdDeviation="2"/><feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1"/><feSpecularLighting in="blur" lighting-color="#fff" result="specOut" specularConstant=".6" specularExponent="12" surfaceScale="4"><fePointLight x="-80" y="-80" z="200"/></feSpecularLighting><feComposite in="specOut" in2="SourceAlpha" operator="in" result="lit"/><feMerge><feMergeNode in="ds"/><feMergeNode in="lit"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="textShadow" width="140%" height="140%" x="-20%" y="-20%"><feDropShadow dx="1" dy="1" flood-color="rgba(0,0,0,0.2)" stdDeviation="1"/></filter><linearGradient id="grad" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#0097a7"><animate attributeName="stop-color" dur="8s" repeatCount="indefinite" values="#0097a7;#00bcd4;#1de9b6;#00897b;#00796b;#0097a7"/></stop><stop offset="50%" stop-color="#1de9b6"><animate attributeName="stop-color" dur="8s" repeatCount="indefinite" values="#1de9b6;#00897b;#00796b;#0097a7;#00bcd4;#1de9b6"/></stop><stop offset="100%" stop-color="#00796b"><animate attributeName="stop-color" dur="8s" repeatCount="indefinite" values="#00796b;#0097a7;#00bcd4;#1de9b6;#00897b;#00796b"/></stop></linearGradient></defs><style>text{font-family:Verdana,sans-serif;fill:url(#grad);text-anchor:middle}.tagline{font-size:1.1rem;filter:url(#textShadow)}.brand{font-size:3rem;filter:url(#embossShadow);dominant-baseline:middle}.brand tspan:first-child,.brand tspan:last-child{font-size:7rem}.mid{font-size:4rem;fill-opacity:1}</style><text x="49%" y="30%" class="tagline">Think boldly</text><text x="42.5%" y="60%" class="brand">
+    <tspan dx=".2em">S</tspan>
+    <tspan class="mid" dx="-.25em" dy="-.02em">YDRI</tspan>
+    <tspan dx="-.2em">X</tspan>
+  </text><text x="49%" y="85%" class="tagline">Create wisely</text></svg>
