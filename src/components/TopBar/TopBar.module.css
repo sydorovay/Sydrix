@@ -28,9 +28,8 @@
   margin:  5px;
 }
 .controls {
-  /* position: relative; */
-  flex-direction: column;
-gap: 5px;
+  align-items: center;
+gap: 10px;
   top: 0;
   right: 0;
   display: flex;

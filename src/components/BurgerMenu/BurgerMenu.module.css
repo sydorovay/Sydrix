@@ -1,0 +1,33 @@
+.burgerIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burgerIcon span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #54ffee, #33857c, #0c404b);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Тут важливо! Ти повинен вкладати span в селектор через .burgerIcon.open */
+.burgerIcon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burgerIcon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerIcon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}

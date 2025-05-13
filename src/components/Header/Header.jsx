@@ -13,8 +13,8 @@ export default function Header({ t, theme }) {
       <img
         src={logoSrc}
         alt="Logo"
-        width={200}
-        height={60}
+        width={400}
+        height={100}
         className={styles.logo}
       />
 

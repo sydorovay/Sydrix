@@ -2,9 +2,9 @@
 import React, { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import TopBar from '../components/TopBar/TopBar';
-import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
-import StarsBackgroundWithNebula from '../components/BackgroundFiberCanvas/StarsBackgroundWithNebula.';
+import TopBar from '../TopBar/TopBar';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
+import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackgroundWithNebula.';
 
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
@@ -16,20 +16,21 @@ import ContactsPage from '@/pages/ContactsPage';
 import FaqPage from '@/pages/FaqPage';
 import PartnershipPage from '@/pages/PartnershipPage';
 
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeContext } from '../../context/ThemeProvider';
 import LanguageContext from '@/context/LanguageContext';
 
 import styles from '@/styles/App.module.css';
 
 export default function AppContent() {
-  const { theme, toggleTheme, setTheme } = useTheme();
+  const { theme, toggleTheme, setTheme } = useThemeContext();
+
   const { lang, setLang, t } = useContext(LanguageContext);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.classList.add(`${savedTheme}-theme`);
     setTheme(savedTheme);
-  }, []);
+  }, [setTheme]);
 
   useEffect(() => {
     localStorage.setItem('lang', lang);
