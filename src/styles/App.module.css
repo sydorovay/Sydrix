@@ -32,7 +32,6 @@ button {
   min-height: 100vh;
   position: relative;
   font-family: 'Arial', sans-serif;
-  padding: var(--spacing-md);
   background: linear-gradient(45deg,
       var(--gradient-from),
       var(--gradient-via),

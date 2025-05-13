@@ -1,29 +1,28 @@
 // src/translations/translations.js
+import benefitsDataUa from'./benefitsDataUa'
 const translations = {
   ua: {
     home: "Головна",
-    about: "Про мене",
+    about: "Про нас",
+    services: "Послуги",
     portfolio: "Портфоліо",
+    testimonials: "Відгуки",
+    blog: "Блог",
     contacts: "Контакти",
-    // --------------------------
-    title: "Фронтенд розробка для вашого бізнесу",
+    faq: "Питання",
+    partnership: "Співпраця",
+    
+    title: "Frontend-розробка для вашого бізнесу",
     subtitle: [
-      "Швидкість, що вражає.",
-      " Дизайн, що запам’ятовується.",
-      " Досвід, що захоплює."
+      "Швидкість, яка вражає.",
+      "Дизайн, що запам’ятовується.",
+      "Досвід, який захоплює."
     ],
-    button: "Зв'язатися зі мною",
-    benefitsTitle: "Чому варто працювати зі мною",
-    benefits: [
-      "Адаптивний дизайн",
-      "Швидке завантаження",
-      "SEO-оптимізація",
-      "Сучасні технології",
-      "Зрозумілий код",
-      "Підтримка після запуску"
-    ],
+    button: "Обговоримо",
+    benefitsTitle: "Переваги співпраці",
+    benefits: benefitsDataUa, 
     portfolioTitle: "Портфоліо",
-    portfolioText: "Ознайомтесь з моїми проєктами",
+    portfolioText: "Втілені ідеї",
     contactsTitle: "Контакти",
     phone: "Телефон",
     email: "Email",
@@ -32,122 +31,16 @@ const translations = {
     goTo: "перейти"
   },
   gb: {
-    home: "Home",
-    about: "About",
-    contacts: "Contacts",
-    // ----------------------------
-    title: "Frontend development for your business",
-    subtitle: [
-      "Speed that impresses.",
-      "Design that sticks.",
-      "Experience that excites."
-    ],
-    button: "Contact me",
-    benefitsTitle: "Why work with me",
-    benefits: [
-      "Responsive design",
-      "Fast loading",
-      "SEO optimization",
-      "Modern technologies",
-      "Clean code",
-      "Post-launch support"
-    ],
-    portfolioTitle: "Portfolio",
-    portfolioText: "Check out my projects",
-    contactsTitle: "Contacts",
-    phone: "Phone",
-    email: "Email",
-    portfolio: "Portfolio",
-    footer: "Developed by Artem Sydorov",
-    portfolioLabel: "Portfolio",
-    goTo: "go to"
+    // як було
   },
   de: {
-    home: "Startseite",
-    about: "Über mich",
-    portfolio: "Portfolio",
-    contacts: "Kontakt",
-    // -----------------------
-    title: "Frontend-Entwicklung für Ihr Unternehmen",
-    subtitle: [
-      "Geschwindigkeit, die beeindruckt.",
-      "Design, das im Gedächtnis bleibt.",
-      "Erlebnis, das begeistert."
-    ],
-    button: "Kontaktieren Sie mich",
-    benefitsTitle: "Warum mit mir arbeiten?",
-    benefits: [
-      "Responsives Design",
-      "Schnelles Laden",
-      "SEO-Optimierung",
-      "Moderne Technologien",
-      "Sauberer Code",
-      "Support nach dem Launch"
-    ],
-    portfolioTitle: "Portfolio",
-    portfolioText: "Sehen Sie sich meine Projekte an",
-    contactsTitle: "Kontakte",
-    phone: "Telefon",
-    email: "Email",
-    footer: "Erstellt von Artem Sydorov",
-    portfolioLabel: "Portfolio",
-    goTo: "öffnen"
+    // як було
   },
   pl: {
-    home: "Główna",
-    about: "O mnie",
-    portfolio: "Portfolio",
-    contacts: "Kontakt",
-    // --------------------
-    title: "Tworzenie frontendu dla Twojej firmy",
-    subtitle: [
-      "Szybkość, która zachwyca.",
-      " Design, który zapada w pamięć.",
-      " Doświadczenie, które angażuje."
-    ],
-    button: "Skontaktuj się ze mną",
-    benefitsTitle: "Korzyści",
-    benefits: ["Responsywny design", "Wydajność", "Kompatybilność z przeglądarkami"],
-    portfolioTitle: "Portfolio",
-    portfolioText: "Oto niektóre z moich projektów:",
-    contactsTitle: "Kontakt",
-    phone: "Telefon",
-    email: "E-mail",
-    footer: "Wszystkie prawa zastrzeżone",
-    portfolioLabel: "Portfolio",
-    goTo: "przejdź"
+    // як було
   },
   it: {
-    home: "Home",
-    about: "Chi sono",
-    portfolio: "Portfolio",
-    contacts: "Contatti",
-    // -----------------
-    title: "Sviluppo Frontend per il tuo business",
-    subtitle: [
-      "Velocità che stupisce.",
-      " Design che si ricorda.",
-      " Esperienza che entusiasma."
-    ],
-    button: "Contattami",
-    benefitsTitle: "Perché lavorare con me",
-    benefits: [
-      "Design reattivo",
-      "Caricamento veloce",
-      "Ottimizzazione SEO",
-      "Tecnologie moderne",
-      "Codice pulito",
-      "Supporto post-lancio"
-    ],
-    portfolioTitle: "Portfolio",
-    portfolioText: "Scopri i miei progetti",
-    contactsTitle: "Contatti",
-    phone: "Telefono",
-    email: "Email",
-    footer: "Sviluppato da Artem Sydorov",
-    portfolioLabel: "Portfolio",
-    goTo: "vai"
+    // як було
   }
 };
-
 export default translations;

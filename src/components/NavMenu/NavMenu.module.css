@@ -1,19 +1,20 @@
 .navMenu {
+  position: absolute;
+  top: 5px;
+  left: 5px;
   display: flex;
-  align-items: end;
+  align-items: center;
   flex-wrap: wrap;
-  width: 100%;
-  margin-bottom: 5px;
-  margin-left:  50px;
-  
+  width: 90%;
+  line-height: 1.5rem;
+  padding: 5px 0;
 }
 
-/* Стилізація лінків */
 .link {
-  color: hsla(192, 90%, 88%, 0.657);
+  color: #dbf7f3;
   text-decoration: none;
   font-weight: bold;
-  font-size: clamp(12px, 1vw, 24px);
+  font-size: clamp(14px, 1vw, 24px);
   padding:  clamp(1px, 1vw, 14px);
   transition: text-decoration 0.3s;
 }
@@ -27,4 +28,7 @@
 /* Мобільна версія до 768px */
 @media (max-width: 768px) {
 
+}
+.link:first-child {
+  margin-left: 50px;
 }

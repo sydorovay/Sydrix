@@ -1,26 +1,25 @@
-import { CheckCircle2 } from 'lucide-react';
-import styles from './BenefitsSection.module.css';
+import React from "react";
+import styles from "./BenefitsSection.module.css"; // якщо використовуєте CSS-модулі
+import benefitsUa from "../../translations/benefitsDataUa"; // шлях змінюйте під ваш проєкт
 
-export default function BenefitsSection({
-  title,
-  benefits,
-  buttonText = "Замовити послугу",
-  onButtonClick = () => { }
-}) {
+const BenefitsSection = () => {
   return (
-    <section className={styles.benefits}>
-      <h2 className={styles.title}>{title}</h2>
-      <ul className={styles.list}>
-        {benefits.map((item, idx) => (
-          <li key={idx} className={styles.item}>
-            <CheckCircle2 className={styles.icon} size={24} />
-            <span className={styles.text}>{item}</span>
-          </li>
-        ))}
+    <section className={styles.benefitsSection}>
+      <h2 className={styles.title}>Переваги роботи з нами</h2>
+      <ul className={styles.benefitsList}>
+        {benefitsUa?.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <li key={index} className={styles.benefitItem}>
+              <Icon className={styles.icon} />
+              <h3 className={styles.benefitTitle}>{item.title}</h3>
+              <p className={styles.benefitDescription}>{item.description}</p>
+            </li>
+          );
+        })}
       </ul>
-      <button className={styles.button} onClick={onButtonClick}>
-        {buttonText}
-      </button>
     </section>
   );
-}
+};
+
+export default BenefitsSection;
