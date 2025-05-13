@@ -1,14 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
-  });
-
-  useEffect(() => {
-    document.body.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -16,5 +9,5 @@ export const useTheme = () => {
     localStorage.setItem('theme', newTheme);
   };
 
-  return { theme, toggleTheme };
+  return { theme, toggleTheme, setTheme };
 };

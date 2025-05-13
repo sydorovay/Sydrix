@@ -1,25 +1,33 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import LogoLight from '../../../public/logo-uk.svg';
 import LogoDark from '../../../public/logo-dark-uk.svg';
 import styles from './Header.module.css';
-import ThemeContext from '../../context/LanguageContext'; // якщо є окремий, або використовуй useTheme
 
-export default function Header({ t, }) {
-  const { theme } = useContext(ThemeContext);
+export default function Header({ t, theme }) {
   const logoSrc = theme === 'dark' ? LogoDark : LogoLight;
 
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>{t.title}</h1>
-      <img src={logoSrc} alt="Logo" width={200} height={60} className={styles.logo} />
+
+      <img
+        src={logoSrc}
+        alt="Logo"
+        width={200}
+        height={60}
+        className={styles.logo}
+      />
+
       <h2 className={styles.subtitle}>
-        {t.subtitle.map((line, idx) => (
-          <span key={idx}>
-            {line}
-            <br />
-          </span>
-        ))}
+        {Array.isArray(t?.subtitle) &&
+          t.subtitle.map((line, idx) => (
+            <span key={idx}>
+              {line}
+              <br />
+            </span>
+          ))}
       </h2>
+
       <a href="mailto:sydorovay@gmail.com" className={styles.button}>
         {t.button}
       </a>
