@@ -1,0 +1,9 @@
+name = "sydrix"
+compatibility_date = "2025-05-1"
+account_id = "6c462cd675d7e03eea794481c1202c94"     # ← обов'язково замінити
+workers_dev = true
+
+assets = { directory = "./dist" }
+
+routes = ["https://sydrix.dev/*"]
+zone_id = "sydrix.dev"
