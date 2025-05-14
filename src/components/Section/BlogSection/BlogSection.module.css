@@ -1,76 +1,131 @@
+.blogSection {
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.date {
+  font-size: 0.875rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.postTitle {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.preview {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.readMore:hover {
+  background-color: #0056b3;
+}
+
+.readMore:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+/* Модальне вікно */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 300ms ease-in-out;
+}
+
 .modal {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 600px;
   background: #fff;
   padding: 2rem;
-  max-width: 600px;
-  margin: auto;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  transform: translateY(20px);
+  transform: translate(-50%, -50%);
+  outline: none;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: all 300ms ease-in-out;
 }
 
 .ReactModal__Content--after-open {
-  transform: translateY(0);
   opacity: 1;
 }
 
 .ReactModal__Content--before-close {
-  transform: translateY(20px);
   opacity: 0;
+  transform: translate(-50%, -40%);
 }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
+/* Контент модалки */
 .modalContent {
   position: relative;
-}
-
-.modalTitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.modalText {
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 .closeModal {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: none;
+  font-size: 1.5rem;
   border: none;
-  font-size: 2rem;
+  background: transparent;
   cursor: pointer;
-  color: #999;
-  transition: color 0.2s ease;
+  color: #888;
+  transition: color 0.2s;
 }
 
 .closeModal:hover {
   color: #000;
 }
 
-/* Адаптивність */
-@media (max-width: 600px) {
-  .modal {
-    padding: 1rem;
-  }
+.modalTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
 
-  .modalTitle {
-    font-size: 1.2rem;
-  }
-
-  .modalText {
-    font-size: 0.95rem;
-  }
+.modalText {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
 }

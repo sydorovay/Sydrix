@@ -1,4 +1,5 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 import Modal from 'react-modal';
 import styles from './BlogSection.module.css';
 
@@ -41,7 +42,7 @@ const BlogSection = () => {
             <button
               className={styles.readMore}
               onClick={() => openModal({ title, fullText })}
-              aria-label={`Читати далі: ${title}`}
+              aria-label={`Читати далі: ${title}` }
             >
               Читати далі
             </button>
