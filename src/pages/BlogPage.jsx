@@ -1,8 +1,9 @@
-const BlogPage = ({ t }) => {
+import BlogSection from "../components/Section/BlogSection/BlogSection";
+
+const BlogPage = () => {
   return (
     <main>
-      <h1>{t?.blog|| 'Blog'}</h1>
-      <p>{t?.blogText || 'Here you can learn more about this project.'}</p>
+      <BlogSection  />
     </main>
   );
 };

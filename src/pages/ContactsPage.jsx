@@ -1,3 +1,5 @@
+import BlogSection from "../components/Section/BlogSection/BlogSection";
+
 const ContactsPage = ({ t }) => {
   return (
     <main>

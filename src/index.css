@@ -26,7 +26,7 @@ body.dark {
     -webkit-text-fill-color: transparent;
     color: transparent;
     /* ← for non-WebKit browsers */
-      --toggle-bg: #444;
+      --toggle-bg: #6f7988;
         --toggle-thumb: #ffd700;
   }
 }

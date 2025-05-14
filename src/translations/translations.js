@@ -1,46 +1,15 @@
 // src/translations/translations.js
-import benefitsDataUa from'./benefitsDataUa'
+import ua from './ua'
+import de from './benefitsDataDe'
+import gb from './benefitsDataGb'
+import pl from './benefitsDataPl'
+import it from './benefitsDataIt'
+
 const translations = {
-  ua: {
-    home: "Головна",
-    about: "Про нас",
-    services: "Послуги",
-    portfolio: "Портфоліо",
-    testimonials: "Відгуки",
-    blog: "Блог",
-    contacts: "Контакти",
-    faq: "Питання",
-    partnership: "Співпраця",
-    
-    title: "Frontend-розробка для вашого бізнесу",
-    subtitle: [
-      "Швидкість, яка вражає.",
-      "Дизайн, що запам’ятовується.",
-      "Досвід, який захоплює."
-    ],
-    button: "Обговоримо",
-    benefitsTitle: "Переваги співпраці",
-    benefits: benefitsDataUa, 
-    portfolioTitle: "Портфоліо",
-    portfolioText: "Втілені ідеї",
-    contactsTitle: "Контакти",
-    phone: "Телефон",
-    email: "Email",
-    footer: "Розроблено Артемом Сидоровим",
-    portfolioLabel: "Портфоліо",
-    goTo: "перейти"
-  },
-  gb: {
-    // як було
-  },
-  de: {
-    // як було
-  },
-  pl: {
-    // як було
-  },
-  it: {
-    // як було
-  }
+  ua,
+  gb,
+  de,
+  pl,
+  it
 };
 export default translations;

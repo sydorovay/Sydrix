@@ -27,8 +27,8 @@ button {
 /* ======== APP ======== */
 
 .app {
-    display: flex;
-      flex-direction: column;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   position: relative;
   font-family: 'Arial', sans-serif;
@@ -57,6 +57,7 @@ button {
   flex-direction: column;
   color: var(--text-bottom-color);
 }
+
 /* ======== Sections ======== */
 .section {
   margin-bottom: var(--spacing-xl);
