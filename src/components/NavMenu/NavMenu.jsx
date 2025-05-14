@@ -2,25 +2,18 @@ import { NavLink } from 'react-router-dom';
 import styles from './NavMenu.module.css';
 import useLanguage from '../../hooks/useLanguage';
 import { useState } from 'react';
+import BurgerIcon from '../BurgerMenu/BurgerMenu';
 
 export default function NavMenu({ className = '' }) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(prev => !prev);
 
   return (
     <nav className={`${styles.navMenu} ${className}`}>
-      {/* Бургер-іконка */}
-      <button className={styles.burgerIcon} onClick={toggleMenu}>
-        <span className={isOpen ? styles.open : ''}></span>
-        <span className={isOpen ? styles.open : ''}></span>
-        <span className={isOpen ? styles.open : ''}></span>
-      </button>
+      <BurgerIcon isOpen={isOpen} onClick={toggleMenu} />
 
-      {/* Меню */}
       <div className={`${styles.menu} ${isOpen ? styles.openMenu : ''}`}>
         <NavLink to="/" className={styles.link}>{t.home}</NavLink>
         <NavLink to="/about" className={styles.link}>{t.about}</NavLink>

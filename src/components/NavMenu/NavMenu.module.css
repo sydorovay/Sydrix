@@ -1,18 +1,17 @@
 /* === Десктоп меню === */
 .navMenu {
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
   line-height: 1.5rem;
-  padding: 5px 0;
 }
 
 .link {
-  color: #dbf7f3;
+  color: #d3cee2;
   text-decoration: none;
   font-weight: bold;
   font-size: clamp(14px, 1vw, 24px);
@@ -33,63 +32,31 @@
     align-items: center;
     text-align: center;
   }
-
-  .burgerIcon {
-    display: flex;
-    flex-direction: column;
-    width: 30px;
-    height: 20px;
-    justify-content: space-between;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    z-index: 1001;
-  }
-
-  .burgerIcon span {
-    display: block;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #54ffee, #33857c, #0c404b);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-  }
-
-  .burgerIcon.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .burgerIcon.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .burgerIcon.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-
   .menu {
     position: absolute;
-    top: 60px;
+    top: 64px;
     left: 0;
     right: 0;
     padding: 10px 0;
-    background: linear-gradient(to right, #54ffee9b, #33857ca7, #0c404b9f);
-    border: 1px solid #046b9874;
+    background: linear-gradient(135deg,
+          #b0c5e5 0%,
+          #d8e7f3 50%,
+          #bea0c8 100%  );
+    border: 1px solid #c4bef8;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    -webkit-backdrop-filter: blur(50px);
-    backdrop-filter: blur(50px);
+    /* -webkit-backdrop-filter: blur(20%);
+    backdrop-filter: blur(20%); */
     z-index: 1000;
 
     /* Анімація */
-    opacity: 0;
+    opacity: 1;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    transform: translateY(-50px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
 
   .menu.openMenu {
-    opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
@@ -99,11 +66,11 @@
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    color: #bdf3e3;
-    transition: color 0.3s ease;
+   color: #120438;
+    transition: color 0.2s ease;
   }
 
   .menu .link:hover {
-    color: #007bff;
+    color: #5f4dd7;
   }
 }

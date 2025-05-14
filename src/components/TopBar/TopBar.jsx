@@ -17,7 +17,7 @@ export default function TopBar({ lang, setLang, theme, toggleTheme }) {
     <div className={styles.topBar}>
       <div className={styles.topLeft}>
         <img
-          src="/sx_logo.png"
+          src="/Sx3d.png"
           alt="Logo"
           width={40}
           height={40}
