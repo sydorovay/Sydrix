@@ -17,10 +17,10 @@ export default function TopBar({ lang, setLang, theme, toggleTheme }) {
     <div className={styles.topBar}>
       <div className={styles.topLeft}>
         <img
-          src="/Sx3d.png"
+          src="/public/sx_logo.svg"
           alt="Logo"
-          width={40}
-          height={40}
+          width={32}
+          height={32}
           className={styles.logoSx}
         />
       </div>

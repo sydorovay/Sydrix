@@ -4,12 +4,13 @@
   flex-direction: column;
   justify-content: space-between;
   width: 32px;
-  height: 32px;
+  height: 26px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 2px;
   transition: transform 0.2s ease;
+  gap: 0.2rem;
 }
 
 /* Металічний градієнт і легка текстура */
@@ -18,28 +19,13 @@
   width: 100%;
   height: 4px;
   border-radius: 1px;
-  background: linear-gradient(163deg, rgba(255, 255, 255, 0.46) 0%, rgb(135, 225, 247) 0%, rgba(191, 221, 245, 1) 23%, rgba(197, 215, 237, 1) 31%, rgba(45, 119, 145, 1) 57%, rgba(15, 59, 66, 1) 73%, rgb(85, 204, 220) 100%);
+  background: linear-gradient(270deg, #63e1ceb7 0%,#0b666bae 70%);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 1px 1px rgb(23, 84, 82),
     0 1px 2px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-
-/* Обʼємний підсвіт (блік) */
-.burgerIcon::before,
-.burgerIcon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 4px;
-  box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.3),
-    inset 0 0 4px rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
 .burgerIcon:hover::before,
 .burgerIcon:hover::after {

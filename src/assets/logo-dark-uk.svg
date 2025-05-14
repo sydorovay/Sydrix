@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid meet">
   <defs>
+    <!-- Тінь + рельєф -->
     <filter id="embossShadow" width="200%" height="200%" x="-50%" y="-50%">
       <feDropShadow dx="2" dy="2" flood-color="rgba(0,0,0,0.3)" stdDeviation="2" result="ds"/>
       <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1"/>
@@ -13,64 +14,64 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <!-- Напівпрозора тінь під текстом -->
     <filter id="textShadow">
       <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="rgba(0,0,0,0.3)" />
     </filter>
-    <linearGradient id="grad-light" x1="0%" x2="100%" y1="0%" y2="0%">
-      <stop offset="0%" stop-color="#0097a7">
-        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite" values="#0097a7;#00bcd4;#09c899;#00896b;#00896b;#0097a7" keyTimes="0;0.2;0.4;0.6;0.8;1" />
+
+    <!-- Анімований градієнт -->
+    <linearGradient id="grad-light" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0097a1">
+        <animate attributeName="stop-color" dur="6s" repeatCount="indefinite"
+          values="#0097a7;#00bcd1;#09c899;#00898b;#0097a1" keyTimes="0;0.25;0.5;0.75;1" />
       </stop>
-      <stop offset="50%" stop-color="#4599999">
-        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite" values="#09c899;#1b5e20;#00896b;#0097a7;#00bcd4;#09c899" keyTimes="0;0.2;0.4;0.6;0.8;1" />
+      <stop offset="50%" stop-color="#00bcd9">
+        <animate attributeName="stop-color" dur="6s" repeatCount="indefinite"
+          values="#00bcd9;#09c899;#00898b;#0097a1;#00bcd9" keyTimes="0;0.25;0.5;0.75;1" />
       </stop>
-      <stop offset="100%" stop-color="#00896b">
-        <animate attributeName="stop-color" dur="8s" repeatCount="indefinite" values="#00896b;#0097a7;#00bcd4;#09c899;#0097a7;#00896b" keyTimes="0;0.2;0.4;0.6;0.8;1" />
+      <stop offset="100%" stop-color="#00898b">
+        <animate attributeName="stop-color" dur="6s" repeatCount="indefinite"
+          values="#00898b;#0097a1;#00bcd9;#09c899;#00898b" keyTimes="0;0.25;0.5;0.75;1" />
       </stop>
     </linearGradient>
   </defs>
+
   <style>
     text {
-      font-family: Goudy Old Style, sans-serif;
+      font-family: 'Orbitron', sans-serif;
       text-anchor: middle;
       fill: url(#grad-light);
       filter: url(#embossShadow);
     }
     .tagline {
-      font-size: 1.1rem;
+      font-size: 0.8rem;
+      filter: url(#textShadow);
     }
     .brand {
-      font-size: 3rem;
       dominant-baseline: middle;
+      font-size: 2.2rem;
     }
-    .brand tspan:first-child,
-    .brand tspan:last-child {
-      font-size: 7rem;
+    .brand tspan.sLet,
+    .brand tspan.xLet {
+      font-size: 6rem;
+      font-weight: bold;
     }
-    .mid {
-      font-size: 4rem;
-    }
-    @media (max-width: 480px) {
-      .tagline {
-        font-size: 0.85rem;
-      }
-      .brand {
-        font-size: 2.2rem;
-      }
-      .brand tspan:first-child,
-      .brand tspan:last-child {
-        font-size: 5rem;
-      }
-      .mid {
-        font-size: 3rem;
-      }
+    .brand tspan.mid {
+      font-size: 3rem;
+      letter-spacing: -0.02em;
     }
   </style>
-  <title>SYDRIX — Думай сміливо. Будуй розумно.</title>
-  <text  id="slogan-top" class="tagline" x="49%" y="30%">Думай сміливо</text>
-  <text class="brand" x="42.5%" y="60%">
-    <tspan dx="0.2em">S</tspan>
-    <tspan class="mid" dx="-0.25em" dy="-0.02em">YDRI</tspan>
-    <tspan dx="-0.2em">X</tspan>
+
+  <title>SYDRIX — Думай сміливо. Створюй розумно.</title>
+
+  <text class="tagline" x="50%" y="20%">Думай сміливо</text>
+
+  <text class="brand" x="50%" y="60%">
+    <tspan class="sLet" dx=".2em">S</tspan>
+    <tspan class="mid" dx="-.2em">YDRI</tspan>
+    <tspan class="xLet" dx="-.08em">X</tspan>
   </text>
-  <text  id="slogan-bottom" class="tagline" x="49%" y="85%">Створюй розумно</text>
+
+  <text class="tagline" x="50%" y="95%">Створюй розумно</text>
 </svg>
