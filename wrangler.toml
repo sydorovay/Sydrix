@@ -6,4 +6,4 @@ workers_dev = true
 assets = { directory = "./dist" }
 
 routes = ["https://sydrix.dev/*"]
-zone_id = "sydrix.dev"
+zone_id = "bb85ff7ad071b2f81973e5c31c2d8edb"
