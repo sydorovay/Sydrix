@@ -1,10 +1,10 @@
 // src/components/AppContent/AppContent.jsx
-import React, { useContext, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import TopBar from '../TopBar/TopBar';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
-import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackgroundWithNebula.';
+import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackgroundWithNebula';
 
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage/AboutPage';
@@ -18,35 +18,34 @@ import PartnershipPage from '@/pages/PartnershipPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 import { useThemeContext } from '../../context/ThemeProvider';
-import LanguageContext from '@/context/LanguageContext';
-import styles from './AppContent.module.css'
-
+import { useLanguage } from '../../hooks/useLanguage';
+import styles from './AppContent.module.css';
 
 export default function AppContent() {
-  const { theme, toggleTheme, setTheme } = useThemeContext();
+  const { theme, toggleTheme } = useThemeContext();
+  const { lang, setLang, t } = useLanguage();
 
-  const { lang, setLang, t } = useContext(LanguageContext);
-
+  // Ініціалізація збереженої мови
   useEffect(() => {
-    const savedLang = localStorage.getItem('lang');
-    if (savedLang) setLang(savedLang);
+    const saved = localStorage.getItem('lang');
+    if (saved) setLang(saved);
   }, [setLang]);
 
+  // Ініціалізація і body-клас для теми
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.classList.remove('light-theme', 'dark-theme');
-    document.body.classList.add(`${savedTheme}-theme`);
-    setTheme(savedTheme);
-  }, [setTheme]);
+    const saved = localStorage.getItem('theme') || theme;
+    document.body.classList.toggle('dark-theme', saved === 'dark');
+    document.body.classList.toggle('light-theme', saved === 'light');
+  }, [theme]);
 
-
+  // Збереження мови
   useEffect(() => {
     localStorage.setItem('lang', lang);
   }, [lang]);
 
   return (
     <div className={styles.app}>
-      <div className={styles.topHalf}>
+      <header className={styles.topHalf}>
         <StarsBackgroundWithNebula theme={theme} />
         <TopBar
           lang={lang}
@@ -54,9 +53,9 @@ export default function AppContent() {
           theme={theme}
           toggleTheme={toggleTheme}
         />
-      </div>
+      </header>
 
-      <div className={styles.bottomHalf}>
+      <main className={styles.bottomHalf}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage t={t} theme={theme} />} />
@@ -70,7 +69,7 @@ export default function AppContent() {
           <Route path="/partnership" element={<PartnershipPage t={t} theme={theme} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </div>
+      </main>
     </div>
   );
 }

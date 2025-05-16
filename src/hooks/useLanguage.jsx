@@ -1,7 +1,10 @@
-// src/hooks/useLanguage.jsx
 import { useContext } from 'react';
-import LanguageContext from '../context/LanguageContext';  // Імпортуємо за замовчуванням
+import { LanguageContext } from '../context/LanguageContext';
 
-const useLanguage = () => useContext(LanguageContext);
-
-export default useLanguage;
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+}

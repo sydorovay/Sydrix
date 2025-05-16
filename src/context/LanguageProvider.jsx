@@ -1,23 +1,24 @@
-// src/context/LanguageProvider.jsx
 import { useState, useEffect } from 'react';
-import LanguageContext from './LanguageContext';  // Імпортуємо за замовчуванням
+import { LanguageContext } from './LanguageContext';
 import translations from '../translations/translations';
 
-const LanguageProvider = ({ children }) => {
-  const defaultLang = localStorage.getItem('lang') || navigator.language.split('-')[0] || 'de';
-  const [lang, setLang] = useState(defaultLang);
+export default function LanguageProvider({ children }) {
+  const [lang, setLang] = useState('gb');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('lang');
+    if (saved && translations[saved]) setLang(saved);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('lang', lang);
   }, [lang]);
 
-  const t = translations[lang] || translations.de;
+  const t = translations[lang] || translations.en;
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
       {children}
     </LanguageContext.Provider>
   );
-};
-
-export default LanguageProvider;
+}
