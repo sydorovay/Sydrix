@@ -4,12 +4,14 @@ import de from './benefitsDataDe'
 import gb from './benefitsDataGb'
 import pl from './benefitsDataPl'
 import it from './benefitsDataIt'
+import fr from './benefitsDataFr'
 
 const translations = {
   ua,
   gb,
   de,
   pl,
-  it
+  it,
+  fr,
 };
 export default translations;

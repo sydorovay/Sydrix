@@ -7,35 +7,36 @@ import LangSwitcher from '../LangSwitcher/LangSwitcher';
 export default function TopBar({ lang, setLang, theme, toggleTheme }) {
   const handleThemeToggle = useCallback(() => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
-    document.body.classList.remove(`${theme}-theme`);
-    document.body.classList.add(`${newTheme}-theme`);
+    document.body.classList.replace(`${theme}-theme`, `${newTheme}-theme`);
     localStorage.setItem('theme', newTheme);
     toggleTheme(newTheme);
   }, [theme, toggleTheme]);
 
   return (
-    <div className={styles.topBar}>
-      <div className={styles.topLeft}>
+    <header className={styles.topBar}>
+      <div className={styles.left}>
         <img
-          src="/public/sx_logo.svg"
-          alt="Logo"
+          src="/sx_logo.svg"
+          alt="Sydrix Logo"
           width={32}
           height={32}
-          className={styles.logoSx}
+          className={styles.logo}
         />
       </div>
-      <NavMenu className={styles.navigation} />
+
+      <NavMenu className={styles.nav} />
+
       <div className={styles.controls}>
         <button
           onClick={handleThemeToggle}
           className={styles.themeToggle}
-          title="Change theme"
+          title="Toggle theme"
           aria-label="Toggle theme"
         >
           <ThemeToggle currentTheme={theme} />
         </button>
         <LangSwitcher lang={lang} setLang={setLang} />
       </div>
-    </div>
+    </header>
   );
 }

@@ -1,6 +1,5 @@
-// src/components/NavMenu/NavMenu.jsx
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import BurgerIcon from '../BurgerMenu/BurgerMenu';
 import styles from './NavMenu.module.css';
@@ -8,6 +7,15 @@ import styles from './NavMenu.module.css';
 export default function NavMenu({ className = '' }) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+
+  // Закриваємо меню при переході по посиланню (важливо для мобільних)
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const closeOnRouteChange = () => setIsOpen(false);
+    window.addEventListener('popstate', closeOnRouteChange);
+    return () => window.removeEventListener('popstate', closeOnRouteChange);
+  }, [isOpen]);
 
   const toggleMenu = () => setIsOpen(open => !open);
 
@@ -25,11 +33,18 @@ export default function NavMenu({ className = '' }) {
 
   return (
     <nav className={`${styles.navMenu} ${className}`}>
-      <BurgerIcon isOpen={isOpen} onClick={toggleMenu} />
+      <BurgerIcon isOpen={isOpen} onClick={toggleMenu} aria-label="Toggle menu" />
 
       <div className={`${styles.menu} ${isOpen ? styles.openMenu : ''}`}>
         {navLinks.map(({ to, label }) => (
-          <NavLink key={to} to={to} className={styles.link}>
+          <NavLink
+            key={to}
+            to={to}
+            className={({ isActive }) =>
+              [styles.link, isActive ? styles.activeLink : ''].filter(Boolean).join(' ')
+            }
+            onClick={() => setIsOpen(false)} // Закриваємо меню при кліку на посилання
+          >
             {label}
           </NavLink>
         ))}

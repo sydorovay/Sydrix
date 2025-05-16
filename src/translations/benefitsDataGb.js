@@ -1,50 +1,53 @@
-import { FaMobileAlt, FaBolt, FaSearch, FaTools, FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt } from "react-icons/fa";
+import {
+  FaMobileAlt, FaBolt, FaSearch, FaTools,
+  FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt
+} from "react-icons/fa";
 
 const benefitsGb = [
   {
-    icon: FaMobileAlt,  // Просто передаємо сам компонент
-    title: "Адаптивний дизайн",
-    description: "Ваш сайт буде виглядати бездоганно на телефоні, планшеті та комп’ютері"
+    icon: FaMobileAlt,
+    title: "Responsive design",
+    description: "Your site will look perfect on phone, tablet, and desktop"
   },
   {
-    icon: FaBolt,  // Просто передаємо сам компонент
-    title: "Швидке завантаження",
-    description: "Сторінки відкриваються миттєво, що підвищує комфорт користувачів"
+    icon: FaBolt,
+    title: "Fast loading",
+    description: "Pages open instantly for better user comfort"
   },
   {
-    icon: FaSearch,  // Просто передаємо сам компонент
-    title: "SEO-оптимізація",
-    description: "Сайт легко знаходиться у пошукових системах, таких як Google"
+    icon: FaSearch,
+    title: "SEO optimization",
+    description: "The site is easy to find in search engines like Google"
   },
   {
-    icon: FaTools,  // Просто передаємо сам компонент
-    title: "Сучасні технології",
-    description: "Використовуємо лише актуальні й перевірені інструменти розробки"
+    icon: FaTools,
+    title: "Modern technologies",
+    description: "We use only up-to-date and reliable tools"
   },
   {
-    icon: FaCode,  // Просто передаємо сам компонент
-    title: "Зрозумілий код",
-    description: "Проєкт легко підтримувати та розвивати в майбутньому"
+    icon: FaCode,
+    title: "Clean code",
+    description: "The project is easy to maintain and expand"
   },
   {
-    icon: FaPaintBrush,  // Просто передаємо сам компонент
-    title: "Професійний дизайн",
-    description: "Допоможемо створити стильний і зручний інтерфейс"
+    icon: FaPaintBrush,
+    title: "Professional design",
+    description: "We help create a stylish and user-friendly interface"
   },
   {
-    icon: FaHandshake,  // Просто передаємо сам компонент
-    title: "Підтримка після запуску",
-    description: "Гарантуємо допомогу навіть після завершення проєкту"
+    icon: FaHandshake,
+    title: "Post-launch support",
+    description: "We offer help even after the project is completed"
   },
   {
-    icon: FaCommentDots,  // Просто передаємо сам компонент
-    title: "Інтерактивні форми",
-    description: "Клієнти зможуть легко зв’язатися з вами через сайт"
+    icon: FaCommentDots,
+    title: "Interactive forms",
+    description: "Clients can easily contact you through the site"
   },
   {
-    icon: FaShieldAlt,  // Просто передаємо сам компонент
-    title: "Захист і стабільність",
-    description: "Сайт працює надійно та захищений від типових помилок"
+    icon: FaShieldAlt,
+    title: "Security and stability",
+    description: "The site runs reliably and is protected from common errors"
   }
 ];
 

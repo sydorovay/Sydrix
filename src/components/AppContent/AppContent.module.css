@@ -1,16 +1,15 @@
 /* ======== Global ======== */
 body {
-  position: relative;
-  z-index: 0;
   font-family: var(--font-family);
   background-color: var(--background-color-dark);
   color: var(--text-color);
-  /* transition: background-color var(--transition), color var(--transition); */
   background-image: var(--header-gradient);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 15px;
+  padding: 1rem;
+  position: relative;
+  z-index: 0;
 }
 
 * {
@@ -24,14 +23,11 @@ button {
   font-family: inherit;
 }
 
-/* ======== APP ======== */
-
+/* ======== App Layout ======== */
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  position: relative;
-  font-family: 'Arial', sans-serif;
   background: linear-gradient(45deg,
       var(--gradient-from),
       var(--gradient-via),
@@ -39,26 +35,25 @@ button {
       var(--gradient-from));
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
-  position: relative;
-  z-index: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .topHalf {
-  flex: 1;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   color: var(--text-top-color);
 }
 
 .bottomHalf {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   color: var(--text-bottom-color);
 }
 
-/* ======== Sections ======== */
+/* ======== Section Wrapper ======== */
 .section {
   margin-bottom: var(--spacing-xl);
   background: var(--section-bg);
@@ -67,14 +62,14 @@ button {
   box-shadow: var(--shadow);
 }
 
-/* ======== BENEFITS ======== */
+/* ======== Benefits ======== */
 .benefitsList {
   padding-left: var(--spacing-md);
   list-style: disc;
-  color: var(--text-color);
+  color: inherit;
 }
 
-/* ======== PORTFOLIO ======== */
+/* ======== Portfolio ======== */
 .portfolioGrid {
   display: grid;
   gap: var(--spacing-md);
@@ -94,16 +89,16 @@ button {
   box-shadow: var(--shadow-lg);
 }
 
-/* ======== FOOTER ======== */
+/* ======== Footer ======== */
 .footer {
   text-align: center;
   padding: var(--spacing-md) 0;
   border-top: 1px solid var(--border-color);
-  color: var(--text-color);
   font-size: var(--font-size-sm);
   opacity: 0.8;
 }
 
+/* ======== Background Canvas ======== */
 canvas {
   position: absolute;
   top: 0;
@@ -112,7 +107,7 @@ canvas {
   pointer-events: none;
 }
 
-/* Темна тема */
+/* ======== Themes ======== */
 .dark-theme {
   background-color: var(--background-color-dark);
   color: var(--text-color-dark);

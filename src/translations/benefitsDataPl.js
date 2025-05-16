@@ -1,50 +1,53 @@
-import { FaMobileAlt, FaBolt, FaSearch, FaTools, FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt } from "react-icons/fa";
+import {
+  FaMobileAlt, FaBolt, FaSearch, FaTools,
+  FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt
+} from "react-icons/fa";
 
 const benefitsPl = [
   {
-    icon: FaMobileAlt,  // Просто передаємо сам компонент
-    title: "Адаптивний дизайн",
-    description: "Ваш сайт буде виглядати бездоганно на телефоні, планшеті та комп’ютері"
+    icon: FaMobileAlt,
+    title: "Responsywny design",
+    description: "Twoja strona wygląda świetnie na telefonie, tablecie i komputerze"
   },
   {
-    icon: FaBolt,  // Просто передаємо сам компонент
-    title: "Швидке завантаження",
-    description: "Сторінки відкриваються миттєво, що підвищує комфорт користувачів"
+    icon: FaBolt,
+    title: "Szybkie ładowanie",
+    description: "Strony ładują się błyskawicznie dla lepszej wygody użytkownika"
   },
   {
-    icon: FaSearch,  // Просто передаємо сам компонент
-    title: "SEO-оптимізація",
-    description: "Сайт легко знаходиться у пошукових системах, таких як Google"
+    icon: FaSearch,
+    title: "Optymalizacja SEO",
+    description: "Strona jest łatwa do znalezienia w Google i innych wyszukiwarkach"
   },
   {
-    icon: FaTools,  // Просто передаємо сам компонент
-    title: "Сучасні технології",
-    description: "Використовуємо лише актуальні й перевірені інструменти розробки"
+    icon: FaTools,
+    title: "Nowoczesne technologie",
+    description: "Używamy tylko aktualnych i sprawdzonych narzędzi"
   },
   {
-    icon: FaCode,  // Просто передаємо сам компонент
-    title: "Зрозумілий код",
-    description: "Проєкт легко підтримувати та розвивати в майбутньому"
+    icon: FaCode,
+    title: "Czytelny kod",
+    description: "Projekt jest łatwy do utrzymania i rozwoju"
   },
   {
-    icon: FaPaintBrush,  // Просто передаємо сам компонент
-    title: "Професійний дизайн",
-    description: "Допоможемо створити стильний і зручний інтерфейс"
+    icon: FaPaintBrush,
+    title: "Profesjonalny design",
+    description: "Pomagamy stworzyć stylowy i intuicyjny interfejs"
   },
   {
-    icon: FaHandshake,  // Просто передаємо сам компонент
-    title: "Підтримка після запуску",
-    description: "Гарантуємо допомогу навіть після завершення проєкту"
+    icon: FaHandshake,
+    title: "Wsparcie po wdrożeniu",
+    description: "Zapewniamy pomoc również po zakończeniu projektu"
   },
   {
-    icon: FaCommentDots,  // Просто передаємо сам компонент
-    title: "Інтерактивні форми",
-    description: "Клієнти зможуть легко зв’язатися з вами через сайт"
+    icon: FaCommentDots,
+    title: "Formularze interaktywne",
+    description: "Klienci mogą łatwo się z Tobą skontaktować przez stronę"
   },
   {
-    icon: FaShieldAlt,  // Просто передаємо сам компонент
-    title: "Захист і стабільність",
-    description: "Сайт працює надійно та захищений від типових помилок"
+    icon: FaShieldAlt,
+    title: "Bezpieczeństwo i stabilność",
+    description: "Strona działa niezawodnie i jest chroniona przed błędami"
   }
 ];
 

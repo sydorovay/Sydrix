@@ -1,6 +1,6 @@
 // src/pages/HomePage.jsx
 import Header from '../components/Header/Header';
-import BenefitsSection from '../components/BenefitsSection/BenefitsSection';
+import BenefitsSection from '../components/Section/BenefitsSection/BenefitsSection';
 import PortfolioSection from '../components/PortfolioSection/PortfolioSection';
 import ContactsSection from '../components/Section/ContactsSection/ContactsSection';
 import Footer from '../components/Footer/Footer';
