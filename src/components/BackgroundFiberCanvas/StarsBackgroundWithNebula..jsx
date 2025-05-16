@@ -1,11 +1,11 @@
-// Updated StarsBackgroundWithNebula.jsx
 import { useEffect, useRef } from 'react';
 import styles from './StarsBackground.module.css';
 
 const NUM_STARS = 250;
+
 const STAR_COLORS = {
-  light: ['#ffffff', '#bbdefb', '#90caf9'],
-  dark: ['#ffffff', '#bbdefb', '#90caf9'],
+  light: ['#ffffff', '#fdd9a0', '#f4e3d7'],
+  dark: ['#ffffff', '#90caf9', '#bbdefb'],
 };
 
 function random(min, max) {
@@ -15,7 +15,7 @@ function random(min, max) {
 const createStar = (w, h, colors) => ({
   x: random(0, w),
   y: random(0, h),
-  radius: random(0.3, 1.4),
+  radius: random(0.3, 1.3),
   opacity: random(0.3, 1),
   twinkleSpeed: random(0.0001, 0.002),
   color: colors[Math.floor(Math.random() * colors.length)],
@@ -24,90 +24,72 @@ const createStar = (w, h, colors) => ({
 const createFallingStar = (w, h, colors) => ({
   x: random(0, w),
   y: random(0, h),
-  radius: random(0.5, 1.2),
+  radius: random(0.6, 1.2),
   speed: random(15, 18),
   angle: random(-65, 65),
   color: colors[Math.floor(Math.random() * colors.length)],
-  falling: true,
-});
-
-const createCloud = (w, h) => ({
-  x: random(0, w),
-  y: random(0, h * 0.6),
-  opacity: random(0.03, 0.07),
-  speed: random(0.1, 0.4),
-  scale: random(1.5, 3),
-  directionX: random(-0.3, 0.3),
-  directionY: random(-0.05, 0.05),
 });
 
 export default function StarsBackgroundWithNebula({ theme }) {
   const canvasRef = useRef(null);
   const starsRef = useRef([]);
-  const cloudsRef = useRef([]);
   const fallingRef = useRef([]);
   const animRef = useRef(null);
+  const transitionStartRef = useRef(null);
+  const prevThemeRef = useRef(theme);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    function initScene() {
-      const colors = STAR_COLORS[theme] || STAR_COLORS.dark;
-      starsRef.current = Array.from({ length: NUM_STARS }, () => createStar(width, height, colors));
-      cloudsRef.current = Array.from({ length: 4 }, () => createCloud(width, height));
-      fallingRef.current = [];
+    function initStars() {
+      const colors = STAR_COLORS[theme];
+      starsRef.current = Array.from({ length: NUM_STARS }, () =>
+        createStar(width, height, colors)
+      );
     }
 
     function resizeHandler() {
       width = (canvas.width = window.innerWidth);
       height = (canvas.height = window.innerHeight);
-      initScene();
+      initStars();
     }
 
-    function drawBackground() {
-      if (theme === 'light') {
-        const grad = ctx.createLinearGradient(0, 0, 0, height);
-        grad.addColorStop(0, '#000000');
-        grad.addColorStop(0.4, '#1786b1');
-        grad.addColorStop(1, '#e1a9a9');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, width, height);
-        ctx.save();
-        ctx.filter = 'blur(60px)';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
-        ctx.fillRect(0, 0, width, height);
-        ctx.restore();
-      } else {
-        ctx.clearRect(0, 0, width, height);
-      }
-    }
+    function drawBackground(progress) {
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
 
-    function drawCloud(cloud, t) {
-      const { x, y, scale, opacity, directionX, directionY } = cloud;
-      const alpha = opacity + Math.sin(t * 0.001 + x) * 0.02;
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(scale, scale);
-      ctx.beginPath();
-      for (let i = 0; i < 7; i++) {
-        const a = (Math.PI * 2 * i) / 7;
-        ctx.quadraticCurveTo(Math.cos(a) * 30, Math.sin(a) * 20, 0, 0);
+      const darkStops = ['#000002', '#000a1a', '#00122e', '#051d42', '#132d4a', '#1f3d60'];
+      const dawnStops = [
+
+        '#052044', // темно-синій
+        '#84b1c9', // м’який небесний
+        '#dbeafe',
+        '#fffeed', // майже білий теплий];
+        '#fef1e6', // теплий пастельний беж
+        '#fee4d0', // рожево-персиковий
+
+      ]
+
+      const interpolate = (c1, c2, t) => {
+        const [r1, g1, b1] = c1.match(/\w\w/g).map(x => parseInt(x, 16));
+        const [r2, g2, b2] = c2.match(/\w\w/g).map(x => parseInt(x, 16));
+        const r = Math.round(r1 + (r2 - r1) * t);
+        const g = Math.round(g1 + (g2 - g1) * t);
+        const b = Math.round(b1 + (b2 - b1) * t);
+        return `rgb(${r},${g},${b})`;
+      };
+
+      for (let i = 0; i < dawnStops.length; i++) {
+        const t = i / (dawnStops.length - 1);
+        const color = interpolate(darkStops[i] || darkStops[darkStops.length - 1], dawnStops[i], progress);
+        grad.addColorStop(t, color);
       }
-      ctx.closePath();
-      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
-      ctx.shadowBlur = 100;
-      ctx.shadowColor = `rgba(255,255,255,${alpha})`;
-      ctx.fill();
-      ctx.restore();
-      cloud.x += directionX * cloud.speed;
-      cloud.y += directionY * cloud.speed;
-      if (cloud.x < -200 || cloud.x > width + 200 || cloud.y < -100 || cloud.y > height) {
-        Object.assign(cloud, createCloud(width, height));
-      }
+
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
     }
 
     function drawStar(star, t) {
@@ -132,19 +114,39 @@ export default function StarsBackgroundWithNebula({ theme }) {
       }
     }
 
+    let animationStart = null;
+    const TRANSITION_DURATION = 1500; // 1.5 seconds
+
     function animate(t) {
-      drawBackground();
-      cloudsRef.current.forEach(c => drawCloud(c, t));
-      starsRef.current.forEach(s => drawStar(s, t));
-      fallingRef.current.forEach((f, i) => updateFallingStar(f, i));
+      if (animationStart === null) animationStart = t;
+
+      let progress = 1;
+      if (transitionStartRef.current) {
+        const elapsed = t - transitionStartRef.current;
+        progress = Math.min(elapsed / TRANSITION_DURATION, 1);
+        if (progress === 1) transitionStartRef.current = null;
+      }
+
+      if (prevThemeRef.current !== theme && !transitionStartRef.current) {
+        transitionStartRef.current = t;
+        prevThemeRef.current = theme;
+        initStars();
+      }
+
+      drawBackground(theme === 'light' ? progress : 1 - progress);
+
+      starsRef.current.forEach(star => drawStar(star, t));
+      fallingRef.current.forEach((star, idx) => updateFallingStar(star, idx));
+
       if (Math.random() < 0.005) {
-        const colors = STAR_COLORS[theme] || STAR_COLORS.dark;
+        const colors = STAR_COLORS[theme];
         fallingRef.current.push(createFallingStar(width, height, colors));
       }
+
       animRef.current = requestAnimationFrame(animate);
     }
 
-    initScene();
+    initStars();
     window.addEventListener('resize', resizeHandler);
     animRef.current = requestAnimationFrame(animate);
 
@@ -154,10 +156,5 @@ export default function StarsBackgroundWithNebula({ theme }) {
     };
   }, [theme]);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className={styles.canvas}
-    />
-  );
+  return <canvas ref={canvasRef} className={styles.canvas} />;
 }
