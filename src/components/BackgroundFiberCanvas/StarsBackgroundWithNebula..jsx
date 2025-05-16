@@ -62,12 +62,13 @@ export default function StarsBackgroundWithNebula({ theme }) {
       const grad = ctx.createLinearGradient(0, 0, 0, height);
 
       const darkStops = [
-        '#000002',
-        '#00001a',
-        '#000015',
-        '#000020',
-        '#000a1a',
-        '#000625',
+        '#000000',
+        '#000010',        
+        '#000013',
+        '#000016',
+        '#000019',
+        '#000022',
+        '#000120',
       ];
       const dawnStops = [
 
