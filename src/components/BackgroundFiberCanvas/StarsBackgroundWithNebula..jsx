@@ -61,15 +61,24 @@ export default function StarsBackgroundWithNebula({ theme }) {
     function drawBackground(progress) {
       const grad = ctx.createLinearGradient(0, 0, 0, height);
 
-      const darkStops = ['#000002', '#000a1a', '#00122e', '#051d42', '#132d4a', '#1f3d60'];
+      const darkStops = [
+        '#000002',
+        '#00001a',
+        '#000015',
+        '#000020',
+        '#000a1a',
+        '#000625',
+      ];
       const dawnStops = [
 
-        '#052044', // темно-синій
-        '#84b1c9', // м’який небесний
-        '#dbeafe',
-        '#fffeed', // майже білий теплий];
-        '#fef1e6', // теплий пастельний беж
-        '#fee4d0', // рожево-персиковий
+        '#000625',
+        '#6797bb',
+        '#b2d9f6',
+        '#d7f8fb',
+        '#fafffe',
+        '#fff2e2',
+        '#fdeadb', 
+   '     #ffd4be',
 
       ]
 
