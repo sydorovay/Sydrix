@@ -1,12 +1,10 @@
-import React from 'react';
+// src/components/Footer/Footer.jsx
 import styles from './Footer.module.css';
 
-const Footer = ({ footerText }) => {
+export default function Footer({ footerText }) {
   return (
     <footer className={styles.footer}>
-      <p>&copy; 2025 {footerText}</p>
+      <p className={styles.text}>&copy; {new Date().getFullYear()} {footerText}</p>
     </footer>
   );
-};
-
-export default Footer;
+}

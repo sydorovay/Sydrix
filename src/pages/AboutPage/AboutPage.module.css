@@ -1,0 +1,19 @@
+.about {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-primary);
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--text-secondary);
+}
