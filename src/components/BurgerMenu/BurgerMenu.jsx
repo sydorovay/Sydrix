@@ -6,6 +6,7 @@ export default function BurgerIcon({ isOpen, onClick }) {
       className={`${styles.burgerIcon} ${isOpen ? styles.open : ''}`}
       onClick={onClick}
       aria-label="Toggle menu"
+      aria-pressed={isOpen}
     >
       <span />
       <span />
