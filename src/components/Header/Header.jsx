@@ -1,10 +1,42 @@
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LogoLight from '@/assets/logo-dark-uk.svg';
 import LogoDark from '@/assets/logo-uk.svg';
 import styles from './Header.module.css';
 
 export default function Header({ t, theme }) {
+  const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+
   const logoSrc = theme === 'dark' ? LogoDark : LogoLight;
+
+  const toggleMenu = () => setShowMenu(prev => !prev);
+
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target)
+      ) {
+        setShowMenu(false);
+      }
+    };
+
+    const handleEscape = e => {
+      if (e.key === 'Escape') setShowMenu(false);
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -31,13 +63,52 @@ export default function Header({ t, theme }) {
           ))}
       </h2>
 
-      <a
-        href="mailto:sydorovay@gmail.com"
-        className={styles.button}
-        aria-label="Send email to Sydorovay"
-      >
-        {t.button}
-      </a>
+      <div className={styles.buttonWrapper}>
+        <button
+          onClick={toggleMenu}
+          ref={buttonRef}
+          className={styles.button}
+          aria-haspopup="true"
+          aria-expanded={showMenu}
+          aria-controls="contact-menu"
+        >
+          {t.button}
+        </button>
+
+        {showMenu && (
+          <ul
+            id="contact-menu"
+            className={styles.menu}
+            ref={menuRef}
+            role="menu"
+            aria-label="Contact options"
+          >
+            <li role="none">
+              <a href="mailto:sydorovay@gmail.com" role="menuitem">📧 Email</a>
+            </li>
+            <li role="none">
+              <a
+                href="https://t.me/sydrix"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="menuitem"
+              >
+                💬 Telegram
+              </a>
+            </li>
+            <li role="none">
+              <a
+                href="https://www.linkedin.com/in/sydrix"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="menuitem"
+              >
+                🔗 LinkedIn
+              </a>
+            </li>
+          </ul>
+        )}
+      </div>
     </header>
   );
 }

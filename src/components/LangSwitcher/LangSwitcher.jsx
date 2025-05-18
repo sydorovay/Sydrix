@@ -15,6 +15,7 @@ export default function LangSwitcher() {
   const { language: lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
+  const buttonRef = useRef(null);
   const selected = LANGUAGES.find(l => l.code === lang) || LANGUAGES[1];
 
   const toggleDropdown = useCallback(e => {
@@ -22,7 +23,10 @@ export default function LangSwitcher() {
     setOpen(o => !o);
   }, []);
 
-  const closeDropdown = useCallback(() => setOpen(false), []);
+  const closeDropdown = useCallback(() => {
+    setOpen(false);
+    buttonRef.current?.focus();
+  }, []);
 
   const handleSelect = useCallback(code => {
     setLang(code);
@@ -48,14 +52,22 @@ export default function LangSwitcher() {
   }, [closeDropdown]);
 
   return (
-    <div ref={rootRef} className={`${styles.langSwitcher} ${open ? styles.open : ''}`}>
+    <div ref={rootRef} className={styles.langSwitcher}>
       <button
+        ref={buttonRef}
         onClick={toggleDropdown}
         className={styles.selectedBtn}
         aria-label="Select language"
         aria-expanded={open}
+        aria-haspopup="true"
       >
-        <Flag code={selected.code.toUpperCase()} alt={selected.label} style={{ width: 16, height: 16 }} />
+        <Flag
+          code={selected.code.toUpperCase()}
+          alt={selected.label}
+          className={styles.flag}
+          width={16}
+          height={10}
+        />
       </button>
 
       {open && (
@@ -68,7 +80,13 @@ export default function LangSwitcher() {
                 className={styles.langOption}
                 role="menuitem"
               >
-                <Flag code={code.toUpperCase()} alt={label} style={{ width: 14, height: 10 }} />
+                <Flag
+                  code={code.toUpperCase()}
+                  alt={label}
+                  className={styles.sunnyFlag}
+                  width={14}
+                  height={10}
+                />
                 <span className={styles.label}>{label}</span>
               </button>
             </li>

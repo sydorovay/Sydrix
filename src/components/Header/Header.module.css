@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
-  margin-inline: auto;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -12,24 +10,26 @@
   margin-top: 100px;
   position: relative;
   z-index: 1;
+  padding-bottom: 2rem;
 }
 
 .title {
   font-size: 2.2rem;
   font-weight: bold;
-  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
+  margin-bottom: 1rem;
 }
 
 .subtitle {
   font-size: 1.2rem;
   line-height: 2rem;
   color: var(--color-text-light);
-  margin-top: 2rem;
-  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
 }
 
 .logo {
-  margin-top: 1rem;
   transition: transform 0.3s ease;
 }
 
@@ -37,25 +37,76 @@
   transform: scale(1.02);
 }
 
+.buttonWrapper {
+  position: relative;
+  margin-top: 1rem;
+}
+
 .button {
-  padding: 0.4rem 0.6rem;
-  background-color: #2e77b2b8;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--color-accent);
   color: var(--color-text-inverse);
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   border: 1px solid var(--border-dropdown);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 1rem;
-  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
 }
 
 .button:hover {
   background-color: var(--color-button-hover);
 }
 
-/* Mobile-first: поступове зменшення для малих екранів */
+.menu {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 0.5rem;
+  background-color: var(--menu-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1.25rem;
+  z-index: 10;
+  animation: fadeIn 0.2s ease-out;
+  min-width: 160px;
+  text-align: left;
+}
+
+.menu li {
+  margin-bottom: 0.5rem;
+}
+
+.menu li:last-child {
+  margin-bottom: 0;
+}
+
+.menu a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+  color: var(--color-accent-hover);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .title {
     font-size: 1.8rem;
@@ -73,6 +124,12 @@
 
   .button {
     font-size: 0.9rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .menu {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

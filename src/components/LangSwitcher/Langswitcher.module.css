@@ -1,161 +1,135 @@
-.langSwitcher {
-  position: relative;
+.header {
   display: flex;
-flex-direction: column;
-  /* display: inline-block; */
-  align-items: end;
-
-}
-
-
-
-.selectedBtn {
-  background: none;
-  border: none;
-    width: 40px;
-      height: 16px;
-      border-radius: 30px;
-  cursor: pointer;
-  padding: 2px;
-  box-shadow: inset -2px -2px 4px rgba(156, 179, 198, 0.31),
-      inset 2px 2px 6px rgba(0, 0, 0, 0.2),
-      0 1px 2px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow:
-      inset -2px -2px 4px rgba(255, 255, 255, 0.4),
-      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
-  display: flex;
+  flex-direction: column;
+  width: 100%;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  background-color: var(--color-background);
+  border-bottom: 2px solid var(--color-border);
+  margin-top: 80px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 2rem;
 }
 
-.selectedBtn:hover,
-.selectedBtn:focus,
-.open .selectedBtn:active {
-  transform: scale(1.05);
-      box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.312),
-        inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease-in-out, ;
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
+  margin-bottom: 1rem;
 }
 
-.selectedBtn:hover .flag {
+.subtitle {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  color: var(--color-text-light);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
+}
+
+.logo {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
   transform: scale(1.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.open .selectedBtn:active {
-  transform: scale(1.05);
-  box-shadow: 0 0 14px var(--hover-color);
-  border-radius: 20%;;
+.buttonWrapper {
+  position: relative;
+  margin-top: 1rem;
 }
 
-
-.flag {
-  box-shadow: 1px 1px 5px rgba(206, 231, 252, 0.4),
-      inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
-}
-
-.flag:active, 
-.sunnyFlag:active{
-  transform: scale(1.01);
-    box-shadow: none;
-}
-
-.flag:hover {
-  transform: scale(1.01);
-  box-shadow: none;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.dropdown {
-  position: absolute;
-  top: 40px;
-  right: 0px;
-  background: linear-gradient(295deg, rgba(255, 255, 255, 0.85) 2%, rgba(1, 102, 130, 0.74) 0%, rgba(34, 179, 212, 0.79) 49%, rgba(84, 216, 240, 0.82) 88%, rgba(32, 114, 144, 0.64) 100%, rgba(219, 250, 255, 0.9) 100%);
-    -webkit-backdrop-filter: blur(5px);
-      /* Safari */
-    backdrop-filter: blur(5px);
-    /* сам ефект розмиття */
-
-  border-radius: 4px;
-  box-shadow:
-      -2px -2px 4px rgba(68, 75, 158, 0.466),
-      2px 2px 6px rgba(40, 6, 78, 0.2),
-      0 1px 2px rgba(31, 0, 24, 0.15);
-
-  list-style: none;
-  padding: 4px 2px;
-  z-index: 999;
-  min-width: 120px;
-  border: none;
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease
-}
-
-/* Плавне відкриття */
-.open .dropdown {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-/* Коли список відкритий (додано клас .open до батьківського елемента) */
-.open .dropdown {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.langOption {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding: 6px 10px;
-  background: none;
-  border: none;
+.button {
+  padding: 0.5rem 0.8rem;
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid var(--border-dropdown);
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
 }
 
-.langOption:hover .sunnyFlag,
-.langOption:focus-within .sunnyFlag {
-  transform: scale(1.02);
-  box-shadow: 0 0 14px rgb(12, 70, 195);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 20%;
-}
-.flag,
-.sunnyFlag {
-  border-radius: 2px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.button:hover {
+  background-color: var(--color-button-hover);
 }
 
-.label:hover,
-.label:focus {
-  transform: scale(1.05);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  color: var(--text-color-dark);
+.menu {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 0.5rem;
+  background-color: var(--menu-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1.25rem;
+  z-index: 10;
+  animation: fadeIn 0.2s ease-out;
+  min-width: 160px;
+  text-align: left;
 }
 
-.open .selectedBtn {
-  transform: scale(1.05);
-  background: rgba(28, 52, 92, 0.1);
-  box-shadow:
-    inset -1px -1px 2px rgba(0, 139, 252, 0.4),
-    inset 1px 1px 3px rgba(0, 0, 0, 0.2),
-    0 4px 8px rgba(0, 0, 0, 0.2);
+.menu li {
+  margin-bottom: 0.5rem;
 }
 
-/* І прапорець всередині кнопки теж «відскочить» */
-.open .selectedBtn .flag {
-  transform: scale(1.02);
+.menu li:last-child {
+  margin-bottom: 0;
 }
 
-@media (max-width: 600px) {
+.menu a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
 
+.menu a:hover {
+  text-decoration: underline;
+  color: var(--color-accent-hover);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.6rem;
+  }
+
+  .logo {
+    width: 280px;
+    height: auto;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .menu {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
