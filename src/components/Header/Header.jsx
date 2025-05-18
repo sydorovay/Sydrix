@@ -1,4 +1,3 @@
-import React from 'react';
 import LogoLight from '../../assets/logo-dark-uk.svg';
 import LogoDark from '../../assets/logo-uk.svg';
 import styles from './Header.module.css';
@@ -12,7 +11,7 @@ export default function Header({ t, theme }) {
 
       <img
         src={logoSrc}
-        alt="Logo"
+        alt="Sydrix personal logo"
         width={400}
         height={100}
         className={styles.logo}
