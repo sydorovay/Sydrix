@@ -5,10 +5,22 @@
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.9rem;
-  opacity: 0.8;
+  opacity: 0.85;
+
+  /* Ефект легкого підняття */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  border-radius: 12px 12px 0 0;
+  margin: 2rem auto 0;
+  width: 100%;
+  max-width: 1200px;
 }
 
-/* Desktop tweaks */
+.footer:hover {
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
 @media (min-width: 768px) {
   .footer {
     padding: 1.5rem;

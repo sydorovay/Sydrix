@@ -6,7 +6,7 @@ import TopBar from '../TopBar/TopBar';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackgroundWithNebula';
 
-import HomePage from '@/pages/HomePage';
+import HomePage from '@/pages/HomePage/HomePage';
 import AboutPage from '@/pages/AboutPage/AboutPage';
 import ServicesPage from '../../pages/ServicesPage/ServicesPage';
 import PortfolioPage from '@/pages/PortfolioPage';
