@@ -1,5 +1,5 @@
 import styles from './ContactsSection.module.css';
-import { useLanguage } from '../../../hooks/useLanguage';
+import { useLanguage } from '@/context/useLanguage';
 
 const ContactsSection = ({ phone, email, portfolioLink }) => {
   const { t } = useLanguage();

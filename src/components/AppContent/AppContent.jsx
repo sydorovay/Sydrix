@@ -8,7 +8,7 @@ import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackgroundW
 
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage/AboutPage';
-import ServicesPage from '@/pages/ServicesPage';
+import ServicesPage from '../../pages/ServicesPage/ServicesPage';
 import PortfolioPage from '@/pages/PortfolioPage';
 import TestimonialsPage from '@/pages/TestimonialsPage';
 import BlogPage from '@/pages/BlogPage';
@@ -18,7 +18,7 @@ import PartnershipPage from '@/pages/PartnershipPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 import { useThemeContext } from '../../context/ThemeProvider';
-import { useLanguage } from '../../hooks/useLanguage';
+import { useLanguage } from '../../context/useLanguage';
 import styles from './AppContent.module.css';
 
 export default function AppContent() {

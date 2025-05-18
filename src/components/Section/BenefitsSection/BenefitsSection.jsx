@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLanguage } from '../../../hooks/useLanguage';
+import { useLanguage } from '@/context/useLanguage';
 import styles from './BenefitsSection.module.css';
 
 export default function BenefitsSection() {

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useLanguage } from '../../hooks/useLanguage';
+import { useLanguage } from '../../context/useLanguage';
 import BurgerIcon from '../BurgerMenu/BurgerMenu';
 import styles from './NavMenu.module.css';
 
