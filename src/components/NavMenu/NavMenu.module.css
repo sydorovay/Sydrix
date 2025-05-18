@@ -75,3 +75,14 @@
     color: #5f4dd7;
   }
 }
+
+@media (min-width: 768px) {
+
+  .navMenu {
+      position: absolute;
+      top: 1.2rem;
+      left: 4rem;
+      width: 90%;
+      height: auto;
+      line-height: 1.6rem; }
+}

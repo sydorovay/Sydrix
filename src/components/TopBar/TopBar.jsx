@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './TopBar.module.css';
 import NavMenu from '../NavMenu/NavMenu';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
@@ -15,13 +16,15 @@ export default function TopBar({ lang, setLang, theme, toggleTheme }) {
   return (
     <header className={styles.topBar}>
       <div className={styles.left}>
-        <img
-          src="/sx_logo.svg"
-          alt="Sydrix Logo"
-          width={32}
-          height={32}
-          className={styles.logo}
-        />
+        <Link to="/" className={styles.logoLink} aria-label="Go to homepage">
+          <img
+            src="/sx_logo.svg"
+            alt="Sydrix Logo"
+            width={32}
+            height={32}
+            className={styles.logo}
+          />
+        </Link>
       </div>
 
       <NavMenu className={styles.nav} />

@@ -1,5 +1,5 @@
-import LogoLight from '../../assets/logo-dark-uk.svg';
-import LogoDark from '../../assets/logo-uk.svg';
+import LogoLight from '@/assets/logo-dark-uk.svg';
+import LogoDark from '@/assets/logo-uk.svg';
 import styles from './Header.module.css';
 
 export default function Header({ t, theme }) {
