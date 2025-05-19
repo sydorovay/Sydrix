@@ -1,14 +1,15 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Flag from 'react-world-flags';
-import styles from './Langswitcher.module.css';
+import styles from './LangSwitcher.module.css';
 import { useLanguage } from '@/context/useLanguage';
 
 const LANGUAGES = [
-  { code: 'de', label: 'Deutsch' },
   { code: 'gb', label: 'English' },
+  { code: 'de', label: 'Deutsch' },
   { code: 'pl', label: 'Polski' },
   { code: 'ua', label: 'Українська' },
   { code: 'it', label: 'Italiano' },
+  { code: 'fr', label: 'Français' },
 ];
 
 export default function LangSwitcher() {
@@ -16,11 +17,12 @@ export default function LangSwitcher() {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
   const buttonRef = useRef(null);
-  const selected = LANGUAGES.find(l => l.code === lang) || LANGUAGES[1];
 
-  const toggleDropdown = useCallback(e => {
+  const selected = LANGUAGES.find(l => l.code === lang) || LANGUAGES[0];
+
+  const toggleDropdown = useCallback((e) => {
     e.stopPropagation();
-    setOpen(o => !o);
+    setOpen(prev => !prev);
   }, []);
 
   const closeDropdown = useCallback(() => {
@@ -34,65 +36,49 @@ export default function LangSwitcher() {
   }, [setLang, closeDropdown]);
 
   useEffect(() => {
-    const onClickOutside = e => {
+    const handleClickOutside = e => {
       if (rootRef.current && !rootRef.current.contains(e.target)) {
         closeDropdown();
       }
     };
-    document.addEventListener('mousedown', onClickOutside);
-    return () => document.removeEventListener('mousedown', onClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [closeDropdown]);
 
   useEffect(() => {
-    const onEscape = e => {
+    const handleEscape = e => {
       if (e.key === 'Escape') closeDropdown();
     };
-    document.addEventListener('keydown', onEscape);
-    return () => document.removeEventListener('keydown', onEscape);
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
   }, [closeDropdown]);
 
   return (
-    <div ref={rootRef} className={styles.langSwitcher}>
+    <div ref={rootRef} className={styles.wrapper}>
       <button
         ref={buttonRef}
         onClick={toggleDropdown}
-        className={styles.selectedBtn}
-        aria-label="Select language"
+        className={styles.button}
+        aria-label="Change language"
+        aria-haspopup="listbox"
         aria-expanded={open}
-        aria-haspopup="true"
       >
-        <Flag
-          code={selected.code.toUpperCase()}
-          alt={selected.label}
-          className={styles.flag}
-          width={16}
-          height={10}
-        />
+        <Flag code={selected.code.toUpperCase()} className={styles.flag} alt={selected.label} />
       </button>
 
-      {open && (
-        <ul className={styles.dropdown} role="menu">
-          {LANGUAGES.filter(l => l.code !== selected.code).map(({ code, label }) => (
-            <li key={code} role="none">
-              <button
-                onClick={() => handleSelect(code)}
-                onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && handleSelect(code)}
-                className={styles.langOption}
-                role="menuitem"
-              >
-                <Flag
-                  code={code.toUpperCase()}
-                  alt={label}
-                  className={styles.sunnyFlag}
-                  width={14}
-                  height={10}
-                />
-                <span className={styles.label}>{label}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className={`${styles.dropdown} ${open ? styles.open : ''}`} role="listbox">
+        {LANGUAGES.filter(l => l.code !== selected.code).map(({ code, label }) => (
+          <button
+            key={code}
+            className={styles.option}
+            role="option"
+            onClick={() => handleSelect(code)}
+          >
+            <Flag code={code.toUpperCase()} className={styles.flagSmall} alt={label} />
+            <span>{label}</span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

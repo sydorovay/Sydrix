@@ -39,10 +39,9 @@
     left: 0;
     right: 0;
     padding: 10px 0;
-    background: linear-gradient(135deg,
-          #b0c5e5 0%,
-          #d8e7f3 50%,
-          #bea0c8 100%  );
+    background: linear-gradient(#456399e7 0%, #caebfaeb 50%, #fff6f3 100%) ;
+    
+
     border: 1px solid #c4bef8;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
