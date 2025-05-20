@@ -82,7 +82,30 @@
   } */
 
   .title {
-    color: #e7faff;
+    color: var(--text-color);
+  }
+
+  .item {
+    background: #2d2f36;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .itemTitle {
+    color: #c6d8ff;
+  }
+
+  .itemText {
+    color: #e6feff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* .benefits {
+    
+  } */
+
+  .title {
+    /* color: #063a48; */
   }
 
   .item {

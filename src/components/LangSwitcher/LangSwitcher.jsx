@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Flag from 'react-world-flags';
-import styles from './LangSwitcher.module.css';
+import styles from './Langswitcher.module.css';
 import { useLanguage } from '@/context/useLanguage';
 
 const LANGUAGES = [
