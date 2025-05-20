@@ -4,10 +4,11 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    host: '0.0.0.0', 
-    port: 5173, 
-  },
+    server: {
+      host: 'localhost',
+      port: 5173,
+      strictPort: true,
+    },
   resolve: {
     alias: {
       // eslint-disable-next-line no-undef
