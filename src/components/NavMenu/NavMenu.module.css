@@ -35,11 +35,11 @@
   }
   .menu {
     position: absolute;
-    top: 64px;
+    top: 34px;
     left: 0;
     right: 0;
     padding: 10px 0;
-    background: linear-gradient(#456399e7 0%, #caebfaeb 50%, #fff6f3 100%) ;
+    background: linear-gradient(#456399e7 0%, #d3f1ffeb 30%, #fff6f3 100%) ;
     
 
     border: 1px solid #c4bef8;
