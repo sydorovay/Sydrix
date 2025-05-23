@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaPhoneAlt, FaLinkedinIn, FaMailBulk, FaTelegramPlane } from "react-icons/fa";
 import LogoLight from '@/assets/logo-dark-uk.svg';
 import LogoDark from '@/assets/logo-uk.svg';
 import styles from './Header.module.css';
@@ -41,7 +42,6 @@ export default function Header({ t, theme }) {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>{t.title}</h1>
-
       <Link to="/" aria-label="Go to home">
         <img
           loading="lazy"
@@ -52,7 +52,6 @@ export default function Header({ t, theme }) {
           className={styles.logo}
         />
       </Link>
-
       <h2 className={styles.subtitle}>
         {Array.isArray(t?.subtitle) &&
           t.subtitle.map((line, idx) => (
@@ -62,7 +61,6 @@ export default function Header({ t, theme }) {
             </span>
           ))}
       </h2>
-
       <div className={styles.buttonWrapper}>
         <button
           onClick={toggleMenu}
@@ -74,7 +72,6 @@ export default function Header({ t, theme }) {
         >
           {t.button}
         </button>
-
         {showMenu && (
           <ul
             id="contact-menu"
@@ -84,28 +81,30 @@ export default function Header({ t, theme }) {
             aria-label="Contact options"
           >
             <li role="none">
-              <a href="mailto:sydorovay@gmail.com" role="menuitem">📧 Email</a>
-            </li>
-            <li role="none">
               <a
                 href="https://t.me/sydrix"
                 target="_blank"
                 rel="noopener noreferrer"
                 role="menuitem"
               >
-                💬 Telegram
+                <FaTelegramPlane style={{ marginRight: '10px' }} />Telegram
               </a>
             </li>
             <li role="none">
-              <a
-                href="https://www.linkedin.com/in/sydrix"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-              >
-                🔗 LinkedIn
-              </a>
+              <a href="mailto:sydryx.dev@gmail.com" role="menuitem"><FaMailBulk style={{ marginRight: '10px' }} />Email</a>
             </li>
+            
+            <li role="none">
+            </li>
+            <a
+              href="tel:+491234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="menuitem"
+            >
+              <FaPhoneAlt style={{ marginRight: '10px' }} />
+              Phone
+            </a>
           </ul>
         )}
       </div>
