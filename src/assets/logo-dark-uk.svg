@@ -24,16 +24,15 @@
       text-anchor: middle;
     }
     .tagline {
-      font-size: 1rem;
-      fill: #004d40;
-      opacity: 0.8;
+      font-size: 1.2rem;
+      fill: url(#grad);
     }
     .brand {
       font-size: 3rem;
       filter: url(#soft3D);
       fill: url(#grad);
       dominant-baseline: middle;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
     }
     .brand tspan:first-child,
     .brand tspan:last-child {
