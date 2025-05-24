@@ -8,7 +8,7 @@ import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackgroundW
 
 import HomePage from '@/pages/HomePage/HomePage';
 import AboutPage from '@/pages/AboutPage/AboutPage';
-import ServicesPage from '../../pages/ServicesPage/ServicesPage';
+import ServicesPage from '@/pages/ServicesPage/ServicesPage';
 import PortfolioPage from '@/pages/PortfolioPage';
 import TestimonialsPage from '@/pages/TestimonialsPage';
 import BlogPage from '@/pages/BlogPage';

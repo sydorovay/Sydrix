@@ -39,7 +39,7 @@
     left: 0;
     right: 0;
     padding: 10px 0;
-    background: linear-gradient(#456399e7 0%, #d3f1ffeb 30%, #fff6f3 100%) ;
+    background: linear-gradient(#294d76ec 0%, #8fc2e6e6 20%, #caecfaee 40%, #fef9f6 100%) ;
     
 
     border: 1px solid #c4bef8;
@@ -63,7 +63,7 @@
 
   .menu .link {
     display: block;
-    padding: 10px 20px;
+    padding: 8px 10px;
     text-align: center;
     text-decoration: none;
    color: #120438;

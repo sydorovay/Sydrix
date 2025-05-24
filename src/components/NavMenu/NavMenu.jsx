@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/useLanguage';
 import BurgerIcon from '../BurgerMenu/BurgerMenu';
 import styles from './NavMenu.module.css';
@@ -8,16 +8,43 @@ export default function NavMenu({ className = '' }) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Закриваємо меню при переході по посиланню (важливо для мобільних)
+  const menuRef = useRef(null);
+  const burgerRef = useRef(null);
+
+  const toggleMenu = () => setIsOpen(open => !open);
+
   useEffect(() => {
     if (!isOpen) return;
 
-    const closeOnRouteChange = () => setIsOpen(false);
-    window.addEventListener('popstate', closeOnRouteChange);
-    return () => window.removeEventListener('popstate', closeOnRouteChange);
-  }, [isOpen]);
+    const handleClickOutside = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        burgerRef.current &&
+        !burgerRef.current.contains(e.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
 
-  const toggleMenu = () => setIsOpen(open => !open);
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    const closeOnRouteChange = () => setIsOpen(false);
+
+    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('keydown', handleEsc);
+    window.addEventListener('popstate', closeOnRouteChange);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('keydown', handleEsc);
+      window.removeEventListener('popstate', closeOnRouteChange);
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { to: '/', label: t.home },
@@ -33,9 +60,14 @@ export default function NavMenu({ className = '' }) {
 
   return (
     <nav className={`${styles.navMenu} ${className}`}>
-      <BurgerIcon isOpen={isOpen} onClick={toggleMenu} aria-label="Toggle menu" />
+      <div ref={burgerRef}>
+        <BurgerIcon isOpen={isOpen} onClick={toggleMenu} />
+      </div>
 
-      <div className={`${styles.menu} ${isOpen ? styles.openMenu : ''}`}>
+      <div
+        ref={menuRef}
+        className={`${styles.menu} ${isOpen ? styles.openMenu : ''}`}
+      >
         {navLinks.map(({ to, label }) => (
           <NavLink
             key={to}
@@ -43,7 +75,7 @@ export default function NavMenu({ className = '' }) {
             className={({ isActive }) =>
               [styles.link, isActive ? styles.activeLink : ''].filter(Boolean).join(' ')
             }
-            onClick={() => setIsOpen(false)} // Закриваємо меню при кліку на посилання
+            onClick={() => setIsOpen(false)}
           >
             {label}
           </NavLink>

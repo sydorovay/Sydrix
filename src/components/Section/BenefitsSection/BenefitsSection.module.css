@@ -3,13 +3,14 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   text-align: center;
   margin-top: 20px;
+  color: var(--text-color-light);
 }
 
 .title {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: var(--text-color-dark);
+
 }
 
 /* Список переваг */
@@ -44,7 +45,7 @@
 .itemTitle {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--text-color-dark);
+  color: var(--text-color-light);
   margin-bottom: 0.5rem;
 }
 
