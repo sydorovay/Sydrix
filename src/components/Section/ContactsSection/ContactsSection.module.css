@@ -34,6 +34,24 @@
   text-decoration: underline;
 }
 
+.footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.socials {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+
 /* Desktop */
 @media (min-width: 768px) {
   .section {

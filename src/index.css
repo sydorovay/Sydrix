@@ -38,11 +38,8 @@ body.dark {
     /* ← for non-WebKit browsers */
       --toggle-bg: #6f7988;
         --toggle-thumb: #ffd700;
-  }
-}
 
-body.dark {
-  --text-color: rgba(226, 255, 255, 0.895);
+
   --background-color: #1e1e1e;
   --button-bg: #f1f1f1;
   --button-text: #1e1e1e;
@@ -58,7 +55,9 @@ body.dark {
   --border-dropdown: rgba(80, 80, 100, 0.8);
   --hover-color: rgba(100, 150, 255, 0.6);
   --flag-shadow: rgba(100, 150, 255, 0.8);
+  
   --label-color: #eee;
+}
 }
 
 body::-webkit-scrollbar {

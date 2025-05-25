@@ -64,10 +64,7 @@ export default function FullPageSlider({ t, theme, onContact }) {
           portfolioLink={t.portfolioLink}
         />
       </section>
-      <section className={styles.snapSection}>
-        <Footer footerText={t.footer} />
-      </section>
-
+      
       {showTopBtn && (
         <button
           className={styles.topButton}

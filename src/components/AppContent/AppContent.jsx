@@ -1,5 +1,5 @@
 // src/components/AppContent/AppContent.jsx
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import TopBar from '../TopBar/TopBar';
@@ -16,6 +16,7 @@ import ContactsPage from '@/pages/ContactsPage';
 import FaqPage from '@/pages/FaqPage';
 import PartnershipPage from '@/pages/PartnershipPage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
+import Footer from '../Footer/Footer';
 
 import { useThemeContext } from '../../context/ThemeProvider';
 import { useLanguage } from '../../context/useLanguage';
@@ -25,20 +26,17 @@ export default function AppContent() {
   const { theme, toggleTheme } = useThemeContext();
   const { lang, setLang, t } = useLanguage();
 
-  // Ініціалізація збереженої мови
   useEffect(() => {
     const saved = localStorage.getItem('lang');
     if (saved) setLang(saved);
   }, [setLang]);
 
-  // Ініціалізація і body-клас для теми
   useEffect(() => {
     const saved = localStorage.getItem('theme') || theme;
     document.body.classList.toggle('dark-theme', saved === 'dark');
     document.body.classList.toggle('light-theme', saved === 'light');
   }, [theme]);
 
-  // Збереження мови
   useEffect(() => {
     localStorage.setItem('lang', lang);
   }, [lang]);
@@ -70,6 +68,8 @@ export default function AppContent() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
+
+      <Footer t={t} theme={theme} />
     </div>
   );
 }
