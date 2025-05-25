@@ -18,6 +18,7 @@
     </linearGradient>
   </defs>
 
+  
   <style>
     text {
       font-family: 'Poppins', 'Montserrat', sans-serif;
@@ -35,6 +36,7 @@
       letter-spacing: 0.1em;
     }
     .brand tspan:first-child,
+    .brand tspan:last-child {
       font-size: 6rem;
     }
     .mid {

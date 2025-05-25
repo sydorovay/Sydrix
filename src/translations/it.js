@@ -11,6 +11,8 @@ const it = {
   faq: "FAQ",
   partnership: "Collaborazione",
 
+  showAllButton: "Mostra tutto",
+  hideAllButton: "Nascondi",
   title: "Sviluppo frontend per il tuo business",
   subtitle: [
     "Velocità che impressiona.",

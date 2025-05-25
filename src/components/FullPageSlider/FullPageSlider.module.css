@@ -1,0 +1,62 @@
+
+.snapContainer {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  /* Приховати смугу прокрутки */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+/* Приховати WebKit scrollbar */
+.snapContainer::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.snapSection {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Теми */
+.light {
+  /* background-color: #f9f9f9; */
+}
+
+.dark {
+  /* background-color: #121212; */
+}
+
+/* Кнопка "назад нагору" */
+.topButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.topButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

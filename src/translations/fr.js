@@ -11,6 +11,9 @@ const fr = {
   faq: "FAQ",
   partnership: "Partenariat",
 
+  showAllButton: "Tout afficher",
+  hideAllButton: "Masquer",
+
   title: "Développement frontend pour votre entreprise",
   subtitle: [
     "Une vitesse impressionnante.",

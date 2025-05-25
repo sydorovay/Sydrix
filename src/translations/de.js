@@ -11,6 +11,8 @@ const de = {
   faq: "FAQ",
   partnership: "Partnerschaft",
 
+  showAllButton: "Alle anzeigen",
+  hideAllButton: "Ausblenden",
   title: "Frontend-Entwicklung für Ihr Unternehmen",
   subtitle: [
     "Beeindruckende Geschwindigkeit.",

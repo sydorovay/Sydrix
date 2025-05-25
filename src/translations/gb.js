@@ -11,6 +11,8 @@ const gb = {
   faq: "FAQ",
   partnership: "Partnership",
 
+  showAllButton: "Show all",
+  hideAllButton: "Hide",
   title: "Frontend development for your business",
   subtitle: [
     "Speed that impresses.",

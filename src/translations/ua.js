@@ -11,6 +11,10 @@ const ua = {
   faq: "Питання",
   partnership: "Співпраця",
 
+
+  showAllButton: "Показати всі",
+  hideAllButton: "Сховати",
+
   title: "Frontend-розробка для вашого бізнесу",
   subtitle: [
     "Швидкість, яка вражає.",
@@ -27,7 +31,8 @@ const ua = {
   email: "Email",
   footer: "Розроблено Артемом Сидоровим",
   portfolioLabel: "Портфоліо",
-  goTo: "перейти"
+  goTo: "перейти",
+
 };
 
 export default ua;

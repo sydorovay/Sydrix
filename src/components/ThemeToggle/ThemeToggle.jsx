@@ -3,34 +3,59 @@ import styles from './ThemeToggle.module.css';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'system';
+  });
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) setTheme(savedTheme);
-  }, []);
+  const resolvedTheme = (() => {
+    if (theme === 'system') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    return theme;
+  })();
 
   useEffect(() => {
     document.body.classList.remove('light', 'dark');
-    document.body.classList.add(theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    document.body.classList.add(resolvedTheme);
+
+    if (theme === 'system') {
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      const handler = () => {
+        const systemTheme = media.matches ? 'dark' : 'light';
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(systemTheme);
+      };
+      media.addEventListener('change', handler);
+      return () => media.removeEventListener('change', handler);
+    }
+  }, [theme, resolvedTheme]);
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    const nextTheme = theme === 'light'
+      ? 'dark'
+      : theme === 'dark'
+        ? 'system'
+        : 'light';
+
+    setTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
   };
+
+  const themeLabel = theme === 'system'
+    ? 'System'
+    : theme.charAt(0).toUpperCase() + theme.slice(1);
 
   return (
     <div
       className={styles.toggleBtn}
       onClick={toggleTheme}
-      title="Change theme"
+      title={`Current: ${themeLabel}. Click to change theme`}
       aria-label="Toggle theme"
     >
       <div className={styles.track}>
-        <FaSun className={`${styles.sun} ${theme === 'light' ? styles.visible : styles.hidden}`} />
-        <FaMoon className={`${styles.moon} ${theme === 'dark' ? styles.visible : styles.hidden}`} />
-        <div className={`${styles.thumb} ${theme === 'dark' ? styles.dark : styles.light}`}></div>
+        <FaSun className={`${styles.sun} ${resolvedTheme === 'light' ? styles.visible : styles.hidden}`} />
+        <FaMoon className={`${styles.moon} ${resolvedTheme === 'dark' ? styles.visible : styles.hidden}`} />
+        <div className={`${styles.thumb} ${styles[resolvedTheme]}`}></div>
       </div>
     </div>
   );

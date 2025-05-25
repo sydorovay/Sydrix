@@ -11,6 +11,9 @@ const pl = {
   faq: "FAQ",
   partnership: "Partnerstwo",
 
+  showAllButton: "Pokaż wszystkie",
+  hideAllButton: "Ukryj",
+
   title: "Frontend dla Twojego biznesu",
   subtitle: [
     "Prędkość, która zachwyca.",

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPhoneAlt, FaLinkedinIn, FaMailBulk, FaTelegramPlane } from "react-icons/fa";
+import { FaPhoneAlt, FaMailBulk, FaTelegramPlane } from "react-icons/fa";
 import LogoLight from '@/assets/logo-dark-uk.svg';
 import LogoDark from '@/assets/logo-uk.svg';
-import styles from './Header.module.css';
+import styles from './Hero..module.css';
 
 export default function Header({ t, theme }) {
   const [showMenu, setShowMenu] = useState(false);

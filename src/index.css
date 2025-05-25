@@ -1,12 +1,22 @@
+
 body.light {
-  --text-color:  rgba(0, 0, 54, 0.8);
+  --text-color: rgba(0, 0, 54, 0.8);
   --background-color: #fff;
   --button-bg: #333;
   --button-text: #fff;
-  --shadow: 0 4px 12px linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 54, 0.8));;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   --border-color: #ccc;
   --toggle-bg: #e0e0e0;
-    --toggle-thumb: #ffffff;
+  --toggle-thumb: #ffffff;
+
+  --link-color: #007bff;
+  --highlight: rgba(0, 123, 255, 0.8);
+  --line-color: #007bff;
+  --bg-dropdown: #a7f4fed4;
+  --border-dropdown: #ffffffd2;
+  --hover-color: rgba(170, 234, 255, 0.9);
+  --flag-shadow: rgba(173, 216, 230, 0.9);
+  --label-color: #333;
 }
 
 body.dark {
@@ -31,17 +41,24 @@ body.dark {
   }
 }
 
-body.dark::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 54, 0.8));
-  animation: drift 10s ease-in-out infinite alternate;
-  z-index: -2;
-  /* pointer-events: none; */
+body.dark {
+  --text-color: rgba(226, 255, 255, 0.895);
+  --background-color: #1e1e1e;
+  --button-bg: #f1f1f1;
+  --button-text: #1e1e1e;
+  --shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  --border-color: #444;
+  --toggle-bg: #6f7988;
+  --toggle-thumb: #ffd700;
+
+  --link-color: #4d94ff;
+  --highlight: rgba(0, 123, 255, 1);
+  --line-color: #00ff00;
+  --bg-dropdown: rgba(20, 20, 30, 0.9);
+  --border-dropdown: rgba(80, 80, 100, 0.8);
+  --hover-color: rgba(100, 150, 255, 0.6);
+  --flag-shadow: rgba(100, 150, 255, 0.8);
+  --label-color: #eee;
 }
 
 body::-webkit-scrollbar {

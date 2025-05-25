@@ -1,20 +1,21 @@
-.benefitsSection{
+.benefitsSection {
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   text-align: center;
   margin-top: 20px;
   color: var(--text-color-light);
+  padding: 2rem 1rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .title {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-
 }
 
-/* Список переваг */
-.benefitsList{
+.benefitsList {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -22,50 +23,62 @@
   margin: 0 auto 2rem;
   list-style: none;
   max-width: 1200px;
+  transition: max-height 0.6s ease;
 }
 
-/* Картка переваги */
-.item {
+.benefitItem {
   padding: 1.5rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
+  border-radius: 0.75rem;
+  background-color: var(--card-bg, #fff);
 }
 
-.item:hover {
+.benefitItem:hover {
   transform: translateY(4px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Заголовок кожного пункту */
-.itemTitle {
+.benefitTitle {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--text-color-light);
   margin-bottom: 0.5rem;
 }
 
-/* Опис */
-.itemText {
+.benefitDescription {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--text-color-light);
   line-height: 1.4;
 }
 
-/* Адаптація */
+/* Кнопка */
+.toggleButton {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color, #007bff);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleButton:hover {
+  background-color: var(--accent-color-hover, #0056b3);
+}
+
+/* Grid адаптація */
 @media (min-width: 600px) {
-  .list {
+  .benefitsList {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .list {
+  .benefitsList {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -76,46 +89,24 @@
 
 /* Темна тема */
 @media (prefers-color-scheme: dark) {
-  /* .benefits {
-    
-  } */
-
-  .title {
-    color: var(--text-color-dark);
-  }
-
-  .item {
+  .benefitItem {
+    background-color: #2a2a2a;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   }
 
-  .itemTitle {
+  .benefitTitle {
     color: #c6d8ff;
   }
 
-  .itemText {
+  .benefitDescription {
     color: #e6feff;
   }
-}
 
-@media (prefers-color-scheme: light) {
-  /* .benefits {
-    
-  } */
-
-  .title {
-    /* color: #063a48; */
+  .toggleButton {
+    background-color: #00aaff;
   }
 
-  .item {
-    background: #2d2f36;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .itemTitle {
-    color: #c6d8ff;
-  }
-
-  .itemText {
-    color: #e6feff;
+  .toggleButton:hover {
+    background-color: #008ecc;
   }
 }
