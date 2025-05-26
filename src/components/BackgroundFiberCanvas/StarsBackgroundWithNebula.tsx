@@ -173,9 +173,6 @@ const StarsBackgroundWithNebula: React.FC<StarsBackgroundProps> = ({ theme = 'li
         className={styles.canvas}
         aria-hidden="true"
       />
-      <div className={styles.accessibleText}>
-        Night sky with animated stars and nebula background.
-      </div>
     </>
   );
 };
