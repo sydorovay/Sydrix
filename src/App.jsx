@@ -1,19 +1,27 @@
+// src/App.jsx
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppContent from './components/AppContent/AppContent';
-import LanguageProvider from './context/LanguageProvider';
 import { ThemeProvider } from './context/ThemeProvider';
+import LanguageProvider from './context/LanguageProvider';
+import AppContextProvider from './context/AppContextProvider';
+import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';  // <- тут
 import './styles/variables.css';
-
-
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </LanguageProvider>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <LanguageProvider>
+          <AppContextProvider>
+            <Router>
+              <Suspense fallback={<div role="alert" aria-busy="true">Завантаження...</div>}>
+                <AppContent />
+              </Suspense>
+            </Router>
+          </AppContextProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }

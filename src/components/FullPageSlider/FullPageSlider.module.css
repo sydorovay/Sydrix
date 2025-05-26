@@ -4,7 +4,6 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   position: relative;
-
 }
 
 /* Chrome, Edge, Safari */
@@ -29,6 +28,8 @@
   align-items: center;
   padding: 2rem;
   box-sizing: border-box;
+  flex-direction: column;
+  /* краща організація контенту на мобільних */
 }
 
 /* Кнопка "назад нагору" */
@@ -50,6 +51,27 @@
   transition: background-color 0.3s ease;
 }
 
-.topButton:hover {
+.topButton:hover,
+.topButton:focus-visible {
   background-color: rgba(0, 0, 0, 0.8);
+  outline: none;
+}
+
+/* Адаптивність */
+@media (min-width: 768px) {
+  .snapContainer {
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .snapSection {
+    height: 100vh;
+    min-width: 100vw;
+    scroll-snap-align: start;
+    padding: 3rem;
+    flex-direction: column;
+  }
 }
