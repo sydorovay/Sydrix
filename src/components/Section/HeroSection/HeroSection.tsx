@@ -1,34 +1,43 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPhoneAlt, FaMailBulk, FaTelegramPlane } from "react-icons/fa";
+import { FaPhoneAlt, FaMailBulk, FaTelegramPlane } from 'react-icons/fa';
 import LogoLight from '@/assets/logo-dark-uk.svg';
 import LogoDark from '@/assets/logo-uk.svg';
-import styles from './Hero..module.css';
+import styles from './HeroSecton.module.css';
 
-export default function Header({ t, theme }) {
-  const [showMenu, setShowMenu] = useState(false);
-  const menuRef = useRef(null);
-  const buttonRef = useRef(null);
+interface HeroSectionProps {
+  t: {
+    title: string;
+    subtitle?: (string | React.ReactNode)[];
+    button: string;
+  };
+  theme: 'light' | 'dark';
+}
+
+export default function HeroSection({ t, theme }: HeroSectionProps) {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const menuRef = useRef<HTMLUListElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const logoSrc = theme === 'dark' ? LogoDark : LogoLight;
 
-  const toggleMenu = () => setShowMenu(prev => !prev);
+  const toggleMenu = () => setShowMenu((prev) => !prev);
 
   useEffect(() => {
-    const handleClickOutside = e => {
+    function handleClickOutside(e: MouseEvent) {
       if (
         menuRef.current &&
-        !menuRef.current.contains(e.target) &&
+        !menuRef.current.contains(e.target as Node) &&
         buttonRef.current &&
-        !buttonRef.current.contains(e.target)
+        !buttonRef.current.contains(e.target as Node)
       ) {
         setShowMenu(false);
       }
-    };
+    }
 
-    const handleEscape = e => {
+    function handleEscape(e: KeyboardEvent) {
       if (e.key === 'Escape') setShowMenu(false);
-    };
+    }
 
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscape);
@@ -67,46 +76,42 @@ export default function Header({ t, theme }) {
           ref={buttonRef}
           className={styles.button}
           aria-haspopup="true"
-          aria-expanded={showMenu}
           aria-controls="contact-menu"
+          type="button"
         >
           {t.button}
         </button>
+
         {showMenu && (
           <ul
             id="contact-menu"
             className={styles.menu}
             ref={menuRef}
             role="menu"
+            aria-live="assertive" // Оголошує зміни для читачів екранів
             aria-label="Contact options"
           >
             <li role="none">
-              <a
-                href="https://t.me/sydrix"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-              >
-                <FaTelegramPlane style={{ marginRight: '10px' }} />Telegram
+              <a href="https://t.me/sydrix" target="_blank" rel="noopener noreferrer" role="menuitem">
+                <FaTelegramPlane style={{ marginRight: '10px' }} />
+                Telegram
               </a>
             </li>
             <li role="none">
-              <a href="mailto:sydryx.dev@gmail.com" role="menuitem"><FaMailBulk style={{ marginRight: '10px' }} />Email</a>
+              <a href="mailto:sydryx.dev@gmail.com" role="menuitem">
+                <FaMailBulk style={{ marginRight: '10px' }} />
+                Email
+              </a>
             </li>
-            
             <li role="none">
+              <a href="tel:+491727616858" target="_blank" rel="noopener noreferrer" role="menuitem">
+                <FaPhoneAlt style={{ marginRight: '10px' }} />
+                Phone
+              </a>
             </li>
-            <a
-              href="tel:+491234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              role="menuitem"
-            >
-              <FaPhoneAlt style={{ marginRight: '10px' }} />
-              Phone
-            </a>
           </ul>
         )}
+
       </div>
     </header>
   );

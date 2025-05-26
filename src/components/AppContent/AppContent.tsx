@@ -1,5 +1,5 @@
-// src/components/AppContent/AppContent.jsx
-import { useEffect, lazy, Suspense } from 'react';
+// src/components/AppContent/AppContent.tsx
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import TopBar from '../TopBar/TopBar';
@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer';
 
 import { useThemeContext } from '../../context/ThemeProvider';
 import { useLanguage } from '../../context/useLanguage';
+import { useInitEffects } from '../../hooks/useInitEffects';
 
 import styles from './AppContent.module.css';
 
@@ -27,34 +28,13 @@ export default function AppContent() {
   const { theme, toggleTheme } = useThemeContext();
   const { lang, setLang, t } = useLanguage();
 
-  // Ініціалізація мови з localStorage
-  useEffect(() => {
-    const savedLang = localStorage.getItem('lang');
-    if (savedLang) setLang(savedLang);
-  }, [setLang]);
-
-  // Збереження мови в localStorage
-  useEffect(() => {
-    localStorage.setItem('lang', lang);
-  }, [lang]);
-
-  // Темізація: оновлення класу body
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || theme;
-    document.body.classList.remove('dark-theme', 'light-theme');
-    document.body.classList.add(savedTheme === 'dark' ? 'dark-theme' : 'light-theme');
-  }, [theme]);
+  useInitEffects(theme, setLang, lang);
 
   return (
     <div className={styles.app}>
       <header className={styles.topHalf} role="banner">
         <StarsBackgroundWithNebula theme={theme} />
-        <TopBar
-          lang={lang}
-          setLang={setLang}
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
+        <TopBar lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
       </header>
 
       <main className={styles.bottomHalf} role="main">

@@ -45,15 +45,16 @@
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
 }
 
-.button:hover
- {
-  border: 1px solid var(--border-dropdown);
-  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
+.button:hover {
+ transform: scale(1.05);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+  /* Тінь виглядатиме більш об'ємно */
   font-weight: 700;
-  transition: background-color 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .menu {
