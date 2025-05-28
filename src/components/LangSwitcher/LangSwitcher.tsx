@@ -1,15 +1,14 @@
-import {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  MouseEvent,
-} from 'react';
+import React, { useState, useRef, useEffect, useCallback, MouseEvent } from 'react';
 import Flag from 'react-world-flags';
 import styles from './Langswitcher.module.css';
-import { useLanguage } from '@/context/LanguageProvider';
 import { LangCode } from '@/types/langTypes';
 import { useTString } from '@/hooks/useTString';
+
+// Додаємо типи для пропсів компонента
+interface LangSwitcherProps {
+  lang: LangCode;
+  setLang: (newLang: LangCode) => void;
+}
 
 const LANGUAGES: { code: LangCode; label: string }[] = [
   { code: LangCode.GB, label: 'English' },
@@ -20,15 +19,14 @@ const LANGUAGES: { code: LangCode; label: string }[] = [
   { code: LangCode.FR, label: 'Français' },
 ];
 
-export default function LangSwitcher() {
-  const { language, setLang } = useLanguage();
+export default function LangSwitcher({ lang, setLang }: LangSwitcherProps) {
   const t = useTString();
 
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const selected = LANGUAGES.find(item => item.code === language) ?? LANGUAGES[0];
+  const selected = LANGUAGES.find(item => item.code === lang) ?? LANGUAGES[0];
 
   const toggleDropdown = useCallback((e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -74,7 +72,7 @@ export default function LangSwitcher() {
         ref={buttonRef}
         onClick={toggleDropdown}
         className={styles.button}
-        aria-label={t('changeLanguage')}
+        aria-label={t('selectLanguage')}
         aria-haspopup="listbox"
         aria-expanded={open}
       >

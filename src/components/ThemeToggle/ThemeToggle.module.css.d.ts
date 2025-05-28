@@ -7,6 +7,8 @@ declare const styles: {
   readonly "toggleBtn": string;
   readonly "toggling": string;
   readonly "track": string;
+  readonly "hidden": string;
+  readonly "visible": string;
 };
 export = styles;
 

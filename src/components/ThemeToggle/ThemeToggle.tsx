@@ -55,7 +55,7 @@ export default function ThemeToggle() {
       <div className={styles.track}>
         <FaSun className={`${styles.sun} ${resolvedTheme === 'light' ? styles.visible : styles.hidden}`} />
         <FaMoon className={`${styles.moon} ${resolvedTheme === 'dark' ? styles.visible : styles.hidden}`} />
-        <div className={`${styles.thumb} ${styles[resolvedTheme]}`}></div>
+        <div className={`${styles.thumb} ${styles[resolvedTheme as 'dark' | 'light']}`}></div>
       </div>
     </div>
   );

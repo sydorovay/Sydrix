@@ -8,7 +8,7 @@ interface HomePageProps {
 
 export default function HomePage({ t, theme }: HomePageProps) {
   const handleContact = (): void => {
-    // Безпечна конкатенація, припускаємо, що t('email') завжди string
+    // Безпечна конкатенація: перевірка, чи є email рядком
     const email = t('email');
     if (typeof email === 'string') {
       window.location.href = `mailto:${email}`;

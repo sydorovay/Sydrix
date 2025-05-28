@@ -1,3 +1,4 @@
+/* ======== Контейнер для прокрутки ======== */
 .snapContainer {
   height: 100vh;
   overflow-y: auto;
@@ -6,7 +7,6 @@
   position: relative;
 }
 
-/* Chrome, Edge, Safari */
 .snapContainer::-webkit-scrollbar {
   width: 6px;
 }
@@ -20,10 +20,11 @@
   border-radius: 3px;
 }
 
-.title{
+.title {
   font-size: 2rem;
 }
 
+/* ======== Кожен слайд ======== */
 .snapSection {
   height: 100vh;
   scroll-snap-align: start;
@@ -33,10 +34,9 @@
   padding: 2rem;
   box-sizing: border-box;
   flex-direction: column;
-  /* краща організація контенту на мобільних */
 }
 
-/* Кнопка "назад нагору" */
+/* ======== Кнопка "назад нагору" ======== */
 .topButton {
   position: fixed;
   bottom: 20px;
@@ -60,14 +60,17 @@
   background-color: rgba(0, 0, 0, 0.8);
   outline: none;
 }
-.light{
-  color: pink
-}
-.dark{
-  color: cadetblue;
+
+/* ======== Теми ======== */
+.light {
+  color: rgb(1, 26, 30);
 }
 
-/* Адаптивність */
+.dark {
+  color: rgb(225, 250, 251);
+}
+
+/* ======== Адаптивність для мобільних пристроїв ======== */
 @media (min-width: 768px) {
   .snapContainer {
     overflow-y: hidden;
@@ -83,5 +86,19 @@
     scroll-snap-align: start;
     padding: 3rem;
     flex-direction: column;
+  }
+}
+
+/* ======== Адаптивність для малих екранів ======== */
+@media (max-width: 768px) {
+  .snapSection {
+    padding: 1.5rem;
+  }
+
+  .topButton {
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
   }
 }

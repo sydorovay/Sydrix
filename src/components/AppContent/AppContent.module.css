@@ -24,8 +24,9 @@ canvas {
   flex-direction: column;
   color: var(--text-bottom-color);
   overflow-y: auto;
+  height: 100vh;
+  /* це гарантує, що контейнер займатиме повну висоту екрану */
 }
-
 .footer {
   text-align: center;
   padding: var(--spacing-md) 0;
@@ -41,7 +42,7 @@ canvas {
   padding: var(--spacing-md);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
 /* ======== Benefits ======== */

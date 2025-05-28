@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect, useCallback, Rea
 import { getLangPack } from '../translations/translations';
 import { LangCode, LangData, BenefitItem } from '../types/langTypes';
 
-
 export type LanguageContextProps = {
   language: LangCode;
   setLang: (value: LangCode) => void;
@@ -16,10 +15,13 @@ type LanguageProviderProps = {
 };
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  // Ініціалізуємо мову з localStorage або 'gb' за замовчуванням
+  // Перевірка на наявність `localStorage`
   const [language, setLanguage] = useState<LangCode>(() => {
-    const stored = localStorage.getItem('lang');
-    return (stored as LangCode) ?? ('gb' as LangCode);
+    if (typeof localStorage !== 'undefined') {
+      const stored = localStorage.getItem('lang');
+      return (stored as LangCode) ?? LangCode.GB;
+    }
+    return LangCode.GB; // За замовчуванням для серверного рендерингу
   });
 
   const setLang = useCallback((value: LangCode) => {
@@ -27,7 +29,9 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('lang', language);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('lang', language);
+    }
   }, [language]);
 
   const langPack = getLangPack(language);

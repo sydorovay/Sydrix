@@ -20,16 +20,16 @@ export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-    <ErrorBoundary onError={logError}>
-      <RootProvider>
-        <Router>
-          <Suspense fallback={<LoadingFallback />}>
-            <AppContent />
-          </Suspense>
-        </Router>
-      </RootProvider>
-      </ErrorBoundary >
-    </LanguageProvider>
+        <ErrorBoundary onError={logError}>
+          <RootProvider>
+            <Router>
+              <Suspense fallback={<LoadingFallback />}>
+                <AppContent />
+              </Suspense>
+            </Router>
+          </RootProvider>
+        </ErrorBoundary>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

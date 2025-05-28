@@ -53,6 +53,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       aria-label="Full page scroll container"
       onKeyDown={handleKeyDown}
     >
+      {/* Hero Section */}
       <section className={styles.snapSection} aria-labelledby="hero-heading">
         <HeroSection
           t={{
@@ -64,6 +65,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
+      {/* Benefits Section */}
       <section className={styles.snapSection} aria-labelledby="benefits-heading">
         <BenefitsSection
           title={t('benefitsTitle')}
@@ -74,6 +76,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
+      {/* Portfolio Section */}
       <section className={styles.snapSection} aria-labelledby="portfolio-heading">
         <PortfolioSection
           title={t('portfolioTitle')}
@@ -82,6 +85,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
+      {/* Contacts Section */}
       <section className={styles.snapSection} aria-labelledby="contacts-heading">
         <ContactsSection
           phone={t('phone')}
@@ -91,6 +95,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
+      {/* Back to Top Button */}
       {showTopBtn && (
         <button
           className={styles.topButton}
