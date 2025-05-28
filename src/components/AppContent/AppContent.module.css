@@ -1,26 +1,3 @@
-/* ======== App Layout ======== */
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: linear-gradient(45deg,
-      var(--gradient-from),
-      var(--gradient-via),
-      var(--gradient-to),
-      var(--gradient-from));
-  background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Зменшення анімації для користувачів */
-@media (prefers-reduced-motion: reduce) {
-  .app {
-    animation: none;
-    background-size: cover;
-  }
-}
 
 /* ======== Hero & Canvas ======== */
 canvas {
@@ -96,11 +73,17 @@ canvas {
   outline: none;
 }
 
+.fallback {
+  padding: 20px;
+  text-align: center;
+}
+
 /* ======== Accessibility Helpers ======== */
 :focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
+
 
 /* ======== Themes ======== */
 .dark-theme {

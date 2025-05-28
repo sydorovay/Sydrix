@@ -4,6 +4,10 @@ declare const styles: {
   readonly "section": string;
   readonly "socials": string;
   readonly "title": string;
+  readonly "list": string;
+  readonly "label": string;
+  readonly "link": string;
+  readonly "item": string;
 };
 export = styles;
 

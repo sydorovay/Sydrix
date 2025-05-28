@@ -51,6 +51,33 @@
   font-size: 0.9rem;
 }
 
+.link {
+  color: var(--accent);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--accent-hover);
+}
+
+.list {
+list-style: none;
+}
+
+.item {
+width: 100%;
+}
+
+.label {
+  width: 100%;
+}
+
+.link {
+  width: 100%;
+}
+
 
 /* Desktop */
 @media (min-width: 768px) {

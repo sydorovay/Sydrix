@@ -1,39 +1,57 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { LanguageContext } from './LanguageContext';
-import translations, { getLangPack } from '../translations/translations';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import { getLangPack } from '../translations/translations';
+import { LangCode, LangData, BenefitItem } from '../types/langTypes';
 
-export default function LanguageProvider({ children }) {
-  // Ініціалізуємо мову з localStorage (або англійська за замовчуванням)
-  const [language, setLanguage] = useState(() => {
-    const saved = localStorage.getItem('lang');
-    return saved && translations[saved] ? saved : 'gb';
+
+export type LanguageContextProps = {
+  language: LangCode;
+  setLang: (value: LangCode) => void;
+  t: (key: keyof LangData) => string | string[] | { label: string; value: string; }[] | BenefitItem[];
+};
+
+const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
+
+type LanguageProviderProps = {
+  children: ReactNode;
+};
+
+export const LanguageProvider = ({ children }: LanguageProviderProps) => {
+  // Ініціалізуємо мову з localStorage або 'gb' за замовчуванням
+  const [language, setLanguage] = useState<LangCode>(() => {
+    const stored = localStorage.getItem('lang');
+    return (stored as LangCode) ?? ('gb' as LangCode);
   });
 
-  // Зберігаємо зміни мови у localStorage
+  const setLang = useCallback((value: LangCode) => {
+    setLanguage(value);
+  }, []);
+
   useEffect(() => {
     localStorage.setItem('lang', language);
   }, [language]);
 
-  // Функція для перемикання мови
-  const changeLanguage = useCallback(code => {
-    if (translations[code]) {
-      setLanguage(code);
-    }
-  }, []);
+  const langPack = getLangPack(language);
 
-  // Пакет перекладів для поточної мови (із fallback на англійську)
-  const t = getLangPack(language);
+  const t = useCallback((key: keyof LangData) => {
+    const value = langPack[key];
+    if (value === undefined) {
+      console.warn(`Translation key "${String(key)}" not found for language "${language}"`);
+      return String(key);
+    }
+    return value;
+  }, [langPack, language]);
 
   return (
-    <LanguageContext.Provider
-      value={{
-        language,
-        setLang: changeLanguage,    // alias, щоб компоненти могли викликати setLang(...)
-        changeLanguage,             // для тих, хто воліє більш семантичний неймінг
-        t,
-      }}
-    >
+    <LanguageContext.Provider value={{ language, setLang, t }}>
       {children}
     </LanguageContext.Provider>
   );
-}
+};
+
+export const useLanguage = (): LanguageContextProps => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};

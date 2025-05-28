@@ -20,6 +20,10 @@
   border-radius: 3px;
 }
 
+.title{
+  font-size: 2rem;
+}
+
 .snapSection {
   height: 100vh;
   scroll-snap-align: start;
@@ -55,6 +59,12 @@
 .topButton:focus-visible {
   background-color: rgba(0, 0, 0, 0.8);
   outline: none;
+}
+.light{
+  color: pink
+}
+.dark{
+  color: cadetblue;
 }
 
 /* Адаптивність */

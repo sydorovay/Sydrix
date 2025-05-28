@@ -6,6 +6,8 @@ declare const styles: {
   readonly "benefitsSection": string;
   readonly "title": string;
   readonly "toggleButton": string;
+  readonly "benefitsIcon": string;
+  readonly "icon": string;
+  readonly "contactButton": string;
 };
 export = styles;
-

@@ -1,53 +1,78 @@
 .topBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  z-index: 10;
+}
+
+/* === Лівий блок з логотипом === */
+.left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
 
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-  background-color: rgba(255, 255, 252, 0);
-
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease;
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .logo {
-  width: 52px;
-  height: auto;
-  display: block;
-  margin-right: 10px;
+  width: 32px;
+  height: 32px;
 }
 
+/* === Центр: навігація === */
+.nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Правий блок з перемикачами === */
 .controls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .themeToggle {
-  background: transparent;
+  background: none;
   border: none;
-  padding: 0.4rem;
   cursor: pointer;
-  min-width: 40px;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+.nav {
+  display: flex;
 }
 
-@media (min-width: 768px) {
+/* === Адаптивність === */
+@media (max-width: 768px) {
   .topBar {
-    /* padding: 1rem 2rem; */
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
-  .logo {
-    width: 40px;
+  .nav {
+    justify-content: flex-start;
+    width: 100%;
+    order: 3;
   }
 
   .controls {
-    gap: 0.4rem;
+    justify-content: flex-end;
+    width: 100%;
+    order: 2;
+  }
+
+  .left {
+    order: 1;
   }
 }

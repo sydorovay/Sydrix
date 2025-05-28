@@ -1,14 +1,17 @@
 // src/context/RootProvider.tsx
-import { ThemeProvider } from './ThemeProvider';
-import LanguageProvider from './LanguageProvider';
-import AppContextProvider from './AppContextProvider';
+import React, { ReactNode } from 'react';
+import { LanguageProvider } from './LanguageProvider';
+// Можливо, тут ще інші провайдери: AuthProvider, ThemeProvider, тощо
 
-export default function RootProvider({ children }: { children: React.ReactNode }) {
+type RootProviderProps = {
+  children: ReactNode;
+};
+
+export default function RootProvider({ children }: RootProviderProps) {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <AppContextProvider>{children}</AppContextProvider>
-      </LanguageProvider>
-    </ThemeProvider>
+    <LanguageProvider>
+      {/* Інші провайдери, якщо є */}
+      {children}
+    </LanguageProvider>
   );
 }

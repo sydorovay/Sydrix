@@ -1,17 +1,21 @@
-// src/components/AppContent/useInitEffects.ts
-import { useEffect } from 'react';
+import React from 'react';
+import { LangCode } from '@/types/langTypes';
 
-export function useInitEffects(theme: string, setLang: (lang: string) => void, lang: string) {
-  useEffect(() => {
+export default function useInitEffects(
+  theme: string,
+  setLang: (lang: LangCode) => void,
+  lang: LangCode
+) {
+  React.useEffect(() => {
     const savedLang = localStorage.getItem('lang');
-    if (savedLang) setLang(savedLang);
+    if (savedLang) setLang(savedLang as LangCode);
   }, [setLang]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     localStorage.setItem('lang', lang);
   }, [lang]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || theme;
     document.body.classList.remove('dark-theme', 'light-theme');
     document.body.classList.add(savedTheme === 'dark' ? 'dark-theme' : 'light-theme');

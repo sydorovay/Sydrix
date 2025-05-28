@@ -2,6 +2,8 @@
 body.light {
   --text-color: rgba(0, 0, 54, 0.8);
   --background-color: #fff;
+  --color-bg: #fff;
+  --color-border: #ccc;
   --button-bg: #333;
   --button-text: #fff;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -22,6 +24,10 @@ body.light {
 body.dark {
   --text-color:  rgba(226, 255, 255, 0.895);
   --background-color: #1e1e1e;
+
+  --color-bg: #121212;
+    --color-border: #444;
+
   --button-bg: #f1f1f1;
   --button-text: #1e1e1e;
   --shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
