@@ -11,7 +11,7 @@ import useLanguage from '@/hooks/useLanguage';
 import useInitEffects from '@/hooks/useInitEffects';
 
 import styles from './AppContent.module.css';
-import { createStringTranslator } from '@/utils/langUtils';
+import createStringTranslator from '@/utils/langUtils';
 
 const HomePage = lazy(() => import('@/pages/HomePage/HomePage'));
 const AboutPage = lazy(() => import('@/pages/AboutPage/AboutPage'));
