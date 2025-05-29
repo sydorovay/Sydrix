@@ -1,5 +1,8 @@
 /* ======== Контейнер для прокрутки ======== */
 .snapContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
@@ -26,14 +29,14 @@
 
 /* ======== Кожен слайд ======== */
 .snapSection {
-  height: 100vh;
+  display: flex;
+    flex-direction: column;
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
   box-sizing: border-box;
-  flex-direction: column;
 }
 
 /* ======== Кнопка "назад нагору" ======== */
@@ -72,20 +75,10 @@
 
 /* ======== Адаптивність для мобільних пристроїв ======== */
 @media (min-width: 768px) {
-  .snapContainer {
-    overflow-y: hidden;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    display: flex;
-    flex-direction: row;
-  }
 
   .snapSection {
-    height: 100vh;
-    min-width: 100vw;
-    scroll-snap-align: start;
+
     padding: 3rem;
-    flex-direction: column;
   }
 }
 

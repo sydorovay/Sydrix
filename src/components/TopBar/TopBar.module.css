@@ -1,7 +1,7 @@
 /* Це стилі для контенту, що проходить під topBar */
 .mainContent {
   filter: blur(5px);
-  /* Розмиваємо контент */
+
   transition: filter 0.3s ease;
   /* Плавний перехід для розмиття */
 }
@@ -12,19 +12,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background-color: #04045055;
-  border-bottom: 1px solid var(--color-border);
+  background-color: #0313420a;
+  backdrop-filter: blur(5px);
   position: fixed;
-  /* Фіксована позиція, щоб панель залишалась на місці */
   top: 0;
   left: 0;
   width: 90%;
   z-index: 10;
-}
-
-/* При прокрутці чи під час взаємодії, можна скасувати розмиття */
-.mainContent.noBlur {
-  filter: none;
 }
 
 /* === Лівий блок з логотипом === */
@@ -32,7 +26,6 @@
   display: flex;
   align-items: center;
 }
-
 .logoLink {
   display: inline-flex;
   align-items: center;
@@ -74,12 +67,11 @@
 /* === Адаптивність === */
 @media (max-width: 768px) {
   .topBar {
-    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
   .nav {
-    justify-content: flex-start;
+
     width: 100%;
     order: 3;
   }

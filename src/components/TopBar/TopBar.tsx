@@ -39,7 +39,7 @@ export default function TopBar({ theme, toggleTheme, lang, setLang }: TopBarProp
       <div className={styles.left}>
         <Link to="/" className={styles.logoLink} aria-label="Go to homepage">
           <img
-            src="/assets/sx_logo.svg"
+            src="@/assets/Sx.JPG"
             alt="Sydrix Logo"
             width={32}
             height={32}
