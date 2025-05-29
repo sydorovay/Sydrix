@@ -1,5 +1,5 @@
-import FullPageSlider from '../../components/FullPageSlider/FullPageSlider';
-import { LangData } from '../../types/langTypes';
+import FullPageSlider from '@/components/FullPageSlider/FullPageSlider';
+import { LangData } from '@/types/langTypes';
 
 interface HomePageProps {
   t: <K extends keyof LangData>(key: K) => LangData[K];

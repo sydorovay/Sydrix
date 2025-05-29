@@ -3,7 +3,7 @@ import styles from './AboutPage.module.css';
 import Footer from '@/components/Footer/Footer';
 
 import { LangData } from '@/types/langTypes';
-import { createStringTranslator } from '@/utils/langUtils';
+import createStringTranslator  from '@/utils/langUtils';
 
 interface AboutPageProps {
   t: <K extends keyof LangData>(key: K) => LangData[K];

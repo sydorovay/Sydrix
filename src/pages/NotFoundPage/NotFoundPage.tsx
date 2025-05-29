@@ -2,7 +2,7 @@ import  { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './NotFoundPage.module.css';
 import NotFoundTranslate from '../../translations/notFound';
-import { LangCode, LangData } from '../../types/langTypes';
+import { LangCode } from '../../types/langTypes';
 
 interface NotFoundPageProps {
   language: LangCode;

@@ -1,5 +1,3 @@
-import BlogSection from "../../components/Section/BlogSection/BlogSection";
-
 interface ContactsPageProps {
   t?: {
     contacts?: string;
