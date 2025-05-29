@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './ServicesPage.module.css';
 import services from '@/translations/services/services';
 import { LangData, LangCode } from '@/types/langTypes';
-import { getTranslation } from '../../utils/getTranslation';
+import getTranslation  from '@/utils/getTranslation';
 
 interface ServicesPageProps {
   t: <K extends keyof LangData>(key: K) => LangData[K];
