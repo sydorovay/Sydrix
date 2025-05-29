@@ -1,13 +1,23 @@
 import { ReactNode } from 'react';
 
 export enum LangCode {
-  GB = 'GB',
-  DE = 'DE',
-  PL = 'PL',
-  UA = 'UA',
-  IT = 'IT',
-  FR = 'FR',
+  UA = 'ua',
+  GB = 'gb',
+  PL = 'pl',
+  DE = 'de',
+  FR = 'fr',
+  IT = 'it',
 }
+
+export const LANG_CODES: LangCode[] = [
+  LangCode.UA,
+  LangCode.GB,
+  LangCode.PL,
+  LangCode.DE,
+  LangCode.FR,
+  LangCode.IT,
+];
+
 
 export type BenefitItem = {
   icon?: React.ComponentType<{ className?: string }>;

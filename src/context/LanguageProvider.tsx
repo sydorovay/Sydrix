@@ -5,7 +5,7 @@ import { LangCode, LangData, BenefitItem } from '../types/langTypes';
 export type LanguageContextProps = {
   language: LangCode;
   setLang: (value: LangCode) => void;
-  t: (key: keyof LangData) => string | string[] | { label: string; value: string; }[] | BenefitItem[];
+  t: (key: keyof LangData) => string | string[] | { label: string; value: string }[] | BenefitItem[];
 };
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
@@ -14,14 +14,16 @@ type LanguageProviderProps = {
   children: ReactNode;
 };
 
+// Використовуємо enum LangCode для значення мови за замовчуванням
+const DEFAULT_LANG: LangCode = LangCode.GB;
+
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  // Перевірка на наявність `localStorage`
   const [language, setLanguage] = useState<LangCode>(() => {
     if (typeof localStorage !== 'undefined') {
-      const stored = localStorage.getItem('lang');
-      return (stored as LangCode) ?? LangCode.GB;
+      const stored = localStorage.getItem('lang') as LangCode | null;
+      return stored && Object.values(LangCode).includes(stored as LangCode) ? (stored as LangCode) : DEFAULT_LANG;
     }
-    return LangCode.GB; // За замовчуванням для серверного рендерингу
+    return DEFAULT_LANG;
   });
 
   const setLang = useCallback((value: LangCode) => {
@@ -36,14 +38,17 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
   const langPack = getLangPack(language);
 
-  const t = useCallback((key: keyof LangData) => {
-    const value = langPack[key];
-    if (value === undefined) {
-      console.warn(`Translation key "${String(key)}" not found for language "${language}"`);
-      return String(key);
-    }
-    return value;
-  }, [langPack, language]);
+  const t = useCallback(
+    (key: keyof LangData) => {
+      const value = langPack[key];
+      if (value === undefined) {
+        console.warn(`Translation key "${String(key)}" not found for language "${language}"`);
+        return String(key);
+      }
+      return value;
+    },
+    [langPack, language]
+  );
 
   return (
     <LanguageContext.Provider value={{ language, setLang, t }}>

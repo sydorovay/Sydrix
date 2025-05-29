@@ -1,19 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getLangPack } from '../translations/translations';
-import { LangCode, LangData } from '../types/langTypes';
+import { LangCode, LangData, LANG_CODES } from '../types/langTypes';
 
 export default function useLanguage() {
   const [lang, setLang] = useState<LangCode>(() => {
-    const stored = localStorage.getItem('lang') as LangCode | null;
-    return stored && Object.values(LangCode).includes(stored as LangCode)
-      ? (stored as LangCode)
-      : LangCode.GB;
+    if (typeof localStorage !== 'undefined') {
+      const stored = localStorage.getItem('lang') as LangCode | null;
+      return stored && LANG_CODES.includes(stored) ? stored : LangCode.GB;
+    }
+    return LangCode.GB;
   });
 
   const [t, setT] = useState<LangData>(() => getLangPack(lang));
 
   useEffect(() => {
-    localStorage.setItem('lang', lang);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('lang', lang);
+    }
     setT(getLangPack(lang));
   }, [lang]);
 

@@ -1,11 +1,12 @@
+// src/components/FullPageSlider/FullPageSlider.tsx
 import React, { useRef, useCallback, KeyboardEvent, useMemo } from 'react';
 import HeroSection from '../Section/HeroSection/HeroSection';
-import BenefitsSection from '../../components/Section/BenefitsSection/BenefitsSection';
-import PortfolioSection from '../../components/Section/PortfolioSection/PortfolioSection';
+import BenefitsSection from '@/components/Section/BenefitsSection/BenefitsSection';
+import PortfolioSection from '@/components/Section/PortfolioSection/PortfolioSection';
 import ContactsSection from '../Section/ContactsSection/ContactsSection';
 import styles from './FullPageSlider.module.css';
 import { FaArrowUp } from 'react-icons/fa';
-import { LangData } from '../../types/langTypes';
+import { LangData } from '@/types/langTypes';
 import { useShowTopButton } from '@/hooks/useShowTopButton';
 
 type TranslateFn = <K extends keyof LangData>(key: K) => LangData[K];
@@ -17,6 +18,7 @@ interface FullPageSliderProps {
 }
 
 const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) => {
+  // Ми більше не підтягуємо language тут — це робить HeroSection
   const containerRef = useRef<HTMLDivElement>(null);
   const showTopBtn = useShowTopButton(containerRef);
 
@@ -26,8 +28,9 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
-      const keys = ['Home', 'PageUp', 'ArrowUp'];
-      if (keys.includes(e.key)) scrollToTop();
+      if (['Home', 'PageUp', 'ArrowUp'].includes(e.key)) {
+        scrollToTop();
+      }
     },
     [scrollToTop]
   );
@@ -53,7 +56,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       aria-label="Full page scroll container"
       onKeyDown={handleKeyDown}
     >
-      {/* Hero Section */}
+      {/* Hero Section сам підтягує мову */}
       <section className={styles.snapSection} aria-labelledby="hero-heading">
         <HeroSection
           t={{
@@ -65,7 +68,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
-      {/* Benefits Section */}
+      {/* Benefits */}
       <section className={styles.snapSection} aria-labelledby="benefits-heading">
         <BenefitsSection
           title={t('benefitsTitle')}
@@ -76,7 +79,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
-      {/* Portfolio Section */}
+      {/* Portfolio */}
       <section className={styles.snapSection} aria-labelledby="portfolio-heading">
         <PortfolioSection
           title={t('portfolioTitle')}
@@ -85,7 +88,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
-      {/* Contacts Section */}
+      {/* Contacts */}
       <section className={styles.snapSection} aria-labelledby="contacts-heading">
         <ContactsSection
           phone={t('phone')}
@@ -95,7 +98,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
-      {/* Back to Top Button */}
+      {/* Back to Top */}
       {showTopBtn && (
         <button
           className={styles.topButton}

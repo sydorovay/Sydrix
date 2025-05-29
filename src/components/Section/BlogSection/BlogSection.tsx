@@ -3,7 +3,15 @@ import { FaArrowRight } from 'react-icons/fa';
 import Modal from 'react-modal';
 import styles from './BlogSection.module.css';
 
-const blogPosts = [
+interface BlogPost {
+  id: number;
+  title: string;
+  date: string;
+  preview: string;
+  fullText: string;
+}
+
+const blogPosts: BlogPost[] = [
   {
     id: 1,
     title: "Сайт, який продає: як ми створюємо проєкти, від яких не відвести очей",
@@ -11,16 +19,16 @@ const blogPosts = [
     preview: "Уявіть: клієнт відкриває ваш сайт — і одразу розуміє, що це саме те, що йому потрібно...",
     fullText: "Це повний текст статті, який буде відображатися в модальному вікні. Тут можна докладніше описати підхід, стратегії та результат.",
   },
-  // Можна додати ще
+  // інші пости можна додати тут
 ];
 
-Modal.setAppElement('#root'); // Уникає попередження з accessibility
+Modal.setAppElement('#root');
 
 const BlogSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
-  const openModal = (post) => {
+  const openModal = (post: BlogPost) => {
     setSelectedPost(post);
     setIsModalOpen(true);
   };
@@ -34,15 +42,15 @@ const BlogSection = () => {
     <section className={styles.blogSection} id="blog">
       <h2 className={styles.title}>Блог</h2>
       <div className={styles.posts}>
-        {blogPosts.map(({ id, title, date, preview, fullText }) => (
-          <article key={id} className={styles.post}>
-            <p className={styles.date}>{date}</p>
-            <h3 className={styles.postTitle}>{title}</h3>
-            <p className={styles.preview}>{preview}</p>
+        {blogPosts.map(post => (
+          <article key={post.id} className={styles.post}>
+            <p className={styles.date}>{post.date}</p>
+            <h3 className={styles.postTitle}>{post.title}</h3>
+            <p className={styles.preview}>{post.preview}</p>
             <button
               className={styles.readMore}
-              onClick={() => openModal({ title, fullText })}
-              aria-label={`Читати далі: ${title}` }
+              onClick={() => openModal(post)}
+              aria-label={`Читати далі: ${post.title}`}
             >
               Читати далі
             </button>
@@ -56,7 +64,7 @@ const BlogSection = () => {
         contentLabel="Повна стаття"
         className={styles.modal}
         overlayClassName={styles.overlay}
-        closeTimeoutMS={300} // для анімації закриття
+        closeTimeoutMS={300}
       >
         {selectedPost && (
           <div className={styles.modalContent}>

@@ -84,7 +84,11 @@ export default function LangSwitcher({ lang, setLang }: LangSwitcherProps) {
       </button>
 
       {open && (
-        <div className={styles.dropdown} role="listbox" tabIndex={-1}>
+        <div
+          className={`${styles.dropdown} ${open ? styles.open : ''}`}
+          role="listbox"
+        >
+      
           {LANGUAGES.filter(item => item.code !== selected.code).map(({ code, label }) => (
             <button
               key={code}

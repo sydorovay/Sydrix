@@ -59,7 +59,7 @@ export default function TopBar({ theme, toggleTheme, lang, setLang }: TopBarProp
         >
           <ThemeToggle />
         </button>
-        <LangSwitcher lang={lang} setLang={handleLangChange} />
+        <LangSwitcher lang={lang} setLang={setLang} />
       </div>
     </header>
   );

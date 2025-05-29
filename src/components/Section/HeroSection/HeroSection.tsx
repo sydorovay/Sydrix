@@ -1,47 +1,48 @@
-import { useState, useRef, useEffect } from 'react';
+// src/components/Section/HeroSection/HeroSection.tsx
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaPhoneAlt, FaMailBulk, FaTelegramPlane } from 'react-icons/fa';
-import LogoLight from '@/assets/logo-dark-uk.svg';
-import LogoDark from '@/assets/logo-uk.svg';
-import styles from './HeroSecton.module.css';
+
+import staticLogo from '@/assets/staticLogo.svg'; // єдиний логотип
+
+import styles from './HeroSection.module.css';
+
+interface Translations {
+  title: string;
+  subtitle?: (string | React.ReactNode)[];
+  button: string;
+}
 
 interface HeroSectionProps {
-  t: {
-    title: string;
-    subtitle?: (string | React.ReactNode)[];
-    button: string;
-  };
+  t: Translations;
   theme: 'light' | 'dark';
 }
 
 export default function HeroSection({ t, theme }: HeroSectionProps) {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLUListElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const logoSrc = theme === 'dark' ? LogoDark : LogoLight;
-
-  const toggleMenu = () => setShowMenu((prev) => !prev);
+  const toggleMenu = () => setIsMenuOpen(prev => !prev);
 
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
+    function handleClickOutside(event: MouseEvent) {
       if (
         menuRef.current &&
-        !menuRef.current.contains(e.target as Node) &&
+        !menuRef.current.contains(event.target as Node) &&
         buttonRef.current &&
-        !buttonRef.current.contains(e.target as Node)
+        !buttonRef.current.contains(event.target as Node)
       ) {
-        setShowMenu(false);
+        setIsMenuOpen(false);
       }
     }
-
-    function handleEscape(e: KeyboardEvent) {
-      if (e.key === 'Escape') setShowMenu(false);
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
     }
-
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscape);
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
@@ -49,69 +50,79 @@ export default function HeroSection({ t, theme }: HeroSectionProps) {
   }, []);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${styles[theme]}`}>
       <h1 className={styles.title}>{t.title}</h1>
       <Link to="/" aria-label="Go to home">
         <img
           loading="lazy"
-          src={logoSrc}
+          src={staticLogo}
           alt="Sydrix personal logo"
           width={400}
           height={100}
           className={styles.logo}
+          decoding="async"
+          fetchPriority="low"
         />
       </Link>
       <h2 className={styles.subtitle}>
-        {Array.isArray(t?.subtitle) &&
-          t.subtitle.map((line, idx) => (
-            <span key={idx}>
-              {line}
-              <br />
-            </span>
-          ))}
+        {t.subtitle?.map((line, idx) => (
+          <span key={idx}>
+            {line}
+            <br />
+          </span>
+        ))}
       </h2>
       <div className={styles.buttonWrapper}>
         <button
-          onClick={toggleMenu}
           ref={buttonRef}
+          onClick={toggleMenu}
           className={styles.button}
-          aria-haspopup="true"
+          aria-haspopup="menu"
           aria-controls="contact-menu"
+          aria-expanded={isMenuOpen}
           type="button"
         >
           {t.button}
         </button>
-
-        {showMenu && (
+        {isMenuOpen && (
           <ul
             id="contact-menu"
-            className={styles.menu}
             ref={menuRef}
+            className={styles.menu}
             role="menu"
-            aria-live="assertive" // Оголошує зміни для читачів екранів
             aria-label="Contact options"
+            aria-live="polite"
           >
             <li role="none">
-              <a href="https://t.me/sydrix" target="_blank" rel="noopener noreferrer" role="menuitem">
-                <FaTelegramPlane style={{ marginRight: '10px' }} />
+              <a
+                href="https://t.me/sydrix"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="menuitem"
+              >
+                <FaTelegramPlane aria-hidden="true" className={styles.icon} />
                 Telegram
               </a>
             </li>
             <li role="none">
               <a href="mailto:sydryx.dev@gmail.com" role="menuitem">
-                <FaMailBulk style={{ marginRight: '10px' }} />
+                <FaMailBulk aria-hidden="true" className={styles.icon} />
                 Email
               </a>
             </li>
             <li role="none">
-              <a href="tel:+491727616858" target="_blank" rel="noopener noreferrer" role="menuitem">
-                <FaPhoneAlt style={{ marginRight: '10px' }} />
+              <a
+                href="tel:+491727616858"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="menuitem"
+              >
+                <FaPhoneAlt aria-hidden="true" className={styles.icon} />
                 Phone
               </a>
             </li>
           </ul>
         )}
-
       </div>
     </header>
   );

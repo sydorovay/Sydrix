@@ -7,16 +7,23 @@ const languageToFile = {
   de: '/logo-de.svg',
   pl: '/logo-pl.svg',
   it: '/logo-it.svg',
-};
+} as const; // <-- робимо об'єкт readonly з конкретними літералами
 
-export default function Logo({ lang = 'de', className = '' }) {
-const logoSrc = languageToFile[lang] || languageToFile.de;
+type LangCode = keyof typeof languageToFile; // 'gb' | 'ua' | 'de' | 'pl' | 'it'
+
+interface LogoProps {
+  lang?: LangCode;
+  className?: string;
+}
+
+export default function Logo({ lang = 'de', className = '' }: LogoProps) {
+  const logoSrc = languageToFile[lang] || languageToFile.de;
 
   const [isToggling, setIsToggling] = useState(false);
 
   const handleLogoClick = () => {
     setIsToggling(true);
-    setTimeout(() => setIsToggling(false), 400); // тривалість анімації
+    setTimeout(() => setIsToggling(false), 400);
 
     window.location.href = '/';
   };
