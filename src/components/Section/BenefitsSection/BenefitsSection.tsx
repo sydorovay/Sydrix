@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './BenefitsSection.module.css';
 
 export interface BenefitItem {
-  id: string; 
+  id: string;
   title: string;
   description: string;
   icon?: React.ComponentType<{ className?: string }>;
@@ -25,35 +25,38 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const visibleBenefits = isExpanded ? benefits : benefits.slice(0, 3);
+  // В нерозгорнутому стані — перші 5, в розгорнутому — всі
+  const visibleBenefits = isExpanded ? benefits : benefits.slice(0, 5);
 
-  const toggleExpanded = () => {
-    setIsExpanded(prev => !prev);
-  };
+  const toggleExpanded = () => setIsExpanded(prev => !prev);
 
   return (
-    <section className={`${styles.benefitsSection} ${theme}`}>
+    <section className={`${styles.benefitsSection} ${styles[theme]}`}>
       <h2 className={styles.title}>{title}</h2>
 
       <ul className={styles.benefitsList}>
-        {visibleBenefits.map((item, index) => {
+        {visibleBenefits.map(item => {
           const Icon = item.icon;
           return (
             <li key={item.id} className={styles.benefitItem}>
-              {Icon ? <Icon className={styles.icon} /> : null}
-              <h3 className={styles.benefitTitle}>{item.title}</h3>
-              <p className={styles.benefitDescription}>{item.description}</p>
+              <div className={styles.headerBox}>
+                {Icon && <Icon className={styles.icon} />}
+                <h3 className={styles.benefitTitle}>{item.title}</h3>
+              </div>
+              {isExpanded && (
+                <p className={styles.benefitDescription}>{item.description}</p>
+              )}
             </li>
           );
         })}
       </ul>
 
-      {benefits.length > 3 && (
+      {benefits.length > 5 && (
         <button
           className={styles.toggleButton}
           onClick={toggleExpanded}
           aria-expanded={isExpanded}
-          aria-label={isExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+          aria-label={isExpanded ? 'Collapse benefits' : 'Expand benefits'}
         >
           {isExpanded ? '▲' : '▼'}
         </button>
@@ -65,5 +68,6 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
     </section>
   );
 };
+
 
 export default BenefitsSection;

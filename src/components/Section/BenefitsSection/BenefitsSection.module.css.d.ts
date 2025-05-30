@@ -9,5 +9,9 @@ declare const styles: {
   readonly "benefitsIcon": string;
   readonly "icon": string;
   readonly "contactButton": string;
+  readonly "headerBox": string;
+  readonly "loading": string;
+  readonly "light": string;  
+    readonly "dark": string;  
 };
 export = styles;
