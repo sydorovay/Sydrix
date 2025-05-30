@@ -19,11 +19,12 @@ export const LANG_CODES: LangCode[] = [
 ];
 
 
-export type BenefitItem = {
-  icon?: React.ComponentType<{ className?: string }>;
+export interface BenefitItem {
+  id: string;
   title: string;
   description: string;
-};
+  icon?: React.ComponentType<{ className?: string }>;
+}
 
 export type LangData = {
   home: string;

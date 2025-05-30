@@ -13,5 +13,8 @@ declare const styles: {
   readonly "loading": string;
   readonly "light": string;  
     readonly "dark": string;  
+    readonly "arrow": string;  
+    readonly "rotated": string;  
+
 };
 export = styles;

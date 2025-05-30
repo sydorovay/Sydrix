@@ -8,16 +8,25 @@ export type ThemeData = {
   setTheme: (theme: ThemeType) => void;
 };
 
-const useTheme = (): ThemeData => {
-  const [theme, setThemeState] = useState<ThemeType>(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('theme');
-      return stored === 'dark' ? 'dark' : 'light';
-    }
-    return 'light';
-  });
+const getInitialTheme = (): ThemeType => {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
 
+    // Якщо тема не збережена, визначаємо з системних налаштувань
+    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+    return prefersDark ? 'dark' : 'light';
+  }
+  return 'light';
+};
+
+const useTheme = (): ThemeData => {
+  const [theme, setThemeState] = useState<ThemeType>(getInitialTheme);
+
+  // Додаємо клас до body та зберігаємо тему
   useEffect(() => {
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
@@ -25,8 +34,8 @@ const useTheme = (): ThemeData => {
     setThemeState(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const setTheme = (theme: ThemeType) => {
-    setThemeState(theme);
+  const setTheme = (newTheme: ThemeType) => {
+    setThemeState(newTheme);
   };
 
   return { theme, toggleTheme, setTheme };

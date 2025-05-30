@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import styles from './BenefitsSection.module.css';
+import { BenefitItem } from '../../../types/langTypes';
 
-export interface BenefitItem {
-  id: string;
-  title: string;
-  description: string;
-  icon?: React.ComponentType<{ className?: string }>;
-}
 
 export interface BenefitsSectionProps {
   title: string;
@@ -59,10 +54,15 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
           className={styles.toggleButton}
           onClick={toggleExpanded}
           aria-expanded={isExpanded}
-          aria-label={isExpanded ? 'Collapse benefits' : 'Expand benefits'}
           type="button"
         >
-          {isExpanded ? '▲' : '▼'}
+          <span>{isExpanded ? 'Show less' : 'Show more'}</span>
+          <span
+            className={`${styles.arrow} ${isExpanded ? styles.rotated : ''}`}
+            aria-hidden="true"
+          >
+            ▼
+          </span>
         </button>
       )}
 

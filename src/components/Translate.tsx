@@ -18,7 +18,6 @@ const Translate: React.FC<TranslateProps> = ({ id, className }) => {
     return <>{translation.join(' ')}</>; // або інша логіка рендеру масиву
   }
 
-  // Якщо щось інше (наприклад benefits), просто повертаємо null або можна кастомізувати
   return null;
 };
 

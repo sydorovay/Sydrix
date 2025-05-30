@@ -5,8 +5,9 @@ declare const styles: {
   readonly "title": string;
   readonly "light": string;
   readonly "dark": string;
-  
-  
+  readonly "benefitsSection": string;
+  readonly "benefitsList": string;
+  readonly "benefits": string;
 
 };
 export = styles;

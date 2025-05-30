@@ -1,23 +1,33 @@
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+
+
 .benefitsSection {
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   text-align: center;
-  margin-top: 20px;
+align-items: center;
   color: var(--text-color-light);
   padding: 2rem 1rem;
   overflow: hidden;
   position: relative;
-  background-color: var(--background-color, #fff);
   margin: 0 auto;
 }
+
 .light {
-  color: var(--text-color-light);
+  color: #000;
 }
 
-.dark {
-  color: var(--text-color-dark);
+.dark{
+  background-color: #01876855;
 }
-
 
 /* Заголовок секції */
 .headerBox {
@@ -43,14 +53,16 @@
 
 /* Окремий елемент */
 .benefitItem {
+  display: flex;
+  flex-direction: column;
   padding: 1.25rem;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-  text-align: left;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   border-radius: 0.75rem;
-  background-color: var(--card-bg, #fff);
-  gap: 1rem;
+  background-color: #0091ff44;
+  gap: 1.2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -59,13 +71,6 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Іконка */
-.icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  color: var(--accent-color, #0070f3);
-}
 
 /* Заголовок переваги */
 .benefitTitle {
@@ -76,6 +81,8 @@
 
 /* Опис (відображається лише у розгорнутому стані) */
 .benefitDescription {
+  display: flex;
+  flex-direction: row;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
@@ -114,7 +121,6 @@
 .contactButton:hover {
   background-color: #005bb5;
 }
-
 /* Адаптивність */
 @media (min-width: 600px) {
   .benefitsList {
@@ -138,42 +144,5 @@
 
   .benefitTitle {
     font-size: 1.25rem;
-  }
-}
-
-/* Темна тема (автоматично через prefers-color-scheme) */
-@media (prefers-color-scheme: dark) {
-  .benefitsSection {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
-  }
-
-  .benefitItem {
-    background-color: #2a2a2a;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  }
-
-  .benefitTitle {
-    color: #c6d8ff;
-  }
-
-  .benefitDescription {
-    color: #e6feff;
-  }
-
-  .toggleButton {
-    background-color: #00aaff;
-  }
-
-  .toggleButton:hover {
-    background-color: #008ecc;
-  }
-
-  .contactButton {
-    background-color: #0088ff;
-  }
-
-  .contactButton:hover {
-    background-color: #0070cc;
   }
 }

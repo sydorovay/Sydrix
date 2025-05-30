@@ -2,12 +2,15 @@
 .snapContainer {
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: auto;
+  width: 100%;
+  height: auto;
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   position: relative;
+}
+.benefits{
+  padding: 2rem;
 }
 
 .snapContainer::-webkit-scrollbar {
