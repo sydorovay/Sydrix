@@ -31,16 +31,19 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
   const toggleExpanded = () => setIsExpanded(prev => !prev);
 
   return (
-    <section className={`${styles.benefitsSection} ${styles[theme]}`}>
+    <section className={`${styles.benefitsSection} ${styles[theme]}`} aria-label={title}>
       <h2 className={styles.title}>{title}</h2>
 
       <ul className={styles.benefitsList}>
-        {visibleBenefits.map(item => {
+        {visibleBenefits.map((item, index) => {
           const Icon = item.icon;
+          // Унікальний ключ із id + індекс (щоб уникнути конфліктів, якщо id повторюється)
+          const key = `${item.id}-${index}`;
+
           return (
-            <li key={item.id} className={styles.benefitItem}>
+            <li key={key} className={styles.benefitItem}>
               <div className={styles.headerBox}>
-                {Icon && <Icon className={styles.icon} />}
+                {Icon && <Icon className={styles.icon} aria-hidden="true" />}
                 <h3 className={styles.benefitTitle}>{item.title}</h3>
               </div>
               {isExpanded && (
@@ -57,17 +60,21 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
           onClick={toggleExpanded}
           aria-expanded={isExpanded}
           aria-label={isExpanded ? 'Collapse benefits' : 'Expand benefits'}
+          type="button"
         >
           {isExpanded ? '▲' : '▼'}
         </button>
       )}
 
-      <button className={styles.contactButton} onClick={onButtonClick}>
+      <button
+        className={styles.contactButton}
+        onClick={onButtonClick}
+        type="button"
+      >
         {buttonText}
       </button>
     </section>
   );
 };
-
 
 export default BenefitsSection;
