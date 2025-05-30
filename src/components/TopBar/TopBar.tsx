@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './TopBar.module.css';
 import NavMenu from '../NavMenu/NavMenu';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import LangSwitcher from '../LangSwitcher/LangSwitcher';
 import { LangCode } from '@/types/langTypes';
+import logo from '@/assets/sxclear.svg'; // ✅ Імпортуємо картинку правильно
 
 type TopBarProps = {
   theme: 'light' | 'dark';
@@ -16,20 +17,13 @@ type TopBarProps = {
 export default function TopBar({ theme, toggleTheme, lang, setLang }: TopBarProps) {
   const handleThemeToggle = useCallback(() => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
-
-    // Оновлення класу теми на body
     document.body.classList.remove(`${theme}-theme`);
     document.body.classList.add(`${newTheme}-theme`);
-
-    // Збереження обраної теми в localStorage
     localStorage.setItem('theme', newTheme);
-
-    // Оновлення стану через callback
     toggleTheme(newTheme);
   }, [theme, toggleTheme]);
 
   const handleLangChange = useCallback((newLang: LangCode) => {
-    // Оновлення мови в локальному сховищі
     setLang(newLang);
     localStorage.setItem('lang', newLang);
   }, [setLang]);
@@ -39,7 +33,7 @@ export default function TopBar({ theme, toggleTheme, lang, setLang }: TopBarProp
       <div className={styles.left}>
         <Link to="/" className={styles.logoLink} aria-label="Go to homepage">
           <img
-            src="@/assets/Sx.JPG"
+            src={logo}
             alt="Sydrix Logo"
             width={32}
             height={32}
@@ -59,7 +53,7 @@ export default function TopBar({ theme, toggleTheme, lang, setLang }: TopBarProp
         >
           <ThemeToggle />
         </button>
-        <LangSwitcher lang={lang} setLang={setLang} />
+        <LangSwitcher lang={lang} setLang={handleLangChange} />
       </div>
     </header>
   );

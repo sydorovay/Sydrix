@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styles from './BenefitsSection.module.css';
 
 export interface BenefitItem {
-  icon?: React.ComponentType<{ className?: string }>;
+  id: string; 
   title: string;
   description: string;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 export interface BenefitsSectionProps {
@@ -38,7 +39,7 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
         {visibleBenefits.map((item, index) => {
           const Icon = item.icon;
           return (
-            <li key={index} className={styles.benefitItem}>
+            <li key={item.id} className={styles.benefitItem}>
               {Icon ? <Icon className={styles.icon} /> : null}
               <h3 className={styles.benefitTitle}>{item.title}</h3>
               <p className={styles.benefitDescription}>{item.description}</p>
@@ -48,7 +49,12 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
       </ul>
 
       {benefits.length > 3 && (
-        <button className={styles.toggleButton} onClick={toggleExpanded}>
+        <button
+          className={styles.toggleButton}
+          onClick={toggleExpanded}
+          aria-expanded={isExpanded}
+          aria-label={isExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+        >
           {isExpanded ? '▲' : '▼'}
         </button>
       )}
