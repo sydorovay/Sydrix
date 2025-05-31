@@ -1,148 +1,121 @@
-.arrow {
-  display: inline-block;
-  transition: transform 0.3s ease;
+:root {
+  --bg-color: #fff;
+  --text-color: #222;
+  --accent-color: #007bff;
+  --surface-color: #f8f9fa;
+  --button-bg: #007bff;
+  --button-color: #fff;
+  --button-hover-bg: #0056b3;
+  --focus-outline: 2px solid #007bff;
 }
 
-.rotated {
-  transform: rotate(180deg);
+.dark {
+  --bg-color: #222;
+  --text-color: #eee;
+  --accent-color: #1e90ff;
+  --surface-color: #333;
+  --button-bg: #1e90ff;
+  --button-color: #fff;
+  --button-hover-bg: #0a74da;
+  --focus-outline: 2px solid #1e90ff;
 }
-
-
 
 .benefitsSection {
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  text-align: center;
-align-items: center;
-  color: var(--text-color-light);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   padding: 2rem 1rem;
-  overflow: hidden;
-  position: relative;
+  border-radius: 12px;
+  max-width: 1024px;
   margin: 0 auto;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.light {
-  color: #000;
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.dark{
-  background-color: #01876855;
-}
-
-/* Заголовок секції */
-.headerBox {
+.benefitsList {
+  list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  justify-content: center;
+}
+
+.benefitItem {
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  flex: 1 1 140px;
+  max-width: 180px;
+  min-height: 140px;
+  padding: 1rem;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  text-align: center;
+}
+
+.benefitItem:hover,
+.benefitItem:focus {
+  background-color: var(--accent-color);
+  color: var(--button-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  outline: none;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
-}
-/* Список переваг */
-.benefitsList {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  padding: 0;
-  margin: 0 auto 2rem;
-  list-style: none;
-  max-width: 1200px;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.75rem;
+  fill: currentColor;
 }
 
-/* Окремий елемент */
-.benefitItem {
-  display: flex;
-  flex-direction: column;
-  padding: 1.25rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  text-align: center;
-  border-radius: 0.75rem;
-  background-color: #0091ff44;
-  gap: 1.2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.benefitItem:hover {
-  transform: translateY(4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-}
-
-
-/* Заголовок переваги */
 .benefitTitle {
-  margin: 0;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.1rem;
-}
-
-/* Опис (відображається лише у розгорнутому стані) */
-.benefitDescription {
-  display: flex;
-  flex-direction: row;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
   margin: 0;
 }
 
-/* Кнопка згортання/розгортання */
-.toggleButton {
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--accent-color, #0070f3);
-  color: #fff;
+.showAllButton {
+  display: block;
+  margin: 0 auto;
+  background-color: var(--button-bg);
+  color: var(--button-color);
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease;
 }
 
-.toggleButton:hover {
-  background-color: var(--accent-color-hover, #005bb5);
+.showAllButton:hover,
+.showAllButton:focus {
+  background-color: var(--button-hover-bg);
+  outline: none;
 }
 
-/* Кнопка контактів */
-.contactButton {
-  padding: 0.75rem 1.5rem;
-  background-color: #0070f3;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 1rem;
-  transition: background-color 0.2s;
-}
-
-.contactButton:hover {
-  background-color: #005bb5;
-}
-/* Адаптивність */
-@media (min-width: 600px) {
+/* Responsive */
+@media (max-width: 480px) {
   .benefitsList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .benefitsList {
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: column;
+    align-items: center;
   }
 
-  .title {
-    font-size: 2.25rem;
-  }
-
-  .icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .benefitTitle {
-    font-size: 1.25rem;
+  .benefitItem {
+    max-width: 90vw;
   }
 }

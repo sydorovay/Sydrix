@@ -1,4 +1,4 @@
-import benefitsDataDe from './benefitsDataDe';
+import benefitsDataDe from '../data/BenefitsData/benefitsDataDe';
 import { LangData } from '../types/langTypes';
 
 const de: LangData = {

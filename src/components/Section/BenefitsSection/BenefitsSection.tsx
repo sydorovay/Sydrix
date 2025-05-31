@@ -1,80 +1,73 @@
 import React, { useState } from 'react';
+import type { BenefitItem } from '@/types/langTypes';
+import BenefitModal from './BenefitsModal/BenefitsModal';
 import styles from './BenefitsSection.module.css';
-import { BenefitItem } from '../../../types/langTypes';
 
-
-export interface BenefitsSectionProps {
-  title: string;
+interface BenefitsProps {
   benefits: BenefitItem[];
-  buttonText: string;
-  onButtonClick: () => void;
-  theme: 'light' | 'dark';
+  theme?: 'light' | 'dark';
 }
 
-const BenefitsSection: React.FC<BenefitsSectionProps> = ({
-  title,
-  benefits,
-  buttonText,
-  onButtonClick,
-  theme,
-}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const Benefits: React.FC<BenefitsProps> = ({ benefits, theme = 'light' }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedBenefit, setSelectedBenefit] = useState<BenefitItem | null>(null);
 
-  // В нерозгорнутому стані — перші 5, в розгорнутому — всі
-  const visibleBenefits = isExpanded ? benefits : benefits.slice(0, 5);
+  const previewBenefits = benefits.slice(0, 5);
 
-  const toggleExpanded = () => setIsExpanded(prev => !prev);
+  const openModalWithBenefit = (id: string) => {
+    const benefit = benefits.find(b => b.id === id) || null;
+    setSelectedBenefit(benefit);
+    setModalOpen(true);
+  };
 
   return (
-    <section className={`${styles.benefitsSection} ${styles[theme]}`} aria-label={title}>
-      <h2 className={styles.title}>{title}</h2>
-
+    <section className={styles.benefitsSection} aria-labelledby="benefits-title">
+      <h2 id="benefits-title" className={styles.title}>
+        Наші переваги
+      </h2>
       <ul className={styles.benefitsList}>
-        {visibleBenefits.map((item, index) => {
-          const Icon = item.icon;
-          // Унікальний ключ із id + індекс (щоб уникнути конфліктів, якщо id повторюється)
-          const key = `${item.id}-${index}`;
-
-          return (
-            <li key={key} className={styles.benefitItem}>
-              <div className={styles.headerBox}>
-                {Icon && <Icon className={styles.icon} aria-hidden="true" />}
-                <h3 className={styles.benefitTitle}>{item.title}</h3>
-              </div>
-              {isExpanded && (
-                <p className={styles.benefitDescription}>{item.description}</p>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-
-      {benefits.length > 5 && (
-        <button
-          className={styles.toggleButton}
-          onClick={toggleExpanded}
-          aria-expanded={isExpanded}
-          type="button"
-        >
-          <span>{isExpanded ? 'Show less' : 'Show more'}</span>
-          <span
-            className={`${styles.arrow} ${isExpanded ? styles.rotated : ''}`}
-            aria-hidden="true"
+        {previewBenefits.map(({ id, icon: Icon, title }) => (
+          <li
+            key={id}
+            className={styles.benefitItem}
+            tabIndex={0}
+            role="button"
+            onClick={() => openModalWithBenefit(id)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModalWithBenefit(id);
+              }
+            }}
+            aria-label={title}
           >
-            ▼
-          </span>
-        </button>
-      )}
-
+            {Icon && <Icon className={styles.icon} aria-hidden="true" />}
+            <h3 className={styles.benefitTitle}>{title}</h3>
+          </li>
+        ))}
+      </ul>
       <button
-        className={styles.contactButton}
-        onClick={onButtonClick}
-        type="button"
+        className={styles.showAllButton}
+        onClick={() => setModalOpen(true)}
+        aria-haspopup="dialog"
       >
-        {buttonText}
+        Показати всі
       </button>
+
+      {modalOpen && (
+        <BenefitModal
+          benefits={benefits}
+          selectedBenefit={selectedBenefit}
+          onSelectBenefit={setSelectedBenefit}
+          onClose={() => {
+            setModalOpen(false);
+            setSelectedBenefit(null);
+          }}
+          theme={theme}
+        />
+      )}
     </section>
   );
 };
 
-export default BenefitsSection;
+export default Benefits;

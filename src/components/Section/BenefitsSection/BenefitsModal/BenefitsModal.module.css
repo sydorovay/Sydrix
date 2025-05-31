@@ -1,0 +1,181 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #222;
+  --primary-color: #111;
+  --accent-color: #007bff;
+  --surface-color: #f8f9fa;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --button-hover-bg: #0056b3;
+  --button-hover-color: #fff;
+  --focus-outline: 2px solid #007bff;
+}
+
+.dark {
+  --bg-color: #222;
+  --text-color: #eee;
+  --primary-color: #ddd;
+  --accent-color: #1e90ff;
+  --surface-color: #333;
+  --shadow-color: rgba(0, 0, 0, 0.7);
+  --button-hover-bg: #0a74da;
+  --button-hover-color: #fff;
+  --focus-outline: 2px solid #1e90ff;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInOverlay 0.3s ease forwards;
+}
+
+/* Modal */
+.modal {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  animation: scaleInModal 0.3s ease forwards;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Close button */
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: var(--accent-color);
+  outline: none;
+}
+
+/* Benefits list modal wrapper */
+.benefitsListModal {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Benefits list */
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 40%;
+  max-height: 360px;
+  overflow-y: auto;
+  border-right: 1px solid var(--surface-color);
+}
+
+/* Individual benefit item */
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  user-select: none;
+  color: var(--primary-color);
+}
+
+.benefitItem:hover,
+.benefitItem:focus {
+  background-color: var(--accent-color);
+  color: var(--button-hover-color);
+  outline: none;
+}
+
+.benefitItem.selected {
+  background-color: var(--accent-color);
+  color: var(--button-hover-color);
+  font-weight: 600;
+}
+
+/* Icon in list */
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+/* Benefit details */
+.benefitDetails {
+  width: 55%;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Large icon */
+.iconLarge {
+  width: 56px;
+  height: 56px;
+  fill: var(--accent-color);
+  align-self: flex-start;
+}
+
+/* Title inside modal */
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Description text */
+.description {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

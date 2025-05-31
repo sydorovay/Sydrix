@@ -1,8 +1,8 @@
 declare const styles: {
-  readonly "app": string;
   readonly "benefitsList": string;
   readonly "bottomHalf": string;
   readonly "dark-theme": string;
+  readonly "fallback": string;
   readonly "footer": string;
   readonly "gradientShift": string;
   readonly "light-theme": string;
@@ -10,6 +10,7 @@ declare const styles: {
   readonly "portfolioItem": string;
   readonly "section": string;
   readonly "topHalf": string;
+  readonly "app": string;
 };
 export = styles;
 

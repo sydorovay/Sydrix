@@ -1,14 +1,11 @@
 declare const styles: {
+  readonly "benefits": string;
+  readonly "dark": string;
+  readonly "light": string;
   readonly "snapContainer": string;
   readonly "snapSection": string;
-  readonly "topButton": string;
   readonly "title": string;
-  readonly "light": string;
-  readonly "dark": string;
-  readonly "benefitsSection": string;
-  readonly "benefitsList": string;
-  readonly "benefits": string;
-
+  readonly "topButton": string;
 };
 export = styles;
 

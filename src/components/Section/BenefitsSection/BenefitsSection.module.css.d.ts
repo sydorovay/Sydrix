@@ -1,20 +1,17 @@
 declare const styles: {
-  readonly "benefitDescription": string;
   readonly "benefitItem": string;
   readonly "benefitTitle": string;
   readonly "benefitsList": string;
   readonly "benefitsSection": string;
-  readonly "title": string;
-  readonly "toggleButton": string;
-  readonly "benefitsIcon": string;
-  readonly "icon": string;
   readonly "contactButton": string;
+  readonly "dark": string;
+  readonly "expandButton": string;
   readonly "headerBox": string;
-  readonly "loading": string;
-  readonly "light": string;  
-    readonly "dark": string;  
-    readonly "arrow": string;  
-    readonly "rotated": string;  
-
+  readonly "icon": string;
+  readonly "light": string;
+  readonly "title": string;
+  readonly "itemDescription": string;
+  readonly "showAllButton": string;
 };
 export = styles;
+
