@@ -1,5 +1,3 @@
-
-
 .benefitsSection {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -90,7 +88,7 @@
 /* Responsive */
 @media (max-width: 480px) {
   .benefitsList {
-    flex-direction: column
+    flex-direction: column;
     align-items: center;
   }
 
