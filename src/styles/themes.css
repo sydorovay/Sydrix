@@ -1,0 +1,50 @@
+:root {
+  /* Font, layout */
+  --font-base: 'Poppins', 'Montserrat', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  --transition-fast: 0.2s;
+  --transition-slow: 0.4s;
+  --transition: 0.3s ease;
+
+  --thumb-offset-light: 0px;
+  --thumb-offset-dark: 24px;
+
+  /* Theme colors: light */
+  --text-color: rgba(0, 0, 54, 0.8);
+  --background-color: #fff;
+  --color-border: #ccc;
+  --button-bg: #333;
+  --button-text: #fff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --border-color: #ccc;
+  --toggle-bg: #e0e0e0;
+  --toggle-thumb: #ffffff;
+  --link-color: #007bff;
+  --highlight: rgba(0, 123, 255, 0.8);
+  --line-color: #007bff;
+  --bg-dropdown: #a7f4fed4;
+  --border-dropdown: #ffffffd2;
+  --hover-color: rgba(170, 234, 255, 0.9);
+  --flag-shadow: rgba(173, 216, 230, 0.9);
+  --label-color: #333;
+}
