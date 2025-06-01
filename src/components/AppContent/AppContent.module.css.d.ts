@@ -10,7 +10,6 @@ declare const styles: {
   readonly "portfolioItem": string;
   readonly "section": string;
   readonly "topHalf": string;
-  readonly "app": string;
 };
 export = styles;
 

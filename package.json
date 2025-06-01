@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "css:types": "npx tcm src --include '**/*.module.css'",
-    "start": "vite"
-  },
+  "dev": "concurrently \"npm:css:watch\" \"vite\"",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "start": "vite",
+  "css:types": "tcm src --include '**/*.module.css'",
+  "css:watch": "tcm src --include '**/*.module.css' --watch"
+},
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.48",
     "@heroicons/react": "^2.2.0",
@@ -24,13 +25,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
-    "@types/css-modules": "^1.0.5",
     "@types/node": "^22.15.21",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "@types/react-modal": "^3.16.3",
     "@types/react-world-flags": "^1.6.0",
     "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
     "eslint": "^9.27.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
