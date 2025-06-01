@@ -1,24 +1,4 @@
-:root {
-  --bg-color: #fff;
-  --text-color: #222;
-  --accent-color: #007bff;
-  --surface-color: #f8f9fa;
-  --button-bg: #007bff;
-  --button-color: #fff;
-  --button-hover-bg: #0056b3;
-  --focus-outline: 2px solid #007bff;
-}
 
-.dark {
-  --bg-color: #222;
-  --text-color: #eee;
-  --accent-color: #1e90ff;
-  --surface-color: #333;
-  --button-bg: #1e90ff;
-  --button-color: #fff;
-  --button-hover-bg: #0a74da;
-  --focus-outline: 2px solid #1e90ff;
-}
 
 .benefitsSection {
   background-color: var(--bg-color);
@@ -52,8 +32,7 @@
   background-color: var(--surface-color);
   border-radius: 12px;
   flex: 1 1 140px;
-  max-width: 180px;
-  min-height: 140px;
+  max-width: 200px;
   padding: 1rem;
   cursor: pointer;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -76,8 +55,8 @@
 }
 
 .icon {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   margin-bottom: 0.75rem;
   fill: currentColor;
 }
@@ -111,11 +90,11 @@
 /* Responsive */
 @media (max-width: 480px) {
   .benefitsList {
-    flex-direction: column;
+    flex-direction: column
     align-items: center;
   }
 
   .benefitItem {
-    max-width: 90vw;
+    max-width: 100vw;
   }
 }
