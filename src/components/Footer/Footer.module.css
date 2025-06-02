@@ -1,35 +1,67 @@
+/* src/components/Footer/Footer.module.css */
+
 .footer {
-  padding: 1rem;
-  background: var(--section-bg, rgba(0, 0, 0, 0.1));
-  border-top: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  opacity: 0.85;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-  transform: translateZ(0);
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
-  border-radius: 12px 12px 0 0;
-  margin: 2rem auto 0;
+  position: sticky;
+  /* Прилипає до низу екрану */
+  bottom: 0;
+  left: 0;
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+
+  /* Напівпрозорий фон із розмиттям позаду */
+  background-color: var(--footer-bg, rgba(255 255 255 / 0.75));
+  backdrop-filter: saturate(180%) blur(10px);
+
+  /* Верхня рамка і тінь для глибини */
+  border-top: 1px solid var(--color-border, rgba(0 0 0 / 0.1));
+  box-shadow: 0 -4px 10px rgba(0 0 0 / 0.1);
+
+  /* Текст */
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
+
+  border-radius: 12px 12px 0 0;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  z-index: 10;
+  user-select: none;
 }
 
 .footer.light {
-  color: #333;
+  --footer-bg: rgba(255 255 255 / 0.85);
+  --color-border: rgba(0 0 0 / 0.1);
+  --text-secondary: #333333;
 }
 
 .footer.dark {
-  color: #eee;
+  --footer-bg: rgba(10 10 30 / 0.8);
+  --color-border: rgba(255 255 255 / 0.15);
+  --text-secondary: #dddddd;
 }
 
-.footer:hover {
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+.footer:hover,
+.footer:focus-visible {
+  box-shadow: 0 -6px 20px rgba(0 0 0 / 0.15);
+  outline: none;
 }
 
 @media (min-width: 768px) {
   .footer {
-    padding: 1.5rem;
+    padding: 1.5rem 2.5rem;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 1rem 1rem;
+    font-size: 0.85rem;
   }
 }

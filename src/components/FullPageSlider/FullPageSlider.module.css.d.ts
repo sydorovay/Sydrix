@@ -1,5 +1,4 @@
 declare const styles: {
-  readonly "benefits": string;
   readonly "dark": string;
   readonly "light": string;
   readonly "snapContainer": string;

@@ -1,125 +1,134 @@
+/* src/components/AppContent/AppContent.module.css */
 
-/* ======== Hero & Canvas ======== */
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
+/* ========== Базова структура ========== */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--text-color);
 }
 
-/* ======== Header & Footer ======== */
+
+/* ========== Header Wrapper ========== */
 .topHalf {
-  flex-shrink: 0;
   display: flex;
-  flex-direction: column;
-  color: var(--text-top-color);
 }
-
-.bottomHalf {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  color: var(--text-bottom-color);
+.light{
+text-decoration: none;
+}
+/* ========== Scroll Wrapper ========== */
+.snapContainer {
+  flex: 1 1 auto;
   overflow-y: auto;
-  height: 100vh;
-  /* це гарантує, що контейнер займатиме повну висоту екрану */
-}
-.footer {
-  text-align: center;
-  padding: var(--spacing-md) 0;
-  border-top: 1px solid var(--border-color);
-  font-size: var(--font-size-sm);
-  opacity: 0.8;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4rem;
+  /* резерв для footer */
+  box-sizing: border-box;
+
+  /* Custom Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color) transparent;
 }
 
-/* ======== Section Wrapper ======== */
+.snapContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.snapContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.snapContainer::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 3px;
+}
+
+/* ========== Snap Section ========== */
+.snapSection {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  background-color: inherit;
+  box-sizing: border-box;
+  scroll-margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .snapSection {
+    padding: 3rem 2rem;
+  }
+}
+
+/* ========== Секція (для About, Info тощо) ========== */
 .section {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 2.5rem;
   background: var(--section-bg);
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: 0.3s ease;
 }
 
-/* ======== Benefits ======== */
-.benefitsList {
-  padding-left: var(--spacing-md);
-  list-style: disc;
-  color: inherit;
+/* ========== Кнопка "Вгору" ========== */
+.topButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* ======== Portfolio ======== */
-.portfolioGrid {
-  display: grid;
-  gap: var(--spacing-md);
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.portfolioItem {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: var(--section-bg);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.portfolioItem:hover,
-.portfolioItem:focus-within {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-lg);
+.topButton:hover,
+.topButton:focus-visible {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
   outline: none;
 }
 
+@media (max-width: 767px) {
+  .topButton {
+    bottom: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ========== Fallback для помилок ========== */
 .fallback {
   padding: 20px;
   text-align: center;
 }
 
-/* ======== Accessibility Helpers ======== */
-:focus-visible {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 2px;
+/* ========== Заголовок ========== */
+.title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: inherit;
 }
 
-
-/* ======== Themes ======== */
-.dark-theme {
-  background-color: var(--background-color-dark);
-  color: var(--text-color-dark);
-}
-
-.light-theme {
-  background-color: var(--background-color-light);
-  color: var(--text-color-light);
-}
-
-/* ======== Keyframes ======== */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* ======== Responsive ======== */
-@media (max-width: 600px) {
-  .section {
-    padding: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .portfolioGrid {
-    grid-template-columns: 1fr;
+@media (min-width: 768px) {
+  .title {
+    font-size: 2rem;
   }
 }

@@ -8,7 +8,8 @@ import AppContent from './components/AppContent/AppContent';
 import RootProvider from './context/RootProvider';
 import LoadingFallback from './components/LoadingFallback/LoadingFallback';
 
-import './styles/variables.css';
+import './styles/themes.css';
+import './styles/index.css';
 
 // Централізований логер помилок
 function logError(error: Error, info: React.ErrorInfo) {

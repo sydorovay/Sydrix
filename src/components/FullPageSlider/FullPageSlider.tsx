@@ -18,17 +18,21 @@ interface FullPageSliderProps {
 }
 
 const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) => {
-  // Ми більше не підтягуємо language тут — це робить HeroSection
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Показ кнопки "назад нагору" після деякого прокручування вниз
   const showTopBtn = useShowTopButton(containerRef);
 
+  // Плавна прокрутка до верху
   const scrollToTop = useCallback(() => {
     containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  // Обробка клавіш для доступності
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
       if (['Home', 'PageUp', 'ArrowUp'].includes(e.key)) {
+        e.preventDefault();
         scrollToTop();
       }
     },
@@ -48,15 +52,18 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
     [t]
   );
 
+  // Клас теми для контейнера
+  const themeCls = theme === 'light' ? styles.light : styles.dark;
+
   return (
     <div
       ref={containerRef}
-      className={`${styles.snapContainer} ${theme === 'light' ? styles.light : styles.dark}`}
+      className={`${styles.snapContainer} ${themeCls}`}
       tabIndex={0}
       aria-label="Full page scroll container"
       onKeyDown={handleKeyDown}
     >
-      {/* Hero Section сам підтягує мову */}
+      {/* Hero Section */}
       <section className={styles.snapSection} aria-labelledby="hero-heading">
         <HeroSection
           t={{
@@ -98,7 +105,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
-      {/* Back to Top */}
+      {/* Кнопка "назад нагору" */}
       {showTopBtn && (
         <button
           className={styles.topButton}

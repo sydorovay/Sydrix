@@ -1,50 +1,115 @@
+/* ============================== */
+/*       Глобальні Змінні        */
+/* ============================== */
 :root {
-  /* Font, layout */
-  --font-base: 'Poppins', 'Montserrat', sans-serif;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
+  /* ---------- Шрифти ---------- */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
 
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
+  /* ---------- Розміри шрифтів ---------- */
+  --font-size-xs: 0.75rem;
+  /* 12px */
+  --font-size-sm: 0.875rem;
+  /* 14px */
+  --font-size-base: 1rem;
+  /* 16px */
+  --font-size-lg: 1.25rem;
+  /* 20px */
+  --font-size-xl: 1.5rem;
+  /* 24px */
+  --font-size-2xl: 2rem;
+  /* 32px */
+  --font-size-3xl: 3rem;
+  /* 48px */
+
+  /* ---------- Spacing / Відступи ---------- */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
   --spacing-xl: 4rem;
   --spacing-2xl: 6rem;
 
+  /* ---------- Layout Widths ---------- */
+  --container-sm: 540px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1440px;
+
+  /* ---------- Breakpoints (mobile-first) ---------- */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+
+  /* ---------- Радіуси ---------- */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
+  --radius-full: 9999px;
 
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  /* ---------- Тіні ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
 
-  --transition-fast: 0.2s;
-  --transition-slow: 0.4s;
-  --transition: 0.3s ease;
+  /* ---------- Z-Index ---------- */
+  --z-header: 1000;
+  --z-dropdown: 1100;
+  --z-modal: 1200;
+  --z-toast: 1300;
+  --z-tooltip: 1400;
 
-  --thumb-offset-light: 0px;
-  --thumb-offset-dark: 24px;
+  /* ---------- Анімація ---------- */
+  --transition: 0.3s ease-in-out;
 
-  /* Theme colors: light */
-  --text-color: rgba(0, 0, 54, 0.8);
-  --background-color: #fff;
-  --color-border: #ccc;
-  --button-bg: #333;
-  --button-text: #fff;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  --border-color: #ccc;
-  --toggle-bg: #e0e0e0;
-  --toggle-thumb: #ffffff;
-  --link-color: #007bff;
-  --highlight: rgba(0, 123, 255, 0.8);
-  --line-color: #007bff;
-  --bg-dropdown: #a7f4fed4;
-  --border-dropdown: #ffffffd2;
-  --hover-color: rgba(170, 234, 255, 0.9);
-  --flag-shadow: rgba(173, 216, 230, 0.9);
-  --label-color: #333;
+  /* ---------- Theme Slots ---------- */
+  --text-color: var(--text-color-light);
+  --background-color: var(--background-color-light);
+  --border-color: var(--border-color-light);
+  --button-bg: var(--button-bg-light);
+  --button-text: var(--button-text-light);
+  --link-color: var(--link-color-light);
+  --highlight: var(--highlight-light);
+  --line-color: var(--line-color-light);
+  --bg-dropdown: var(--bg-dropdown-light);
+  --hover-color: var(--hover-color-light);
+  --label-color: var(--label-color-light);
+  --shadow: var(--shadow-light);
+}
+
+/* ===== Light Theme ===== */
+:root {
+  --text-color-light: #001025;
+  --background-color-light: #ffffff;
+  --border-color-light: #ddd;
+  --button-bg-light: #222;
+  --button-text-light: #fff;
+  --link-color-light: #007bff;
+  --highlight-light: rgba(0, 123, 255, 0.8);
+  --line-color-light: #007bff;
+  --bg-dropdown-light: #f1f9ff;
+  --hover-color-light: rgba(170, 234, 255, 0.9);
+  --label-color-light: #333;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Dark Theme ===== */
+body.dark {
+  --text-color: rgba(240, 255, 255, 0.95);
+  --background-color: #1c1c1c;
+  --border-color: #444;
+  --button-bg: #f1f1f1;
+  --button-text: #1e1e1e;
+  --link-color: #4d94ff;
+  --highlight: rgba(0, 123, 255, 1);
+  --line-color: #00ff88;
+  --bg-dropdown: rgba(20, 20, 30, 0.9);
+  --hover-color: rgba(100, 150, 255, 0.6);
+  --label-color: #eee;
+  --shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }

@@ -1,3 +1,4 @@
+// src/components/AppContent/AppContent.tsx
 import { lazy, Suspense, ReactNode } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
@@ -30,8 +31,8 @@ interface FallbackProps {
 
 function LoadingFallback({ children }: FallbackProps) {
   return (
-    <div role="alert" aria-busy="true" style={{ padding: 20, textAlign: 'center' }}>
-      {children ?? 'Upload...'}
+    <div role="alert" aria-busy="true" className={styles.fallback}>
+      {children ?? 'Loading...'}
     </div>
   );
 }
@@ -43,15 +44,21 @@ export default function AppContent() {
 
   useInitEffects(theme, setLang, lang);
 
+  // Додаємо клас для теми на кореневий div
+  const themeCls = theme === 'light' ? styles['lightTheme'] : styles['darkTheme'];
+
   return (
-    <div className={styles.app}>
+    <div className={`${styles.app} ${themeCls}`}>
+      {/* Header (фіксований топ) */}
       <header className={styles.topHalf} role="banner">
         <StarsBackgroundWithNebula theme={theme} />
         <TopBar lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
       </header>
 
-      <main className={styles.bottomHalf} role="main">
+      {/* Main (snap-scroll контейнер) */}
+      <main className={styles.snapContainer} role="main">
         <ScrollToTop />
+
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<HomePage t={t} theme={theme} />} />
@@ -61,20 +68,27 @@ export default function AppContent() {
             <Route path="/testimonials" element={<TestimonialsPage t={t} />} />
             <Route path="/blog" element={<BlogPage t={typedT} theme={theme} />} />
             <Route path="/contacts" element={<ContactsPage t={typedT} />} />
-            <Route path="/faq" element={<FaqPage t={{ faq: typedT('faq'), faqText: typedT('faqText') }} />} />
-            <Route path="/partnership" element={
-              <PartnershipPage
-                t={{
-                  partnership: typedT('partnership'),
-                  partnershipText: typedT('partnershipText')
-                }}
-              />
-            } />
+            <Route
+              path="/faq"
+              element={<FaqPage t={{ faq: typedT('faq'), faqText: typedT('faqText') }} />}
+            />
+            <Route
+              path="/partnership"
+              element={
+                <PartnershipPage
+                  t={{
+                    partnership: typedT('partnership'),
+                    partnershipText: typedT('partnershipText'),
+                  }}
+                />
+              }
+            />
             <Route path="*" element={<NotFoundPage language={lang} />} />
           </Routes>
         </Suspense>
       </main>
 
+      {/* Footer */}
       <Footer t={t} theme={theme} />
     </div>
   );

@@ -1,13 +1,91 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
+@import './themes.css';
+
+/* ============================== */
+/*         Скидання стилів        */
+/* ============================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color var(--transition), color var(--transition);
+  overflow-x: hidden;
+}
+
+/* ============================== */
+/*         Контейнер системи      */
+/* ============================== */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--spacing-sm);
+  max-width: var(--container-lg);
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-xl);
+    padding-inline: var(--spacing-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-2xl);
+  }
+}
+
+/* ============================== */
+/*         Іконки через шрифт     */
+/* ============================== */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: middle;
+  text-align: center;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================== */
+/*     Адаптивна типографія       */
+/* ============================== */
+h1 {
+  font-size: var(--font-size-2xl);
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* ============================== */
+/*         Утиліти                */
+/* ============================== */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
 }

@@ -3,9 +3,12 @@ import type { BenefitItem } from '@/types/langTypes';
 import BenefitModal from './BenefitsModal/BenefitsModal';
 import styles from './BenefitsSection.module.css';
 
-interface BenefitsProps {
+export interface BenefitsProps {
+  title: string;               // Додай це
   benefits: BenefitItem[];
-  theme?: 'light' | 'dark';
+  buttonText: string;
+  onButtonClick: () => void;
+  theme: 'light' | 'dark';
 }
 
 const Benefits: React.FC<BenefitsProps> = ({ benefits, theme = 'light' }) => {
@@ -20,9 +23,14 @@ const Benefits: React.FC<BenefitsProps> = ({ benefits, theme = 'light' }) => {
     setModalOpen(true);
   };
 
+  const handleClose = () => {
+    setModalOpen(false);
+    setSelectedBenefit(null);
+  };
+
   return (
     <section className={styles.benefitsSection} aria-labelledby="benefits-title">
-      <h2 id="benefits-title" className={styles.title}>
+      <h2 id="benefits-title" className={styles.benefitTitle}>
         Наші переваги
       </h2>
       <ul className={styles.benefitsList}>
@@ -59,13 +67,11 @@ const Benefits: React.FC<BenefitsProps> = ({ benefits, theme = 'light' }) => {
           benefits={benefits}
           selectedBenefit={selectedBenefit}
           onSelectBenefit={setSelectedBenefit}
-          onClose={() => {
-            setModalOpen(false);
-            setSelectedBenefit(null);
-          }}
+          onClose={handleClose}
           theme={theme}
         />
       )}
+
     </section>
   );
 };

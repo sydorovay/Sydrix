@@ -1,16 +1,19 @@
-/* ======== Контейнер для прокрутки ======== */
+/* src/components/FullPageSlider/FullPageSlider.module.css */
+
 .snapContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
-  overflow-y: scroll;
+  height: 100vh;
+  overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  position: relative;
-}
-.benefits{
-  padding: 2rem;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.3) transparent;
 }
 
 .snapContainer::-webkit-scrollbar {
@@ -26,75 +29,77 @@
   border-radius: 3px;
 }
 
-.title {
-  font-size: 2rem;
+.light {
+  color: var(--text-bottom-color);
 }
 
-/* ======== Кожен слайд ======== */
+.dark {
+  color: var(--text-bottom-color);
+}
+
 .snapSection {
-  display: flex;
-    flex-direction: column;
   scroll-snap-align: start;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1.5rem 1rem;
+  min-height: 100vh;
+  width: 100%;
   box-sizing: border-box;
+  background-color: inherit;
+  text-align: center;
 }
 
-/* ======== Кнопка "назад нагору" ======== */
+@media (min-width: 768px) {
+  .snapSection {
+    padding: 3rem 2rem;
+  }
+}
+
 .topButton {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 24px;
+  right: 24px;
   background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 1000;
-  transition: background-color 0.3s ease;
+  z-index: 100;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .topButton:hover,
 .topButton:focus-visible {
   background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
   outline: none;
 }
 
-/* ======== Теми ======== */
-.light {
-  color: rgb(1, 26, 30);
-}
-
-.dark {
-  color: rgb(225, 250, 251);
-}
-
-/* ======== Адаптивність для мобільних пристроїв ======== */
-@media (min-width: 768px) {
-
-  .snapSection {
-
-    padding: 3rem;
-  }
-}
-
-/* ======== Адаптивність для малих екранів ======== */
-@media (max-width: 768px) {
-  .snapSection {
-    padding: 1.5rem;
-  }
-
+@media (max-width: 767px) {
   .topButton {
-    bottom: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
+    bottom: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.title {
+  color: inherit;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2rem;
   }
 }
