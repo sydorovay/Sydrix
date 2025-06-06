@@ -1,10 +1,11 @@
 declare const styles: {
+  readonly "close": string;
+  readonly "description": string;
   readonly "image": string;
+  readonly "modal": string;
   readonly "name": string;
-  readonly "section": string;
+  readonly "overlay": string;
   readonly "slide": string;
-  readonly "slider": string;
-  readonly "title": string;
 };
 export = styles;
 

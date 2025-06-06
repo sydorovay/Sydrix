@@ -1,8 +1,7 @@
-// types/portfolio.ts
-
 export interface PortfolioItem {
+  id: number;
   name: string;
-  link: string;
   imgSrc: string;
   altText: string;
+  description: string;
 }
