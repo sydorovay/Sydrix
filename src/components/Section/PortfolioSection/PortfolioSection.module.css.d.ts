@@ -1,9 +1,9 @@
 declare const styles: {
-  readonly "image": string;
-  readonly "name": string;
+  readonly "dark": string;
+  readonly "description": string;
+  readonly "grid": string;
+  readonly "light": string;
   readonly "section": string;
-  readonly "slide": string;
-  readonly "slider": string;
   readonly "title": string;
 };
 export = styles;

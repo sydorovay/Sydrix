@@ -1,40 +1,45 @@
-/* src/components/PortfolioSection/PortfolioSection.module.css */
+/* src/components/Section/PortfolioSection/PortfolioSection.module.css */
+
 .section {
   padding: 2rem 1rem;
-  background: var(--background);
-  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 3rem 2rem;
+  }
+}
+
+.light {
+  background: #ffffff;
+  color: #222;
+}
+
+.dark {
+  background: #121212;
+  color: #eeeeee;
 }
 
 .title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-.slider {
-  margin-top: 2rem;
-}
-
-.slide {
-  padding: 1rem;
-  outline: none;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.slide:hover {
-  transform: scale(1.03);
-}
-
-.image {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.name {
-  margin-top: 0.75rem;
-  font-weight: 500;
+.description {
   font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  color: inherit;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: center;
 }
