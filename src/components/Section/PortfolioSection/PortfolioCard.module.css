@@ -1,0 +1,27 @@
+/* src/components/Section/PortfolioSection/PortfolioCard.module.css */
+.card {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg, #fff);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.name {
+  padding: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+}
