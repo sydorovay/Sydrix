@@ -4,24 +4,29 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "concurrently \"npm:css:watch\" \"vite\"",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "start": "vite",
-  "css:types": "tcm src --include '**/*.module.css'",
-  "css:watch": "tcm src --include '**/*.module.css' --watch"
-},
+    "dev": "concurrently \"npm:css:watch\" \"vite\"",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "vite",
+    "css:types": "tcm src --include '**/*.module.css'",
+    "css:watch": "tcm src --include '**/*.module.css' --watch"
+  },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.48",
     "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.12.2",
+    "lucide": "^0.513.0",
+    "lucide-react": "^0.513.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-modal": "^3.16.3",
+    "react-multi-carousel": "^2.8.6",
     "react-router-dom": "^7.5.3",
-    "react-world-flags": "^1.6.0"
+    "react-slick": "^0.30.3",
+    "react-world-flags": "^1.6.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -29,6 +34,7 @@
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "@types/react-modal": "^3.16.3",
+    "@types/react-slick": "^0.23.13",
     "@types/react-world-flags": "^1.6.0",
     "@vitejs/plugin-react": "^4.4.1",
     "concurrently": "^9.1.2",

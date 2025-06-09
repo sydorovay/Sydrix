@@ -44,9 +44,11 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       {
         id: 'portfolio-1',
         name: 'Portfolio CV Site',
+        title: t('portfolioTitle'),
         link: t('portfolioLink'),
         imgSrc: '/Sydorov-CV.jpg',
         altText: 'Portfolio CV Site',
+        description: t('portfolioDescription'), 
       },
     ],
     [t]
@@ -89,9 +91,9 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       {/* Portfolio */}
       <section className={styles.snapSection} aria-labelledby="portfolio-heading">
         <PortfolioSection
-          title={t('portfolioTitle')}
-          text={t('portfolioText')}
           portfolioItems={portfolioItems}
+          t={(key) => String(t(key))}
+          theme={theme}
         />
       </section>
 
@@ -114,7 +116,6 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
           type="button"
         >
           <FaArrowUp aria-hidden="true" />
-          <span className="sr-only">Back to top</span>
         </button>
       )}
     </div>

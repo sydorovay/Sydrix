@@ -1,15 +1,24 @@
-import { FC } from 'react';
-import { LangData } from '@/types/langTypes';
+// src/pages/PortfolioPage.tsx
+import React from 'react';
+import PortfolioSection from '@/components/Section/PortfolioSection/PortfolioSection';
+import portfolioItems from '@/data/portfolioItems';
+import { createTranslator } from '@/utils/translator';
+import { LangCode } from '@/types/langTypes';
 
-interface PortfolioPageProps {
-  t: <K extends keyof LangData>(key: K) => LangData[K];
+interface Props {
+  lang?: LangCode;
+  theme: 'light' | 'dark';
 }
 
-const PortfolioPage: FC<PortfolioPageProps> = ({ t }) => {
+const PortfolioPage: React.FC<Props> = ({ lang, theme }) => {
+  const t = createTranslator(lang);
   return (
-    <main>
-      <h1>{t('portfolio') || 'Portfolio'}</h1>
-      <p>{t('portfolioText') || 'Check out some of our past work here.'}</p>
+    <main data-theme={theme}>
+      <PortfolioSection
+        t={t}
+        theme={theme}
+        portfolioItems={portfolioItems}
+      />
     </main>
   );
 };

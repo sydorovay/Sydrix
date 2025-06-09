@@ -40,7 +40,7 @@
 .snapSection {
   scroll-snap-align: start;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   padding: 1.5rem 1rem;
@@ -61,8 +61,8 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  background-color: rgba(200, 60, 13, 0.525);
+  color: #b1feff;
   border: none;
   border-radius: 50%;
   width: 44px;

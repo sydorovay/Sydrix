@@ -1,56 +1,64 @@
+import React, { useState } from 'react';
+import type { PortfolioItem } from '@/types/portfolio';
+import type { LangData } from '@/types/langTypes';
+import PortfolioCard from './PortfolioCard';
+import PortfolioModal from '@/components/PortfolioModal/PortfolioModal';
 import styles from './PortfolioSection.module.css';
 
-interface PortfolioItem {
-  name: string;
-  link: string;
-  imgSrc: string;
-  altText: string;
+interface Props {
+  t: <K extends keyof LangData>(key: K) => string;
+  theme: 'light' | 'dark';
+  portfolioItems: PortfolioItem[];
 }
 
-interface PortfolioSectionProps {
-  title: string;
-  text: string;
-  portfolioItems?: PortfolioItem[];
-}
+const PortfolioSection: React.FC<Props> = ({ t, theme, portfolioItems }) => {
+  const [show, setShow] = useState(false);
+  const [index, setIndex] = useState(0);
 
-export default function PortfolioSection({
-  title,
-  text,
-  portfolioItems = [],
-}: PortfolioSectionProps) {
+  const open = (i: number) => {
+    setIndex(i);
+    setShow(true);
+  };
+
+  const sectionId = 'portfolio-section';
+
   return (
-    <section className={styles.portfolio}>
-      <h2 className={styles.title}>{title}</h2>
-      <p className={styles.text}>{text}</p>
+    <section
+      id={sectionId}
+      className={`${styles.section} ${styles[theme]}`}
+      aria-labelledby={`${sectionId}-title`}
+      aria-describedby={`${sectionId}-desc`}
+    >
+      <h2 id={`${sectionId}-title`} className={styles.title}>
+        {t('portfolioTitle')}
+      </h2>
+      <p id={`${sectionId}-desc`} className={styles.description}>
+        {t('portfolioText')}
+      </p>
 
-      {portfolioItems.length === 0 ? (
-        <p className={styles.empty}>Наразі немає проєктів для показу.</p>
-      ) : (
-        <div className={styles.items}>
-          {portfolioItems.map((item, idx) => (
-            <a
-              key={idx}
-              href={item.link}
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Перейти до проєкту ${item.name}`}
-            >
-              <img
-                src={item.imgSrc}
-                alt={item.altText}
-                width={600}
-                height={400}
-                loading="lazy"
-                className={styles.image}
-              />
-              <div className={styles.info}>
-                <h3>{item.name}</h3>
-              </div>
-            </a>
-          ))}
-        </div>
+      <div className={styles.grid}>
+        {portfolioItems.map((project, i) => (
+          <PortfolioCard
+            key={project.id}
+            project={project}
+            onClick={() => open(i)}
+          />
+        ))}
+      </div>
+
+      {show && (
+        <PortfolioModal
+          projects={portfolioItems}
+          currentIndex={index}
+          onClose={() => setShow(false)}
+          onPrev={() => setIndex(i => (i - 1 + portfolioItems.length) % portfolioItems.length)}
+          onNext={() => setIndex(i => (i + 1) % portfolioItems.length)}
+          t={t}
+          theme={theme}
+        />
       )}
     </section>
   );
-}
+};
+
+export default PortfolioSection;
