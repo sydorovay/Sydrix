@@ -8,7 +8,9 @@
   overflow: hidden;
   color: var(--text-color);
 }
-
+.dark {
+  list-style: none;
+} 
 
 /* ========== Header Wrapper ========== */
 .topHalf {
