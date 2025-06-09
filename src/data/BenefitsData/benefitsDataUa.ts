@@ -1,4 +1,4 @@
-import { FaMobileAlt, FaBolt, FaSearch, FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt } from "react-icons/fa";
+import { FaMobileAlt, FaBolt, FaSearch, FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt, FaLaptopCode } from "react-icons/fa";
 import type { BenefitItem } from '@/types/langTypes';
 
 const benefitsUa: BenefitItem[] = [
@@ -22,6 +22,7 @@ const benefitsUa: BenefitItem[] = [
   },
   {
     id: 'modern_technologies',
+    icon: FaLaptopCode,
     title: "Сучасні технології",
     description: "Використовуємо лише актуальні й перевірені інструменти розробки",
   },

@@ -45,7 +45,7 @@ export default function AppContent() {
   useInitEffects(theme, setLang, lang);
 
   // Додаємо клас для теми на кореневий div
-  const themeCls = theme === 'light' ? styles['lightTheme'] : styles['darkTheme'];
+  const themeCls = theme === 'light' ? styles['light'] : styles['dark'];
 
   return (
     <div className={`${styles.app} ${themeCls}`}>

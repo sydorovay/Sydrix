@@ -1,5 +1,5 @@
 // src/data/benefitsPl.ts
-import { FaMobileAlt, FaBolt, FaSearch, FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt } from "react-icons/fa";
+import { FaLaptopCode, FaMobileAlt, FaBolt, FaSearch, FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt } from "react-icons/fa";
 import type { BenefitItem } from '@/types/langTypes';
 
 const benefitsPl: BenefitItem[] = [
@@ -23,6 +23,7 @@ const benefitsPl: BenefitItem[] = [
   },
   {
     id: 'modern_technologies',
+    icon: FaLaptopCode,
     title: "Nowoczesne technologie",
     description: "Używamy tylko aktualnych i sprawdzonych narzędzi do tworzenia",
   },
