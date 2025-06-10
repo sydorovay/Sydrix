@@ -201,8 +201,24 @@ export type LangData = {
 
   notFoundLink: string;
   cookieConsent: string;
-  TFunction: string;
 };
 
 
 export type TFunction = (key: string) => string;
+
+  openProjectLabel: string;
+  modalCloseLabel: string;
+  modalPrevLabel: string;
+  modalNextLabel: string;
+  openProject: string;
+  backToTop: string;
+
+  portfolioItems: string;
+  portfolioDescription: string;
+
+}; 
+
+export type TFunction = <K extends keyof LangData>(
+  key: K,
+  params?: Record<string, string | number>
+) => string;

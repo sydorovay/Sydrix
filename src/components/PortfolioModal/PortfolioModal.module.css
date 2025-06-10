@@ -1,0 +1,66 @@
+/* src/components/PortfolioModal/PortfolioModal.module.css */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.overlay.light {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.modal {
+  background: var(--modal-bg, #fff);
+  color: var(--modal-txt, #222);
+  border-radius: 10px;
+  max-width: 600px;
+  padding: 1.5rem;
+  position: relative;
+  outline: none;
+}
+
+.modal.dark {
+  --modal-bg: #222;
+  --modal-txt: #eee;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.name {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.description {
+  line-height: 1.6;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.nav {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
