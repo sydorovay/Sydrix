@@ -83,6 +83,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
           buttonText={t('button')}
           onButtonClick={onContact}
           theme={theme}
+          t={t}
         />
       </section>
 

@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "concurrently \"npm:css:watch\" \"vite\"",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "start": "vite",
-  "css:types": "tcm src --include '**/*.module.css'",
-  "css:watch": "tcm src --include '**/*.module.css' --watch"
-},
+    "dev": "concurrently \"npm:css:watch\" \"vite\"",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "vite",
+    "css:types": "tcm src --include '**/*.module.css'",
+    "css:watch": "tcm src --include '**/*.module.css' --watch"
+  },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.48",
     "@heroicons/react": "^2.2.0",

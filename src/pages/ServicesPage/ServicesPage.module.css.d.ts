@@ -6,6 +6,8 @@ declare const styles: {
   readonly "cardTitle": string;
   readonly "ctaButton": string;
   readonly "ctaForm": string;
+  readonly "dark": string;
+  readonly "focusZoom": string;
   readonly "form": string;
   readonly "formButton": string;
   readonly "grid": string;

@@ -201,4 +201,8 @@ export type LangData = {
 
   notFoundLink: string;
   cookieConsent: string;
+  TFunction: string;
 };
+
+
+export type TFunction = (key: string) => string;
