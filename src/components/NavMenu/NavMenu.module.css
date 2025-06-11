@@ -64,7 +64,7 @@
   }
 
   .menu .link:hover {
-    color: #5f4dd7;
+    color: #93d4fd;
   }
 }
 
@@ -96,6 +96,6 @@
   .menu .link {
     padding: 0.5rem 0.75rem;
     display: inline-block;
-    text-align: left;
+    text-align: center;
   }
 }

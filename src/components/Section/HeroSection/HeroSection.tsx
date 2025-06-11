@@ -50,7 +50,7 @@ export default function HeroSection({ t, theme }: HeroSectionProps) {
   }, []);
 
   return (
-    <header className={`${styles.header} ${styles[theme]}`}>
+    <header className={`${styles.header} ${theme}`}>
       <h1 className={styles.title}>{t.title}</h1>
       <Link to="/" aria-label="Go to home">
         <img
@@ -66,10 +66,9 @@ export default function HeroSection({ t, theme }: HeroSectionProps) {
       </Link>
       <h2 className={styles.subtitle}>
         {t.subtitle?.map((line, idx) => (
-          <span key={idx}>
+          <p key={idx} className={styles.line}>
             {line}
-            <br />
-          </span>
+          </p>
         ))}
       </h2>
       <div className={styles.buttonWrapper}>
