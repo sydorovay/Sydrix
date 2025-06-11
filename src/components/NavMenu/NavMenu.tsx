@@ -11,7 +11,6 @@ interface NavMenuProps {
 export default function NavMenu({ className = '' }: NavMenuProps) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-
   const menuRef = useRef<HTMLDivElement>(null);
   const burgerRef = useRef<HTMLDivElement>(null);
 
@@ -32,9 +31,7 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
     };
 
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsOpen(false);
-      }
+      if (e.key === 'Escape') setIsOpen(false);
     };
 
     const closeOnRouteChange = () => setIsOpen(false);
@@ -47,6 +44,13 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
       document.removeEventListener('click', handleClickOutside);
       document.removeEventListener('keydown', handleEsc);
       window.removeEventListener('popstate', closeOnRouteChange);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 

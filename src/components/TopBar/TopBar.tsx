@@ -41,9 +41,6 @@ export default function TopBar({ theme, toggleTheme, lang, setLang }: TopBarProp
           />
         </Link>
       </div>
-
-      <NavMenu className={styles.nav} />
-
       <div className={styles.controls}>
         <button
           onClick={handleThemeToggle}
@@ -55,6 +52,7 @@ export default function TopBar({ theme, toggleTheme, lang, setLang }: TopBarProp
         </button>
         <LangSwitcher lang={lang} setLang={handleLangChange} />
       </div>
+      <NavMenu className={styles.nav} />
     </header>
   );
 }

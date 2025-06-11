@@ -1,17 +1,17 @@
 .burgerIcon {
   position: relative;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 32px;
-  height: 26px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 2px;
   transition: transform 0.2s ease;
   gap: 0.2rem;
-  margin-left: 5px;
 }
 
 /* linies */
@@ -20,11 +20,13 @@
   width: 100%;
   height: 4px;
   border-radius: 1px;
-  background: linear-gradient(270deg, #63e1ceb7 0%, #0b666bae 70%);
+  background: linear-gradient(300deg, #03F8FC 0%, #05CDF4 40%, #0085a0 60%, #014d67 100%);
   box-shadow:
     inset 0 1px 1px rgb(23, 84, 82),
     0 1px 2px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, opacity 0.2s ease;
+  border-bottom: 1px solid var(--hover-color-light);
+  border-right: 1px solid var(--hover-color-light);
 }
 
 
@@ -45,6 +47,9 @@
 }
 
 @media (min-width: 768px) {
-  .burgerIcon{
-    display: none}; 
+  .burgerIcon {
+    display: none
+  }
+
+  ;
 }
