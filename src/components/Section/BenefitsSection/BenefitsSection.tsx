@@ -1,33 +1,69 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { BenefitItem, TFunction } from '@/types/langTypes';
+import type { LangData } from '@/types/langTypes';
 import styles from './BenefitsSection.module.css';
 
 export interface BenefitsProps {
   benefits: BenefitItem[];
-  title: string;
-  buttonText: string;
+  title: keyof LangData;
+  showAllButton: keyof LangData;
   theme: 'light' | 'dark';
   t: TFunction;
 }
 
-const Benefits: React.FC<BenefitsProps> = ({
+const BenefitsSection: React.FC<BenefitsProps> = ({
   benefits,
   title,
-  buttonText,
+  showAllButton,
   theme,
   t,
 }) => {
   const navigate = useNavigate();
-
   const previewBenefits = benefits.slice(0, 5);
 
   const handleNavigate = (benefitId?: string) => {
-    if (benefitId) {
-      navigate(`/services#${benefitId}`);
-    } else {
-      navigate('/services');
+    navigate(benefitId ? `/services#${benefitId}` : '/services');
+  };
+
+  const renderTranslation = (
+    value: string | BenefitItem[] | string[] | { label: string; value: string }[] | React.ReactNode[] | undefined
+  ): React.ReactNode => {
+    if (!value) return null;
+    if (typeof value === 'string') return value;
+    if (Array.isArray(value)) {
+      // If it's an array of strings or React nodes, render as before
+      if (value.every(item => typeof item === 'string' || React.isValidElement(item))) {
+        return value.map((line, index) => (
+          <React.Fragment key={index}>
+            {line}
+            <br />
+          </React.Fragment>
+        ));
+      }
+      // If it's an array of objects with label/value or BenefitItem, render their labels/titles
+      if (value.length > 0 && typeof value[0] === 'object' && value[0] !== null) {
+        // Handle { label, value }[]
+        if ('label' in value[0]) {
+          return (value as { label: string; value: string }[]).map((item, idx) => (
+            <React.Fragment key={idx}>
+              {item.label}
+              <br />
+            </React.Fragment>
+          ));
+        }
+        // Handle BenefitItem[]
+        if ('title' in value[0]) {
+          return (value as BenefitItem[]).map((item, idx) => (
+            <React.Fragment key={idx}>
+              {item.title}
+              <br />
+            </React.Fragment>
+          ));
+        }
+      }
     }
+    return null;
   };
 
   return (
@@ -36,7 +72,7 @@ const Benefits: React.FC<BenefitsProps> = ({
       aria-labelledby="benefits-title"
     >
       <h2 id="benefits-title" className={styles.sectionTitle}>
-        {typeof t(title as any) === 'string' ? t(title as any) : Array.isArray(t(title as any)) ? t(title as any).join(', ') : ''}
+        {renderTranslation(t(title))}
       </h2>
 
       <ul className={styles.benefitsList}>
@@ -64,17 +100,13 @@ const Benefits: React.FC<BenefitsProps> = ({
       <button
         onClick={() => handleNavigate()}
         className={styles.showAllButton}
-        aria-label={buttonText}
+        aria-label={t(showAllButton) as string}
         type="button"
       >
-        {typeof t(buttonText as any) === 'string'
-          ? t(buttonText as any)
-          : Array.isArray(t(buttonText as any))
-          ? t(buttonText as any).join(', ')
-          : ''}
+        {renderTranslation(t(showAllButton))}
       </button>
     </section>
   );
 };
 
-export default Benefits;
+export default BenefitsSection;

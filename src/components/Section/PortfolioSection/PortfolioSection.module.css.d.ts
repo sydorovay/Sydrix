@@ -1,9 +1,11 @@
 declare const styles: {
+  readonly "button": string;
+  readonly "card": string;
   readonly "dark": string;
-  readonly "description": string;
-  readonly "grid": string;
+  readonly "image": string;
   readonly "light": string;
-  readonly "section": string;
+  readonly "portfolioSection": string;
+  readonly "slider": string;
   readonly "title": string;
 };
 export = styles;

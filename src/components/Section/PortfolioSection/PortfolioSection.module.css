@@ -1,45 +1,65 @@
-/* src/components/Section/PortfolioSection/PortfolioSection.module.css */
+.portfolioSection {
+  padding: 2rem;
+  display: flex;
 
-.section {
-  padding: 2rem 1rem;
-  transition: background 0.3s, color 0.3s;
+  align-items: center;
 }
 
-@media (min-width: 768px) {
-  .section {
-    padding: 3rem 2rem;
-  }
-}
 
-.light {
-  background: #ffffff;
-  color: #222;
-}
+.card {
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 3rem;
+  border-radius: 3rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-.dark {
-  background: #121212;
-  color: #eeeeee;
+  transition: background-color 0.3s ease;
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  margin: 5rem;
   text-align: center;
 }
 
-.description {
-  font-size: 1.1rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  color: inherit;
+.slider {
+  width: 90vw;
+  height: 90vw;
 }
 
-.grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  justify-content: center;
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.button {
+  display: block;
+  margin: 1rem auto 1.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+}
+
+.light {
+  --button-bg: #007bff;
+  --button-hover: #0056b3;
+  --button-text: #ffffff;
+}
+
+.dark {
+  --button-bg: #0d6efd;
+  --button-hover: #084298;
+  --button-text: #ffffff;
 }

@@ -1,6 +1,5 @@
 // src/components/Section/HeroSection/HeroSection.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { FaPhoneAlt, FaMailBulk, FaTelegramPlane } from 'react-icons/fa';
 
 import staticLogo from '@/assets/staticLogo.svg'; // єдиний логотип
@@ -9,7 +8,7 @@ import styles from './HeroSection.module.css';
 
 interface Translations {
   title: string;
-  subtitle?: (string | React.ReactNode)[];
+  subtitle?: Array<string | React.ReactNode>;
   button: string;
 }
 
@@ -52,7 +51,6 @@ export default function HeroSection({ t, theme }: HeroSectionProps) {
   return (
     <header className={`${styles.header} ${theme}`}>
       <h1 className={styles.title}>{t.title}</h1>
-      <Link to="/" aria-label="Go to home">
         <img
           loading="lazy"
           src={staticLogo}
@@ -63,7 +61,6 @@ export default function HeroSection({ t, theme }: HeroSectionProps) {
           decoding="async"
           fetchPriority="low"
         />
-      </Link>
       <h2 className={styles.subtitle}>
         {t.subtitle?.map((line, idx) => (
           <p key={idx} className={styles.line}>
