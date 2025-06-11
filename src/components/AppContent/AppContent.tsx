@@ -64,7 +64,7 @@ export default function AppContent() {
             <Route path="/" element={<HomePage t={t} theme={theme} />} />
             <Route path="/about" element={<AboutPage t={t} theme={theme} />} />
             <Route path="/services" element={<ServicesPage t={t} theme={theme} lang={lang} />} />
-            <Route path="/portfolio" element={<PortfolioPage t={t} />} />
+            <Route path="/portfolio" element={<PortfolioPage theme={theme} />} />
             <Route path="/testimonials" element={<TestimonialsPage t={t} />} />
             <Route path="/blog" element={<BlogPage t={typedT} theme={theme} />} />
             <Route path="/contacts" element={<ContactsPage t={typedT} />} />
