@@ -5,8 +5,10 @@ import PortfolioCard from './PortfolioCard';
 import PortfolioModal from '@/components/PortfolioModal/PortfolioModal';
 import styles from './PortfolioSection.module.css';
 
+import type { TFunction } from '@/types/langTypes';
+
 interface Props {
-  t: <K extends keyof LangData>(key: K) => string;
+  t: TFunction;
   theme: 'light' | 'dark';
   portfolioItems: PortfolioItem[];
 }

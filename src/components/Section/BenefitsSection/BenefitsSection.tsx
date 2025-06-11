@@ -1,38 +1,44 @@
-import React, { useState } from 'react';
-import type { BenefitItem } from '@/types/langTypes';
-import BenefitModal from './BenefitsModal/BenefitsModal';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import type { BenefitItem, TFunction } from '@/types/langTypes';
 import styles from './BenefitsSection.module.css';
 
 export interface BenefitsProps {
-  title: string;               // Додай це
   benefits: BenefitItem[];
+  title: string;
   buttonText: string;
-  onButtonClick: () => void;
   theme: 'light' | 'dark';
+  t: TFunction;
 }
 
-const Benefits: React.FC<BenefitsProps> = ({ benefits, theme = 'light' }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedBenefit, setSelectedBenefit] = useState<BenefitItem | null>(null);
+const Benefits: React.FC<BenefitsProps> = ({
+  benefits,
+  title,
+  buttonText,
+  theme,
+  t,
+}) => {
+  const navigate = useNavigate();
 
   const previewBenefits = benefits.slice(0, 5);
 
-  const openModalWithBenefit = (id: string) => {
-    const benefit = benefits.find(b => b.id === id) || null;
-    setSelectedBenefit(benefit);
-    setModalOpen(true);
-  };
-
-  const handleClose = () => {
-    setModalOpen(false);
-    setSelectedBenefit(null);
+  const handleNavigate = (benefitId?: string) => {
+    if (benefitId) {
+      navigate(`/services#${benefitId}`);
+    } else {
+      navigate('/services');
+    }
   };
 
   return (
-    <section className={styles.benefitsSection} aria-labelledby="benefits-title">
-      <h2 id="benefits-title" className={styles.benefitTitle}>
-        Наші переваги
+    <section
+      className={`${styles.benefitsSection} ${styles[theme]}`}
+      aria-labelledby="benefits-title"
+    >
+      <h2 id="benefits-title" className={styles.sectionTitle}>
+        {typeof t(title as any) === 'string' ? t(title as any) : Array.isArray(t(title as any)) ? t(title as any).join(', ') : ''}
       </h2>
+
       <ul className={styles.benefitsList}>
         {previewBenefits.map(({ id, icon: Icon, title }) => (
           <li
@@ -40,11 +46,11 @@ const Benefits: React.FC<BenefitsProps> = ({ benefits, theme = 'light' }) => {
             className={styles.benefitItem}
             tabIndex={0}
             role="button"
-            onClick={() => openModalWithBenefit(id)}
+            onClick={() => handleNavigate(id)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                openModalWithBenefit(id);
+                handleNavigate(id);
               }
             }}
             aria-label={title}
@@ -54,24 +60,19 @@ const Benefits: React.FC<BenefitsProps> = ({ benefits, theme = 'light' }) => {
           </li>
         ))}
       </ul>
+
       <button
+        onClick={() => handleNavigate()}
         className={styles.showAllButton}
-        onClick={() => setModalOpen(true)}
-        aria-haspopup="dialog"
+        aria-label={buttonText}
+        type="button"
       >
-        Показати всі
+        {typeof t(buttonText as any) === 'string'
+          ? t(buttonText as any)
+          : Array.isArray(t(buttonText as any))
+          ? t(buttonText as any).join(', ')
+          : ''}
       </button>
-
-      {modalOpen && (
-        <BenefitModal
-          benefits={benefits}
-          selectedBenefit={selectedBenefit}
-          onSelectBenefit={setSelectedBenefit}
-          onClose={handleClose}
-          theme={theme}
-        />
-      )}
-
     </section>
   );
 };

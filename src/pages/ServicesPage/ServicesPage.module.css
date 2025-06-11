@@ -1,5 +1,10 @@
+.dark .card {
+  box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
+}
+
 .page {
   padding: 2rem;
+  margin-top: 60px;
 }
 
 .banner {
@@ -25,17 +30,44 @@
 }
 
 .card {
-  background: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  scroll-margin-top: 5rem;
+  outline: none;
+  border-radius: 1rem;
+  position: relative;
+  padding: 8px;
+  user-select: none;
+  z-index: 1;
+}
+
+.card:hover,
+.card:focus,
+.card.focusZoom {
+  transform: scale(1.05);
+  z-index: 5;
+  box-shadow: 0 0 12px rgba(0, 112, 243, 0.8);
+  /* трохи яскравіше */
+}
+
+
+
+
+
+.card:active {
+  transform: scale(0.98);
+  transition: transform 0.2s ease;
 }
 
 .icon {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #0070f3;
+  color: #016882;
 }
 
 .cardTitle {
@@ -55,24 +87,55 @@
 }
 
 .ctaButton {
-  background: #0070f3;
+  background-color: #00a9b9;
   color: #fff;
   border: none;
-  padding: 0.75rem 1rem;
-  border-radius: 0.375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 169, 185, 0.4);
 }
+
+.ctaButton:hover {
+  background-color: #0091a0;
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 145, 160, 0.5);
+}
+
+.ctaButton:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px #00a9b9;
+}
+
+.ctaButton:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 8px rgba(0, 145, 160, 0.4);
+}
+
+.ctaButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Темна тема */
+
 
 .ctaForm {
   text-align: center;
-  background: #f9f9f9;
+  background: #013a8a3e;
   padding: 2rem;
   border-radius: 0.5rem;
 }
 
 .form {
   display: inline-flex;
-  gap: 0.5rem;
 }
 
 .input {
@@ -88,4 +151,21 @@
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
   cursor: pointer;
+}
+
+.focusZoom {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px var(--highlight-color, #006c78bd);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 5;
+  border-radius: 1rem;
+  outline: none;
+  scroll-margin-top: 5rem;
+  /* Щоб не прилипав до верху */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focusZoom {
+    transition: none;
+  }
 }
