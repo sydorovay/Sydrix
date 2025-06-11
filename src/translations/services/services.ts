@@ -8,7 +8,10 @@ import {
   FaPaintBrush,
   FaHandshake,
   FaCommentDots,
-  FaShieldAlt
+  FaShieldAlt,
+  FaUniversalAccess,
+  FaGlobe,
+  FaCogs
 } from 'react-icons/fa';
 
 const services = [
@@ -21,7 +24,7 @@ const services = [
       de: 'Reaktionsfähiges Design',
       pl: 'Responsywny design',
       fr: 'Design adaptatif',
-      it: 'Design reattivo',
+      it: 'Design responsivo',
     },
     description: {
       gb: 'Your website will look perfect on phone, tablet, and desktop',
@@ -29,7 +32,7 @@ const services = [
       de: 'Ihre Website sieht auf Telefon, Tablet und Desktop perfekt aus',
       pl: 'Twoja strona będzie wyglądać idealnie na telefonie, tablecie i komputerze',
       fr: 'Votre site sera parfait sur téléphone, tablette et bureau',
-      it: 'Il tuo sito sarà perfetto su telefono, tablet e desktop',
+      it: 'Il tuo sito sarà perfetto su telefono, tablet e computer',
     },
   },
   {
@@ -41,7 +44,7 @@ const services = [
       de: 'Schnelles Laden',
       pl: 'Szybkie ładowanie',
       fr: 'Chargement rapide',
-      it: 'Caricamento veloce',
+      it: 'Caricamento Veloce',
     },
     description: {
       gb: 'Pages load instantly, enhancing user comfort',
@@ -49,7 +52,7 @@ const services = [
       de: 'Seiten laden sofort, was den Benutzerkomfort verbessert',
       pl: 'Strony ładują się natychmiast, zwiększając komfort użytkownika',
       fr: 'Les pages se chargent instantanément, améliorant le confort utilisateur',
-      it: 'Le pagine si caricano istantaneamente, migliorando il comfort dell’utente',
+      it: 'Le pagine si aprono all’istante, migliorando l’esperienza utente',
     },
   },
   {
@@ -69,7 +72,7 @@ const services = [
       de: 'Die Website ist leicht in Suchmaschinen wie Google zu finden',
       pl: 'Strona jest łatwo znajdowana w wyszukiwarkach takich jak Google',
       fr: 'Le site est facilement trouvé sur des moteurs de recherche comme Google',
-      it: 'Il sito è facilmente trovato sui motori di ricerca come Google',
+      it: 'Il sito sarà facilmente trovato nei motori di ricerca come Google',
     },
   },
   {
@@ -81,7 +84,7 @@ const services = [
       de: 'Moderne Technologien',
       pl: 'Nowoczesne technologie',
       fr: 'Technologies modernes',
-      it: 'Tecnologie moderne',
+      it: 'Tecnologie Moderne',
     },
     description: {
       gb: 'We use only up-to-date and proven development tools',
@@ -89,7 +92,7 @@ const services = [
       de: 'Wir verwenden nur aktuelle und bewährte Entwicklungstools',
       pl: 'Używamy tylko aktualnych i sprawdzonych narzędzi programistycznych',
       fr: 'Nous utilisons uniquement des outils de développement à jour et éprouvés',
-      it: 'Usiamo solo strumenti di sviluppo aggiornati e collaudati',
+      it: 'Utilizziamo solo strumenti di sviluppo aggiornati e affidabili',
     },
   },
   {
@@ -101,7 +104,7 @@ const services = [
       de: 'Sauberer Code',
       pl: 'Czysty kod',
       fr: 'Code propre',
-      it: 'Codice pulito',
+      it: 'Codice Pulito',
     },
     description: {
       gb: 'The project is easy to maintain and develop in the future',
@@ -109,7 +112,7 @@ const services = [
       de: 'Das Projekt ist einfach zu warten und weiterzuentwickeln',
       pl: 'Projekt jest łatwy do utrzymania i dalszego rozwoju',
       fr: 'Le projet est facile à maintenir et à développer à l’avenir',
-      it: 'Il progetto è facile da mantenere e sviluppare in futuro',
+      it: 'Il progetto è facile da mantenere e aggiornare nel tempo',
     },
   },
   {
@@ -121,7 +124,7 @@ const services = [
       de: 'Professionelles Design',
       pl: 'Profesjonalny design',
       fr: 'Design professionnel',
-      it: 'Design professionale',
+      it: 'Design Professionale',
     },
     description: {
       gb: 'We help create a stylish and user-friendly interface',
@@ -129,7 +132,7 @@ const services = [
       de: 'Wir helfen, eine stilvolle und benutzerfreundliche Oberfläche zu erstellen',
       pl: 'Pomagamy stworzyć stylowy i przyjazny interfejs',
       fr: 'Nous aidons à créer une interface élégante et conviviale',
-      it: 'Aiutiamo a creare un’interfaccia elegante e facile da usare',
+      it: 'Ti aiutiamo a creare un’interfaccia elegante e facile da usare',
     },
   },
   {
@@ -141,7 +144,7 @@ const services = [
       de: 'Support nach dem Start',
       pl: 'Wsparcie po uruchomieniu',
       fr: 'Support post-lancement',
-      it: 'Supporto post-lancio',
+      it: 'Supporto Post-Lancio',
     },
     description: {
       gb: 'We guarantee help even after project completion',
@@ -149,7 +152,7 @@ const services = [
       de: 'Wir garantieren Hilfe auch nach Projektabschluss',
       pl: 'Gwarantujemy pomoc nawet po zakończeniu projektu',
       fr: 'Nous garantissons de l’aide même après la fin du projet',
-      it: 'Garantiamo assistenza anche dopo il completamento del progetto',
+      it: 'Forniamo supporto anche dopo la fine del progetto',
     },
   },
   {
@@ -161,7 +164,7 @@ const services = [
       de: 'Interaktive Formulare',
       pl: 'Interaktywne formularze',
       fr: 'Formulaires interactifs',
-      it: 'Moduli interattivi',
+      it: 'Form Contattabili',
     },
     description: {
       gb: 'Clients can easily contact you through the site',
@@ -181,7 +184,7 @@ const services = [
       de: 'Sicherheit und Stabilität',
       pl: 'Bezpieczeństwo i stabilność',
       fr: 'Sécurité et stabilité',
-      it: 'Sicurezza e stabilità',
+      it: 'Sicurezza e Stabilità',
     },
     description: {
       gb: 'The site runs reliably and is protected against common errors',
@@ -189,7 +192,67 @@ const services = [
       de: 'Die Website läuft zuverlässig und ist gegen häufige Fehler geschützt',
       pl: 'Strona działa niezawodnie i jest chroniona przed typowymi błędami',
       fr: 'Le site fonctionne de manière fiable et est protégé contre les erreurs courantes',
-      it: 'Il sito funziona in modo affidabile ed è protetto dagli errori comuni',
+      it: 'Il sito funziona in modo affidabile ed è protetto da errori comuni',
+    },
+  },
+  {
+    id: 'accessibility',
+    icon: FaUniversalAccess,
+    title: {
+      gb: 'Accessibility (a11y)',
+      ua: 'Доступність (a11y)',
+      de: 'Barrierefreiheit (a11y)',
+      pl: 'Dostępność (a11y)',
+      fr: 'Accessibilité (a11y)',
+      it: 'Accessibilità (a11y)',
+    },
+    description: {
+      gb: 'We make the site accessible to everyone, including people with disabilities',
+      ua: 'Робимо сайт доступним для всіх, зокрема людей з інвалідністю',
+      de: 'Wir machen die Website für alle zugänglich, auch für Menschen mit Behinderungen',
+      pl: 'Umożliwiamy dostęp do strony wszystkim, również osobom z niepełnosprawnościami',
+      fr: 'Nous rendons le site accessible à tous, y compris aux personnes handicapées',
+      it: 'Rendiamo il sito accessibile a tutti, anche a persone con disabilità',
+    },
+  },
+  {
+    id: 'multilingual',
+    icon: FaGlobe,
+    title: {
+      gb: 'Multilingual Support',
+      ua: 'Підтримка кількох мов',
+      de: 'Mehrsprachige Unterstützung',
+      pl: 'Wsparcie wielu języków',
+      fr: 'Support multilingue',
+      it: 'Supporto Multilingue',
+    },
+    description: {
+      gb: 'The site can be available in multiple languages for a global audience',
+      ua: 'Сайт може бути доступним кількома мовами для глобальної аудиторії',
+      de: 'Die Website kann in mehreren Sprachen für ein globales Publikum verfügbar sein',
+      pl: 'Strona może być dostępna w wielu językach dla globalnej publiczności',
+      fr: 'Le site peut être disponible en plusieurs langues pour un public mondial',
+      it: 'Il sito può essere disponibile in più lingue per un pubblico globale',
+    },
+  },
+  {
+    id: 'custom_features',
+    icon: FaCogs,
+    title: {
+      gb: 'Custom Features',
+      ua: 'Індивідуальні функції',
+      de: 'Individuelle Funktionen',
+      pl: 'Funkcje niestandardowe',
+      fr: 'Fonctionnalités personnalisées',
+      it: 'Funzionalità Personalizzate',
+    },
+    description: {
+      gb: 'We add unique features tailored to your needs',
+      ua: 'Додаємо унікальні функції, адаптовані до ваших потреб',
+      de: 'Wir fügen einzigartige Funktionen hinzu, die auf Ihre Bedürfnisse zugeschnitten sind',
+      pl: 'Dodajemy unikalne funkcje dostosowane do Twoich potrzeb',
+      fr: 'Nous ajoutons des fonctionnalités uniques adaptées à vos besoins',
+      it: 'Aggiungiamo funzioni uniche su misura per le tue esigenze',
     },
   },
 ];

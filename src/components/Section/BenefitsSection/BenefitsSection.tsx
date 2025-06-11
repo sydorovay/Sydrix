@@ -36,7 +36,7 @@ const Benefits: React.FC<BenefitsProps> = ({
       aria-labelledby="benefits-title"
     >
       <h2 id="benefits-title" className={styles.sectionTitle}>
-        {t(title)}
+        {typeof t(title as any) === 'string' ? t(title as any) : Array.isArray(t(title as any)) ? t(title as any).join(', ') : ''}
       </h2>
 
       <ul className={styles.benefitsList}>
@@ -67,7 +67,11 @@ const Benefits: React.FC<BenefitsProps> = ({
         aria-label={buttonText}
         type="button"
       >
-        {t(buttonText)}
+        {typeof t(buttonText as any) === 'string'
+          ? t(buttonText as any)
+          : Array.isArray(t(buttonText as any))
+          ? t(buttonText as any).join(', ')
+          : ''}
       </button>
     </section>
   );

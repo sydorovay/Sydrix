@@ -15,12 +15,12 @@
 
 .dark {
   color: #ddd;
-
-  .benefitItem {
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
-  }
 }
 
+
+.dark.benefitItem {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
+}
 
 /* Список переваг */
 .benefitsList {
@@ -54,7 +54,7 @@
 .benefitItem:hover,
 .benefitItem:focus {
   background-color: #e0f0ff;
-  outline: 2px solid #0070f3;
+  outline: 2px solid #0081b8;
 }
 
 .sectionTitle {
@@ -64,12 +64,11 @@
 
 /* Іконка */
 .icon {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
-  margin-bottom: 0.75rem;
   margin-right: 0.75rem;
-  fill: #0070f3;
+  fill: #ffcc00bd;
 }
 
 /* Заголовок переваги */
@@ -84,21 +83,17 @@
 /* Кнопка показати всі */
 .showAllButton {
   display: block;
-  width: 100%;
   max-width: 320px;
-  height: auto;
-  margin: 0 auto;
-  padding: 12px 0;
-  font-size: 1rem;
-  color: var(--button-color);
   padding: 0.75rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  background-color: #0070f3;
+  background-color: #a13b009b;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 0 auto;
 }
 
 .showAllButton:hover,
@@ -107,7 +102,6 @@
   outline: none;
 }
 
-/* Темна тема для кнопки */
 .dark .showAllButton {
   background-color: #005bb5;
   color: #e0e0e0;
@@ -120,10 +114,7 @@
 
 .buttonsWrapper {
   display: flex;
-}
-
-.backButton {
-  border: solid 1px #00b6f3d8;
+  justify-content: center;
 }
 
 /* Адаптивність: мобайл фірст */

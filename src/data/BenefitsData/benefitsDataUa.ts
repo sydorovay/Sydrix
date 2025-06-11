@@ -1,4 +1,17 @@
-import { FaMobileAlt, FaBolt, FaSearch, FaCode, FaPaintBrush, FaHandshake, FaCommentDots, FaShieldAlt, FaLaptopCode } from "react-icons/fa";
+import {
+  FaMobileAlt,
+  FaBolt,
+  FaSearch,
+  FaCode,
+  FaPaintBrush,
+  FaHandshake,
+  FaCommentDots,
+  FaShieldAlt,
+  FaLaptopCode,
+  FaEdit,
+  FaUniversalAccess,
+  FaGlobe,
+} from "react-icons/fa";
 import type { BenefitItem } from '@/types/langTypes';
 
 const benefitsUa: BenefitItem[] = [
@@ -55,6 +68,24 @@ const benefitsUa: BenefitItem[] = [
     icon: FaShieldAlt,
     title: "Захист і стабільність",
     description: "Сайт працює надійно та захищений від типових помилок",
+  },
+  {
+    id: 'easy_content_editing',
+    icon: FaEdit,
+    title: "Зручне редагування контенту",
+    description: "Легко оновлюй тексти, фото чи товари без потреби у розробнику",
+  },
+  {
+    id: 'accessibility',
+    icon: FaUniversalAccess,
+    title: "Доступність (a11y)",
+    description: "Сайт зручний для всіх користувачів, включно з людьми з інвалідністю",
+  },
+  {
+    id: 'multilingual_support',
+    icon: FaGlobe,
+    title: "Підтримка кількох мов",
+    description: "Сайт може працювати кількома мовами для ширшої аудиторії",
   }
 ];
 
