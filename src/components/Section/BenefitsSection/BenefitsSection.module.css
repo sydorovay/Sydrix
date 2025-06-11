@@ -86,7 +86,7 @@
   max-width: 320px;
   padding: 0.75rem 2rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   background-color: #a13b009b;
   border: none;
@@ -113,8 +113,7 @@
 }
 
 .buttonsWrapper {
-  display: flex;
-  justify-content: center;
+  list-style: none;
 }
 
 /* Адаптивність: мобайл фірст */

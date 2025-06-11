@@ -1,65 +1,76 @@
-import React, { useState } from 'react';
-import type { PortfolioItem } from '@/types/portfolio';
-import type { LangData } from '@/types/langTypes';
-import PortfolioCard from './PortfolioCard';
-import PortfolioModal from '@/components/PortfolioModal/PortfolioModal';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import styles from './PortfolioSection.module.css';
+import { LangData } from '@/types/langTypes';
 
-import type { TFunction } from '@/types/langTypes';
+type TranslateFn = <K extends keyof LangData>(key: K) => LangData[K];
 
-interface Props {
-  t: TFunction;
-  theme: 'light' | 'dark';
-  portfolioItems: PortfolioItem[];
+interface PortfolioItem {
+  id: string;
+  name: string;
+  title: string;
+  link: string;
+  altText: string;
+  images: string[];
 }
 
-const PortfolioSection: React.FC<Props> = ({ t, theme, portfolioItems }) => {
-  const [show, setShow] = useState(false);
-  const [index, setIndex] = useState(0);
+interface PortfolioSectionProps {
+  portfolioItems: PortfolioItem[];
+  t: TranslateFn;
+  theme: 'light' | 'dark';
+  onOpen: (id: string) => void;
+}
 
-  const open = (i: number) => {
-    setIndex(i);
-    setShow(true);
-  };
-
-  const sectionId = 'portfolio-section';
-
+const PortfolioSection: React.FC<PortfolioSectionProps> = ({
+  portfolioItems,
+  t,
+  theme,
+  onOpen,
+}) => {
   return (
-    <section
-      id={sectionId}
-      className={`${styles.section} ${styles[theme]}`}
-      aria-labelledby={`${sectionId}-title`}
-      aria-describedby={`${sectionId}-desc`}
-    >
-      <h2 id={`${sectionId}-title`} className={styles.title}>
-        {t('portfolioTitle')}
-      </h2>
-      <p id={`${sectionId}-desc`} className={styles.description}>
-        {t('portfolioText')}
-      </p>
+    <div className={`${styles.portfolioSection} ${styles[theme]}`}>
+           {portfolioItems.map((item) => (
+        <div key={item.id} className={styles.card} role="region" aria-labelledby={`${item.id}-title`}>
+          <h2 id={`${item.id}-title`} className={styles.title}>
+            {item.title}
+          </h2>
 
-      <div className={styles.grid}>
-        {portfolioItems.map((project, i) => (
-          <PortfolioCard
-            key={project.id}
-            project={project}
-            onClick={() => open(i)}
-          />
-        ))}
-      </div>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            spaceBetween={10}
+            slidesPerView={1}
+            loop
+            className={styles.slider}
+            aria-label={`${item.title} image slider`}
+          >
+            {item.images.map((src, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={src}
+                  alt={`${item.altText} ${index + 1}`}
+                  className={styles.image}
+                  loading="lazy"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-      {show && (
-        <PortfolioModal
-          projects={portfolioItems}
-          currentIndex={index}
-          onClose={() => setShow(false)}
-          onPrev={() => setIndex(i => (i - 1 + portfolioItems.length) % portfolioItems.length)}
-          onNext={() => setIndex(i => (i + 1) % portfolioItems.length)}
-          t={t}
-          theme={theme}
-        />
-      )}
-    </section>
+          <button
+            onClick={() => onOpen(item.id)}
+            className={styles.button}
+            type="button"
+          >
+            {String(t('showDetails' as keyof LangData))}
+          </button>
+        </div>
+      ))}
+    </div>
   );
 };
 

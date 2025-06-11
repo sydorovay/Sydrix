@@ -27,7 +27,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
   const scrollToTop = useCallback(() => {
     containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-
+6
   // Обробка клавіш для доступності
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
@@ -46,14 +46,19 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         name: 'Portfolio CV Site',
         title: t('portfolioTitle'),
         link: t('portfolioLink'),
-        imgSrc: '/Sydorov-CV.jpg',
         altText: 'Portfolio CV Site',
-        description: t('portfolioDescription'), 
+        images: [
+          '/portfolio/project1.webp',
+          '/portfolio/project2.webp',
+          '/portfolio/project3.webp',
+          '/portfolio/project4.webp',
+          '/portfolio/project5.webp',
+          '/portfolio/project6.webp',
+        ],
       },
     ],
     [t]
   );
-
   // Клас теми для контейнера
   const themeCls = theme === 'light' ? styles.light : styles.dark;
 
@@ -80,10 +85,9 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       {/* Benefits */}
       <section className={styles.snapSection} aria-labelledby="benefits-heading">
         <BenefitsSection
-          title={t('benefitsTitle')}
+          title={'benefitsTitle'}
           benefits={t('benefits')}
-          buttonText={t('button')}
-          onButtonClick={onContact}
+          showAllButton={'showAllButton'}
           theme={theme}
           t={t}
         />
@@ -93,8 +97,12 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       <section className={styles.snapSection} aria-labelledby="portfolio-heading">
         <PortfolioSection
           portfolioItems={portfolioItems}
-          t={(key) => String(t(key))}
+          t={t}
           theme={theme}
+          onOpen={(id: string) => {
+            // Implement your logic here, e.g., open a modal or navigate
+            console.log('Open portfolio item:', id);
+          }}
         />
       </section>
 
