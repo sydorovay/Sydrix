@@ -2,6 +2,10 @@ import benefitsDataGb from '../data/BenefitsData/benefitsDataGb';
 import { LangData } from '../types/langTypes';
 
 const gb: LangData = {
+  logoTaglines: {
+    top: "Think boldly.",
+    bottom: "Create wisely."
+  },
   home: "Home",
   about: "About",
   aboutTitle: "Who We Are",

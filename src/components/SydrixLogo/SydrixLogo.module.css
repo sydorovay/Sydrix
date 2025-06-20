@@ -1,0 +1,11 @@
+.logo {
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+}
+
+.svgLogo {
+  width: 320px;
+  height: 160px;
+  display: block;
+}

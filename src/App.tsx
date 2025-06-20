@@ -5,15 +5,12 @@ import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import { ThemeProvider } from './context/ThemeProvider';
 import { LanguageProvider } from './context/LanguageProvider';
 import AppContent from './components/AppContent/AppContent';
-import RootProvider from './context/RootProvider';
 import LoadingFallback from './components/LoadingFallback/LoadingFallback';
 
 import './styles/themes.css';
 import './styles/index.css';
 
-// Централізований логер помилок
 function logError(error: Error, info: React.ErrorInfo) {
-  // Можна тут додати аналітику або відправку помилок на сервер
   console.error('[App Error]', error, info);
 }
 
@@ -22,13 +19,11 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <ErrorBoundary onError={logError}>
-          <RootProvider>
-            <Router>
-              <Suspense fallback={<LoadingFallback />}>
-                <AppContent />
-              </Suspense>
-            </Router>
-          </RootProvider>
+          <Router>
+            <Suspense fallback={<LoadingFallback />}>
+              <AppContent />
+            </Suspense>
+          </Router>
         </ErrorBoundary>
       </LanguageProvider>
     </ThemeProvider>

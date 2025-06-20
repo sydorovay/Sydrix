@@ -2,6 +2,10 @@ import benefitsDataIt from '../data/BenefitsData/benefitsDataIt';
 import { LangData } from '../types/langTypes';
 
 const it: LangData = {
+  logoTaglines: {
+    top: "Pensa con coraggio.",
+    bottom: "Crea con intelligenza.",
+  },
   home: "Home",
   about: "Chi siamo",
   aboutTitle: "Chi siamo",

@@ -1,14 +1,9 @@
-import React, { useState, useRef, useEffect, useCallback, MouseEvent } from 'react';
+// src/components/LangSwitcher/LangSwitcher.tsx
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Flag from 'react-world-flags';
 import styles from './Langswitcher.module.css';
 import { LangCode } from '@/types/langTypes';
-import { useTString } from '@/hooks/useTString';
-
-// Додаємо типи для пропсів компонента
-interface LangSwitcherProps {
-  lang: LangCode;
-  setLang: (newLang: LangCode) => void;
-}
+import { useLanguageContext } from '@/context/LanguageProvider';
 
 const LANGUAGES: { code: LangCode; label: string }[] = [
   { code: LangCode.GB, label: 'English' },
@@ -19,20 +14,16 @@ const LANGUAGES: { code: LangCode; label: string }[] = [
   { code: LangCode.FR, label: 'Français' },
 ];
 
-export default function LangSwitcher({ lang, setLang }: LangSwitcherProps) {
-  const t = useTString();
-
+export default function LangSwitcher() {
   const [open, setOpen] = useState(false);
+  const { lang, setLang } = useLanguageContext();
+
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const selected = LANGUAGES.find(item => item.code === lang) ?? LANGUAGES[0];
 
-  const toggleDropdown = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    setOpen(prev => !prev);
-  }, []);
-
+  const toggleDropdown = useCallback(() => setOpen(prev => !prev), []);
   const closeDropdown = useCallback(() => {
     setOpen(false);
     buttonRef.current?.focus();
@@ -47,23 +38,24 @@ export default function LangSwitcher({ lang, setLang }: LangSwitcherProps) {
   );
 
   useEffect(() => {
-    const handleClickOutside = (event: Event) => {
-      if (rootRef.current && !rootRef.current.contains(event.target as Node)) {
+    const onClickOutside = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
         closeDropdown();
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [closeDropdown]);
 
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+    const onEscapePress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
         closeDropdown();
       }
     };
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+
+    document.addEventListener('mousedown', onClickOutside);
+    document.addEventListener('keydown', onEscapePress);
+    return () => {
+      document.removeEventListener('mousedown', onClickOutside);
+      document.removeEventListener('keydown', onEscapePress);
+    };
   }, [closeDropdown]);
 
   return (
@@ -72,36 +64,36 @@ export default function LangSwitcher({ lang, setLang }: LangSwitcherProps) {
         ref={buttonRef}
         onClick={toggleDropdown}
         className={styles.button}
-        aria-label={t('selectLanguage')}
+        aria-label="Select Language"
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-controls="language-listbox"
+        type="button"
       >
-        <Flag
-          code={selected.code.toUpperCase()}
-          className={styles.flag}
-          alt={selected.label}
-        />
+        <Flag code={selected.code.toUpperCase()} className={styles.flag} alt={selected.label} />
       </button>
 
-      {open && (
-        <div
-          className={`${styles.dropdown} ${open ? styles.open : ''}`}
-          role="listbox"
-        >
-      
-          {LANGUAGES.filter(item => item.code !== selected.code).map(({ code, label }) => (
-            <button
-              key={code}
-              className={styles.option}
-              role="option"
-              onClick={() => handleSelect(code)}
-            >
-              <Flag code={code.toUpperCase()} className={styles.flagSmall} alt={label} />
-              <span>{label}</span>
-            </button>
-          ))}
-        </div>
-      )}
+      <div
+        id="language-listbox"
+        className={`${styles.dropdown} ${open ? styles.open : ''}`}
+        role="listbox"
+        tabIndex={-1}
+        aria-activedescendant={selected.code}
+      >
+        {LANGUAGES.filter(l => l.code !== selected.code).map(({ code, label }) => (
+          <button
+            key={code}
+            id={code}
+            className={styles.option}
+            role="option"
+            onClick={() => handleSelect(code)}
+            type="button"
+          >
+            <Flag code={code.toUpperCase()} className={styles.flagSmall} alt={label} />
+            <span>{label}</span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

@@ -27,6 +27,8 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           onClose={handleClose}
           onPrev={handlePrev}
           onNext={handleNext}
+          t={() => "" as any} // Temporary mock, replace with your actual translation function matching TFunction type
+          theme="light" // Replace with your actual theme value if needed
         />
       )}
     </ModalContext.Provider>

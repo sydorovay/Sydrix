@@ -2,6 +2,10 @@ import benefitsDataFr from '../data/BenefitsData/benefitsDataFr';
 import { LangData } from '../types/langTypes';
 
 const fr: LangData = {
+  logoTaglines: {
+    top: "Pense avec audace.",
+    bottom: "Crée intelligemment.",
+  },
   home: "Accueil",
   about: "À propos",
   aboutTitle: "Qui sommes-nous",
