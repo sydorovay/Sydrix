@@ -14,6 +14,7 @@ import useInitEffects from '@/hooks/useInitEffects';
 import styles from './AppContent.module.css';
 import createStringTranslator from '@/utils/langUtils';
 
+// Lazy-loaded pages
 const HomePage = lazy(() => import('@/pages/HomePage/HomePage'));
 const AboutPage = lazy(() => import('@/pages/AboutPage/AboutPage'));
 const ServicesPage = lazy(() => import('@/pages/ServicesPage/ServicesPage'));
@@ -38,27 +39,23 @@ function LoadingFallback({ children }: FallbackProps) {
 }
 
 export default function AppContent() {
-  const { theme, toggleTheme } = useThemeContext();
+  const { theme } = useThemeContext();
   const { lang, setLang, t } = useLanguage();
   const typedT = createStringTranslator(t);
 
   useInitEffects(theme, setLang, lang);
 
-  // Додаємо клас для теми на кореневий div
-  const themeCls = theme === 'light' ? styles['light'] : styles['dark'];
+  const themeCls = theme === 'light' ? styles.light : styles.dark;
 
   return (
     <div className={`${styles.app} ${themeCls}`}>
-      {/* Header (фіксований топ) */}
       <header className={styles.topHalf} role="banner">
         <StarsBackgroundWithNebula theme={theme} />
-        <TopBar lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
+        <TopBar />
       </header>
 
-      {/* Main (snap-scroll контейнер) */}
       <main className={styles.snapContainer} role="main">
         <ScrollToTop />
-
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<HomePage t={t} theme={theme} />} />
@@ -77,8 +74,8 @@ export default function AppContent() {
               element={
                 <PartnershipPage
                   t={{
-                    partnership: typedT('partnership'),
-                    partnershipText: typedT('partnershipText'),
+                    partnership: t('partnership'),
+                    partnershipText: t('partnershipText'),
                   }}
                 />
               }
@@ -88,7 +85,6 @@ export default function AppContent() {
         </Suspense>
       </main>
 
-      {/* Footer */}
       <Footer t={t} theme={theme} />
     </div>
   );

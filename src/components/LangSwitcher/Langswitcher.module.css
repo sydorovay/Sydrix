@@ -90,7 +90,9 @@
   margin-right: 0.6rem;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
-
+.label{
+  list-style: none;
+}
 /* Responsive */
 @media (max-width: 600px) {
   .dropdown {

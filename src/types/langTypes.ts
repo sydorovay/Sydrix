@@ -17,13 +17,13 @@ export const LANG_CODES: LangCode[] = [
   LangCode.FR,
   LangCode.IT,
 ];
+
 export interface BenefitItem {
   id: string;
   title: string;
   description: string;
   icon?: React.ComponentType<{ className?: string }>;
 }
-
 
 export type LangData = {
   home: string;
@@ -59,7 +59,6 @@ export type LangData = {
   portfolioTitle: string;
   portfolioText: string;
   portfolioLabel: string;
-
 
   testimonials: string;
   testimonialsText: string;
@@ -201,8 +200,10 @@ export type LangData = {
 
   notFoundLink: string;
   cookieConsent: string;
-
+  logoTaglines: {
+    top: string;
+    bottom: string;
+  };
 };
-
 
 export type TFunction = <K extends keyof LangData>(key: K) => LangData[K];

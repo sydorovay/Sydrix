@@ -1,66 +1,37 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
-import { getLangPack } from '../translations/translations';
-import { LangCode, LangData, BenefitItem } from '../types/langTypes';
+// src/context/LanguageProvider.tsx
+import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
+import { LangCode, LangData } from '@/types/langTypes';
+import translations from '@/translations/translations';
 
-export type LanguageContextProps = {
-  language: LangCode;
-  setLang: (value: LangCode) => void;
-  t: (key: keyof LangData) => string | string[] | { label: string; value: string }[] | BenefitItem[];
-};
+type TranslateFn = <K extends keyof LangData>(key: K) => LangData[K];
 
-const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
+interface LanguageContextType {
+  lang: LangCode;
+  t: TranslateFn;
+  setLang: (lang: LangCode) => void;
+}
 
-type LanguageProviderProps = {
-  children: ReactNode;
-};
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Використовуємо enum LangCode для значення мови за замовчуванням
-const DEFAULT_LANG: LangCode = LangCode.GB;
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [lang, setLang] = useState<LangCode>(LangCode.GB);
 
-export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [language, setLanguage] = useState<LangCode>(() => {
-    if (typeof localStorage !== 'undefined') {
-      const stored = localStorage.getItem('lang') as LangCode | null;
-      return stored && Object.values(LangCode).includes(stored as LangCode) ? (stored as LangCode) : DEFAULT_LANG;
-    }
-    return DEFAULT_LANG;
-  });
-
-  const setLang = useCallback((value: LangCode) => {
-    setLanguage(value);
-  }, []);
-
-  useEffect(() => {
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('lang', language);
-    }
-  }, [language]);
-
-  const langPack = getLangPack(language);
-
-  const t = useCallback(
-    (key: keyof LangData) => {
-      const value = langPack[key];
-      if (value === undefined) {
-        console.warn(`Translation key "${String(key)}" not found for language "${language}"`);
-        return String(key);
-      }
-      return value;
-    },
-    [langPack, language]
+  const t: TranslateFn = useCallback(
+    key => translations[lang][key],
+    [lang]
   );
 
+  const value: LanguageContextType = { lang, t, setLang };
+
   return (
-    <LanguageContext.Provider value={{ language, setLang, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-export const useLanguage = (): LanguageContextProps => {
+export const useLanguageContext = (): LanguageContextType => {
   const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
+  if (!context) throw new Error('useLanguageContext must be used within LanguageProvider');
   return context;
 };

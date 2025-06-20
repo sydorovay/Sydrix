@@ -1,24 +1,44 @@
 import React from 'react';
-import { useLanguage } from '../context/LanguageProvider';
+import { useLanguageContext } from '@/context/LanguageProvider';
+import type { LangData } from '@/types/langTypes';
 
-interface TranslateProps {
-  id: keyof ReturnType<typeof useLanguage>['t'];
+type TranslateProps = {
+  id: keyof LangData;
   className?: string;
-}
+};
 
-const Translate: React.FC<TranslateProps> = ({ id, className }) => {
-  const { t } = useLanguage();
-  const translation = t(id);
+export default function Translate({ id, className }: TranslateProps) {
+  const { t } = useLanguageContext();
+  const value = t(id);
 
-  // Якщо переклад - рядок або масив рядків - відображаємо відповідно
-  if (typeof translation === 'string') {
-    return <>{translation}</>;
+  if (value === undefined || value === null) return <>{`[${String(id)}]`}</>;
+
+  if (typeof value === 'string') return <span className={className}>{value}</span>;
+
+  if (Array.isArray(value)) {
+    return (
+      <div className={className}>
+        {value.map((item, i) => (
+          <p key={i}>
+            {typeof item === 'string'
+              ? item
+              : 'label' in item && 'value' in item
+                ? `${item.label}: ${item.value}`
+                : JSON.stringify(item)}
+          </p>
+        ))}
+      </div>
+    );
   }
-  if (Array.isArray(translation)) {
-    return <>{translation.join(' ')}</>; // або інша логіка рендеру масиву
+
+  if (typeof value === 'object' && 'top' in value && 'bottom' in value) {
+    return (
+      <div className={className}>
+        <p>{value.top}</p>
+        <p>{value.bottom}</p>
+      </div>
+    );
   }
 
   return null;
-};
-
-export default Translate;
+}

@@ -72,14 +72,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
     >
       {/* Hero Section */}
       <section className={styles.snapSection} aria-labelledby="hero-heading">
-        <HeroSection
-          t={{
-            title: t('heroTitle'),
-            subtitle: [t('heroSubtitle')],
-            button: t('heroButton'),
-          }}
-          theme={theme}
-        />
+        <HeroSection theme={theme} />
       </section>
 
       {/* Benefits */}

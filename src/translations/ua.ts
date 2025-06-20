@@ -2,6 +2,10 @@ import benefitsDataUa from '../data/BenefitsData/benefitsDataUa';
 import { LangData } from '../types/langTypes';
 
 const ua: LangData = {
+  logoTaglines: {
+    top: "Думай сміливо.",
+    bottom: "Твори розумно.",
+  },
   home: "Головна",
   about: "Про нас",
   aboutTitle: "Хто ми",

@@ -2,6 +2,10 @@ import benefitsDataDe from '../data/BenefitsData/benefitsDataDe';
 import { LangData } from '../types/langTypes';
 
 const de: LangData = {
+  logoTaglines: {
+    top: "Denke mutig.",
+    bottom: "Kreiere klug.",
+  },
   home: "Startseite",
   about: "Über uns",
   aboutTitle: "Wer wir sind",

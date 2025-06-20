@@ -1,140 +1,153 @@
 .header {
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: center;
-  justify-content: center;
+  padding: 4rem 2rem;
   text-align: center;
-  position: relative;
-  z-index: 1;
-
+  transition: background-color 0.3s ease;
 }
 
-.icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  margin-right: 0.5em;
-  display: inline-block;
+.topRow{
+  list-style: none;
+}
+
+.header.light {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.header.dark {
+  background-color: #0f0f0f;
+  color: #f2f2f2;
 }
 
 .title {
-  font-size: 2.1rem;
-  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
-}
-
-.subtitle {
-  margin-top: 1rem;
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  line-height: 1.5;
-  text-align: center;
-}
-
-.line {
-  margin: 0.2em 0;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.2;
 }
 
 .logo {
-  transition: transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+  max-width: 100%;
+  word-break: break-word;
 }
 
+.subtitleWrapper {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.line {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
 
 .buttonWrapper {
   position: relative;
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .button {
-  padding: 0.5rem 0.8rem;
-  background-color: var(--color-text);
-  color: var(--thumb-offset-light);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
-  text-transform: uppercase;
-  border: 1px solid var(--text-color);
+  color: inherit;
+  background-color: transparent;
+  border: 2px solid currentColor;
   border-radius: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
-  background-color: rgb(254, 233, 220);
-  /* Тінь виглядатиме більш об'ємно */
-  font-weight: 700;
-  transition: transform 0.2s ease;
+.button:hover,
+.button:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+  outline: none;
 }
 
 .menu {
   position: absolute;
-  bottom: 100%;
-  margin-bottom: 1rem;
-  background: linear-gradient(#daf7feec 0%, #fadac3ee 100%);
-  list-style: none;
+  top: 120%;
+  background-color: inherit;
+  border: 1px solid currentColor;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  padding: 0.8rem;
+  padding: 0.75rem 1rem;
+  list-style: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
   z-index: 10;
-  animation: fadeIn 0.2s ease-out;
-  min-width: 160px;
-  text-align: left;
 }
 
 .menu li {
-  margin-bottom: 0.5rem;
-}
-
-.menu li:last-child {
-  margin-bottom: 0;
+  margin: 0.5rem 0;
 }
 
 .menu a {
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  color: inherit;
   text-decoration: none;
-  display: block;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.menu a:hover {
-  text-decoration: underline;
-  color: var(--button-text);
+.menu a:hover,
+.menu a:focus {
+  color: #007bff;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
 }
 
-/* Responsive */
+/* Адаптивність */
 @media (max-width: 768px) {
   .title {
-    line-height: 3rem;
+    font-size: 2.2rem;
   }
 
-  .subtitle {
-    font-size: 1.2rem;
-    line-height: 2rem;
-    margin-bottom: 4rem;
-  }
-
-  .logo {
-    width: 400px;
-    height: auto;
+  .line {
+    font-size: 1.1rem;
   }
 
   .button {
-    font-size: 1.2rem;
-    padding: 0.4rem 0.6rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
   }
 
   .menu {
-    right: auto;
+    top: 110%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .line {
+    font-size: 1rem;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu {
+    width: 100%;
+    min-width: auto;
   }
 }

@@ -1,5 +1,3 @@
-/* src/components/AppContent/AppContent.module.css */
-
 /* ========== Базова структура ========== */
 .app {
   display: flex;
@@ -8,18 +6,25 @@
   overflow: hidden;
   color: var(--text-color);
 }
+
+/* Теми */
+.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
 .dark {
-  list-style: none;
-  
-} 
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
 
 /* ========== Header Wrapper ========== */
-.topHalf {
+.headerArea {
   display: flex;
+  position: relative;
+  z-index: 10;
 }
-.light{
-text-decoration: none;
-}
+
 /* ========== Scroll Wrapper ========== */
 .snapContainer {
   flex: 1 1 auto;
@@ -119,8 +124,9 @@ text-decoration: none;
 
 /* ========== Fallback для помилок ========== */
 .fallback {
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
+  font-size: 1.25rem;
 }
 
 /* ========== Заголовок ========== */
@@ -134,4 +140,24 @@ text-decoration: none;
   .title {
     font-size: 2rem;
   }
+}
+
+/* ========== Skip Link (для доступності) ========== */
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skipLink:focus {
+  top: 0;
+}
+
+.topHalf {
+  list-style: none;
 }

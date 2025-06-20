@@ -27,10 +27,33 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
   };
 
   const renderTranslation = (
-    value: string | BenefitItem[] | string[] | { label: string; value: string }[] | React.ReactNode[] | undefined
+    value:
+      | string
+      | BenefitItem[]
+      | string[]
+      | { label: string; value: string }[]
+      | React.ReactNode[]
+      | { top: string; bottom: string }
+      | undefined
   ): React.ReactNode => {
     if (!value) return null;
     if (typeof value === 'string') return value;
+    // Handle { top, bottom } object
+    if (
+      typeof value === 'object' &&
+      !Array.isArray(value) &&
+      value !== null &&
+      'top' in value &&
+      'bottom' in value
+    ) {
+      return (
+        <>
+          <span>{(value as { top: string; bottom: string }).top}</span>
+          <br />
+          <span>{(value as { top: string; bottom: string }).bottom}</span>
+        </>
+      );
+    }
     if (Array.isArray(value)) {
       // If it's an array of strings or React nodes, render as before
       if (value.every(item => typeof item === 'string' || React.isValidElement(item))) {
