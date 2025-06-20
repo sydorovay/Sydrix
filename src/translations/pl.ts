@@ -3,8 +3,8 @@ import { LangData } from '../types/langTypes';
 
 const pl: LangData = {
   logoTaglines: {
-    top: "Myśl odważnie.",
-    bottom: "Twórz mądrze.",
+    top: "Myśl odważnie",
+    bottom: "Twórz mądrze",
   },
   home: "Strona główna",
   about: "O nas",

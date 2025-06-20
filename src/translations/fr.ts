@@ -3,8 +3,8 @@ import { LangData } from '../types/langTypes';
 
 const fr: LangData = {
   logoTaglines: {
-    top: "Pense avec audace.",
-    bottom: "Crée intelligemment.",
+    top: "Pense avec audace",
+    bottom: "Crée intelligemment",
   },
   home: "Accueil",
   about: "À propos",

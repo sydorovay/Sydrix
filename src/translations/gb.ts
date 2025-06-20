@@ -3,8 +3,8 @@ import { LangData } from '../types/langTypes';
 
 const gb: LangData = {
   logoTaglines: {
-    top: "Think boldly.",
-    bottom: "Create wisely."
+    top: "Think boldly",
+    bottom: "Create wisely"
   },
   home: "Home",
   about: "About",
