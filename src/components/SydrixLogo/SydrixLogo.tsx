@@ -112,8 +112,8 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language, onLanguageChange }) => {
         <text x="50%" y="35%" className="tagline">{top}</text>
         <text x="42.5%" y="60%" className="brand">
           <tspan dx=".2em">S</tspan>
-          <tspan className="mid" dx="-.25em" dy="-.025em">YDRI</tspan>
-          <tspan dx="-.2em">X</tspan>
+          <tspan className="mid" dx="-.1em" dy="-.01em">YDRI</tspan>
+          <tspan dx="-.1em">X</tspan>
         </text>
         <text x="50%" y="85%" className="tagline">{bottom}</text>
       </svg>

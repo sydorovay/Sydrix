@@ -43,12 +43,10 @@
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .line {
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: 1.5rem;
 }
 
 .buttonWrapper {
@@ -118,9 +116,6 @@
     font-size: 2.2rem;
   }
 
-  .line {
-    font-size: 1.1rem;
-  }
 
   .button {
     font-size: 0.95rem;
@@ -137,9 +132,7 @@
     font-size: 1.8rem;
   }
 
-  .line {
-    font-size: 1rem;
-  }
+
 
   .button {
     width: 100%;
