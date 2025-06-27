@@ -81,15 +81,15 @@
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
   /* ---------- Sydrix Logo (Gradient & Sizes) ---------- */
-  --logo-font: 'Verdana', sans-serif;
+  --logo-font: 'Montserrat', sans-serif;
   --logo-size-small: 1.1rem;
   --logo-size-medium: 3rem;
   --logo-size-mid: 4rem;
   --logo-size-large: 7rem;
-  --logo-grad-start: #044095aa;
-  --logo-grad-middle: #02b9b3b7;
-  --logo-grad-end: #8d033aa2;
-  --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --logo-grad-start: #2b1d72e4;
+  --logo-grad-middle: #43e4fd;
+  --logo-grad-end: #b36029f1;
+  --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== Темна тема (активується класом .dark на body) ===== */
@@ -106,8 +106,8 @@ body.dark {
 
   --logo-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
   /* Dark gradient for logo */
-  --logo-grad-start: #67f2ffcb;
-  --logo-grad-middle: #03809fe0;
-  --logo-grad-end: #07c1d5e7;
+  --logo-grad-start: #2daef3b6;
+  --logo-grad-middle: #43e4fd;
+  --logo-grad-end: #4b1a93d1;
 }
 
