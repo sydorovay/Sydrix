@@ -25,6 +25,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
         className={styles.svgLogo}
         aria-hidden="true"
         focusable="false"
+        style={{ pointerEvents: 'none' }} // Заборона на взаємодію
       >
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -77,10 +78,10 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
         </text>
 
         {/* Main SYDRIX word */}
-        <text x="42.5%" y="60%" className="brand" fill="url(#grad)">
-          <tspan dx=".2em">S</tspan>
-          <tspan className="mid" dx="-.1em" dy="-.01em">YDRI</tspan>
-          <tspan dx="-.1em">X</tspan>
+        <text x="50%" y="60%" className="brand" fill="url(#grad)">
+          <tspan>S</tspan>
+          <tspan className="mid">YDRI</tspan>
+          <tspan>X</tspan>
         </text>
 
         {/* Bottom tagline */}
