@@ -1,11 +1,99 @@
-.logo {
-  cursor: pointer;
-  user-select: none;
-  display: inline-block;
+/* SydrixLogo.module.css */
+
+/* Покращені анімації для трьох стопів градієнту */
+@keyframes stop1 {
+  0% {
+    stop-color: var(--logo-grad-start);
+  }
+
+  25% {
+    stop-color: var(--logo-grad-middle);
+  }
+
+  50% {
+    stop-color: var(--logo-grad-end);
+  }
+
+  75% {
+    stop-color: var(--logo-grad-middle);
+  }
+
+  100% {
+    stop-color: var(--logo-grad-start);
+  }
 }
 
-.svgLogo {
+@keyframes stop2 {
+  0% {
+    stop-color: var(--logo-grad-middle);
+  }
+
+  25% {
+    stop-color: var(--logo-grad-end);
+  }
+
+  50% {
+    stop-color: var(--logo-grad-start);
+  }
+
+  75% {
+    stop-color: var(--logo-grad-end);
+  }
+
+  100% {
+    stop-color: var(--logo-grad-middle);
+  }
+}
+
+@keyframes stop3 {
+  0% {
+    stop-color: var(--logo-grad-end);
+  }
+
+  25% {
+    stop-color: var(--logo-grad-start);
+  }
+
+  50% {
+    stop-color: var(--logo-grad-middle);
+  }
+
+  75% {
+    stop-color: var(--logo-grad-start);
+  }
+
+  100% {
+    stop-color: var(--logo-grad-end);
+  }
+}
+
+/* Базові стилі контейнера */
+.logo {
+  display: inline-block;
   width: 320px;
   height: 160px;
+  user-select: none;
+}
+
+/* SVG займає весь контейнер */
+.svgLogo {
+  width: 100%;
+  height: 100%;
   display: block;
+}
+
+/* Прив'язка анімацій до stop-елементів всередині градієнта */
+/* Перший stop */
+.svgLogo stop:nth-of-type(1) {
+  animation: stop1 10s ease-in-out infinite;
+}
+
+/* Другий stop */
+.svgLogo stop:nth-of-type(2) {
+  animation: stop2 10s ease-in-out infinite;
+}
+
+/* Третій stop */
+.svgLogo stop:nth-of-type(3) {
+  animation: stop3 10s ease-in-out infinite;
 }

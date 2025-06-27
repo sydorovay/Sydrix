@@ -4,10 +4,14 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'system';
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'system';
+    }
+    return 'light';
   });
 
   const resolvedTheme = (() => {
+    if (typeof window === 'undefined') return 'light';
     if (theme === 'system') {
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
@@ -38,7 +42,9 @@ export default function ThemeToggle() {
         : 'light';
 
     setTheme(nextTheme);
-    localStorage.setItem('theme', nextTheme);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', nextTheme);
+    }
   };
 
   const themeLabel = theme === 'system'
@@ -49,6 +55,9 @@ export default function ThemeToggle() {
     <div
       className={styles.toggleBtn}
       onClick={toggleTheme}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleTheme()}
+      role="button"
+      tabIndex={0}
       title={`Current: ${themeLabel}. Click to change theme`}
       aria-label="Toggle theme"
     >
