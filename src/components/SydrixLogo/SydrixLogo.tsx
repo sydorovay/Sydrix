@@ -1,4 +1,4 @@
-// SydrixLogo.tsx
+// src/components/SydrixLogo.tsx
 import React from 'react';
 import { LangCode, LangData } from '@/types/langTypes';
 import styles from './SydrixLogo.module.css';
@@ -28,9 +28,9 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
       >
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="var(--logo-grad-start)" />
-            <stop offset="50%" stopColor="var(--logo-grad-middle)" />
-            <stop offset="100%" stopColor="var(--logo-grad-end)" />
+            <stop offset="0%" className={styles.stop1} />
+            <stop offset="50%" className={styles.stop2} />
+            <stop offset="100%" className={styles.stop3} />
           </linearGradient>
 
           <filter id="embossShadow" x="-50%" y="-50%" width="200%" height="200%">
@@ -55,11 +55,20 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
             dominant-baseline: middle;
             filter: url(#embossShadow);
           }
-          .tagline { font-size: var(--logo-size-small); }
-          .brand   { font-size: var(--logo-size-medium); }
+          .tagline {
+            font-size: var(--logo-size-small);
+          }
+          .brand {
+            font-size: var(--logo-size-medium);
+          }
           .brand tspan:first-child,
-          .brand tspan:last-child { font-size: var(--logo-size-large); }
-          .mid     { font-size: var(--logo-size-mid); fill-opacity:1; }
+          .brand tspan:last-child {
+            font-size: var(--logo-size-large);
+          }
+          .mid {
+            font-size: var(--logo-size-mid);
+            fill-opacity: 1;
+          }
         `}</style>
 
         {/* Top tagline */}
@@ -67,7 +76,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           {top}
         </text>
 
-        {/* Brand */}
+        {/* Main SYDRIX word */}
         <text x="42.5%" y="60%" className="brand" fill="url(#grad)">
           <tspan dx=".2em">S</tspan>
           <tspan className="mid" dx="-.1em" dy="-.01em">YDRI</tspan>

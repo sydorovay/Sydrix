@@ -106,7 +106,8 @@ body.dark {
 
   --logo-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
   /* Dark gradient for logo */
-  --logo-grad-start: #4ee5f9;
-  --logo-grad-middle: #0393b7;
-  --logo-grad-end: #43eafd;
+  --logo-grad-start: #67f2ffcb;
+  --logo-grad-middle: #03809fe0;
+  --logo-grad-end: #07c1d5e7;
 }
+
