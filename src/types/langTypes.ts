@@ -1,3 +1,4 @@
+// ✅ src/types/langTypes.ts
 import { ReactNode } from 'react';
 
 export enum LangCode {

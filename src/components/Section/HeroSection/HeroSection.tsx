@@ -1,5 +1,4 @@
 // ✅ src/components/HeroSection.tsx
-import React from 'react';
 import SydrixLogo from '../../SydrixLogo/SydrixLogo';
 import LangSwitcher from '../../LangSwitcher/LangSwitcher';
 import styles from './HeroSection.module.css';
@@ -19,14 +18,14 @@ export default function HeroSection({ theme }: HeroSectionProps) {
     <SydrixLogo t={t} language={lang} />
   </div>
 
-  <h2 className={styles.subtitleWrapper}>
+  <div className={styles.subtitleWrapper}>
     {Array.isArray(t('heroSubtitle')) &&
       t('heroSubtitle').map((line, idx) => (
         <p key={idx} className={styles.line}>
           {line}
         </p>
       ))}
-  </h2>
+  </div>
 
   <div className={styles.buttonWrapper}>
     <LangSwitcher />
