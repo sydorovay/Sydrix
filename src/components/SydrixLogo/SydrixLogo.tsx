@@ -20,7 +20,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
       aria-label={`SYDRIX logo, language ${language.toUpperCase()}`}
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
+        // xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 320 160"
         className={styles.svgLogo}
         aria-hidden="true"

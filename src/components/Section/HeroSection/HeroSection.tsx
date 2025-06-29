@@ -16,7 +16,7 @@ export default function HeroSection({ theme }: HeroSectionProps) {
     <header className={styles.header}>
       <h1 className={styles.title}>{t('heroTitle')}</h1>
       <div className={styles.topRow}>
-        <SydrixLogo t={t} language={lang} onLanguageChange={setLang} />
+        <SydrixLogo t={t} language={lang} />
       </div>
 
       <div className={styles.subtitleWrapper} role="heading" aria-level={2}>
