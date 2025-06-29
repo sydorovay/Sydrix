@@ -18,7 +18,6 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
       className={styles.logo}
       role="img"
       aria-label={`SYDRIX logo, language ${language.toUpperCase()}`}
-      style={{ pointerEvents: 'none' }} // 🔒 блокує всі події
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -33,20 +32,6 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
             <stop offset="50%" className={styles.stop2} />
             <stop offset="100%" className={styles.stop3} />
           </linearGradient>
-
-          <filter id="embossShadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feDropShadow dx="2" dy="2" floodColor="rgba(0,0,0,0.3)" stdDeviation="2" />
-            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1" />
-            <feSpecularLighting in="blur" lightingColor="#fff" result="specOut"
-              specularConstant=".6" specularExponent="12" surfaceScale="4">
-              <fePointLight x="-80" y="-80" z="200" />
-            </feSpecularLighting>
-            <feComposite in="specOut" in2="SourceAlpha" operator="in" result="lit" />
-            <feMerge>
-              <feMergeNode in="lit" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
         <style>{`
