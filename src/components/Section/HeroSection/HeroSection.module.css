@@ -28,15 +28,6 @@
   line-height: 1.2;
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 2rem 0;
-  max-width: 100%;
-  word-break: break-word;
-}
 
 .subtitleWrapper {
   margin-top: 1rem;
