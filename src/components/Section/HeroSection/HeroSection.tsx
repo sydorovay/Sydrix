@@ -13,20 +13,24 @@ export default function HeroSection({ theme }: HeroSectionProps) {
   const { lang, t, setLang } = useLanguageContext();
 
   return (
-    <header className={styles.header}>
-      <h1 className={styles.title}>{t('heroTitle')}</h1>
-      <div className={styles.topRow}>
-        <SydrixLogo t={t} language={lang} />
-      </div>
+   <header className={`${styles.header} ${styles[theme]}`}>
+  <h1 className={styles.title}>{t('heroTitle')}</h1>
+  <div className={styles.topRow}>
+    <SydrixLogo t={t} language={lang} />
+  </div>
 
-      <div className={styles.subtitleWrapper} role="heading" aria-level={2}>
-        {Array.isArray(t('heroSubtitle')) &&
-          t('heroSubtitle').map((line, idx) => (
-            <p key={idx} className={styles.line}>
-              {line}
-            </p>
-          ))}
-      </div>
-    </header>
+  <h2 className={styles.subtitleWrapper}>
+    {Array.isArray(t('heroSubtitle')) &&
+      t('heroSubtitle').map((line, idx) => (
+        <p key={idx} className={styles.line}>
+          {line}
+        </p>
+      ))}
+  </h2>
+
+  <div className={styles.buttonWrapper}>
+    <LangSwitcher />
+  </div>
+</header>
   );
 }
