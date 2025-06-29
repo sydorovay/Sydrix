@@ -66,38 +66,33 @@
 
 .logo {
   display: inline-block;
-  width: 320px;
-  height: 160px;
-  font-weight: 700;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  pointer-events: none;
   user-select: none;
   filter: drop-shadow(0 16px 40px rgba(0, 255, 255, 0.15));
   transition: transform 0.3s ease;
-  pointer-events: none;
 }
 
 .svgLogo {
+  width: 100%;
+  height: auto;
   display: block;
 }
-/* Спільні анімаційні параметри */
-.stop1,
-.stop2,
-.stop3 {
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
+
 
 .stop1 {
   stop-color: var(--logo-grad-start);
-  animation-name: stop1;
+  animation: stop1 18s ease-in-out infinite;
 }
 
 .stop2 {
   stop-color: var(--logo-grad-middle);
-  animation-name: stop2;
+  animation: stop2 21s ease-in-out infinite;
 }
 
 .stop3 {
   stop-color: var(--logo-grad-end);
-  animation-name: stop3;
+  animation: stop3 15s ease-in-out infinite;
 }
