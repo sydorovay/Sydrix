@@ -20,12 +20,12 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
       aria-label={`SYDRIX logo, language ${language.toUpperCase()}`}
     >
       <svg
-        // xmlns="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 320 160"
         className={styles.svgLogo}
         aria-hidden="true"
         focusable="false"
-        style={{ pointerEvents: 'none' }} // Заборона на взаємодію
+        style={{ pointerEvents: 'none' }}
       >
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
