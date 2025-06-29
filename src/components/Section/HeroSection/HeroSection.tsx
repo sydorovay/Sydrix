@@ -1,6 +1,5 @@
 // ✅ src/components/HeroSection.tsx
 import SydrixLogo from '../../SydrixLogo/SydrixLogo';
-import LangSwitcher from '../../LangSwitcher/LangSwitcher';
 import styles from './HeroSection.module.css';
 import { useLanguageContext } from '@/context/LanguageProvider';
 
@@ -9,7 +8,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ theme }: HeroSectionProps) {
-  const { lang, t, setLang } = useLanguageContext();
+  const { lang, t} = useLanguageContext();
 
   return (
    <header className={`${styles.header} ${styles[theme]}`}>
@@ -27,9 +26,6 @@ export default function HeroSection({ theme }: HeroSectionProps) {
       ))}
   </div>
 
-  <div className={styles.buttonWrapper}>
-    <LangSwitcher />
-  </div>
 </header>
   );
 }

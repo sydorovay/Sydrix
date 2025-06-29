@@ -11,13 +11,11 @@
   list-style: none;
 }
 
-.header.light {
-  background-color: #ffffff;
+.light {
   color: #111111;
 }
 
-.header.dark {
-  background-color: #0f0f0f;
+.dark {
   color: #f2f2f2;
 }
 
