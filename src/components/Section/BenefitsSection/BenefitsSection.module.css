@@ -1,30 +1,18 @@
 .benefitsSection {
-  list-style: none;
-}
-
-.light {
-  color: var(--text-color);
   padding: 2rem 1rem;
   border-radius: 12px;
   max-width: 1024px;
   margin: 0 auto;
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
-
-}
-
-.dark {
-  color: #ddd;
+  box-shadow: var(--shadow);
+  color: var(--text-color);
 }
 
 
-.dark.benefitItem {
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
-}
 
 /* Список переваг */
 .benefitsList {
-  list-style: none;
   padding: 0;
   margin: 0 auto 1.5rem;
   max-width: 600px;
@@ -38,31 +26,44 @@
 .benefitItem {
   border-radius: 12px;
   width: 100%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
   flex: 1 1 140px;
   max-width: 360px;
   padding: 1rem;
   cursor: pointer;
   outline-offset: 2px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 12px;
 }
 
 .benefitItem:hover,
 .benefitItem:focus {
-  background-color: #e0f0ff;
-  outline: 2px solid #0081b8;
+  background-color: var(--hover-color);
+  box-shadow: var(--shadow);
+  transform: scale(1.05);
+}
+
+/* Темна тема — спеціальний стиль тіней */
+.dark .benefitItem {
+  box-shadow: var(--shadow);
+}
+
+.dark .benefitItem:hover,
+.dark .benefitItem:focus {
+  background-color: var(--hover-color);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.35);
 }
 
 .sectionTitle {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
-/* Іконка */
+/* Іконка */  
 .icon {
   width: 24px;
   height: 24px;
@@ -73,14 +74,12 @@
 
 /* Заголовок переваги */
 .benefitTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
   margin: 0;
   flex-grow: 1;
   text-align: left;
 }
 
-/* Кнопка показати всі */
+/* Кнопка "Показати всі" */
 .showAllButton {
   display: block;
   max-width: 320px;
@@ -93,7 +92,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: 0 auto;
+  margin: 3rem auto 1rem;
 }
 
 .showAllButton:hover,
@@ -113,10 +112,14 @@
 }
 
 .buttonsWrapper {
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-/* Адаптивність: мобайл фірст */
+/* 📱 Адаптивність — mobile-first */
 @media (min-width: 480px) {
   .benefitsList {
     justify-content: flex-start;

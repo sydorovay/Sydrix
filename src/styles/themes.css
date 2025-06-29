@@ -77,8 +77,9 @@
   --button-text: #fff;
   --link-color: #007bff;
   --highlight: rgba(0, 123, 255, 0.8);
-  --hover-color: rgba(170, 234, 255, 0.9);
+  --hover-color: #fcc2a743;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --hover-shadow: 0 6px 12px rgba(255, 255, 255, 0.3)
 
   /* ---------- Sydrix Logo (Gradient & Sizes) ---------- */
   --logo-font: 'Montserrat', sans-serif;
@@ -94,7 +95,7 @@
 
 /* ===== Темна тема (активується класом .dark на body) ===== */
 body.dark {
-  --text-color: rgba(240, 255, 255, 0.95);
+  --text-color: #fef8f6;
   --background-color: #1c1c1c;
   --border-color: #444;
   --button-bg: #f1f1f1;
@@ -102,9 +103,10 @@ body.dark {
   --link-color: #4d94ff;
   --highlight: rgba(0, 123, 255, 1);
   --hover-color: rgba(100, 150, 255, 0.6);
-  --shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  --shadow: 0 2px 12px #42e3fc43;
+  --hover-color: #42e3fc43;
 
-  --logo-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  --logo-shadow: 0 2px 12px #42e3fc43
   /* Dark gradient for logo */
   --logo-grad-start: #2daef3b6;
   --logo-grad-middle: #43e4fd;
