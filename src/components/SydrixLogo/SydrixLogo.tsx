@@ -18,6 +18,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
       className={styles.logo}
       role="img"
       aria-label={`SYDRIX logo, language ${language.toUpperCase()}`}
+      style={{ pointerEvents: 'none' }} // 🔒 блокує всі події
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +26,6 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
         className={styles.svgLogo}
         aria-hidden="true"
         focusable="false"
-        style={{ pointerEvents: 'none' }}
       >
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -55,6 +55,8 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
             text-anchor: middle;
             dominant-baseline: middle;
             filter: url(#embossShadow);
+            pointer-events: none; /* ✨ блокує клацання по тексту */
+            user-select: none;
           }
           .tagline {
             font-size: var(--logo-size-small);
@@ -72,19 +74,16 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           }
         `}</style>
 
-        {/* Top tagline */}
         <text x="50%" y="35%" className="tagline" fill="url(#grad)">
           {top}
         </text>
 
-        {/* Main SYDRIX word */}
         <text x="50%" y="60%" className="brand" fill="url(#grad)">
           <tspan>S</tspan>
           <tspan className="mid">YDRI</tspan>
           <tspan>X</tspan>
         </text>
 
-        {/* Bottom tagline */}
         <text x="50%" y="85%" className="tagline" fill="url(#grad)">
           {bottom}
         </text>
