@@ -1,8 +1,8 @@
 declare const styles: {
+  readonly "dark": string;
   readonly "footer": string;
   readonly "item": string;
   readonly "label": string;
-  readonly "line": string;
   readonly "link": string;
   readonly "list": string;
   readonly "section": string;

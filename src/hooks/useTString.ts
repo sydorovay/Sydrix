@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
-import { useLanguage } from '@/context/LanguageProvider';
+import { useLanguageContext } from '../context/LanguageProvider';
 import { LangData } from '@/types/langTypes';
 
 export const useTString = () => {
-  const { t } = useLanguage();
+  const { t } = useLanguageContext();
 
   return useCallback(
     (key: keyof LangData): string => {

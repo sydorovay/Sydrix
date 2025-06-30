@@ -41,7 +41,8 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({ phone, email, portfol
   }[];
 
   return (
-    <section
+    <section 
+      id="contact"
       className={`${styles.section} ${theme}`}
       aria-labelledby="contacts-heading"
     >

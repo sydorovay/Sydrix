@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { LangCode, LangData } from '@/types/langTypes';
 import styles from './SydrixLogo.module.css';
 
@@ -36,67 +36,38 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
             <stop offset="50%" className={styles.stop2} />
             <stop offset="100%" className={styles.stop3} />
           </linearGradient>
-
-          <filter id="embossShadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feDropShadow dx="2" dy="2" floodColor="rgba(0,0,0,0.3)" stdDeviation="2" />
-            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1" />
-            <feSpecularLighting
-              in="blur"
-              lightingColor="#fff"
-              result="specOut"
-              specularConstant=".6"
-              specularExponent="12"
-              surfaceScale="4"
-            >
-              <fePointLight x="-80" y="-80" z="200" />
-            </feSpecularLighting>
-            <feComposite in="specOut" in2="SourceAlpha" operator="in" result="lit" />
-            <feMerge>
-              <feMergeNode in="lit" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
-        <style>{`
-          text {
-            font-family: var(--logo-font);
-            text-anchor: middle;
-            dominant-baseline: middle;
-            filter: url(#embossShadow);
-            pointer-events: none;
-            user-select: none;
-          }
-          .tagline {
-            font-size: var(--logo-size-small);
-          }
-          .brand {
-            font-size: var(--logo-size-medium);
-          }
-          .brand tspan:first-child,
-          .brand tspan:last-child {
-            font-size: var(--logo-size-large);
-          }
-          .mid {
-            font-size: var(--logo-size-mid);
-            fill-opacity: 1;
-          }
-        `}</style>
-
         {/* Верхній слоган */}
-        <text x="50%" y="35%" className="tagline" fill="url(#grad)">
+        <text
+          x="50%"
+          y="35%"
+          className={styles.tagline}
+          fill="url(#grad)"
+        >
           {top}
         </text>
 
         {/* Основний напис SYDRIX */}
-        <text x="50%" y="60%" className="brand" fill="url(#grad)">
+        <text
+          x="50%"
+          y="60%"
+          className={styles.brand}
+          fill="url(#grad)"
+          style={{ filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))' }}
+        >
           <tspan>S</tspan>
-          <tspan className="mid">YDRI</tspan>
+          <tspan className={styles.mid}>YDRI</tspan>
           <tspan>X</tspan>
         </text>
 
         {/* Нижній слоган */}
-        <text x="50%" y="85%" className="tagline" fill="url(#grad)">
+        <text
+          x="50%"
+          y="85%"
+          className={styles.tagline}
+          fill="url(#grad)"
+        >
           {bottom}
         </text>
       </svg>

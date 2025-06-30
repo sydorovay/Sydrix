@@ -1,3 +1,4 @@
+/* Анімації градієнту для стопів */
 @keyframes stop1 {
   0% {
     stop-color: var(--logo-grad-start);
@@ -64,6 +65,7 @@
   }
 }
 
+/* Контейнер логотипу */
 .logo {
   display: inline-block;
   width: 100%;
@@ -75,13 +77,14 @@
   transition: transform 0.3s ease;
 }
 
+/* SVG повністю адаптивний */
 .svgLogo {
   width: 100%;
   height: auto;
   display: block;
 }
 
-
+/* Анімовані кольори градієнтних стопів */
 .stop1 {
   stop-color: var(--logo-grad-start);
   animation: stop1 18s ease-in-out infinite;
@@ -95,4 +98,35 @@
 .stop3 {
   stop-color: var(--logo-grad-end);
   animation: stop3 15s ease-in-out infinite;
+}
+
+/* Стилі для текстових елементів SVG */
+text {
+  font-family: var(--logo-font);
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tagline {
+  font-size: var(--logo-size-small);
+  fill-opacity: 0.85;
+}
+
+.brand {
+  font-size: var(--logo-size-medium);
+  font-weight: 700;
+}
+
+.brand tspan:first-child,
+.brand tspan:last-child {
+  font-size: var(--logo-size-large);
+  font-weight: 900;
+}
+
+.mid {
+  font-size: var(--logo-size-mid);
+  fill-opacity: 1;
+  font-weight: 700;
 }
