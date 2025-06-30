@@ -5,7 +5,6 @@
   margin: 0 auto;
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: var(--shadow);
   color: var(--text-color);
 }
 
@@ -69,7 +68,8 @@
   height: 24px;
   flex-shrink: 0;
   margin-right: 0.75rem;
-  fill: #ffcc00bd;
+  fill: #6fd7f7;
+
 }
 
 /* Заголовок переваги */
@@ -102,7 +102,7 @@
 }
 
 .dark .showAllButton {
-  background-color: #005bb5;
+  background-color: #07799b;
   color: #e0e0e0;
 }
 

@@ -91,7 +91,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
 
   return (
     <section
-      className={`${styles.benefitsSection} ${styles[theme]}`}
+      className={`${styles.benefitsSection} ${styles[theme as keyof typeof styles]}`}
       aria-labelledby="benefits-title"
     >
       <h2 id="benefits-title" className={styles.sectionTitle}>
