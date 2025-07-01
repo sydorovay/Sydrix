@@ -12,34 +12,31 @@
 }
 
 .light {
-  color: #111111;
+  color: #1c0153;
 }
 
 .dark {
-  color: #f2f2f2;
+  color: #bed9fbfb;
 }
 
 .title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  line-height: 1.2;
+  /* margin-bottom: 1.2rem; */
 }
 
 
 .subtitleWrapper {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 3.2rem;
   display: flex;
   flex-direction: column;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.2rem;
-    font-size: large;
-  line-height: .25;
+  font-size: 1.1rem;
+  line-height: 2.4rem;
+
 }
 
 .line {
-padding: 0.3rem;
+/* padding: 0.3rem; */
+margin: 0 auto;
 }
 
 .buttonWrapper {
@@ -50,12 +47,12 @@ padding: 0.3rem;
 }
 
 .button {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: inherit;
-  background-color: transparent;
-  border: 2px solid currentColor;
+  background-color: #00d9ff40;
+  border: 2px solid #01bbff49;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -105,13 +102,13 @@ padding: 0.3rem;
 /* Адаптивність */
 @media (max-width: 768px) {
   .title {
-    font-size: 2.2rem;
+    /* font-size: 2.2rem; */
   }
 
 
   .button {
-    font-size: 0.95rem;
-    padding: 0.6rem 1.5rem;
+    /* font-size: 0.95rem; */
+    padding: 0.6rem 1rem;
   }
 
   .menu {
