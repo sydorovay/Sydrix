@@ -49,6 +49,9 @@
 .dark .benefitItem {
   box-shadow: var(--shadow);
 }
+.light {
+  list-style: none;
+}
 
 .dark .benefitItem:hover,
 .dark .benefitItem:focus {

@@ -6,6 +6,7 @@ declare const styles: {
   readonly "buttonsWrapper": string;
   readonly "dark": string;
   readonly "icon": string;
+  readonly "light": string;
   readonly "sectionTitle": string;
   readonly "showAllButton": string;
 };

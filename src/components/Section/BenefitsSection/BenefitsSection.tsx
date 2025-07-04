@@ -1,15 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { BenefitItem, TFunction } from '@/types/langTypes';
-import type { LangData } from '@/types/langTypes';
+import { useLanguageContext } from '@/context/LanguageProvider';
+import type { BenefitItem } from '@/types/langTypes';
 import styles from './BenefitsSection.module.css';
 
 export interface BenefitsProps {
   benefits: BenefitItem[];
-  title: keyof LangData;
-  showAllButton: keyof LangData;
+  title: keyof ReturnType<typeof useLanguageContext>['t'];
+  showAllButton: keyof ReturnType<typeof useLanguageContext>['t'];
   theme: 'light' | 'dark';
-  t: TFunction;
 }
 
 const BenefitsSection: React.FC<BenefitsProps> = ({
@@ -17,9 +16,9 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
   title,
   showAllButton,
   theme,
-  t,
 }) => {
   const navigate = useNavigate();
+  const { t } = useLanguageContext();
   const previewBenefits = benefits.slice(0, 5);
 
   const handleNavigate = (benefitId?: string) => {
@@ -38,7 +37,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
   ): React.ReactNode => {
     if (!value) return null;
     if (typeof value === 'string') return value;
-    // Handle { top, bottom } object
+
     if (
       typeof value === 'object' &&
       !Array.isArray(value) &&
@@ -48,14 +47,14 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
     ) {
       return (
         <>
-          <span>{(value as { top: string; bottom: string }).top}</span>
+          <span>{value.top}</span>
           <br />
-          <span>{(value as { top: string; bottom: string }).bottom}</span>
+          <span>{value.bottom}</span>
         </>
       );
     }
+
     if (Array.isArray(value)) {
-      // If it's an array of strings or React nodes, render as before
       if (value.every(item => typeof item === 'string' || React.isValidElement(item))) {
         return value.map((line, index) => (
           <React.Fragment key={index}>
@@ -64,9 +63,8 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
           </React.Fragment>
         ));
       }
-      // If it's an array of objects with label/value or BenefitItem, render their labels/titles
+
       if (value.length > 0 && typeof value[0] === 'object' && value[0] !== null) {
-        // Handle { label, value }[]
         if ('label' in value[0]) {
           return (value as { label: string; value: string }[]).map((item, idx) => (
             <React.Fragment key={idx}>
@@ -75,7 +73,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
             </React.Fragment>
           ));
         }
-        // Handle BenefitItem[]
+
         if ('title' in value[0]) {
           return (value as BenefitItem[]).map((item, idx) => (
             <React.Fragment key={idx}>
@@ -86,12 +84,13 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
         }
       }
     }
+
     return null;
   };
 
   return (
     <section
-      className={`${styles.benefitsSection} ${styles[theme as keyof typeof styles]}`}
+      className={`${styles.benefitsSection} ${theme === 'dark' ? styles.dark : ''}`}
       aria-labelledby="benefits-title"
     >
       <h2 id="benefits-title" className={styles.sectionTitle}>
