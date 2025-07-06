@@ -25,76 +25,13 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
     navigate(benefitId ? `/services#${benefitId}` : '/services');
   };
 
-  const renderTranslation = (
-    value:
-      | string
-      | BenefitItem[]
-      | string[]
-      | { label: string; value: string }[]
-      | React.ReactNode[]
-      | { top: string; bottom: string }
-      | undefined
-  ): React.ReactNode => {
-    if (!value) return null;
-    if (typeof value === 'string') return value;
-
-    if (
-      typeof value === 'object' &&
-      !Array.isArray(value) &&
-      value !== null &&
-      'top' in value &&
-      'bottom' in value
-    ) {
-      return (
-        <>
-          <span>{value.top}</span>
-          <br />
-          <span>{value.bottom}</span>
-        </>
-      );
-    }
-
-    if (Array.isArray(value)) {
-      if (value.every(item => typeof item === 'string' || React.isValidElement(item))) {
-        return value.map((line, index) => (
-          <React.Fragment key={index}>
-            {line}
-            <br />
-          </React.Fragment>
-        ));
-      }
-
-      if (value.length > 0 && typeof value[0] === 'object' && value[0] !== null) {
-        if ('label' in value[0]) {
-          return (value as { label: string; value: string }[]).map((item, idx) => (
-            <React.Fragment key={idx}>
-              {item.label}
-              <br />
-            </React.Fragment>
-          ));
-        }
-
-        if ('title' in value[0]) {
-          return (value as BenefitItem[]).map((item, idx) => (
-            <React.Fragment key={idx}>
-              {item.title}
-              <br />
-            </React.Fragment>
-          ));
-        }
-      }
-    }
-
-    return null;
-  };
-
   return (
     <section
       className={`${styles.benefitsSection} ${theme === 'dark' ? styles.dark : ''}`}
       aria-labelledby="benefits-title"
     >
       <h2 id="benefits-title" className={styles.sectionTitle}>
-        {renderTranslation(t(title))}
+        {t(title)}
       </h2>
 
       <ul className={styles.benefitsList}>
@@ -125,7 +62,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
         aria-label={t(showAllButton) as string}
         type="button"
       >
-        {renderTranslation(t(showAllButton))}
+        {t(showAllButton)}
       </button>
     </section>
   );

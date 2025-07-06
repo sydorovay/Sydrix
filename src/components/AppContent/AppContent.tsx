@@ -1,4 +1,3 @@
-// src/components/AppContent/AppContent.tsx
 import { lazy, Suspense, ReactNode } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackground'
 import Footer from '../Footer/Footer';
 
 import { useThemeContext } from '@/context/ThemeProvider';
-import useLanguage from '@/hooks/useLanguage';
+import { useLanguageContext } from '@/context/LanguageProvider';
 import useInitEffects from '@/hooks/useInitEffects';
 
 import styles from './AppContent.module.css';
@@ -40,7 +39,7 @@ function LoadingFallback({ children }: FallbackProps) {
 
 export default function AppContent() {
   const { theme } = useThemeContext();
-  const { lang, setLang, t } = useLanguage();
+  const { lang, t, setLang } = useLanguageContext();
   const typedT = createStringTranslator(t);
 
   useInitEffects(theme, setLang, lang);
@@ -60,7 +59,7 @@ export default function AppContent() {
           <Routes>
             <Route path="/" element={<HomePage t={t} theme={theme} />} />
             <Route path="/about" element={<AboutPage t={t} theme={theme} />} />
-            <Route path="/services" element={<ServicesPage t={t} theme={theme} lang={lang} />} />
+            <Route path="/services" element={<ServicesPage t={t} lang={lang} theme={theme} />} />
             <Route path="/portfolio" element={<PortfolioPage theme={theme} />} />
             <Route path="/testimonials" element={<TestimonialsPage t={t} />} />
             <Route path="/blog" element={<BlogPage t={typedT} theme={theme} />} />
@@ -74,8 +73,8 @@ export default function AppContent() {
               element={
                 <PartnershipPage
                   t={{
-                    partnership: t('partnership'),
-                    partnershipText: t('partnershipText'),
+                    partnership: typedT('partnership'),
+                    partnershipText: typedT('partnershipText'),
                   }}
                 />
               }
