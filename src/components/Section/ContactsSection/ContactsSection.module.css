@@ -49,25 +49,13 @@
   text-decoration: underline;
 }
 
-.footer {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+/* Light/Dark themes */
+.light {
+  color: var(--text-color);
 }
 
-.socials {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-}
-
-/* Dark mode */
-body.dark .section {
+.dark {
+  color: var(--text-color);
   background-color: rgba(255, 255, 255, 0.03);
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
 }

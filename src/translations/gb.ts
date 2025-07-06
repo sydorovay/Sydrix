@@ -54,7 +54,7 @@ const gb: LangData = {
   contacts: "Contacts",
   contactsTitle: "Contacts",
   phone: "Phone",
-  email: "Email",
+  email: "E-mail",
   faq: "FAQ",
   partnership: "Partnership",
   showAllButton: "Show All",

@@ -1,25 +1,25 @@
 import React from 'react';
 import styles from './ContactsSection.module.css';
-import useLanguage from '@/hooks/useLanguage';
+import { useLanguageContext } from '@/context/LanguageProvider';
+import contactInfo from '@/data/contactInfo';
 
 export interface ContactsSectionProps {
-  phone?: string;
-  email?: string;
   portfolioLink?: string;
   theme: 'light' | 'dark';
 }
 
-const ContactsSection: React.FC<ContactsSectionProps> = ({ phone, email, portfolioLink, theme }) => {
-  const { t } = useLanguage();
+const ContactsSection: React.FC<ContactsSectionProps> = ({ portfolioLink, theme }) => {
+  const { t } = useLanguageContext();
+  const { phone, email } = contactInfo;
 
   const contactItems = [
-    phone && {
+    {
       label: t('phone'),
       value: phone,
       href: `tel:${phone}`,
       aria: `${t('phone')}: ${phone}`,
     },
-    email && {
+    {
       label: t('email'),
       value: email,
       href: `mailto:${email}`,
@@ -41,9 +41,9 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({ phone, email, portfol
   }[];
 
   return (
-    <section 
+    <section
       id="contact"
-      className={`${styles.section} ${theme}`}
+      className={`${styles.section} ${styles[theme]}`}
       aria-labelledby="contacts-heading"
     >
       <h2 id="contacts-heading" className={styles.title}>
@@ -52,7 +52,7 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({ phone, email, portfol
 
       <ul className={styles.list}>
         {contactItems.map(({ label, value, href, aria, external }, index) => (
-          <li key={label + index} className={styles.item}>
+          <li key={`${label}-${index}`} className={styles.item}>
             <span className={styles.label}>{label}:</span>{' '}
             <a
               href={href}

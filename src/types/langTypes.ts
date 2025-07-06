@@ -96,6 +96,7 @@ export type LangData = {
   portfolioLink: string;
   portfolioLinkText: string;
 
+
   serviceDetailsTitle: string;
   serviceDetailsText: string;
   servicesDetailsButton: string;

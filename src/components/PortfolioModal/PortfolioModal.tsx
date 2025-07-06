@@ -27,6 +27,11 @@ const PortfolioModal: React.FC<Props> = ({
   const project = projects[currentIndex];
   const ref = useRef<HTMLDivElement>(null);
 
+  if (!project) {
+    return null;
+  }
+
+  // Фокус при відкритті модалки, блокування скролу body
   useEffect(() => {
     ref.current?.focus();
     document.body.style.overflow = 'hidden';
@@ -35,6 +40,7 @@ const PortfolioModal: React.FC<Props> = ({
     };
   }, []);
 
+  // Клавіші Escape, Left, Right для навігації
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -45,22 +51,58 @@ const PortfolioModal: React.FC<Props> = ({
     return () => window.removeEventListener('keydown', handleKey);
   }, [onClose, onPrev, onNext]);
 
+  // Безпечне приведення перекладу до рядка для aria-label
+  const safeAriaLabel = (key: string) => {
+    const val = t(key as any);
+    return typeof val === 'string' ? val : JSON.stringify(val);
+  };
+
   return (
-    <div className={`${styles.overlay} ${styles[theme]}`} onClick={onClose} role="dialog" aria-modal="true">
-      <div className={`${styles.modal} ${styles[theme]}`} ref={ref} tabIndex={-1} onClick={(e) => e.stopPropagation()}>
-        <button aria-label={t('modalCloseLabel')} className={styles.close} onClick={onClose}>
+    <div
+      className={`${styles.overlay} ${styles[theme]}`}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="portfolio-modal-title"
+      tabIndex={-1}
+    >
+      <div
+        className={`${styles.modal} ${styles[theme]}`}
+        ref={ref}
+        tabIndex={0}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          aria-label="Close modal"
+          className={styles.close}
+          onClick={onClose}
+        >
           <X size={24} />
         </button>
 
-        <img src={project.imgSrc} alt={project.altText} className={styles.image} />
-        <h3 className={styles.name}>{project.name}</h3>
+        <img
+          src={project.imgSrc}
+          alt={project.altText || project.name}
+          className={styles.image}
+        />
+        <h3 id="portfolio-modal-title" className={styles.name}>
+          {project.name}
+        </h3>
         <p className={styles.description}>{project.description}</p>
 
         <div className={styles.controls}>
-          <button aria-label={t('modalPrevLabel')} className={styles.nav} onClick={onPrev}>
+          <button
+            aria-label={safeAriaLabel('modalPrevLabel')}
+            className={styles.nav}
+            onClick={onPrev}
+          >
             <ChevronLeft size={20} />
           </button>
-          <button aria-label={t('modalNextLabel')} className={styles.nav} onClick={onNext}>
+          <button
+            aria-label={safeAriaLabel('modalNextLabel')}
+            className={styles.nav}
+            onClick={onNext}
+          >
             <ChevronRight size={20} />
           </button>
         </div>

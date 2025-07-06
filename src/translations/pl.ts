@@ -54,7 +54,7 @@ const pl: LangData = {
   contacts: "Kontakt",
   contactsTitle: "Kontakt",
   phone: "Telefon",
-  email: "Email",
+  email: "E-mail",
   faq: "FAQ",
   partnership: "Współpraca",
   showAllButton: "Pokaż wszystkie",

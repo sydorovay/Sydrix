@@ -54,7 +54,7 @@ const ua: LangData = {
   contacts: "Контакти",
   contactsTitle: "Контакти",
   phone: "Телефон",
-  email: "Email",
+  email: "E-mail",
   faq: "Питання",
   partnership: "Партнерство",
   showAllButton: "Показати все",

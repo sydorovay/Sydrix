@@ -10,4 +10,7 @@ export interface PortfolioItem {
   imgSrc: string;
   altText: string;
   images: string[] | string;
+  description: string;
+  modalPrevLabel: string;
+  modalNextLabel: string;
 }
