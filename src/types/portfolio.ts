@@ -13,4 +13,5 @@ export interface PortfolioItem {
   description: string;
   modalPrevLabel: string;
   modalNextLabel: string;
+  portfolioDescription: string
 }

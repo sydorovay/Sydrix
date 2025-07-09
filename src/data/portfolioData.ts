@@ -1,5 +1,9 @@
-import { LangData } from '@/types/langTypes';
-
+import { PortfolioItem } from '../types/portfolio';
+type LangData = {
+  portfolioLink: string;
+  portfolioDescription: string;
+  portfolioTitle: string;
+};
 type TranslateFn = <K extends keyof LangData>(key: K) => LangData[K];
 
 export const portfolioData = (t: TranslateFn) => [

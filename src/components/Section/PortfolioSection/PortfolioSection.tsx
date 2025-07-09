@@ -1,22 +1,14 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './PortfolioSection.module.css';
 import { LangData } from '@/types/langTypes';
+import { PortfolioItem } from '../../../types/portfolio';
 
 type TranslateFn = <K extends keyof LangData>(key: K) => LangData[K];
-
-interface PortfolioItem {
-  id: string;
-  name: string;
-  title: string;
-  link: string;
-  altText: string;
-  images: string[];
-}
 
 interface PortfolioSectionProps {
   portfolioItems: PortfolioItem[];
@@ -34,32 +26,45 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 }) => {
   return (
     <div className={`${styles.portfolioSection} ${styles[theme]}`}>
-           {portfolioItems.map((item) => (
+      {portfolioItems.map((item) => (
         <div key={item.id} className={styles.card} role="region" aria-labelledby={`${item.id}-title`}>
           <h2 id={`${item.id}-title`} className={styles.title}>
             {item.title}
           </h2>
 
           <Swiper
-            modules={[Navigation, Pagination]}
+            modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            spaceBetween={10}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            spaceBetween={20}
             slidesPerView={1}
             loop
             className={styles.slider}
             aria-label={`${item.title} image slider`}
           >
-            {item.images.map((src, index) => (
-              <SwiperSlide key={index}>
-                <img
-                  src={src}
-                  alt={`${item.altText} ${index + 1}`}
-                  className={styles.image}
-                  loading="lazy"
-                />
-              </SwiperSlide>
-            ))}
+            {Array.isArray(item.images)
+              ? item.images.map((src, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={src}
+                    alt={`${item.altText} ${index + 1}`}
+                    className={styles.image}
+                    loading="lazy"
+                  />
+                </SwiperSlide>
+              ))
+              : (
+                <SwiperSlide key={0}>
+                  <img
+                    src={item.images}
+                    alt={item.altText}
+                    className={styles.image}
+                    loading="lazy"
+                  />
+                </SwiperSlide>
+              )
+            }
           </Swiper>
 
           <button
