@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import useLanguage from '../../hooks/useLanguage';
+import { useLanguageContext } from '@/context/LanguageProvider';
 import BurgerIcon from '../BurgerMenu/BurgerMenu';
 import styles from './NavMenu.module.css';
 
@@ -9,12 +9,12 @@ interface NavMenuProps {
 }
 
 export default function NavMenu({ className = '' }: NavMenuProps) {
-  const { t } = useLanguage();
+  const { t } = useLanguageContext();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const burgerRef = useRef<HTMLDivElement>(null);
 
-  const toggleMenu = () => setIsOpen(open => !open);
+  const toggleMenu = () => setIsOpen((open) => !open);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -67,27 +67,33 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
   ];
 
   return (
-    <nav className={`${styles.navMenu} ${className}`}>
+    <nav className={`${styles.navMenu} ${className}`} aria-label="Main navigation">
       <div ref={burgerRef}>
-        <BurgerIcon isOpen={isOpen} onClick={toggleMenu} />
+        <BurgerIcon isOpen={isOpen} onClick={toggleMenu} aria-label="Toggle menu" />
       </div>
 
       <div
         ref={menuRef}
         className={`${styles.menu} ${isOpen ? styles.openMenu : ''}`}
+        role="menu"
       >
-        {navLinks.map(({ to, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            className={({ isActive }) =>
-              [styles.link, isActive ? styles.active : ''].filter(Boolean).join(' ')
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            {label}
-          </NavLink>
-        ))}
+        <ul className={styles.menuList}>
+          {navLinks.map(({ to, label }) => (
+            <li key={to} role="none">
+              <NavLink
+                to={to}
+                role="menuitem"
+                tabIndex={isOpen ? 0 : -1}
+                className={({ isActive }) =>
+                  [styles.link, isActive ? styles.active : ''].filter(Boolean).join(' ')
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                {label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

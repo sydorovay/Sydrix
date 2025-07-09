@@ -1,20 +1,19 @@
 .navMenu {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  width: 100%;
+  justify-content: center;
   height: auto;
   line-height: 1.5rem;
 }
 
 .link {
   text-decoration: none;
-  font-weight: bold;
-  font-size: clamp(14px, 1vw, 24px);
-  padding: clamp(1px, 1vw, 14px);
-  transition: text-decoration 0.3s;
+  font-weight: 600;
+  font-size: clamp(14px, 1vw, 18px);
+  padding: 0.5rem 1rem;
+  transition: text-decoration 0.3s, color 0.3s;
   color: var(--text-color);
+  outline: none;
 }
 
 .link:hover,
@@ -22,7 +21,7 @@
   text-decoration: underline;
 }
 
-/* === Мобільна версія === */
+/* === Адаптивність === */
 @media (max-width: 768px) {
   .navMenu {
     justify-content: flex-end;
@@ -34,11 +33,11 @@
     top: 80px;
     left: 0;
     right: 0;
-    padding: 12px 0;
+    padding: 1rem 0;
     background: linear-gradient(#294d76ec 0%, #8fc2e6e6 20%, #caecfaee 40%, #fef9f6 100%);
     border: 1px solid #a2d5f2;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     z-index: 1000;
     opacity: 0;
@@ -55,9 +54,15 @@
     pointer-events: auto;
   }
 
+  .menuList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
   .menu .link {
     display: block;
-    padding: 10px 16px;
+    padding: 12px 16px;
     text-align: center;
     color: var(--text-color);
     transition: color 0.2s ease;
@@ -68,16 +73,11 @@
   }
 }
 
-/* === Десктоп уточнення === */
+/* === Десктоп === */
 @media (min-width: 769px) {
-  .navMenu {
-    line-height: 1.6rem;
-  }
-
   .menu {
     display: flex;
     flex-direction: row;
-    /* <--- обов'язково */
     align-items: center;
     gap: 1rem;
     position: static;
@@ -91,6 +91,15 @@
     visibility: visible !important;
     pointer-events: auto;
     padding: 0;
+  }
+
+  .menuList {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .menu .link {

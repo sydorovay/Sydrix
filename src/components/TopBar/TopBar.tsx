@@ -1,4 +1,3 @@
-// src/components/TopBar/TopBar.tsx
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './TopBar.module.css';
@@ -20,11 +19,14 @@ export default function TopBar() {
   }, [theme, toggleTheme]);
 
   return (
-    <header className={styles.topBar}>
-      <Link to="/" className={styles.logoLink} aria-label="Home">
-        <img src={logo} alt="Sydrix Logo" className={styles.logo} />
-      </Link>
-      <div className={styles.controls}>
+    <header className={styles.topBar} role="banner">
+      <div className={styles.left}>
+        <Link to="/" className={styles.logoLink} aria-label="Go to homepage">
+          <img src={logo} alt="Sydrix Logo" className={styles.logo} />
+        </Link>
+      </div>
+
+      <div className={styles.center}>
         <button
           onClick={handleThemeToggle}
           className={styles.themeToggle}
@@ -35,7 +37,10 @@ export default function TopBar() {
         </button>
         <LangSwitcher />
       </div>
-      <NavMenu className={styles.nav} />
+
+      <div className={styles.right}>
+        <NavMenu className={styles.nav} />
+      </div>
     </header>
   );
 }

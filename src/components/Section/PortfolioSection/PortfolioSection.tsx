@@ -25,6 +25,7 @@ interface PortfolioSectionProps {
   onOpen: (id: string) => void;
 }
 
+
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   portfolioItems,
   t,
