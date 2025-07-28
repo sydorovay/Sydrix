@@ -80,3 +80,16 @@
   }
 
 }
+@media (min-width: 768px) {
+    .center {
+        order: 3;
+      }
+    
+      .right {
+        order: 2;
+      }
+    
+      .left {
+        order: 1;
+      }
+}
