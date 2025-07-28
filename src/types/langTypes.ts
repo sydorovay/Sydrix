@@ -203,6 +203,7 @@ export type LangData = {
   mainNavigation: string[];
   mainNavigationLabel: string;
   toggleMenu: string;
+  
 
   notFoundLink: string;
   cookieConsent: string;
