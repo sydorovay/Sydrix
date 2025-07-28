@@ -2,6 +2,9 @@ import benefitsDataPl from '../data/BenefitsData/benefitsDataPl';
 import { LangData } from '../types/langTypes';
 
 const pl: LangData = {
+  toggleMenu: "Przełącz menu",
+  mainNavigationLabel: "Główna nawigacja",
+  mainNavigation: ['Strona główna', 'O nas', 'Usługi', 'Portfolio', 'Kontakt'],
   logoTaglines: {
     top: "Myśl odważnie",
     bottom: "Twórz mądrze",

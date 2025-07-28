@@ -30,7 +30,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
       className={`${styles.benefitsSection} ${theme === 'dark' ? styles.dark : ''}`}
       aria-labelledby="benefits-title"
     >
-      <h2 id="benefits-title" className={styles.sectionTitle}>
+      <h2 id="benefitsTitle" className={styles.sectionTitle}>
         {t(title)}
       </h2>
 

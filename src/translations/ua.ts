@@ -2,6 +2,9 @@ import benefitsDataUa from '../data/BenefitsData/benefitsDataUa';
 import { LangData } from '../types/langTypes';
 
 const ua: LangData = {
+  mainNavigationLabel: "Головна навігація",
+  mainNavigation: ['Головна', 'Про нас', 'Послуги', 'Портфоліо', 'Контакти'],
+
   logoTaglines: {
     top: "Думай сміливо",
     bottom: "Твори розумно",
@@ -184,7 +187,9 @@ const ua: LangData = {
   extraField2: "Додаткове поле 2",
 
   notFoundLink: "/",
-  cookieConsent: "Цей сайт використовує cookies для покращення вашого досвіду."
+  cookieConsent: "Цей сайт використовує cookies для покращення вашого досвіду.",
+  toggleMenu: "Перемкнути меню",
+
 };
 
 export default ua;

@@ -69,7 +69,7 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
   return (
     <nav
       className={`${styles.navMenu} ${className} ${theme === 'dark' ? styles.dark : styles.light}`}
-      aria-label={t('mainNavigation') || 'Main navigation'}
+      aria-label={t('mainNavigationLabel') || 'Main navigation'}
     >
       <div ref={burgerRef}>
         <BurgerIcon

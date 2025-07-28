@@ -2,6 +2,9 @@ import benefitsDataDe from '../data/BenefitsData/benefitsDataDe';
 import { LangData } from '../types/langTypes';
 
 const de: LangData = {
+  mainNavigationLabel: "Hauptnavigation",
+  mainNavigation: ['Startseite', 'Über uns', 'Dienstleistungen', 'Portfolio', 'Kontakt'],
+
   logoTaglines: {
     top: "Denke mutig",
     bottom: "Kreiere klug",
@@ -184,7 +187,8 @@ const de: LangData = {
   extraField2: "Zusätzliches Feld 2",
 
   notFoundLink: "/",
-  cookieConsent: "Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern."
+  cookieConsent: "Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern.",
+  toggleMenu: "Menü umschalten"
 };
 
 export default de;

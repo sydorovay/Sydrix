@@ -2,6 +2,9 @@ import benefitsDataGb from '../data/BenefitsData/benefitsDataGb';
 import { LangData } from '../types/langTypes';
 
 const gb: LangData = {
+  mainNavigationLabel: "Main navigation",
+  mainNavigation: ['Home', 'About', 'Services', 'Portfolio', 'Contact'],
+  toggleMenu: "Toggle menu",
   logoTaglines: {
     top: "Think boldly",
     bottom: "Create wisely"
@@ -185,6 +188,7 @@ const gb: LangData = {
 
   notFoundLink: "/",
   cookieConsent: "This website uses cookies to improve your experience."
+
 };
 
 export default gb;

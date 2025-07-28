@@ -23,10 +23,9 @@
 
 /* Окремий елемент */
 .benefitItem {
-  border-radius: 12px;
+  border-radius: 15px;
   width: 100%;
   box-shadow: var(--shadow);
-  flex: 1 1 140px;
   max-width: 360px;
   padding: 1rem;
   cursor: pointer;
@@ -60,10 +59,13 @@
 }
 
 .sectionTitle {
-
   margin-bottom: 3rem;
   text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
 }
+
 
 /* Іконка */  
 .icon {
@@ -71,8 +73,11 @@
   height: 24px;
   flex-shrink: 0;
   margin-right: 0.75rem;
-  fill: #6fd7f7;
+  fill: #4b0676;
 
+}
+.dark .icon {
+  fill: #6fd7f7;
 }
 
 /* Заголовок переваги */
@@ -123,13 +128,14 @@
 }
 
 /* 📱 Адаптивність — mobile-first */
-@media (min-width: 480px) {
+@media (min-width: 320px) {
   .benefitsList {
     justify-content: flex-start;
+   flex-direction: column;
   }
 
   .benefitItem {
-    width: calc(50% - 0.5rem);
+    width: 100%;
     align-items: center;
   }
 }

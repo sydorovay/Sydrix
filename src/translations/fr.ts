@@ -2,6 +2,8 @@ import benefitsDataFr from '../data/BenefitsData/benefitsDataFr';
 import { LangData } from '../types/langTypes';
 
 const fr: LangData = {
+  mainNavigationLabel: "Navigation principale",
+  mainNavigation: ['Accueil', 'À propos', 'Services', 'Portfolio', 'Contact'],
   logoTaglines: {
     top: "Pense avec audace",
     bottom: "Crée intelligemment",
@@ -183,7 +185,8 @@ const fr: LangData = {
   extraField1: "Champ supplémentaire 1",
   extraField2: "Champ supplémentaire 2",
   notFoundLink: "/",
-  cookieConsent: "Ce site utilise des cookies pour améliorer votre expérience utilisateur."
+  cookieConsent: "Ce site utilise des cookies pour améliorer votre expérience utilisateur.",
+  toggleMenu: "Basculer le menu"
 };
 
 export default fr;
