@@ -59,7 +59,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
       <button
         onClick={() => handleNavigate()}
         className={styles.showAllButton}
-        aria-label={t(showAllButton) as string}
+        aria-label={t(showAllButton)}
         type="button"
       >
         {t(showAllButton)}

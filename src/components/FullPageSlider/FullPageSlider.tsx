@@ -78,7 +78,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       {/* Benefits */}
       <section className={styles.snapSection} aria-labelledby="benefits-heading">
         <BenefitsSection
-          title={'benefitsTitle'}
+          title={t('benefitsTitle')}
           benefits={t('benefits')}
           showAllButton={'showAllButton'}
           theme={theme}
@@ -93,8 +93,6 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
           t={t}
           theme={theme}
           onOpen={(id: string) => {
-            // Implement your logic here, e.g., open a modal or navigate
-            console.log('Open portfolio item:', id);
           }}
         />
       </section>

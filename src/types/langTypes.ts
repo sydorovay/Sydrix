@@ -199,6 +199,9 @@ export type LangData = {
   notFoundBackButton: string;
   extraField1: string;
   extraField2: string;
+  
+  mainNavigation: string;
+  toggleMenu: string
 
   notFoundLink: string;
   cookieConsent: string;

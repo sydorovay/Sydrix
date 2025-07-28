@@ -2,26 +2,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: auto;
   line-height: 1.5rem;
 }
 
+/* Теми */
+.light{
+  .link {
+    color: rgb(216, 206, 234);
+}
+}
+
+.dark.link {
+  color: rgb(19, 0, 53);
+
+}
 .link {
   text-decoration: none;
   font-weight: 600;
-  font-size: clamp(14px, 1vw, 18px);
+  font-size: clamp(16px, 1vw, 20px);
   padding: 0.5rem 1rem;
-  transition: text-decoration 0.3s, color 0.3s;
   color: var(--text-color);
+  transition: color 0.3s, text-decoration 0.3s;
   outline: none;
 }
 
 .link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+
 .link.active {
   text-decoration: underline;
 }
 
-/* === Адаптивність === */
+/* === Mobile === */
 @media (max-width: 768px) {
   .navMenu {
     justify-content: flex-end;
@@ -39,17 +53,17 @@
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
   }
 
   .openMenu {
-    visibility: visible;
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
   }
@@ -64,38 +78,37 @@
     display: block;
     padding: 12px 16px;
     text-align: center;
-    color: var(--text-color);
-    transition: color 0.2s ease;
+    color: rgb(19, 0, 53);
   }
 
-  .menu .link:hover {
+  .menu .link:hover,
+  .menu .link:focus {
     color: #93d4fd;
+    text-decoration: underline;
   }
 }
 
-/* === Десктоп === */
+/* === Desktop === */
 @media (min-width: 769px) {
   .menu {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 1rem;
     position: static;
     background: none;
     border: none;
-    border-radius: 0;
     box-shadow: none;
+    border-radius: 0;
     backdrop-filter: none;
-    transform: none;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto;
     padding: 0;
+    transform: none;
   }
 
   .menuList {
     display: flex;
-    flex-direction: row;
     gap: 1rem;
     list-style: none;
     padding: 0;

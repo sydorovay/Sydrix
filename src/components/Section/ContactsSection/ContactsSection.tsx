@@ -4,6 +4,7 @@ import { useLanguageContext } from '@/context/LanguageProvider';
 import contactInfo from '@/data/contactInfo';
 
 export interface ContactsSectionProps {
+  phone: string;
   portfolioLink?: string;
   theme: 'light' | 'dark';
 }

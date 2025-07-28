@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { useLanguageContext } from '@/context/LanguageProvider';
+import { useThemeContext } from '@/context/ThemeProvider';
 import BurgerIcon from '../BurgerMenu/BurgerMenu';
 import styles from './NavMenu.module.css';
 
@@ -10,12 +11,14 @@ interface NavMenuProps {
 
 export default function NavMenu({ className = '' }: NavMenuProps) {
   const { t } = useLanguageContext();
+  const { theme } = useThemeContext();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const burgerRef = useRef<HTMLDivElement>(null);
 
-  const toggleMenu = () => setIsOpen((open) => !open);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
+  // Закриття при кліку поза меню
   useEffect(() => {
     if (!isOpen) return;
 
@@ -30,23 +33,20 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
       }
     };
 
-    const handleEsc = (e: KeyboardEvent) => {
+    const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsOpen(false);
     };
 
-    const closeOnRouteChange = () => setIsOpen(false);
-
     document.addEventListener('click', handleClickOutside);
-    document.addEventListener('keydown', handleEsc);
-    window.addEventListener('popstate', closeOnRouteChange);
+    document.addEventListener('keydown', handleEscape);
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
-      document.removeEventListener('keydown', handleEsc);
-      window.removeEventListener('popstate', closeOnRouteChange);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, [isOpen]);
 
+  // Блокування скролу body
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
@@ -67,9 +67,17 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
   ];
 
   return (
-    <nav className={`${styles.navMenu} ${className}`} aria-label="Main navigation">
+    <nav
+      className={`${styles.navMenu} ${className} ${theme === 'dark' ? styles.dark : styles.light}`}
+      aria-label={t('mainNavigation') || 'Main navigation'}
+    >
       <div ref={burgerRef}>
-        <BurgerIcon isOpen={isOpen} onClick={toggleMenu} aria-label="Toggle menu" />
+        <BurgerIcon
+          isOpen={isOpen}
+          onClick={toggleMenu}
+          aria-label={t('toggleMenu') || 'Toggle menu'}
+          aria-expanded={isOpen}
+        />
       </div>
 
       <div

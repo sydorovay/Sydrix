@@ -2,7 +2,7 @@
 .app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  
   overflow: hidden;
   color: var(--text-color);
 }
@@ -32,9 +32,9 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 4rem;
+  /* padding-bottom: 4rem; */
   /* резерв для footer */
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 
   /* Custom Scrollbar */
   scrollbar-width: thin;
@@ -87,31 +87,6 @@
 }
 
 /* ========== Кнопка "Вгору" ========== */
-.topButton {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 44px;
-  height: 44px;
-  background-color: rgb(254, 204, 176);
-  color: #91faf7;
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 100;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.topButton:hover,
-.topButton:focus-visible {
-  background-color: rgba(0, 0, 0, 0.8);
-  transform: scale(1.1);
-  outline: none;
-}
 
 @media (max-width: 767px) {
   .topButton {
@@ -142,21 +117,6 @@
   }
 }
 
-/* ========== Skip Link (для доступності) ========== */
-.skipLink {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
-  color: #fff;
-  padding: 8px 16px;
-  z-index: 100;
-  transition: top 0.3s ease;
-}
-
-.skipLink:focus {
-  top: 0;
-}
 
 .topHalf {
   list-style: none;

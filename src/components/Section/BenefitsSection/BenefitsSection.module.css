@@ -91,7 +91,7 @@
   font-weight: 700;
   text-align: center;
   background-color: #a13b009b;
-  border: none;
+  border: 2px solid #00ffff;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -136,7 +136,7 @@
 
 @media (min-width: 768px) {
   .benefitItem {
-    width: calc(33.333% - 0.67rem);
+    width: 100%;
   }
 }
 
