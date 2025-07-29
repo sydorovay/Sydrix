@@ -41,7 +41,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
         {/* Верхній слоган */}
         <text
           x="50%"
-          y="35%"
+          y="25%"
           className={styles.tagline}
           fill="url(#grad)"
         >
@@ -64,7 +64,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
         {/* Нижній слоган */}
         <text
           x="50%"
-          y="85%"
+          y="75%"
           className={styles.tagline}
           fill="url(#grad)"
         >

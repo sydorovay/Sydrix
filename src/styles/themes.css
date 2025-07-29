@@ -70,7 +70,7 @@
   --transition: 0.3s ease-in-out;
 
   /* ---------- Тема за замовчуванням (світла) ---------- */
-  --text-color: #001025;
+  --text-color: #0b0021;
   --background-color: #ffffff;
   --border-color: #ddd;
   --button-bg: #222;
@@ -82,7 +82,7 @@
   --hover-shadow: 0 6px 12px rgba(255, 255, 255, 0.3)
 
   /* ---------- Sydrix Logo (Gradient & Sizes) ---------- */
-  --logo-font: 'Montserrat', sans-serif;
+  --logo-font: 'Raleway', sans-serif;
   --logo-size-small: 1.1rem;
   --logo-size-medium: 3rem;
   --logo-size-mid: 4rem;

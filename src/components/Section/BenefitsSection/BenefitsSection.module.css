@@ -3,6 +3,7 @@
   border-radius: 12px;
   max-width: 1024px;
   margin: 0 auto;
+  margin-bottom: 80px;
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
   color: var(--text-color);
@@ -148,6 +149,6 @@
 
 @media (min-width: 1024px) {
   .benefitItem {
-    width: calc(20% - 0.8rem);
+    width: 100%;
   }
 }

@@ -69,11 +69,10 @@
 .logo {
   display: inline-block;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   pointer-events: none;
   user-select: none;
-  filter: drop-shadow(0 16px 40px rgba(0, 255, 255, 0.15));
   transition: transform 0.3s ease;
 }
 
@@ -102,9 +101,9 @@
 
 /* Стилі для текстових елементів SVG */
 text {
-  font-family: var(--logo-font);
+   font-family: var(--logo-font);
   text-anchor: middle;
-  dominant-baseline: middle;
+
   pointer-events: none;
   user-select: none;
 }

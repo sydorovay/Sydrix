@@ -5,7 +5,7 @@ const it: LangData = {
   mainNavigationLabel: "Navigazione principale",
   mainNavigation: ['Home', 'Chi siamo', 'Servizi', 'Portfolio', 'Contatti'],
   logoTaglines: {
-    top: "Pensa con coraggio",
+    top: "Pensa audace",
     bottom: "Crea con intelligenza",
   },
   home: "Home",
