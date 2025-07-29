@@ -8,26 +8,24 @@
 /* Теми */
 .light{
   .link {
-    color: rgb(216, 206, 234);
-}
+      text-decoration: none;
+      font-size: clamp(16px, 1vw, 20px);
+      padding: 0.5rem 1rem;
+      color: #73e6fd;
+      transition: color 0.3s, text-decoration 0.3s;
+      outline: none;
+    }
 }
 
 .dark.link {
   color: rgb(19, 0, 53);
+}
 
-}
-.link {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: clamp(16px, 1vw, 20px);
-  padding: 0.5rem 1rem;
-  color: var(--text-color);
-  transition: color 0.3s, text-decoration 0.3s;
-  outline: none;
-}
 
 .link:hover,
 .link:focus {
+  transform: scale(1.05);
+  color: #cef6ff;
   text-decoration: underline;
 }
 
