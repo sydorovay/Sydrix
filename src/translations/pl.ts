@@ -74,7 +74,7 @@ const pl: LangData = {
   benefitsText: "Tworzymy strony szybkie, bezpieczne i wydajne.",
   benefits: benefitsDataPl,
   goTo: "przejdź do",
-  footer: "Stworzone przez Artema Sidorova",
+  footer: "Stworzone przez Artema Sydorova",
   heroTitle: "Frontend dla Twojego biznesu",
   heroSubtitle: [
     "Imponująca szybkość.",

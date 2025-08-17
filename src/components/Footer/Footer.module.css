@@ -1,10 +1,11 @@
 /* src/components/Footer/Footer.module.css */
 
 .footer {
+  display: flex;
+  position: fixed;
+  bottom:0;
+  left: 0;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
   box-sizing: border-box;
 
   /* Напівпрозорий фон із розмиттям позаду */
@@ -16,9 +17,10 @@
   box-shadow: 0 -4px 10px rgba(0 0 0 / 0.1);
 
   /* Текст */
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  color: var(--logo-grad-middle);
+  font-size: 0.1rem;
   text-align: center;
+  justify-content: center;
 
   border-radius: 12px 12px 0 0;
   transition:
@@ -50,7 +52,7 @@
 
 @media (min-width: 768px) {
   .footer {
-    padding: 1.5rem 2.5rem;
+    padding: 0.1rem 2.5rem;
     font-size: 1rem;
   }
 }

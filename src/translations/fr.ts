@@ -73,7 +73,7 @@ const fr: LangData = {
   benefitsText: "Nous créons des sites rapides, sécurisés et efficaces.",
   benefits: benefitsDataFr,
   goTo: "aller à",
-  footer: "Développé par Artem Sidorov",
+  footer: "Développé par Artem Sydorov",
   heroTitle: "Développement frontend pour votre entreprise",
   heroSubtitle: [
     "Une vitesse impressionnante.",
