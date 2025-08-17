@@ -3,10 +3,10 @@
   border-radius: 12px;
   max-width: 1024px;
   margin: 0 auto;
-  margin-bottom: 80px;
+  margin-top: 60px;
+
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
-  color: var(--text-color);
 }
 
 
@@ -101,7 +101,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: 3rem auto 1rem;
+  margin: 6rem auto 1rem;
 }
 
 .showAllButton:hover,
