@@ -1,6 +1,4 @@
 // ✅ src/types/langTypes.ts
-import { ReactNode } from 'react';
-
 export enum LangCode {
   UA = 'ua',
   GB = 'gb',
@@ -27,6 +25,8 @@ export interface BenefitItem {
 }
 
 export type LangData = {
+  portfolioDescription: string;
+  backToTop: string;
   home: string;
   about: string;
   aboutTitle: string;
@@ -200,6 +200,11 @@ export type LangData = {
   extraField1: string;
   extraField2: string;
 
+  noPortfolioItems: string;
+  noImages: string;
+
+
+
   mainNavigation: string[];
   mainNavigationLabel: string;
   toggleMenu: string;
@@ -213,3 +218,4 @@ export type LangData = {
 };
 
 export type TFunction = <K extends keyof LangData>(key: K) => LangData[K];
+export type TranslateString = <K extends keyof LangData>(key: K) => string;

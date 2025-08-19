@@ -2,6 +2,8 @@ import benefitsDataGb from '../data/BenefitsData/benefitsDataGb';
 import { LangData } from '../types/langTypes';
 
 const gb: LangData = {
+  portfolioDescription: 'Portfolio description',
+  backToTop: 'Back to top',
   mainNavigationLabel: "Main navigation",
   mainNavigation: ['Home', 'About', 'Services', 'Portfolio', 'Contact'],
   toggleMenu: "Toggle menu",
@@ -169,6 +171,7 @@ const gb: LangData = {
   cookieConsentButtonText: "Got it",
   cookieConsentMoreText: "More Info",
 
+
   faqQuestion: "Question",
   faqAnswer: "Answer",
   priceButtonLink: "/price",
@@ -187,7 +190,9 @@ const gb: LangData = {
   extraField2: "Extra Field 2",
 
   notFoundLink: "/",
-  cookieConsent: "This website uses cookies to improve your experience."
+  cookieConsent: "This website uses cookies to improve your experience.",
+  noPortfolioItems: 'Portfolio is currently empty',
+  noImages: 'No images available',
 
 };
 

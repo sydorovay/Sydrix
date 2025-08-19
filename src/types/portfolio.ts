@@ -1,17 +1,15 @@
-// Define TranslateFn type if not imported from elsewhere
+// types/translate.ts
 export type TranslateFn = (key: string, ...args: any[]) => string;
 
+// types/portfolio.ts
 export interface PortfolioItem {
-  t: TranslateFn;
   id: string;
   name: string;
   title: string;
   link: string;
   imgSrc: string;
   altText: string;
-  images: string[] | string;
+  images: string[];
   description: string;
-  modalPrevLabel: string;
-  modalNextLabel: string;
-  portfolioDescription: string
+  portfolioDescription: string;
 }

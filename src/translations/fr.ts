@@ -2,6 +2,8 @@ import benefitsDataFr from '../data/BenefitsData/benefitsDataFr';
 import { LangData } from '../types/langTypes';
 
 const fr: LangData = {
+  portfolioDescription: 'Description du portfolio',
+  backToTop: 'Retour en haut',
   mainNavigationLabel: "Navigation principale",
   mainNavigation: ['Accueil', 'À propos', 'Services', 'Portfolio', 'Contact'],
   logoTaglines: {
@@ -186,7 +188,9 @@ const fr: LangData = {
   extraField2: "Champ supplémentaire 2",
   notFoundLink: "/",
   cookieConsent: "Ce site utilise des cookies pour améliorer votre expérience utilisateur.",
-  toggleMenu: "Basculer le menu"
+  toggleMenu: "Basculer le menu",
+  noPortfolioItems: 'Le portfolio est actuellement vide',
+  noImages: 'Aucune image disponible',
 };
 
 export default fr;

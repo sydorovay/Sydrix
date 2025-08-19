@@ -63,3 +63,10 @@
   --button-hover: #084298;
   --button-text: #ffffff;
 }
+
+.placeholder{
+  list-style: none;
+}
+.emptyText {
+  list-style: none;
+}

@@ -10,5 +10,4 @@ const createStringTranslator = (
   return (key: StringLangKeys): string => t(key) as string;
 };
 
-
-export default createStringTranslator
+export default createStringTranslator;

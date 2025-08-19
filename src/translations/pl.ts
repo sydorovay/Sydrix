@@ -2,6 +2,8 @@ import benefitsDataPl from '../data/BenefitsData/benefitsDataPl';
 import { LangData } from '../types/langTypes';
 
 const pl: LangData = {
+  portfolioDescription: 'Opis portfolio',
+  backToTop: 'Do góry',
   toggleMenu: "Przełącz menu",
   mainNavigationLabel: "Główna nawigacja",
   mainNavigation: ['Strona główna', 'O nas', 'Usługi', 'Portfolio', 'Kontakt'],
@@ -186,7 +188,9 @@ const pl: LangData = {
   extraField1: "Dodatkowe pole 1",
   extraField2: "Dodatkowe pole 2",
   notFoundLink: "/",
-  cookieConsent: "Ta strona używa plików cookie w celu poprawy komfortu użytkowania."
+  cookieConsent: "Ta strona używa plików cookie w celu poprawy komfortu użytkowania.",
+  noPortfolioItems: 'Portfolio jest obecnie puste',
+  noImages: 'Brak dostępnych obrazów',
 };
 
 export default pl;

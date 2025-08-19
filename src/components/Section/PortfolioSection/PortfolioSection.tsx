@@ -1,3 +1,4 @@
+// src/components/Section/PortfolioSection/PortfolioSection.tsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -5,32 +6,33 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './PortfolioSection.module.css';
-import { LangData } from '@/types/langTypes';
-import { PortfolioItem } from '../../../types/portfolio';
-
-type TranslateFn = <K extends keyof LangData>(key: K) => LangData[K];
+import { PortfolioItem } from '@/types/portfolio';
+import { Translate } from '@/components/Translate';
+import { TFunction } from '@/types/langTypes';
 
 interface PortfolioSectionProps {
   portfolioItems: PortfolioItem[];
-  t: TranslateFn;
+  t: TFunction;
   theme: 'light' | 'dark';
   onOpen: (id: string) => void;
 }
 
+const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, theme, onOpen }) => {
+  if (!portfolioItems || portfolioItems.length === 0) {
+    return (
+      <div className={`${styles.portfolioSection} ${styles[theme]}`}>
+        <p className={styles.emptyText}>
+          <Translate id="noPortfolioItems" />
+        </p>
+      </div>
+    );
+  }
 
-const PortfolioSection: React.FC<PortfolioSectionProps> = ({
-  portfolioItems,
-  t,
-  theme,
-  onOpen,
-}) => {
   return (
-    <div className={`${styles.portfolioSection} ${styles[theme]}`}>
-      {portfolioItems.map((item) => (
+    <section className={`${styles.portfolioSection} ${styles[theme]}`} aria-label={t('portfolio')}>
+      {portfolioItems.map(item => (
         <div key={item.id} className={styles.card} role="region" aria-labelledby={`${item.id}-title`}>
-          <h2 id={`${item.id}-title`} className={styles.title}>
-            {item.title}
-          </h2>
+          <h2 id={`${item.id}-title`} className={styles.title}>{item.title}</h2>
 
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -38,45 +40,48 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             spaceBetween={20}
-            slidesPerView={1}
             loop
             className={styles.slider}
             aria-label={`${item.title} image slider`}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1440: { slidesPerView: 4 },
+            }}
           >
-            {Array.isArray(item.images)
-              ? item.images.map((src, index) => (
-                <SwiperSlide key={index}>
+            {item.images.length > 0 ? (
+              item.images.map((src, idx) => (
+                <SwiperSlide key={`${src}-${idx}`}>
                   <img
                     src={src}
-                    alt={`${item.altText} ${index + 1}`}
+                    alt={`${item.altText || item.title} ${idx + 1}`}
                     className={styles.image}
                     loading="lazy"
                   />
                 </SwiperSlide>
               ))
-              : (
-                <SwiperSlide key={0}>
-                  <img
-                    src={item.images}
-                    alt={item.altText}
-                    className={styles.image}
-                    loading="lazy"
-                  />
-                </SwiperSlide>
-              )
-            }
+            ) : (
+              <SwiperSlide>
+                <div className={styles.placeholder}>
+                  <Translate id="noImages" />
+                </div>
+              </SwiperSlide>
+            )}
           </Swiper>
 
           <button
             onClick={() => onOpen(item.id)}
             className={styles.button}
             type="button"
+            aria-label={`${t('showAllButton')} ${item.title}`}
           >
-            {String(t('showDetails' as keyof LangData))}
+            <Translate id="showAllButton" />
           </button>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

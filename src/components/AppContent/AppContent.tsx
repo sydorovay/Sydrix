@@ -1,3 +1,4 @@
+// src/components/AppContent/AppContent.tsx
 import { lazy, Suspense, ReactNode } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
@@ -40,7 +41,7 @@ function LoadingFallback({ children }: FallbackProps) {
 export default function AppContent() {
   const { theme } = useThemeContext();
   const { lang, t, setLang } = useLanguageContext();
-  const typedT = createStringTranslator(t);
+  const typedT = createStringTranslator(t); // перекладач тільки для рядків
 
   useInitEffects(theme, setLang, lang);
 
@@ -66,7 +67,14 @@ export default function AppContent() {
             <Route path="/contacts" element={<ContactsPage t={typedT} />} />
             <Route
               path="/faq"
-              element={<FaqPage t={{ faq: typedT('faq'), faqText: typedT('faqText') }} />}
+              element={
+                <FaqPage
+                  t={{
+                    faq: typedT('faq'),
+                    faqText: typedT('faqText'),
+                  }}
+                />
+              }
             />
             <Route
               path="/partnership"

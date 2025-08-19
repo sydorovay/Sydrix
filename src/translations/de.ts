@@ -2,6 +2,8 @@ import benefitsDataDe from '../data/BenefitsData/benefitsDataDe';
 import { LangData } from '../types/langTypes';
 
 const de: LangData = {
+  portfolioDescription: 'Portfolio-Beschreibung',
+  backToTop: 'Nach oben',
   mainNavigationLabel: "Hauptnavigation",
   mainNavigation: ['Startseite', 'Über uns', 'Dienstleistungen', 'Portfolio', 'Kontakt'],
 
@@ -188,7 +190,9 @@ const de: LangData = {
 
   notFoundLink: "/",
   cookieConsent: "Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern.",
-  toggleMenu: "Menü umschalten"
+  toggleMenu: "Menü umschalten",
+  noPortfolioItems: 'Portfolio ist momentan leer',
+  noImages: 'Keine Bilder verfügbar',
 };
 
 export default de;

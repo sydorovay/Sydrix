@@ -1,13 +1,15 @@
+// src/components/Section/BenefitsSection/BenefitsSection.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLanguageContext } from '@/context/LanguageProvider';
-import type { BenefitItem } from '@/types/langTypes';
+import type { BenefitItem, LangData, TFunction } from '@/types/langTypes';
 import styles from './BenefitsSection.module.css';
+import { Translate } from '@/components/Translate';
 
 export interface BenefitsProps {
+  t: TFunction; // функція перекладу
   benefits: BenefitItem[];
-  title: keyof ReturnType<typeof useLanguageContext>['t'];
-  showAllButton: keyof ReturnType<typeof useLanguageContext>['t'];
+  title: keyof LangData;
+  showAllButton: keyof LangData;
   theme: 'light' | 'dark';
 }
 
@@ -16,10 +18,30 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
   title,
   showAllButton,
   theme,
+  t,
 }) => {
   const navigate = useNavigate();
-  const { t } = useLanguageContext();
   const previewBenefits = benefits.slice(0, 5);
+
+  // Функція для безпечного отримання рядка для aria-label
+  const translateString = (value: ReturnType<TFunction>): string => {
+    if (typeof value === 'string') return value;
+    if (Array.isArray(value)) {
+      return value
+        .map(v =>
+          typeof v === 'string'
+            ? v
+            : 'label' in v && 'value' in v
+              ? `${v.label}: ${v.value}`
+              : ''
+        )
+        .join(' ');
+    }
+    if (typeof value === 'object' && 'top' in value && 'bottom' in value) {
+      return `${value.top} ${value.bottom}`;
+    }
+    return '';
+  };
 
   const handleNavigate = (benefitId?: string) => {
     navigate(benefitId ? `/services#${benefitId}` : '/services');
@@ -30,39 +52,39 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
       className={`${styles.benefitsSection} ${theme === 'dark' ? styles.dark : ''}`}
       aria-labelledby="benefits-title"
     >
-      <h2 id="benefitsTitle" className={styles.sectionTitle}>
-        {t(title)}
+      <h2 id="benefits-title" className={styles.sectionTitle}>
+        <Translate id={title} />
       </h2>
 
       <ul className={styles.benefitsList}>
-        {previewBenefits.map(({ id, icon: Icon, title }) => (
+        {previewBenefits.map(({ id, icon: Icon, title: benefitTitle }) => (
           <li
             key={id}
             className={styles.benefitItem}
             tabIndex={0}
             role="button"
             onClick={() => handleNavigate(id)}
-            onKeyDown={(e) => {
+            onKeyDown={e => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 handleNavigate(id);
               }
             }}
-            aria-label={title}
+            aria-label={translateString(benefitTitle)}
           >
             {Icon && <Icon className={styles.icon} aria-hidden="true" />}
-            <h3 className={styles.benefitTitle}>{title}</h3>
+            <h3 className={styles.benefitTitle}>{translateString(benefitTitle)}</h3>
           </li>
         ))}
       </ul>
 
       <button
+        className={`${styles.button} button`}
         onClick={() => handleNavigate()}
-        className={styles.showAllButton}
-        aria-label={t(showAllButton)}
+        aria-label={translateString(t(showAllButton))}
         type="button"
       >
-        {t(showAllButton)}
+        <Translate id={showAllButton} />
       </button>
     </section>
   );

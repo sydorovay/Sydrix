@@ -4,12 +4,9 @@
   max-width: 1024px;
   margin: 0 auto;
   margin-top: 60px;
-
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-
 
 /* Список переваг */
 .benefitsList {
@@ -89,25 +86,8 @@
 }
 
 /* Кнопка "Показати всі" */
-.showAllButton {
-  display: block;
-  max-width: 320px;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  background-color: #a13b009b;
-  border: 2px solid #00ffff;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 6rem auto 1rem;
-}
-
-.showAllButton:hover,
-.showAllButton:focus {
-  background-color: #005bb5;
-  outline: none;
+.light.button {
+color : red
 }
 
 .dark .showAllButton {
@@ -120,13 +100,6 @@
   background-color: #003f7f;
 }
 
-.buttonsWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
 
 /* 📱 Адаптивність — mobile-first */
 @media (min-width: 320px) {

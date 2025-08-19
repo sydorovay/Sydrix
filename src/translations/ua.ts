@@ -2,6 +2,8 @@ import benefitsDataUa from '../data/BenefitsData/benefitsDataUa';
 import { LangData } from '../types/langTypes';
 
 const ua: LangData = {
+  portfolioDescription: 'Опис портфоліо',
+  backToTop: 'Назад наверх',
   mainNavigationLabel: "Головна навігація",
   mainNavigation: ['Головна', 'Про нас', 'Послуги', 'Портфоліо', 'Контакти'],
 
@@ -189,6 +191,8 @@ const ua: LangData = {
   notFoundLink: "/",
   cookieConsent: "Цей сайт використовує cookies для покращення вашого досвіду.",
   toggleMenu: "Перемкнути меню",
+  noPortfolioItems: 'Портфоліо поки що пусте',
+  noImages: 'Немає зображень',
 
 };
 

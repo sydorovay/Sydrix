@@ -1,17 +1,22 @@
+// src/components/Translate.tsx
 import React from 'react';
 import { useLanguageContext } from '@/context/LanguageProvider';
 import type { LangData } from '@/types/langTypes';
 
-type TranslateProps = {
+interface TranslateProps {
   id: keyof LangData;
   className?: string;
-};
+}
 
-export default function Translate({ id, className }: TranslateProps) {
+/**
+ * Компонент для перекладу тексту за ключем id з LangData.
+ * Підтримує рядки, масиви рядків або об'єкт з top/bottom (логотип, слоган тощо).
+ */
+export function Translate({ id, className }: TranslateProps) {
   const { t } = useLanguageContext();
   const value = t(id);
 
-  if (value === undefined || value === null) return <>{`[${String(id)}]`}</>;
+  if (!value) return <>{`[${String(id)}]`}</>;
 
   if (typeof value === 'string') return <span className={className}>{value}</span>;
 
@@ -19,13 +24,7 @@ export default function Translate({ id, className }: TranslateProps) {
     return (
       <div className={className}>
         {value.map((item, i) => (
-          <p key={i}>
-            {typeof item === 'string'
-              ? item
-              : 'label' in item && 'value' in item
-                ? `${item.label}: ${item.value}`
-                : JSON.stringify(item)}
-          </p>
+          <p key={i}>{typeof item === 'string' ? item : JSON.stringify(item)}</p>
         ))}
       </div>
     );

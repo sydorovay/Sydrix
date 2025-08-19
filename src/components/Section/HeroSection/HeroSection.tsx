@@ -18,7 +18,7 @@ export default function HeroSection({ theme }: HeroSectionProps) {
   };
 
   return (
-    <header className={`${styles.header} ${styles[theme]}`}>
+    <header className={`${styles.header} ${styles[theme]} ${theme}`}>
       <h1 className={styles.title}>{t('heroTitle')}</h1>
 
       <div className={styles.topRow}>
@@ -35,7 +35,7 @@ export default function HeroSection({ theme }: HeroSectionProps) {
       </div>
 
       <div className={styles.buttonWrapper}>
-        <button className={styles.button} onClick={handleContactClick}>
+        <button className={`${styles.button} button`} onClick={handleContactClick}>
           {t('contactsButtonText')}
         </button>
       </div>

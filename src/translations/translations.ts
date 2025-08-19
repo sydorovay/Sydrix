@@ -16,11 +16,11 @@ const translations: Record<LangCode, LangData> = {
   [LangCode.IT]: it,
 };
 
-export function getLangPack(lang: string | LangCode | undefined): LangData {
-  if (typeof lang === 'string' && Object.values(LangCode).includes(lang as LangCode)) {
+export function getLangPack(lang?: string | LangCode): LangData {
+  if (lang && Object.values(LangCode).includes(lang as LangCode)) {
     return translations[lang as LangCode];
   }
-  return translations[LangCode.GB]; // fallback to English
+  return translations[LangCode.GB]; // fallback
 }
 
 export default translations;
