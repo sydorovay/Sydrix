@@ -33,21 +33,6 @@
   object-fit: cover;
 }
 
-.button {
-  display: block;
-  max-width: 320px;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  background-color: #a13b009b;
-  border: 2px solid #00ffff;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 3rem auto 1rem;
-}
-
 .button:hover {
   background-color: var(--button-hover);
 }
