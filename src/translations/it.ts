@@ -13,7 +13,7 @@ const it: LangData = {
   home: "Home",
   about: "Chi siamo",
   aboutTitle: "Chi siamo",
-  aboutText: "Siamo un team di sviluppatori frontend esperti che crea soluzioni web moderne per le aziende.",
+  aboutText: "Siamo un team di sviluppatori frontend esperti, specializzati nella creazione di soluzioni web moderne, intuitive e ad alte prestazioni per aziende di qualsiasi dimensione. Il nostro approccio combina una profonda competenza tecnica con una chiara comprensione delle esigenze dei clienti, permettendoci di realizzare non solo siti o applicazioni, ma veri e propri strumenti di crescita aziendale. Utilizziamo tecnologie all’avanguardia, seguiamo i principi di accessibilità (a11y) e mobile-first, garantendo la massima reattività e prestazioni elevate. Per noi non si tratta solo di portare a termine un compito, ma di aiutare le aziende a sfruttare appieno il loro potenziale nel mondo digitale. Valorizziamo la comunicazione aperta, la responsabilità e le collaborazioni a lungo termine — ogni progetto per noi è un percorso condiviso verso il successo.",
   aboutSubtitle: "Scopri di più su di noi",
   aboutButton: "Scopri di più su di noi",
   aboutButtonText: "Vedi di più",

@@ -14,7 +14,7 @@ const gb: LangData = {
   home: "Home",
   about: "About",
   aboutTitle: "Who We Are",
-  aboutText: "We are a team of experienced frontend developers creating modern web solutions for businesses.",
+  aboutText: "We are a team of experienced frontend developers specializing in creating modern, user-friendly, and high-performance web solutions for businesses of any size. Our approach combines deep technical expertise with a strong understanding of client needs, enabling us to build not just websites or applications, but powerful tools for business growth. We apply cutting-edge technologies, follow accessibility (a11y) and mobile-first principles, and ensure seamless responsiveness and performance. For us, it is not only about delivering a task but also about helping businesses unlock their full potential in the digital environment. We value open communication, responsibility, and long-term partnerships — every project for us is a shared journey toward success.",
   aboutSubtitle: "Learn More About Us",
   aboutButton: "Find Out More About Us",
   aboutButtonText: "See More",

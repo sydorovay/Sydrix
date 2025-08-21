@@ -1,18 +1,18 @@
 .about {
-  padding: 2rem 1rem;
+  padding: 2rem 4rem;
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 80px;
   color: var(--text-primary);
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .text {
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   text-align: center;
   color: var(--text-secondary);

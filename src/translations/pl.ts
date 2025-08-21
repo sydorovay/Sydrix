@@ -14,7 +14,7 @@ const pl: LangData = {
   home: "Strona główna",
   about: "O nas",
   aboutTitle: "Kim jesteśmy",
-  aboutText: "Jesteśmy zespołem doświadczonych frontend developerów tworzących nowoczesne rozwiązania internetowe dla biznesu.",
+  aboutText: "Jesteśmy zespołem doświadczonych programistów frontend, specjalizującym się w tworzeniu nowoczesnych, przyjaznych dla użytkownika i wydajnych rozwiązań internetowych dla firm każdej wielkości. Nasze podejście łączy głęboką wiedzę techniczną ze zrozumieniem potrzeb klientów, co pozwala nam budować nie tylko strony internetowe czy aplikacje, ale także skuteczne narzędzia wspierające rozwój biznesu. Korzystamy z nowoczesnych technologii, stosujemy zasady dostępności (a11y) i mobile-first, a także dbamy o pełną responsywność i wysoką wydajność. Dla nas ważne jest nie tylko realizowanie zadań, ale także pomaganie firmom w pełnym wykorzystaniu ich potencjału w środowisku cyfrowym. Cenimy otwartą komunikację, odpowiedzialność i długoterminowe partnerstwa — każdy projekt to dla nas wspólna droga do sukcesu.",
   aboutSubtitle: "Dowiedz się więcej o nas",
   aboutButton: "Więcej o nas",
   aboutButtonText: "Zobacz więcej",

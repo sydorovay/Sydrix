@@ -13,7 +13,7 @@ const fr: LangData = {
   home: "Accueil",
   about: "À propos",
   aboutTitle: "Qui sommes-nous",
-  aboutText: "Nous sommes une équipe de développeurs frontend expérimentés, créant des solutions web modernes pour les entreprises.",
+  aboutText: "Nous sommes une équipe de développeurs frontend expérimentés, spécialisés dans la création de solutions web modernes, conviviales et performantes pour des entreprises de toutes tailles. Notre approche associe une expertise technique approfondie à une compréhension claire des besoins des clients, ce qui nous permet de concevoir non seulement des sites ou des applications, mais de véritables outils de croissance pour les entreprises. Nous utilisons des technologies de pointe, respectons les principes d’accessibilité (a11y) et du mobile-first, et garantissons une adaptabilité ainsi qu’une performance optimales. Pour nous, il ne s’agit pas seulement de réaliser une mission, mais d’aider les entreprises à libérer tout leur potentiel dans l’environnement numérique. Nous accordons une grande importance à la communication ouverte, à la responsabilité et aux partenariats durables — chaque projet est pour nous un chemin commun vers la réussite.",
   aboutSubtitle: "En savoir plus sur nous",
   aboutButton: "En savoir plus sur nous",
   aboutButtonText: "Voir plus",
