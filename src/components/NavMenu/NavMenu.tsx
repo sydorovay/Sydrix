@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { useState, useEffect, useRef } from 'react';
 import { useLanguageContext } from '@/context/LanguageProvider';
 import { useThemeContext } from '@/context/ThemeProvider';
@@ -55,15 +56,15 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
   }, [isOpen]);
 
   const navLinks = [
-    { to: '/', label: t('home') },
-    { to: '/about', label: t('about') },
-    { to: '/services', label: t('services') },
-    { to: '/portfolio', label: t('portfolio') },
-    { to: '/testimonials', label: t('testimonials') },
-    { to: '/blog', label: t('blogTitle') },
-    { to: '/contacts', label: t('contacts') },
-    { to: '/faq', label: t('faq') },
-    { to: '/partnership', label: t('partnership') },
+    { to: '/', label: t('home'), type: 'route' },
+    { to: '/about', label: t('about'), type: 'route' },
+    { to: '/services', label: t('services'), type: 'route' },
+    { to: '/portfolio', label: t('portfolio'), type: 'route' },
+    { to: '/testimonials', label: t('testimonials'), type: 'route' },
+    { to: '/blog', label: t('blogTitle'), type: 'route' },
+    { to: '/#contact', label: t('contacts'), type: 'hash' }, // ✅ Тепер веде на секцію
+    { to: '/faq', label: t('faq'), type: 'route' },
+    { to: '/partnership', label: t('partnership'), type: 'route' },
   ];
 
   return (
@@ -86,19 +87,32 @@ export default function NavMenu({ className = '' }: NavMenuProps) {
         role="menu"
       >
         <ul className={styles.menuList}>
-          {navLinks.map(({ to, label }) => (
+          {navLinks.map(({ to, label, type }) => (
             <li key={to} role="none">
-              <NavLink
-                to={to}
-                role="menuitem"
-                tabIndex={isOpen ? 0 : -1}
-                className={({ isActive }) =>
-                  [styles.link, isActive ? styles.active : ''].filter(Boolean).join(' ')
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                {label}
-              </NavLink>
+              {type === 'hash' ? (
+                <HashLink
+                  smooth
+                  to={to}
+                  role="menuitem"
+                  tabIndex={isOpen ? 0 : -1}
+                  className={styles.link}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {label}
+                </HashLink>
+              ) : (
+                <NavLink
+                  to={to}
+                  role="menuitem"
+                  tabIndex={isOpen ? 0 : -1}
+                  className={({ isActive }) =>
+                    [styles.link, isActive ? styles.active : ''].filter(Boolean).join(' ')
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  {label}
+                </NavLink>
+              )}
             </li>
           ))}
         </ul>
