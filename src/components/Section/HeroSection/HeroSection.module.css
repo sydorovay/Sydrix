@@ -43,22 +43,7 @@ list-style: none;
 margin: 0 auto;
 }
 
-.buttonWrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.button {
- display: block;
-
-}
-
-.button:hover,
-.button:focus {
-  outline: none;
-}
 
 .menu {
   position: absolute;
