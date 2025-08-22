@@ -10,6 +10,7 @@ import { PortfolioItem } from '@/types/portfolio';
 import { Translate } from '@/components/Translate';
 import { TFunction } from '@/types/langTypes';
 
+
 interface PortfolioSectionProps {
   portfolioItems: PortfolioItem[];
   t: TFunction;
@@ -20,7 +21,7 @@ interface PortfolioSectionProps {
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, theme, onOpen }) => {
   if (!portfolioItems || portfolioItems.length === 0) {
     return (
-      <div className={`${styles.portfolioSection} ${styles[theme]}`}>
+      <div className={`${styles.portfolioSection} ${theme === 'light' ? 'light' : 'dark'}`}>
         <p className={styles.emptyText}>
           <Translate id="noPortfolioItems" />
         </p>
@@ -29,7 +30,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, 
   }
 
   return (
-    <section className={`${styles.portfolioSection} ${styles[theme]}`} aria-label={t('portfolio')}>
+    <section className={`${styles.portfolioSection} ${theme === 'light' ? 'light' : 'dark'}`} aria-label={t('portfolio')}>
       {portfolioItems.map(item => (
         <div key={item.id} className={styles.card} role="region" aria-labelledby={`${item.id}-title`}>
           <h2 id={`${item.id}-title`} className={styles.title}>{item.title}</h2>
@@ -73,7 +74,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, 
 
           <button
             onClick={() => onOpen(item.id)}
-            className={styles.button}
+            className={`${styles.button} button`}
             type="button"
             aria-label={`${t('showAllButton')} ${item.title}`}
           >

@@ -88,11 +88,6 @@ margin: 0 auto;
   }
 
 
-  .button {
-    /* font-size: 0.95rem; */
-    padding: 0.6rem 1rem;
-  }
-
   .menu {
     top: 110%;
   }
@@ -102,8 +97,6 @@ margin: 0 auto;
   .title {
     font-size: 1.8rem;
   }
-
-
 
   .button {
     width: 100%;
