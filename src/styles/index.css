@@ -126,11 +126,12 @@ h1 {
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  color: #0d253a;
+  color: var(--text-color);
   /* темний текст */
-  background: linear-gradient(135deg, #a8fff6, #5ee7df);
+  background: linear-gradient(135deg, #b6faf3bd, #5ee7df);
   /* м’який бірюзовий градієнт */
   border: 2px solid #0d253a;
+
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.35s ease;
@@ -139,7 +140,7 @@ h1 {
 }
 
 .light .button:hover {
-  background: linear-gradient(135deg, #7af5eb, #35e0d1);
+  background: linear-gradient(135deg, #7af5eb, #223d3b);
   border-color: #144066;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(13, 37, 58, 0.25);

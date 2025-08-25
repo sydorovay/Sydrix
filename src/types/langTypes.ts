@@ -25,6 +25,12 @@ export interface BenefitItem {
 }
 
 export type LangData = {
+  id: string;
+  name: string;
+  images: string[];
+  altText: string;
+  description: string; // строго string
+  link?: string;
   portfolioDescription: string;
   backToTop: string;
   home: string;

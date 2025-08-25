@@ -1,5 +1,4 @@
 // src/components/Translate.tsx
-import React from 'react';
 import { useLanguageContext } from '@/context/LanguageProvider';
 import type { LangData } from '@/types/langTypes';
 
