@@ -1,9 +1,14 @@
 name = "sydrix"
-compatibility_date = "2025-05-1"
-account_id = "6c462cd675d7e03eea794481c1202c94"     # ← обов'язково замінити
+compatibility_date = "2025-05-01"
+account_id = "6c462cd675d7e03eea794481c1202c94"
+
 workers_dev = true
 
 assets = { directory = "./dist" }
 
 routes = ["https://sydrix.dev/*"]
 zone_id = "bb85ff7ad071b2f81973e5c31c2d8edb"
+
+# Підключаємо worker скрипт
+type = "javascript"
+main = "worker.js"  # або index.js
