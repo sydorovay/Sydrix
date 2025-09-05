@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   line-height: 1.5rem;
+
 }
 
 /* Теми */
@@ -11,7 +12,7 @@
       text-decoration: none;
       font-size: clamp(16px, 1vw, 20px);
       padding: 0.5rem 1rem;
-      color: var(--logo-grad-end);
+      color: var(--logo-grad-middle);
       transition: color 0.3s, text-decoration 0.3s;
       outline: none;
     }
@@ -25,7 +26,7 @@
 .link:hover,
 .link:focus {
   transform: scale(1.05);
-  color: #cef6ff;
+  color: var(--swiper-theme-color);
   text-decoration: underline;
 }
 
@@ -49,15 +50,16 @@
     background: linear-gradient(#294d76ec 0%, #8fc2e6e6 20%, #caecfaee 40%, #fef9f6 100%);
     border: 1px solid #a2d5f2;
     border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(50, 10, 10, 0.3);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-20px);
+    transform: translateY(-10px);
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
     z-index: 1000;
+  margin :5%;
   }
+
 
   .openMenu {
     opacity: 1;
@@ -76,13 +78,8 @@
     display: block;
     padding: 12px 16px;
     text-align: center;
+    font-size: 18px;
     color: rgb(19, 0, 53);
-  }
-
-  .menu .link:hover,
-  .menu .link:focus {
-    color: #93d4fd;
-    text-decoration: underline;
   }
 }
 
