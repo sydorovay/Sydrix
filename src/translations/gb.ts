@@ -2,6 +2,11 @@ import benefitsDataGb from '../data/BenefitsData/benefitsDataGb';
 import { LangData } from '../types/langTypes';
 
 const gb: LangData = {
+  id: '',
+  name: '',
+  images: [],
+  altText: '',
+  description: '',
   portfolioDescription: 'Portfolio description',
   backToTop: 'Back to top',
   mainNavigationLabel: "Main navigation",

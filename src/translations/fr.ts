@@ -2,6 +2,11 @@ import benefitsDataFr from '../data/BenefitsData/benefitsDataFr';
 import { LangData } from '../types/langTypes';
 
 const fr: LangData = {
+  id: "fr",
+  name: "Français",
+  images: [],
+  altText: "Image de la langue française",
+  description: "Traduction française pour l'application.",
   portfolioDescription: 'Description du portfolio',
   backToTop: 'Retour en haut',
   mainNavigationLabel: "Navigation principale",

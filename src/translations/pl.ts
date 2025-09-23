@@ -2,6 +2,11 @@ import benefitsDataPl from '../data/BenefitsData/benefitsDataPl';
 import { LangData } from '../types/langTypes';
 
 const pl: LangData = {
+  id: 'pl',
+  name: 'Polski',
+  images: [],
+  altText: '',
+  description: '',
   portfolioDescription: 'Opis portfolio',
   backToTop: 'Do góry',
   toggleMenu: "Przełącz menu",

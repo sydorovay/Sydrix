@@ -38,7 +38,6 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           </linearGradient>
         </defs>
 
-        {/* Верхній слоган */}
         <text
           x="50%"
           y="25%"
@@ -48,7 +47,6 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           {top}
         </text>
 
-        {/* Основний напис SYDRIX */}
         <text
           x="50%"
           y="60%"
@@ -61,7 +59,6 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           <tspan>X</tspan>
         </text>
 
-        {/* Нижній слоган */}
         <text
           x="50%"
           y="75%"

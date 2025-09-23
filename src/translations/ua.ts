@@ -2,6 +2,11 @@ import benefitsDataUa from '../data/BenefitsData/benefitsDataUa';
 import { LangData } from '../types/langTypes';
 
 const ua: LangData = {
+  id: "ua",
+  name: '',
+  images: [],
+  altText: '',
+  description: '',
   portfolioDescription: 'Опис портфоліо',
   backToTop: 'Назад наверх',
   mainNavigationLabel: "Головна навігація",

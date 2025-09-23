@@ -2,6 +2,11 @@ import benefitsDataDe from '../data/BenefitsData/benefitsDataDe';
 import { LangData } from '../types/langTypes';
 
 const de: LangData = {
+  id: "de",
+  name: "Deutsch",
+  images: [],
+  altText: "",
+  description: "Deutsche Übersetzung für die Webseite.",
   portfolioDescription: 'Portfolio-Beschreibung',
   backToTop: 'Nach oben',
   mainNavigationLabel: "Hauptnavigation",
