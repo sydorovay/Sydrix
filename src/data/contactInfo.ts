@@ -1,6 +1,6 @@
   const contactInfo = {
-  phone: '+491727616858',
-  email: 'sydrix.dev@gmail.com',
+  phone: '+49 152 26152615',
+  email: 'front-end@sydrix.dev',
     portfolioLink: '#portfolio',
 }
 
