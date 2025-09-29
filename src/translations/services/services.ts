@@ -11,10 +11,26 @@ import {
   FaShieldAlt,
   FaUniversalAccess,
   FaGlobe,
-  FaCogs
+  FaCogs,
+  FaChartLine,
+  FaServer,
 } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
-const services = [
+export type LangCode = 'gb' | 'ua' | 'de' | 'pl' | 'fr' | 'it';
+
+export type TranslatedText = {
+  [key in LangCode]: string;
+};
+
+export interface Service {
+  id: string;
+  icon: IconType;
+  title: TranslatedText;
+  description: TranslatedText;
+}
+
+const services: Service[] = [
   {
     id: 'adaptive_design',
     icon: FaMobileAlt,
@@ -210,7 +226,7 @@ const services = [
       gb: 'We make the site accessible to everyone, including people with disabilities',
       ua: 'Робимо сайт доступним для всіх, зокрема людей з інвалідністю',
       de: 'Wir machen die Website für alle zugänglich, auch für Menschen mit Behinderungen',
-      pl: 'Umożliwiamy dostęp do strony wszystkim, również osobom z niepełnosprawnościami',
+      pl: 'Umożliwiamy dostęp do strony wszystkim, również osobom z niepełnospравністю',
       fr: 'Nous rendons le site accessible à tous, y compris aux personnes handicapées',
       it: 'Rendiamo il sito accessibile a tutti, anche a persone con disabilità',
     },
@@ -253,6 +269,46 @@ const services = [
       pl: 'Dodajemy unikalne funkcje dostosowane do Twoich potrzeb',
       fr: 'Nous ajoutons des fonctionnalités uniques adaptées à vos besoins',
       it: 'Aggiungiamo funzioni uniche su misura per le tue esigenze',
+    },
+  },
+  {
+    id: 'analytics',
+    icon: FaChartLine,
+    title: {
+      gb: 'Analytics & Insights',
+      ua: 'Аналітика та статистика',
+      de: 'Analysen & Einblicke',
+      pl: 'Analiza i statystyki',
+      fr: 'Analytique & Insights',
+      it: 'Analisi e Insights',
+    },
+    description: {
+      gb: 'Track your visitors and understand user behavior for better decisions',
+      ua: 'Відстежуйте відвідувачів і аналізуйте поведінку користувачів для кращих рішень',
+      de: 'Verfolgen Sie Ihre Besucher und verstehen Sie das Nutzerverhalten für bessere Entscheidungen',
+      pl: 'Śledź odwiedzających i analizuj zachowanie użytkowników, aby podejmować lepsze decyzje',
+      fr: 'Suivez vos visiteurs et comprenez le comportement des utilisateurs pour de meilleures décisions',
+      it: 'Traccia i visitatori e comprendi il comportamento degli utenti per prendere decisioni migliori',
+    },
+  },
+  {
+    id: 'cloud_integration',
+    icon: FaServer,
+    title: {
+      gb: 'Cloud Integration',
+      ua: 'Інтеграція з хмарними сервісами',
+      de: 'Cloud-Integration',
+      pl: 'Integracja z chmurą',
+      fr: 'Intégration Cloud',
+      it: 'Integrazione Cloud',
+    },
+    description: {
+      gb: 'Seamless connection with cloud platforms for scalable solutions',
+      ua: 'Безшовне підключення до хмарних платформ для масштабованих рішень',
+      de: 'Nahtlose Verbindung mit Cloud-Plattformen für skalierbare Lösungen',
+      pl: 'Płynne połączenie z platformami chmurowymi dla skalowalnych rozwiązań',
+      fr: 'Connexion fluide avec les plateformes cloud pour des solutions évolutives',
+      it: 'Connessione fluida con piattaforme cloud per soluzioni scalabili',
     },
   },
 ];

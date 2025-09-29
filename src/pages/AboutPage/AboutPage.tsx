@@ -11,13 +11,13 @@ interface AboutPageProps {
 }
 
 const AboutPage: FC<AboutPageProps> = ({ t, theme }) => {
-  const stringT = createStringTranslator(t); // лише ті ключі, які точно повертають string
+  const stringT = createStringTranslator(t);
 
   return (
     <div className={styles.about} data-theme={theme}>
       <h1 className={styles.title}>{stringT('aboutTitle')}</h1>
       <p className={styles.text}>{stringT('aboutText')}</p>
-      <Footer t={t} theme={theme} /> {/* Footer отримує повний t */}
+      <Footer t={t} theme={theme} /> 
     </div>
   );
 };

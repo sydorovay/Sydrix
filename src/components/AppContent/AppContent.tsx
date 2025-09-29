@@ -17,8 +17,8 @@ import createStringTranslator from '@/utils/langUtils';
 // Lazy-loaded pages
 const HomePage = lazy(() => import('@/pages/HomePage/HomePage'));
 const AboutPage = lazy(() => import('@/pages/AboutPage/AboutPage'));
-const ServicesPage = lazy(() => import('@/pages/ServicesPage/ServicesPage'));
 const PortfolioPage = lazy(() => import('@/pages/PortfolioPage/PortfolioPage'));
+const ServicesPage = lazy(() => import('@/pages/ServicesPage/ServicesPage'));
 const TestimonialsPage = lazy(() => import('@/pages/TestimonialsPage/TestimonialsPage'));
 const BlogPage = lazy(() => import('@/pages/BlogPage/BlogPage'));
 const ContactsPage = lazy(() => import('@/pages/ContactsPage/ContactsPage'));

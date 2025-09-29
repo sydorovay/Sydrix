@@ -1,0 +1,57 @@
+// src/pages/services/ServiceModal.tsx
+import React, { FC, useEffect } from 'react';
+import styles from './ServiceModal.module.css';
+import { LangCode } from '@/types/langTypes';
+import getTranslation from '@/utils/getTranslation';
+
+interface ServiceModalProps {
+  service: {
+    id: string;
+    icon: any;
+    title: Record<string, string>;
+    description: Record<string, string>;
+  };
+  lang: LangCode;
+  onClose: () => void;
+}
+
+const ServiceModal: FC<ServiceModalProps> = ({ service, lang, onClose }) => {
+  const { icon: Icon, title, description } = service;
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    document.addEventListener('keydown', handleEsc);
+    return () => document.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
+
+  return (
+    <div
+      className={styles.overlay}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={`${service.id}-title`}
+      onClick={onClose}
+    >
+      <div
+        className={styles.modal}
+        onClick={e => e.stopPropagation()}
+        tabIndex={-1}
+      >
+        <button
+          className={styles.closeButton}
+          onClick={onClose}
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        {Icon && <Icon className={styles.modalIcon} />}
+        <h2 id={`${service.id}-title`} className={styles.modalTitle}>
+          {getTranslation(title, lang)}
+        </h2>
+        <p className={styles.modalDesc}>{getTranslation(description, lang)}</p>
+      </div>
+    </div>
+  );
+};
+
+export default ServiceModal;
