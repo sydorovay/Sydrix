@@ -1,15 +1,24 @@
+// src/pages/services/ServicesPage.tsx
 import React, { FC, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './ServicesPage.module.css';
 import services from '@/translations/services/services';
 import { LangData, LangCode } from '@/types/langTypes';
 import getTranslation from '@/utils/getTranslation';
-import ServiceModal from '../../components/ServiceModal'; // <- новий компонент
+import ServiceModal from '../../components/ServicesModal/ServiceModal';
+import { IconType } from 'react-icons';
 
 interface ServicesPageProps {
   t: <K extends keyof LangData>(key: K) => LangData[K];
   theme: 'light' | 'dark' | string;
   lang: LangCode;
+}
+
+interface ServiceItem {
+  id: string;
+  icon: IconType;
+  title: Record<string, string>;
+  description: Record<string, string>;
 }
 
 const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
@@ -22,9 +31,9 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
     const hash = location.hash.replace('#', '');
     if (hash) {
       setFocusedId(hash);
-      if (services.find(s => s.id === hash)) {
-        setSelectedServiceId(hash); // Відкриваємо модалку, якщо хеш співпадає з id сервісу
-      }
+      const serviceExists = services.find(s => s.id === hash);
+      if (serviceExists) setSelectedServiceId(hash);
+
       setTimeout(() => {
         const element = document.getElementById(hash);
         if (element) {
@@ -37,7 +46,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
 
   const handleCardClick = (id: string) => {
     setFocusedId(id);
-    setSelectedServiceId(id); // Відкриваємо модалку
+    setSelectedServiceId(id);
     navigate(`#${id}`);
     const element = document.getElementById(id);
     if (element) {
@@ -72,13 +81,17 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
               onClick={() => handleCardClick(id)}
             >
               {Icon && <Icon className={styles.icon} />}
-              <h2 className={styles.cardTitle}>{getTranslation(title, lang)}</h2>
-              <p className={styles.cardDesc}>{getTranslation(description, lang)}</p>
+              <h2 className={styles.cardTitle}>
+                {title ? getTranslation(title, lang) : ''}
+              </h2>
+              <p className={styles.cardDesc}>
+                {description ? getTranslation(description, lang) : ''}
+              </p>
               <button
                 className={styles.ctaButton}
                 onClick={e => {
                   e.stopPropagation();
-                  handleCardClick(id);
+                  setSelectedServiceId(id); // лише відкриваємо модалку
                 }}
               >
                 {t('servicesButton')}

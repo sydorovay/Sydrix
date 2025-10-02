@@ -1,18 +1,14 @@
-// src/types/services.ts
 import { IconType } from 'react-icons';
 
-export interface ServiceText {
-  gb: string;
-  ua: string;
-  de: string;
-  pl: string;
-  fr: string;
-  it: string;
-}
+export type LangCode = 'gb' | 'ua' | 'de' | 'pl' | 'fr' | 'it';
+
+export type TranslatedText = {
+  [key in LangCode]: string;
+};
 
 export interface Service {
   id: string;
   icon: IconType;
-  title: ServiceText;
-  description: ServiceText;
+  title: TranslatedText;
+  description: TranslatedText;
 }

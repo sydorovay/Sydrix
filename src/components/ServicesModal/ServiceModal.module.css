@@ -1,0 +1,112 @@
+/* src/pages/services/ServiceModal.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.25s forwards;
+}
+
+.overlay.light {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.overlay.dark {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  background: var(--modal-bg, #fff);
+  color: var(--modal-text, #111);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+  transform: translateY(-20px);
+  animation: slideIn 0.25s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.modalIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.modalTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modalDesc {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modalDetails {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 1.5rem;
+  }
+
+  .modalTitle {
+    font-size: 1.5rem;
+  }
+
+  .modalIcon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .modal {
+    --modal-bg: #1a1a1a;
+    --modal-text: #eee;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .modal {
+    --modal-bg: #fff;
+    --modal-text: #111;
+  }
+}

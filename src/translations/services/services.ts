@@ -1,316 +1,37 @@
-// src/data/services.ts
-import {
-  FaMobileAlt,
-  FaBolt,
-  FaSearch,
-  FaLaptopCode,
-  FaCode,
-  FaPaintBrush,
-  FaHandshake,
-  FaCommentDots,
-  FaShieldAlt,
-  FaUniversalAccess,
-  FaGlobe,
-  FaCogs,
-  FaChartLine,
-  FaServer,
-} from 'react-icons/fa';
-import { IconType } from 'react-icons';
+import fastLoading from './fastLoading';
+import seoOptimization from './seoOptimization';
+import modernTechnologies from './modernTechnologies';
+import cleanCode from './cleanCode';
+import principles from './responsivePrinciples';
+import professionalDesign from './professionalDesign';
+import postLaunchSupport from './postLaunchSupport';
+import interactiveForms from './interactiveForms';
+import securityStability from './securityStability';
+import accessibility from './accessibility';
+import multilingual from './multilingual';
+import customFeatures from './customFeatures';
+import analytics from './analytics';
+import cloudIntegration from './cloudIntegration';
+import consulting from './consulting';
 
-export type LangCode = 'gb' | 'ua' | 'de' | 'pl' | 'fr' | 'it';
-
-export type TranslatedText = {
-  [key in LangCode]: string;
-};
-
-export interface Service {
-  id: string;
-  icon: IconType;
-  title: TranslatedText;
-  description: TranslatedText;
-}
+import { Service } from '@/types/services';
 
 const services: Service[] = [
-  {
-    id: 'adaptive_design',
-    icon: FaMobileAlt,
-    title: {
-      gb: 'Responsive Design',
-      ua: 'Адаптивний дизайн',
-      de: 'Reaktionsfähiges Design',
-      pl: 'Responsywny design',
-      fr: 'Design adaptatif',
-      it: 'Design responsivo',
-    },
-    description: {
-      gb: 'Your website will look perfect on phone, tablet, and desktop',
-      ua: 'Ваш сайт ідеально виглядатиме на телефоні, планшеті та десктопі',
-      de: 'Ihre Website sieht auf Telefon, Tablet und Desktop perfekt aus',
-      pl: 'Twoja strona będzie wyglądać idealnie na telefonie, tablecie i komputerze',
-      fr: 'Votre site sera parfait sur téléphone, tablette et bureau',
-      it: 'Il tuo sito sarà perfetto su telefono, tablet e computer',
-    },
-  },
-  {
-    id: 'fast_loading',
-    icon: FaBolt,
-    title: {
-      gb: 'Fast Loading',
-      ua: 'Швидке завантаження',
-      de: 'Schnelles Laden',
-      pl: 'Szybkie ładowanie',
-      fr: 'Chargement rapide',
-      it: 'Caricamento Veloce',
-    },
-    description: {
-      gb: 'Pages load instantly, enhancing user comfort',
-      ua: 'Сторінки завантажуються миттєво, покращуючи комфорт користувача',
-      de: 'Seiten laden sofort, was den Benutzerkomfort verbessert',
-      pl: 'Strony ładują się natychmiast, zwiększając komfort użytkownika',
-      fr: 'Les pages se chargent instantanément, améliorant le confort utilisateur',
-      it: 'Le pagine si aprono all’istante, migliorando l’esperienza utente',
-    },
-  },
-  {
-    id: 'seo_optimization',
-    icon: FaSearch,
-    title: {
-      gb: 'SEO Optimization',
-      ua: 'SEO-оптимізація',
-      de: 'SEO-Optimierung',
-      pl: 'Optymalizacja SEO',
-      fr: 'Optimisation SEO',
-      it: 'Ottimizzazione SEO',
-    },
-    description: {
-      gb: 'The site is easily found on search engines like Google',
-      ua: 'Сайт легко знаходиться в пошукових системах, таких як Google',
-      de: 'Die Website ist leicht in Suchmaschinen wie Google zu finden',
-      pl: 'Strona jest łatwo znajdowana w wyszukiwarkach takich jak Google',
-      fr: 'Le site est facilement trouvé sur des moteurs de recherche comme Google',
-      it: 'Il sito sarà facilmente trovato nei motori di ricerca come Google',
-    },
-  },
-  {
-    id: 'modern_technologies',
-    icon: FaLaptopCode,
-    title: {
-      gb: 'Modern Technologies',
-      ua: 'Сучасні технології',
-      de: 'Moderne Technologien',
-      pl: 'Nowoczesne technologie',
-      fr: 'Technologies modernes',
-      it: 'Tecnologie Moderne',
-    },
-    description: {
-      gb: 'We use only up-to-date and proven development tools',
-      ua: 'Ми використовуємо тільки сучасні та перевірені інструменти розробки',
-      de: 'Wir verwenden nur aktuelle und bewährte Entwicklungstools',
-      pl: 'Używamy tylko aktualnych i sprawdzonych narzędzi programistycznych',
-      fr: 'Nous utilisons uniquement des outils de développement à jour et éprouvés',
-      it: 'Utilizziamo solo strumenti di sviluppo aggiornati e affidabili',
-    },
-  },
-  {
-    id: 'clean_code',
-    icon: FaCode,
-    title: {
-      gb: 'Clean Code',
-      ua: 'Чистий код',
-      de: 'Sauberer Code',
-      pl: 'Czysty kod',
-      fr: 'Code propre',
-      it: 'Codice Pulito',
-    },
-    description: {
-      gb: 'The project is easy to maintain and develop in the future',
-      ua: 'Проєкт легко підтримувати та розвивати у майбутньому',
-      de: 'Das Projekt ist einfach zu warten und weiterzuentwickeln',
-      pl: 'Projekt jest łatwy do utrzymania i dalszego rozwoju',
-      fr: 'Le projet est facile à maintenir et à développer à l’avenir',
-      it: 'Il progetto è facile da mantenere e aggiornare nel tempo',
-    },
-  },
-  {
-    id: 'professional_design',
-    icon: FaPaintBrush,
-    title: {
-      gb: 'Professional Design',
-      ua: 'Професійний дизайн',
-      de: 'Professionelles Design',
-      pl: 'Profesjonalny design',
-      fr: 'Design professionnel',
-      it: 'Design Professionale',
-    },
-    description: {
-      gb: 'We help create a stylish and user-friendly interface',
-      ua: 'Допомагаємо створити стильний та зручний інтерфейс',
-      de: 'Wir helfen, eine stilvolle und benutzerfreundliche Oberfläche zu erstellen',
-      pl: 'Pomagamy stworzyć stylowy i przyjazny interfejs',
-      fr: 'Nous aidons à créer une interface élégante et conviviale',
-      it: 'Ti aiutiamo a creare un’interfaccia elegante e facile da usare',
-    },
-  },
-  {
-    id: 'post_launch_support',
-    icon: FaHandshake,
-    title: {
-      gb: 'Post-launch Support',
-      ua: 'Підтримка після запуску',
-      de: 'Support nach dem Start',
-      pl: 'Wsparcie po uruchomieniu',
-      fr: 'Support post-lancement',
-      it: 'Supporto Post-Lancio',
-    },
-    description: {
-      gb: 'We guarantee help even after project completion',
-      ua: 'Гарантуємо допомогу навіть після завершення проєкту',
-      de: 'Wir garantieren Hilfe auch nach Projektabschluss',
-      pl: 'Gwarantujemy pomoc nawet po zakończeniu projektu',
-      fr: 'Nous garantissons de l’aide même après la fin du projet',
-      it: 'Forniamo supporto anche dopo la fine del progetto',
-    },
-  },
-  {
-    id: 'interactive_forms',
-    icon: FaCommentDots,
-    title: {
-      gb: 'Interactive Forms',
-      ua: 'Інтерактивні форми',
-      de: 'Interaktive Formulare',
-      pl: 'Interaktywne formularze',
-      fr: 'Formulaires interactifs',
-      it: 'Form Contattabili',
-    },
-    description: {
-      gb: 'Clients can easily contact you through the site',
-      ua: 'Клієнти можуть легко зв’язатися з вами через сайт',
-      de: 'Kunden können Sie einfach über die Website kontaktieren',
-      pl: 'Klienci mogą łatwo się z Tobą skontaktować przez stronę',
-      fr: 'Les clients peuvent facilement vous contacter via le site',
-      it: 'I clienti possono contattarti facilmente tramite il sito',
-    },
-  },
-  {
-    id: 'security_stability',
-    icon: FaShieldAlt,
-    title: {
-      gb: 'Security and Stability',
-      ua: 'Безпека та стабільність',
-      de: 'Sicherheit und Stabilität',
-      pl: 'Bezpieczeństwo i stabilność',
-      fr: 'Sécurité et stabilité',
-      it: 'Sicurezza e Stabilità',
-    },
-    description: {
-      gb: 'The site runs reliably and is protected against common errors',
-      ua: 'Сайт працює надійно і захищений від поширених помилок',
-      de: 'Die Website läuft zuverlässig und ist gegen häufige Fehler geschützt',
-      pl: 'Strona działa niezawodnie i jest chroniona przed typowymi błędami',
-      fr: 'Le site fonctionne de manière fiable et est protégé contre les erreurs courantes',
-      it: 'Il sito funziona in modo affidabile ed è protetto da errori comuni',
-    },
-  },
-  {
-    id: 'accessibility',
-    icon: FaUniversalAccess,
-    title: {
-      gb: 'Accessibility (a11y)',
-      ua: 'Доступність (a11y)',
-      de: 'Barrierefreiheit (a11y)',
-      pl: 'Dostępność (a11y)',
-      fr: 'Accessibilité (a11y)',
-      it: 'Accessibilità (a11y)',
-    },
-    description: {
-      gb: 'We make the site accessible to everyone, including people with disabilities',
-      ua: 'Робимо сайт доступним для всіх, зокрема людей з інвалідністю',
-      de: 'Wir machen die Website für alle zugänglich, auch für Menschen mit Behinderungen',
-      pl: 'Umożliwiamy dostęp do strony wszystkim, również osobom z niepełnospравністю',
-      fr: 'Nous rendons le site accessible à tous, y compris aux personnes handicapées',
-      it: 'Rendiamo il sito accessibile a tutti, anche a persone con disabilità',
-    },
-  },
-  {
-    id: 'multilingual',
-    icon: FaGlobe,
-    title: {
-      gb: 'Multilingual Support',
-      ua: 'Підтримка кількох мов',
-      de: 'Mehrsprachige Unterstützung',
-      pl: 'Wsparcie wielu języków',
-      fr: 'Support multilingue',
-      it: 'Supporto Multilingue',
-    },
-    description: {
-      gb: 'The site can be available in multiple languages for a global audience',
-      ua: 'Сайт може бути доступним кількома мовами для глобальної аудиторії',
-      de: 'Die Website kann in mehreren Sprachen für ein globales Publikum verfügbar sein',
-      pl: 'Strona może być dostępna w wielu językach dla globalnej publiczności',
-      fr: 'Le site peut être disponible en plusieurs langues pour un public mondial',
-      it: 'Il sito può essere disponibile in più lingue per un pubblico globale',
-    },
-  },
-  {
-    id: 'custom_features',
-    icon: FaCogs,
-    title: {
-      gb: 'Custom Features',
-      ua: 'Індивідуальні функції',
-      de: 'Individuelle Funktionen',
-      pl: 'Funkcje niestandardowe',
-      fr: 'Fonctionnalités personnalisées',
-      it: 'Funzionalità Personalizzate',
-    },
-    description: {
-      gb: 'We add unique features tailored to your needs',
-      ua: 'Додаємо унікальні функції, адаптовані до ваших потреб',
-      de: 'Wir fügen einzigartige Funktionen hinzu, die auf Ihre Bedürfnisse zugeschnitten sind',
-      pl: 'Dodajemy unikalne funkcje dostosowane do Twoich potrzeb',
-      fr: 'Nous ajoutons des fonctionnalités uniques adaptées à vos besoins',
-      it: 'Aggiungiamo funzioni uniche su misura per le tue esigenze',
-    },
-  },
-  {
-    id: 'analytics',
-    icon: FaChartLine,
-    title: {
-      gb: 'Analytics & Insights',
-      ua: 'Аналітика та статистика',
-      de: 'Analysen & Einblicke',
-      pl: 'Analiza i statystyki',
-      fr: 'Analytique & Insights',
-      it: 'Analisi e Insights',
-    },
-    description: {
-      gb: 'Track your visitors and understand user behavior for better decisions',
-      ua: 'Відстежуйте відвідувачів і аналізуйте поведінку користувачів для кращих рішень',
-      de: 'Verfolgen Sie Ihre Besucher und verstehen Sie das Nutzerverhalten für bessere Entscheidungen',
-      pl: 'Śledź odwiedzających i analizuj zachowanie użytkowników, aby podejmować lepsze decyzje',
-      fr: 'Suivez vos visiteurs et comprenez le comportement des utilisateurs pour de meilleures décisions',
-      it: 'Traccia i visitatori e comprendi il comportamento degli utenti per prendere decisioni migliori',
-    },
-  },
-  {
-    id: 'cloud_integration',
-    icon: FaServer,
-    title: {
-      gb: 'Cloud Integration',
-      ua: 'Інтеграція з хмарними сервісами',
-      de: 'Cloud-Integration',
-      pl: 'Integracja z chmurą',
-      fr: 'Intégration Cloud',
-      it: 'Integrazione Cloud',
-    },
-    description: {
-      gb: 'Seamless connection with cloud platforms for scalable solutions',
-      ua: 'Безшовне підключення до хмарних платформ для масштабованих рішень',
-      de: 'Nahtlose Verbindung mit Cloud-Plattformen für skalierbare Lösungen',
-      pl: 'Płynne połączenie z platformami chmurowymi dla skalowalnych rozwiązań',
-      fr: 'Connexion fluide avec les plateformes cloud pour des solutions évolutives',
-      it: 'Connessione fluida con piattaforme cloud per soluzioni scalabili',
-    },
-  },
+  principles,
+  fastLoading,
+  seoOptimization,
+  modernTechnologies,
+  cleanCode,
+  professionalDesign,
+  postLaunchSupport,
+  interactiveForms,
+  securityStability,
+  accessibility,
+  multilingual,
+  customFeatures,
+  analytics,
+  cloudIntegration,
+  consulting,
 ];
 
 export default services;
