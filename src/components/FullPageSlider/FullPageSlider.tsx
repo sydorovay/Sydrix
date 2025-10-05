@@ -3,13 +3,15 @@ import HeroSection from '../Section/HeroSection/HeroSection';
 import BenefitsSection from '@/components/Section/BenefitsSection/BenefitsSection';
 import PortfolioSection from '@/components/Section/PortfolioSection/PortfolioSection';
 import ContactsSection from '../Section/ContactsSection/ContactsSection';
-import ServicesPage from '../../pages/ServicesPage/ServicesPage';
+// import ServicesPage from '../../pages/ServicesPage/ServicesPage';
 import styles from './FullPageSlider.module.css';
 import { FaArrowUp } from 'react-icons/fa';
 import { LangData, TFunction, LangCode } from '@/types/langTypes';
 import { useShowTopButton } from '@/hooks/useShowTopButton';
 import { PortfolioItem } from '@/types/portfolio';
-import useIsDesktop from '@/hooks/useIsDesktop'; // ✅ новий хук
+import ServicesSectionForSlider from '../Section/ServicesSectionForSlider';
+import useIsDesktop from '@/hooks/useIsDesktop';
+
 
 interface FullPageSliderProps {
   t: TFunction;
@@ -74,7 +76,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       {/* Benefits or Services Section */}
       <section className={styles.snapSection} aria-labelledby="benefits-heading">
         {isDesktop ? (
-          <ServicesPage t={t} lang={'gb' as LangCode} theme={theme} />
+          <ServicesSectionForSlider t={t} lang={'gb' as LangCode} theme={theme} />
         ) : (
           <BenefitsSection
             title="benefitsTitle"

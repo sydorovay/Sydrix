@@ -69,7 +69,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
       </section>
 
       <section className={styles.grid}>
-        {services.map(({ id, icon: Icon, title, description }) => {
+        {services.map(({ id, icon: Icon, title}) => {
           const isFocused = focusedId === id;
           return (
             <div
@@ -105,7 +105,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
             placeholder={t('servicesFormPlaceholder')}
             className={styles.input}
           />
-          <button type="submit" className={styles.formButton}>
+          <button type="submit" className={styles.ctaButton}>
             {t('servicesFormButton')}
           </button>
         </form>
