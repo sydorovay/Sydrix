@@ -3,7 +3,6 @@ declare const styles: {
   readonly "benefitTitle": string;
   readonly "benefitsList": string;
   readonly "benefitsSection": string;
-  readonly "button": string;
   readonly "dark": string;
   readonly "icon": string;
   readonly "light": string;

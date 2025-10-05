@@ -9,7 +9,7 @@ import { FaArrowUp } from 'react-icons/fa';
 import { LangData, TFunction, LangCode } from '@/types/langTypes';
 import { useShowTopButton } from '@/hooks/useShowTopButton';
 import { PortfolioItem } from '@/types/portfolio';
-import ServicesSectionForSlider from '../Section/ServicesSectionForSlider';
+import ServicesSectionForSlider from '../Section/ServicesSectionForSlider/ServicesSectionForSlider';
 import useIsDesktop from '@/hooks/useIsDesktop';
 
 

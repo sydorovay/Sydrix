@@ -11,6 +11,7 @@ declare const styles: {
   readonly "form": string;
   readonly "formButton": string;
   readonly "grid": string;
+  readonly "gridSection": string;
   readonly "icon": string;
   readonly "input": string;
   readonly "page": string;

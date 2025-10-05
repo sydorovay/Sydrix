@@ -22,6 +22,10 @@
   color: #555;
 }
 
+.gridSection{
+  padding: 4%;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -67,8 +71,8 @@
 }
 
 .cardTitle {
-  font-size: 1.25rem;
-  margin: 0.5rem 0;
+  font-size: 1rem;
+  margin: 0.3rem 0;
 }
 
 .cardDesc {

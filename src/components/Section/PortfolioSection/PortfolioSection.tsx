@@ -74,13 +74,14 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, 
 
           <button
             onClick={() => onOpen(item.id)}
-            className={`${styles.button} button`}
+            className="button"
             type="button"
             aria-label={`${t('showAllButton')} ${item.title}`}
           >
             <Translate id="showAllButton" />
           </button>
         </div>
+        
       ))}
     </section>
   );

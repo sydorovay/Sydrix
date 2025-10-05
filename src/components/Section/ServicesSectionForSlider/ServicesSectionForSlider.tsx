@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect } from 'react';
-import styles from './ServicwsSectionForSlider.module.css';
+import { FC, useState, useEffect } from 'react';
+import styles from './ServicesSectionForSlider.module.css';
 import services from '@/translations/services/services';
 import { LangData, LangCode } from '@/types/langTypes';
 import getTranslation from '@/utils/getTranslation';
@@ -42,7 +42,7 @@ const ServicesSectionForSlider: FC<ServicesSectionForSliderProps> = ({ t, lang, 
 
   return (
     <section
-      className={`${styles.gridSection} ${theme === 'dark' ? styles.dark : styles.light}`}
+      className={`${styles.gridSection} ${theme === 'dark' ? styles.dark : ''}`}
       aria-labelledby="services-heading"
     >
       <div className={styles.grid}>
