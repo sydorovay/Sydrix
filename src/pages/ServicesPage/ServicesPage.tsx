@@ -66,7 +66,6 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
     <main className={styles.page}>
       <section className={styles.banner}>
         <h1 className={styles.title}>{t('servicesTitle')}</h1>
-        <p className={styles.subtitle}>{t('servicesContactText')}</p>
       </section>
 
       <section className={styles.grid}>
@@ -84,14 +83,11 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang }) => {
               <h2 className={styles.cardTitle}>
                 {title ? getTranslation(title, lang) : ''}
               </h2>
-              <p className={styles.cardDesc}>
-                {description ? getTranslation(description, lang) : ''}
-              </p>
               <button
                 className={styles.ctaButton}
                 onClick={e => {
                   e.stopPropagation();
-                  setSelectedServiceId(id); // лише відкриваємо модалку
+                  setSelectedServiceId(id);
                 }}
               >
                 {t('servicesButton')}
