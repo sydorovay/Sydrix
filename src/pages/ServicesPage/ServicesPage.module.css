@@ -169,3 +169,33 @@
     transition: none;
   }
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* ✅ 4 колонки на десктопі */
+  gap: 2rem;
+  margin-bottom: 3rem;
+  justify-items: center;
+}
+
+/* 📱 На великих планшетах — 3 колонки */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* 📲 На малих планшетах — 2 колонки */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 📱 На мобільних — 1 колонка */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

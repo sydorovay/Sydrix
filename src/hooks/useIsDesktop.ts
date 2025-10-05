@@ -1,18 +1,37 @@
 import { useEffect, useState } from 'react';
 
-export default function useIsDesktop(breakpoint = 769) {
-  const [isDesktop, setIsDesktop] = useState(
-    typeof window !== 'undefined' ? window.innerWidth >= breakpoint : false
-  );
+/**
+ * Хук визначає, чи користувач знаходиться на десктопі.
+ * Працює через matchMedia (оптимальніше за resize).
+ *
+ * @param minWidth - мінімальна ширина для десктопу (за замовчуванням 1024px)
+ * @returns {boolean} true, якщо це десктоп
+ */
+export default function useIsDesktop(minWidth: number = 1024): boolean {
+  const [isDesktop, setIsDesktop] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia(`(min-width: ${minWidth}px)`).matches;
+  });
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= breakpoint);
+    if (typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia(`(min-width: ${minWidth}px)`);
+
+    // Початкове значення
+    setIsDesktop(mediaQuery.matches);
+
+    // Функція для оновлення стану
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsDesktop(event.matches);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [breakpoint]);
+    // Підписка на зміни
+    mediaQuery.addEventListener('change', handleChange);
+
+    // При демонтажі знімаємо слухач
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [minWidth]);
 
   return isDesktop;
 }

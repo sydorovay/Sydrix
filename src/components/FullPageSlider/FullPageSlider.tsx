@@ -1,14 +1,15 @@
-// src/components/FullPageSlider/FullPageSlider.tsx
 import React, { useRef, useCallback, KeyboardEvent, useMemo } from 'react';
 import HeroSection from '../Section/HeroSection/HeroSection';
 import BenefitsSection from '@/components/Section/BenefitsSection/BenefitsSection';
 import PortfolioSection from '@/components/Section/PortfolioSection/PortfolioSection';
 import ContactsSection from '../Section/ContactsSection/ContactsSection';
+import ServicesPage from '../../pages/ServicesPage/ServicesPage';
 import styles from './FullPageSlider.module.css';
 import { FaArrowUp } from 'react-icons/fa';
-import { LangData, TFunction } from '@/types/langTypes';
+import { LangData, TFunction, LangCode } from '@/types/langTypes';
 import { useShowTopButton } from '@/hooks/useShowTopButton';
 import { PortfolioItem } from '@/types/portfolio';
+import useIsDesktop from '@/hooks/useIsDesktop'; // ✅ новий хук
 
 interface FullPageSliderProps {
   t: TFunction;
@@ -19,6 +20,7 @@ interface FullPageSliderProps {
 const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const showTopBtn = useShowTopButton(containerRef);
+  const isDesktop = useIsDesktop(); // ✅ визначаємо, чи це десктоп
 
   const scrollToTop = useCallback(() => {
     containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
@@ -54,7 +56,6 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
       description: t('portfolioDescription') as string,
       portfolioDescription: t('portfolioDescription') as string,
     },
-    // можна додати інші проєкти сюди
   ], [t]);
 
   return (
@@ -70,15 +71,19 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         <HeroSection theme={theme} />
       </section>
 
-      {/* Benefits Section */}
+      {/* Benefits or Services Section */}
       <section className={styles.snapSection} aria-labelledby="benefits-heading">
-        <BenefitsSection
-          title="benefitsTitle"
-          benefits={t('benefits') as any} // поки типи для BenefitsSection
-          showAllButton="showAllButton"
-          theme={theme}
-          t={t}
-        />
+        {isDesktop ? (
+          <ServicesPage t={t} lang={'gb' as LangCode} theme={theme} />
+        ) : (
+          <BenefitsSection
+            title="benefitsTitle"
+            benefits={t('benefits') as any}
+            showAllButton="showAllButton"
+            theme={theme}
+            t={t}
+          />
+        )}
       </section>
 
       {/* Portfolio Section */}
