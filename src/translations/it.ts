@@ -2,6 +2,12 @@ import benefitsDataIt from '../data/BenefitsData/benefitsDataIt';
 import { LangData } from '../types/langTypes';
 
 const it: LangData = {
+  id: '',
+  name: '',
+  images: [],
+  altText: '',
+  description: '',
+
   portfolioDescription: 'Descrizione del portfolio',
   backToTop: 'Torna su',
   mainNavigationLabel: "Navigazione principale",
@@ -13,7 +19,8 @@ const it: LangData = {
   home: "Home",
   about: "Chi siamo",
   aboutTitle: "Chi siamo",
-  aboutText: "Siamo un team di sviluppatori frontend esperti, specializzati nella creazione di soluzioni web moderne, intuitive e ad alte prestazioni per aziende di qualsiasi dimensione. Il nostro approccio combina una profonda competenza tecnica con una chiara comprensione delle esigenze dei clienti, permettendoci di realizzare non solo siti o applicazioni, ma veri e propri strumenti di crescita aziendale. Utilizziamo tecnologie all’avanguardia, seguiamo i principi di accessibilità (a11y) e mobile-first, garantendo la massima reattività e prestazioni elevate. Per noi non si tratta solo di portare a termine un compito, ma di aiutare le aziende a sfruttare appieno il loro potenziale nel mondo digitale. Valorizziamo la comunicazione aperta, la responsabilità e le collaborazioni a lungo termine — ogni progetto per noi è un percorso condiviso verso il successo.",
+  aboutText:
+    "Siamo un team di sviluppatori frontend esperti, specializzati nella creazione di soluzioni web moderne, intuitive e ad alte prestazioni per aziende di qualsiasi dimensione. Il nostro approccio combina una profonda competenza tecnica con una chiara comprensione delle esigenze dei clienti, permettendoci di realizzare non solo siti o applicazioni, ma veri e propri strumenti di crescita aziendale. Utilizziamo tecnologie all’avanguardia, seguiamo i principi di accessibilità (a11y) e mobile-first, garantendo la massima reattività e prestazioni elevate. Per noi non si tratta solo di portare a termine un compito, ma di aiutare le aziende a sfruttare appieno il loro potenziale nel mondo digitale. Valorizziamo la comunicazione aperta, la responsabilità e le collaborazioni a lungo termine — ogni progetto per noi è un percorso condiviso verso il successo.",
   aboutSubtitle: "Scopri di più su di noi",
   aboutButton: "Scopri di più su di noi",
   aboutButtonText: "Vedi di più",
@@ -22,21 +29,17 @@ const it: LangData = {
   aboutList: [
     "Team professionale",
     "Tecnologie moderne",
-    "Approccio personalizzato"
+    "Approccio personalizzato",
   ],
   aboutQuote: "Amiamo ciò che facciamo!",
   aboutQuoteAuthor: "Fondatore del team",
   aboutStats: [
     { label: "Anni di esperienza", value: "5+" },
-    { label: "Progetti", value: "50+" }
+    { label: "Progetti", value: "50+" },
   ],
   aboutMission: "La nostra missione è aiutare le aziende a crescere online.",
   aboutVision: "Vogliamo essere leader nello sviluppo frontend.",
-  aboutValues: [
-    "Qualità",
-    "Responsabilità",
-    "Innovazione"
-  ],
+  aboutValues: ["Qualità", "Responsabilità", "Innovazione"],
   aboutTeam: "Il nostro team è il nostro valore principale.",
   aboutPartners: "I nostri partner si fidano di noi.",
   aboutClients: "I nostri clienti sono i nostri amici.",
@@ -48,6 +51,8 @@ const it: LangData = {
   servicesFormTitle: "Ricevi una consulenza gratuita",
   servicesFormPlaceholder: "La tua email",
   servicesFormButton: "Invia",
+  showLessButton: "Mostra meno",
+
   portfolio: "Portfolio",
   portfolioTitle: "Portfolio",
   portfolioText: "Idee realizzate",
@@ -67,7 +72,7 @@ const it: LangData = {
   subtitle: [
     "Velocità impressionante.",
     "Design memorabile.",
-    "Esperienza coinvolgente."
+    "Esperienza coinvolgente.",
   ],
   button: "Parliamone",
   benefitsTitle: "Vantaggi della collaborazione",
@@ -80,12 +85,11 @@ const it: LangData = {
   heroSubtitle: [
     "Velocità impressionante.",
     "Design memorabile.",
-    "Esperienza coinvolgente."
+    "Esperienza coinvolgente.",
   ],
   heroButton: "Parliamone",
   portfolioLink: "/portfolio",
   portfolioLinkText: "Guarda il portfolio",
-
   serviceDetailsTitle: "Dettagli del servizio",
   serviceDetailsText: "Informazioni dettagliate sui nostri servizi.",
   servicesDetailsButton: "Scopri di più sul servizio",
@@ -94,7 +98,8 @@ const it: LangData = {
   notFoundTitle: "Pagina non trovata",
   notFoundText: "Siamo spiacenti, questa pagina non esiste.",
   notFoundButton: "Torna alla home",
-  cookieConsentText: "Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.",
+  cookieConsentText:
+    "Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.",
   cookieConsentButton: "Capito",
   privacyPolicy: "Informativa sulla privacy",
   termsOfService: "Termini di servizio",
@@ -104,11 +109,11 @@ const it: LangData = {
   language: "Lingua",
   selectLanguage: "Seleziona lingua",
   close: "Chiudi",
-
   serviceDetailsBack: "Torna ai servizi",
   faqTitle: "Domande frequenti",
   faqSubtitle: "Risposte alle domande più comuni",
-  faqText: "Se hai una domanda, consulta questa sezione o contattaci.",
+  faqText:
+    "Se hai una domanda, consulta questa sezione o contattaci.",
   team: "Team",
   teamTitle: "Il nostro team",
   teamText: "Siamo un team di professionisti appassionati.",
@@ -121,7 +126,6 @@ const it: LangData = {
   price: "Prezzi",
   priceTitle: "Prezzi dei servizi",
   priceText: "Scopri di più sui nostri prezzi.",
-
   processSubtitle: "Fasi del nostro lavoro",
   teamSubtitle: "Conosci il nostro team",
   teamButton: "Scopri di più sul team",
@@ -134,7 +138,6 @@ const it: LangData = {
   priceSubtitle: "Dettagli sui prezzi",
   priceButton: "Scopri di più sui prezzi",
   priceButtonText: "Guarda i prezzi",
-
   teamButtonLink: "/team",
   portfolioButton: "Scopri di più sul portfolio",
   portfolioButtonText: "Guarda il portfolio",
@@ -152,7 +155,6 @@ const it: LangData = {
   cookieConsentMore: "Scopri di più",
   privacyPolicyButton: "Guarda l'informativa",
   termsOfServiceButton: "Guarda i termini",
-
   contactsButtonLinkText: "Vai ai contatti",
   cookieConsentLink: "/privacy-policy",
   privacyPolicyButtonText: "Guarda l'informativa sulla privacy",
@@ -169,7 +171,6 @@ const it: LangData = {
   notFoundButtonLinkText: "Torna alla home",
   cookieConsentButtonText: "Capito",
   cookieConsentMoreText: "Scopri di più",
-
   faqQuestion: "Domanda",
   faqAnswer: "Risposta",
   priceButtonLink: "/price",
@@ -179,7 +180,6 @@ const it: LangData = {
   notFoundButtonLink: "/",
   privacyPolicyLink: "/privacy-policy",
   termsOfServiceLink: "/terms-of-service",
-
   partnershipTitle: "Collaborazione",
   partnershipSubtitle: "Opportunità di collaborazione",
   partnershipText: "Siamo aperti a collaborazioni e nuove opportunità.",

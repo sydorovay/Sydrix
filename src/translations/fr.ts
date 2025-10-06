@@ -53,6 +53,8 @@ const fr: LangData = {
   servicesFormTitle: "Obtenez une consultation gratuite",
   servicesFormPlaceholder: "Votre e-mail",
   servicesFormButton: "Envoyer",
+  showLessButton: "Afficher moins",
+
   portfolio: "Portfolio",
   portfolioTitle: "Portfolio",
   portfolioText: "Idées concrétisées",

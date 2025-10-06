@@ -105,20 +105,21 @@
   }
 
   .benefitItem {
-    width: 100%;
+    width: 80%;
     align-items: center;
   }
 }
 
 @media (min-width: 768px) {
   .benefitItem {
-    width: 100%;
+    justify-content: flex-start;
+    width: 80%;
   }
 }
 
 @media (min-width: 1024px) {
   .benefitItem {
-    width: 100%;
+    width: 80%;
     height: auto;
     
   }

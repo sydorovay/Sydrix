@@ -54,6 +54,8 @@ const de: LangData = {
   servicesFormTitle: "Kostenlose Beratung erhalten",
   servicesFormPlaceholder: "Ihre E-Mail-Adresse",
   servicesFormButton: "Senden",
+  showLessButton: "Weniger anzeigen",
+
   portfolio: "Portfolio",
   portfolioTitle: "Portfolio",
   portfolioText: "Umgesetzte Ideen",

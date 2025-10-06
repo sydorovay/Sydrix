@@ -97,6 +97,8 @@ const gb: LangData = {
   servicesDetailsButton: "Learn More About the Service",
   servicesDetailsSubtitle: "More About Our Services",
   servicesDetailsList: ["Service 1", "Service 2", "Service 3"],
+  showLessButton: "Show Less",
+
   notFoundTitle: "Page Not Found",
   notFoundText: "Sorry, this page doesn't exist.",
   notFoundButton: "Back to Home",

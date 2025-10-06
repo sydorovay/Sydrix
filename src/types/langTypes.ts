@@ -61,6 +61,7 @@ export type LangData = {
   servicesFormTitle: string;
   servicesFormPlaceholder: string;
   servicesFormButton: string;
+  showLessButton: string; 
 
   portfolio: string;
   portfolioTitle: string;

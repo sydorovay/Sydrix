@@ -54,6 +54,8 @@ const ua: LangData = {
   servicesFormTitle: "Отримати безкоштовну консультацію",
   servicesFormPlaceholder: "Ваш email",
   servicesFormButton: "Надіслати",
+  showLessButton: "Показати менше",
+
   portfolio: "Портфоліо",
   portfolioTitle: "Портфоліо",
   portfolioText: "Ідеї, втілені в життя",
