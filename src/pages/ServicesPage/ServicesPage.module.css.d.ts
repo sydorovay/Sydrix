@@ -11,6 +11,7 @@ declare const styles: {
   readonly "input": string;
   readonly "page": string;
   readonly "title": string;
+  readonly "toggle": string;
 };
 export = styles;
 
