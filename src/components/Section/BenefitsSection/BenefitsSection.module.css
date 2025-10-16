@@ -19,7 +19,9 @@
   gap: 1rem;
   align-items: center;
 }
-
+.button {
+  display: block;
+}
 
 .benefitItem {
   border-radius: 15px;
