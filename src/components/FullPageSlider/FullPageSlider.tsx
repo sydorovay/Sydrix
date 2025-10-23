@@ -1,17 +1,16 @@
+// src/components/FullPageSlider/FullPageSlider.tsx
 import React, { useRef, useCallback, KeyboardEvent, useMemo } from 'react';
 import HeroSection from '../Section/HeroSection/HeroSection';
 import BenefitsSection from '@/components/Section/BenefitsSection/BenefitsSection';
 import PortfolioSection from '@/components/Section/PortfolioSection/PortfolioSection';
 import ContactsSection from '../Section/ContactsSection/ContactsSection';
-// import ServicesPage from '../../pages/ServicesPage/ServicesPage';
+import ServicesSectionForSlider from '../Section/ServicesSectionForSlider/ServicesSectionForSlider';
 import styles from './FullPageSlider.module.css';
 import { FaArrowUp } from 'react-icons/fa';
-import { LangData, TFunction, LangCode } from '@/types/langTypes';
+import { LangCode, TFunction } from '@/types/langTypes';
 import { useShowTopButton } from '@/hooks/useShowTopButton';
 import { PortfolioItem } from '@/types/portfolio';
-import ServicesSectionForSlider from '../Section/ServicesSectionForSlider/ServicesSectionForSlider';
 import useIsDesktop from '@/hooks/useIsDesktop';
-
 
 interface FullPageSliderProps {
   t: TFunction;
@@ -22,7 +21,7 @@ interface FullPageSliderProps {
 const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const showTopBtn = useShowTopButton(containerRef);
-  const isDesktop = useIsDesktop(); // ✅ визначаємо, чи це десктоп
+  const isDesktop = useIsDesktop();
 
   const scrollToTop = useCallback(() => {
     containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
@@ -38,27 +37,29 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
     [scrollToTop]
   );
 
-  // Портфоліо Items
-  const portfolioItems: PortfolioItem[] = useMemo(() => [
-    {
-      id: 'portfolio-1',
-      name: 'Portfolio CV Site',
-      title: t('portfolioTitle') as string,
-      link: t('portfolioLink') as string,
-      altText: 'Portfolio CV Site',
-      imgSrc: '/portfolio/project1.webp',
-      images: [
-        '/portfolio/project1.webp',
-        '/portfolio/project2.webp',
-        '/portfolio/project3.webp',
-        '/portfolio/project4.webp',
-        '/portfolio/project5.webp',
-        '/portfolio/project6.webp',
-      ],
-      description: t('portfolioDescription') as string,
-      portfolioDescription: t('portfolioDescription') as string,
-    },
-  ], [t]);
+  const portfolioItems: PortfolioItem[] = useMemo(
+    () => [
+      {
+        id: 'portfolio-1',
+        name: 'Portfolio CV Site',
+        title: t('portfolioTitle'),
+        link: t('portfolioLink'),
+        altText: 'Portfolio CV Site',
+        imgSrc: '/portfolio/project1.webp',
+        images: [
+          '/portfolio/project1.webp',
+          '/portfolio/project2.webp',
+          '/portfolio/project3.webp',
+          '/portfolio/project4.webp',
+          '/portfolio/project5.webp',
+          '/portfolio/project6.webp',
+        ],
+        description: t('portfolioDescription'),
+        portfolioDescription: t('portfolioDescription'),
+      },
+    ],
+    [t]
+  );
 
   return (
     <div
@@ -73,14 +74,14 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         <HeroSection theme={theme} />
       </section>
 
-      {/* Benefits or Services Section */}
-      <section className={styles.snapSection} aria-labelledby="benefits-heading">
+      {/* Services / Benefits Section */}
+      <section className={styles.snapSection} aria-labelledby="services-heading">
         {isDesktop ? (
-          <ServicesSectionForSlider t={t} lang={'gb' as LangCode} theme={theme} />
+          <ServicesSectionForSlider t={t} lang={LangCode.GB} theme={theme} />
         ) : (
           <BenefitsSection
             title="benefitsTitle"
-            benefits={t('benefits') as any}
+            benefits={t('benefits')}
             showAllButton="showAllButton"
             theme={theme}
             t={t}
@@ -114,7 +115,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         <button
           className={styles.topButton}
           onClick={scrollToTop}
-          aria-label={t('backToTop') as string}
+          aria-label={t('backToTop')}
           type="button"
         >
           <FaArrowUp aria-hidden="true" />

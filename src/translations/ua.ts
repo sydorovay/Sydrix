@@ -13,6 +13,7 @@ const ua: LangData = {
   mainNavigation: ['Головна', 'Про нас', 'Послуги', 'Портфоліо', 'Контакти'],
 
   logoTaglines: {
+    
     top: "Думай сміливо",
     bottom: "Твори розумно",
   },

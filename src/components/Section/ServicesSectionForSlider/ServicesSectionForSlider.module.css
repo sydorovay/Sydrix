@@ -1,138 +1,190 @@
-/* ====== БАЗОВІ СТИЛІ ====== */
-
-.gridSection {
-  padding: 4%;
-}
-
-.grid {
-  display: grid;
-  gap: 2rem;
-  justify-items: center;
-  margin-bottom: 2rem;
-  grid-template-columns: 1fr;
-  /* mobile-first */
-}
-
-/* ====== КАРТКИ ====== */
-
-.card {
+.section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 4rem 2rem;
+  min-height: 100vh;
   text-align: center;
-  padding: 1.25rem;
-  border-radius: 1rem;
-  background: var(--card-bg, rgba(255, 255, 255, 0.05));
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  outline: none;
-  cursor: pointer;
-  scroll-margin-top: 5rem;
-  user-select: none;
+  background: var(--background, #0b0b0f);
+  color: var(--text, #fff);
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
-.card:hover,
-.card:focus,
+/* ====== Heading ====== */
+.heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #00edf5, #00d9f5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ====== Grid Section ====== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1300px;
+  margin-bottom: 3rem;
+}
+
+/* ====== Card ====== */
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 217, 245, 0.2);
+  border: 1px solid rgba(0, 217, 245, 0.4);
+}
+
 .focusZoom {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px var(--highlight-color, #00a9b9);
-  z-index: 5;
+  transform: scale(1.06);
+  box-shadow: 0 0 30px rgba(0, 217, 245, 0.25);
+  border: 1px solid rgba(0, 217, 245, 0.5);
 }
 
-.card:active {
-  transform: scale(0.98);
-}
-
-/* ====== ІКОНКИ ТА ТЕКСТ ====== */
-
+/* ====== Icon ====== */
 .icon {
-  font-size: 2.2rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
-  color: var(--icon-color, #921ff6);
+  color: #00d9f5;
+  transition: color 0.3s ease;
 }
 
+.card:hover .icon {
+  color: yellow;
+}
+
+/* ====== Card Title ====== */
 .cardTitle {
-  font-size: 1rem;
-  margin: 0.3rem 0 0.8rem 0;
-  color: var(--text-color, #fff);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  letter-spacing: 0.05em;
 }
 
-/* ====== КНОПКА ====== */
-
+/* ====== Buttons ====== */
 .ctaButton {
-  background-color: rgba(0, 169, 185, 0.4);
-  color: #fff;
-  border: 1px solid var(--logo-grad-middle, #00a9b9);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  background: linear-gradient(90deg, #00f5d0, #00d9f5);
+  color: #0b0b0f;
   font-weight: 600;
-  line-height: 1.25;
-  text-align: center;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 169, 185, 0.4);
+  transition: all 0.3s ease;
 }
 
 .ctaButton:hover {
-  background-color: #0091a0;
-  transform: scale(1.03);
-  box-shadow: 0 6px 16px rgba(0, 145, 160, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 217, 245, 0.4);
 }
 
-.ctaButton:focus-visible {
-  outline: 3px solid #00a9b9;
-  outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(0, 169, 185, 0.4);
+/* ====== Show More Button ====== */
+.showMoreWrapper {
+  margin-top: 2rem;
 }
 
-.ctaButton:active {
-  transform: scale(0.96);
+.showMoreButton {
+  background: transparent;
+  border: 2px solid var(--accent, #00d9f5);
+  color: var(--accent, #00d9f5);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.8rem 2rem;
+  transition: all 0.3s ease;
 }
 
-.ctaButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.showMoreButton:hover {
+  background: var(--accent, #00d9f5);
+  color: #0b0b0f;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 217, 245, 0.4);
 }
 
-/* ====== ТЕМНА ТЕМА ====== */
-
-.dark .card {
-  box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
-  background: rgba(0, 0, 0, 0.4);
+/* ====== Dark & Light Themes ====== */
+:global(.light) .section {
+  --background: transparent;
+  --text: #111;
 }
 
-.dark .icon {
-  color: #7beaeed9;
+:global(.light) .card {
+  background: rgba(1, 219, 253, 0.174);
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
-.dark .cardTitle {
-  color: #eafcff;
+:global(.light) .cardTitle {
+  color: #111;
 }
 
-/* ====== АДАПТИВНІСТЬ ====== */
+:global(.light) .ctaButton {
+  color: #111;
+}
 
-/* Великі планшети — 2 колонки */
-@media (min-width: 700px) {
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .heading {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+  }
+
+  .card {
+    padding: 1.6rem 1.2rem;
+  }
+
+  .icon {
+    font-size: 2.2rem;
+  }
+
+  .ctaButton,
+  .showMoreButton {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1200px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.4rem;
   }
 }
 
-/* Десктоп — 4 колонки */
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* ====== Optional Scrollbar Styling ====== */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* ====== ДОСТУПНІСТЬ ====== */
+::-webkit-scrollbar-track {
+  background: rgba(36, 0, 78, 0.293);
+}
 
-@media (prefers-reduced-motion: reduce) {
-
-  .card,
-  .ctaButton {
-    transition: none;
-  }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00e1ff, #00e9f5);
+  border-radius: 10px;
 }
