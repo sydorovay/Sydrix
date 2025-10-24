@@ -1,4 +1,3 @@
-// src/components/Section/PortfolioSection/PortfolioSection.tsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -10,7 +9,6 @@ import { PortfolioItem } from '@/types/portfolio';
 import { Translate } from '@/components/Translate';
 import { TFunction } from '@/types/langTypes';
 
-
 interface PortfolioSectionProps {
   portfolioItems: PortfolioItem[];
   t: TFunction;
@@ -18,22 +16,41 @@ interface PortfolioSectionProps {
   onOpen: (id: string) => void;
 }
 
-const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, theme, onOpen }) => {
+const PortfolioSection: React.FC<PortfolioSectionProps> = ({
+  portfolioItems,
+  t,
+  theme,
+  onOpen,
+}) => {
   if (!portfolioItems || portfolioItems.length === 0) {
     return (
-      <div className={`${styles.portfolioSection} ${theme === 'light' ? 'light' : 'dark'}`}>
+      <section
+        className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark
+          }`}
+      >
         <p className={styles.emptyText}>
           <Translate id="noPortfolioItems" />
         </p>
-      </div>
+      </section>
     );
   }
 
   return (
-    <section className={`${styles.portfolioSection} ${theme === 'light' ? 'light' : 'dark'}`} aria-label={t('portfolio')}>
-      {portfolioItems.map(item => (
-        <div key={item.id} className={styles.card} role="region" aria-labelledby={`${item.id}-title`}>
-          <h2 id={`${item.id}-title`} className={styles.title}>{item.title}</h2>
+    <section
+      className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark
+        }`}
+      aria-label={t('portfolio')}
+    >
+      {portfolioItems.map((item) => (
+        <article
+          key={item.id}
+          className={styles.card}
+          role="region"
+          aria-labelledby={`${item.id}-title`}
+        >
+          <h2 id={`${item.id}-title`} className={styles.title}>
+            {item.title}
+          </h2>
 
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -46,7 +63,6 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, 
             aria-label={`${item.title} image slider`}
             breakpoints={{
               320: { slidesPerView: 1 },
-              640: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
               1440: { slidesPerView: 4 },
@@ -55,12 +71,14 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, 
             {item.images.length > 0 ? (
               item.images.map((src, idx) => (
                 <SwiperSlide key={`${src}-${idx}`}>
-                  <img
-                    src={src}
-                    alt={`${item.altText || item.title} ${idx + 1}`}
-                    className={styles.image}
-                    loading="lazy"
-                  />
+                  <div className={styles.imageWrapper}>
+                    <img
+                      src={src}
+                      alt={`${item.altText || item.title} ${idx + 1}`}
+                      className={styles.image}
+                      loading="lazy"
+                    />
+                  </div>
                 </SwiperSlide>
               ))
             ) : (
@@ -74,14 +92,13 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ portfolioItems, t, 
 
           <button
             onClick={() => onOpen(item.id)}
-            className="button"
+            className={styles.button}
             type="button"
             aria-label={`${t('showAllButton')} ${item.title}`}
           >
             <Translate id="showAllButton" />
           </button>
-        </div>
-        
+        </article>
       ))}
     </section>
   );

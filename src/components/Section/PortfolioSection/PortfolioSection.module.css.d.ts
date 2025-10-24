@@ -3,8 +3,8 @@ declare const styles: {
   readonly "card": string;
   readonly "dark": string;
   readonly "emptyText": string;
-  readonly "grid": string;
   readonly "image": string;
+  readonly "imageWrapper": string;
   readonly "light": string;
   readonly "placeholder": string;
   readonly "portfolioSection": string;

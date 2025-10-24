@@ -1,10 +1,9 @@
-import React, { FC, useState, useMemo } from 'react';
+import React, { FC, useState, useMemo, KeyboardEvent } from 'react';
 import styles from './ServicesSectionForSlider.module.css';
 import services from '@/translations/services/services';
 import { LangData, LangCode } from '@/types/langTypes';
 import getTranslation from '@/utils/getTranslation';
 import ServiceModal from '@/components/ServicesModal/ServiceModal';
-import { IconType } from 'react-icons';
 
 interface ServicesSectionForSliderProps {
   t: <K extends keyof LangData>(key: K) => LangData[K];
@@ -16,16 +15,24 @@ const ServicesSectionForSlider: FC<ServicesSectionForSliderProps> = ({ t, lang, 
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  const visibleServices = useMemo(
-    () => (showAll ? services : services.slice(0, 8)),
-    [showAll]
-  );
+  const visibleServices = useMemo(() => (showAll ? services : services.slice(0, 8)), [showAll]);
+  const selectedService = services.find((s) => s.id === selectedServiceId);
 
-  const selectedService = services.find(s => s.id === selectedServiceId);
+  const tButton = (
+    key:
+      | 'showAllButton'
+      | 'showMoreButton'
+      | 'showLessButton'
+      | 'servicesButton'
+      | 'servicesTitle'
+  ) => t(key as keyof LangData) as string;
 
-  // helper function для безпечного виклику t для вузьких ключів
-  const tButton = (key: 'showMoreButton' | 'showLessButton' | 'servicesButton' | 'servicesTitle') =>
-    t(key as keyof LangData) as string;
+  const handleCardKey = (e: KeyboardEvent<HTMLDivElement>, id: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setSelectedServiceId(id);
+    }
+  };
 
   return (
     <section
@@ -36,24 +43,27 @@ const ServicesSectionForSlider: FC<ServicesSectionForSliderProps> = ({ t, lang, 
         {tButton('servicesTitle')}
       </h2>
 
-      <div className={styles.grid}>
+      <div className={styles.grid} role="list" aria-live="polite">
         {visibleServices.map(({ id, icon: Icon, title }) => (
           <div
             key={id}
+            role="listitem"
             className={styles.card}
-            role="button"
             tabIndex={0}
             onClick={() => setSelectedServiceId(id)}
-            aria-label={`${getTranslation(title, lang)} card`}
+            onKeyDown={(e) => handleCardKey(e, id)}
+            aria-label={getTranslation(title, lang)}
           >
-            {Icon && <Icon className={styles.icon} />}
+            {Icon && <Icon className={styles.icon} aria-hidden="true" />}
             <h3 className={styles.cardTitle}>{getTranslation(title, lang)}</h3>
             <button
               className={styles.ctaButton}
-              onClick={e => {
+              onClick={(e) => {
                 e.stopPropagation();
                 setSelectedServiceId(id);
               }}
+              aria-label={`${getTranslation(title, lang)} — ${tButton('servicesButton')}`}
+              type="button"
             >
               {tButton('servicesButton')}
             </button>
@@ -65,9 +75,11 @@ const ServicesSectionForSlider: FC<ServicesSectionForSliderProps> = ({ t, lang, 
         <div className={styles.showMoreWrapper}>
           <button
             className={styles.showMoreButton}
-            onClick={() => setShowAll(prev => !prev)}
+            onClick={() => setShowAll((p) => !p)}
+            aria-expanded={showAll}
+            type="button"
           >
-            {showAll ? tButton('showLessButton') : tButton('showMoreButton')}
+            {showAll ? tButton('showLessButton') : tButton('showAllButton')}
           </button>
         </div>
       )}
