@@ -31,7 +31,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang, compact = false }) => {
   const [showAll, setShowAll] = useState(false);
 
   const visibleServices = useMemo(
-    () => (showAll ? services : services.slice(0, 8)),
+    () => (showAll ? services : services.slice(0, 4)),
     [showAll]
   );
 

@@ -15,7 +15,7 @@ const ServicesSectionForSlider: FC<ServicesSectionForSliderProps> = ({ t, lang, 
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  const visibleServices = useMemo(() => (showAll ? services : services.slice(0, 8)), [showAll]);
+  const visibleServices = useMemo(() => (showAll ? services : services.slice(0, 4)), [showAll]);
   const selectedService = services.find((s) => s.id === selectedServiceId);
 
   const tButton = (

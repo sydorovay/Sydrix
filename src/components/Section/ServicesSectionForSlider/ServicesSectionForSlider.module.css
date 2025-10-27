@@ -8,6 +8,7 @@
   padding: 2rem 1rem;
   box-sizing: border-box;
   overflow: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Heading */
@@ -23,7 +24,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Grid: робимо внутрішній скрол якщо контент не влазить */
+/* Grid: внутрішній скрол якщо контент не влазить */
 .grid {
   width: 100%;
   max-width: 1500px;
@@ -32,12 +33,10 @@
   gap: 2rem;
   margin: 0 auto;
   box-sizing: border-box;
-padding: 20px;
-  /* Внутрішній скрол замість росту секції */
+  padding: 1rem 0;
   max-height: calc(100vh - 10rem);
-  /* врахувати heading + showMore button */
+  /* враховує heading + showMore */
   overflow-y: auto;
-
 }
 
 /* Card */
@@ -52,7 +51,7 @@ padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   outline: none;
 }
 
@@ -81,6 +80,7 @@ padding: 20px;
   font-weight: 600;
   margin: 0;
   color: inherit;
+  letter-spacing: 0.03em;
 }
 
 /* CTA button */
@@ -109,17 +109,16 @@ padding: 20px;
 }
 
 .showMoreButton {
-  color: var(--button-text);
+  color: var(--button-text, #fff);
   background: var(--accent);
-    font-weight: 600;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 217, 245, 0.3);
-     
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 217, 245, 0.3);
 }
 
 .showMoreButton:hover,
@@ -130,9 +129,8 @@ padding: 20px;
   outline: none;
 }
 
-/* Theme variables (підключай класи .light / .dark на wrapper) */
+/* Theme variables */
 .light {
-
   --text: #111;
   --card-bg: rgba(1, 219, 253, 0.06);
   --card-border: rgba(0, 0, 0, 0.06);
@@ -173,6 +171,7 @@ padding: 20px;
   .ctaButton,
   .showMoreButton {
     padding: 0.2rem 0.5rem;
+    font-size: 0.85rem;
   }
 }
 
