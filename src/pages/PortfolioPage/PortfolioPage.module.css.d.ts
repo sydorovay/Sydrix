@@ -2,6 +2,7 @@ declare const styles: {
   readonly "card": string;
   readonly "dark": string;
   readonly "description": string;
+  readonly "empty": string;
   readonly "grid": string;
   readonly "heading": string;
   readonly "image": string;

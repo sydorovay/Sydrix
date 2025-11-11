@@ -12,4 +12,5 @@ export interface PortfolioItem {
   images: string[];
   description: string;
   portfolioDescription: string;
+  viewOnGithub: string;
 }

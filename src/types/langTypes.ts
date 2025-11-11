@@ -102,7 +102,8 @@ export type LangData = {
 
   portfolioLink: string;
   portfolioLinkText: string;
-
+  viewOnGithub: string;
+  noProjectsFound: string;
 
   serviceDetailsTitle: string;
   serviceDetailsText: string;

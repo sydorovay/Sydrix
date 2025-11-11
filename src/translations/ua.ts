@@ -2,6 +2,7 @@ import benefitsDataUa from '../data/BenefitsData/benefitsDataUa';
 import { LangData } from '../types/langTypes';
 
 const ua: LangData = {
+
   id: "ua",
   name: '',
   images: [],
@@ -56,11 +57,14 @@ const ua: LangData = {
   servicesFormPlaceholder: "Ваш email",
   servicesFormButton: "Надіслати",
   showLessButton: "Показати менше",
+  noProjectsFound: "Проєкти не знайдено.",
 
   portfolio: "Портфоліо",
   portfolioTitle: "Портфоліо",
   portfolioText: "Ідеї, втілені в життя",
   portfolioLabel: "Портфоліо",
+  viewOnGithub: "Переглянути на Github",
+
   testimonials: "Відгуки",
   testimonialsText: "Дякуємо всім нашим клієнтам за відгуки!",
   blogTitle: "Блог",

@@ -60,6 +60,9 @@ const de: LangData = {
   portfolioTitle: "Portfolio",
   portfolioText: "Umgesetzte Ideen",
   portfolioLabel: "Portfolio",
+  viewOnGithub: "Auf GitHub ansehen",
+  noProjectsFound: "Keine Projekte gefunden.",
+  
   testimonials: "Kundenstimmen",
   testimonialsText: "Wir danken all unseren Kunden für ihr Feedback!",
   blogTitle: "Blog",

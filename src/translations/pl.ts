@@ -93,6 +93,8 @@ const pl: LangData = {
   heroButton: "Porozmawiajmy",
   portfolioLink: "/portfolio",
   portfolioLinkText: "Zobacz portfolio",
+  viewOnGithub: "Zobacz na GitHubie",
+  noProjectsFound: "Nie znaleziono projektów.",
 
   serviceDetailsTitle: "Szczegóły usługi",
   serviceDetailsText: "Szczegółowe informacje o naszych usługach.",

@@ -1,4 +1,3 @@
-// src/pages/PortfolioPage.tsx
 import React from "react";
 import portfolioItemsData from "@/data/portfolioItems";
 import { useLanguageContext } from "@/context/LanguageProvider";
@@ -9,42 +8,53 @@ interface Props {
 }
 
 // Допоміжна функція для безпечного перекладу рядків
-const tString = (t: ReturnType<typeof useLanguageContext>['t']) => (key: keyof ReturnType<typeof useLanguageContext>['t'] extends (k: infer K) => infer V ? K : never) => {
-  const val = t(key as any);
-  return typeof val === "string" ? val : "";
+const translateSafe = (
+  t: (key: any) => React.ReactNode,
+  key: any
+): string => {
+  const result = t(key);
+  return typeof result === "string" ? result : "";
 };
 
 const PortfolioPage: React.FC<Props> = ({ theme }) => {
   const { t } = useLanguageContext();
-  const translate = tString(t);
 
   return (
     <main className={`${styles.page} ${theme}`}>
-      <h1 className={styles.heading}>{translate("portfolio")}</h1>
+      <header>
+        <h1 className={styles.heading}>{translateSafe(t, "portfolio")}</h1>
+      </header>
 
-      <div className={styles.grid}>
-        {portfolioItemsData.map((item) => (
-          <div key={item.id} className={styles.card}>
-            <img
-              src={item.images[0]}
-              alt={item.altText}
-              className={styles.image}
-            />
-            <h2 className={styles.title}>{item.name}</h2>
-            <p className={styles.description}>{item.description}</p>
-            {item.link && (
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                {translate("viewOnGithub")}
-              </a>
-            )}
-          </div>
-        ))}
-      </div>
+      {portfolioItemsData.length === 0 ? (
+        <p className={styles.empty}>{translateSafe(t, "noProjectsFound")}</p>
+      ) : (
+        <section className={styles.grid} aria-label="Portfolio projects">
+          {portfolioItemsData.map((item) => (
+            <article key={`${item.id}-${item.name}`} className={styles.card}>
+              <img
+                src={item.images[0]}
+                alt={item.altText || item.name}
+                className={styles.image}
+                loading="lazy"
+                aria-label={item.altText || item.name}
+              />
+              <h2 className={styles.title}>{item.name}</h2>
+              <p className={styles.description}>{item.description}</p>
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+                  aria-label={`${translateSafe(t, "viewOnGithub")} – ${item.name}`}
+                >
+                  {translateSafe(t, "viewOnGithub")}
+                </a>
+              )}
+            </article>
+          ))}
+        </section>
+      )}
     </main>
   );
 };

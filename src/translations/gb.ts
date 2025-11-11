@@ -58,6 +58,9 @@ const gb: LangData = {
   portfolioTitle: "Portfolio",
   portfolioText: "Ideas brought to life",
   portfolioLabel: "Portfolio",
+  viewOnGithub: "View on GitHub",
+  noProjectsFound: "No projects found.",
+
   testimonials: "Testimonials",
   testimonialsText: "We thank all our clients for their feedback!",
   blogTitle: "Blog",
@@ -200,7 +203,6 @@ const gb: LangData = {
   cookieConsent: "This website uses cookies to improve your experience.",
   noPortfolioItems: 'Portfolio is currently empty',
   noImages: 'No images available',
-
 };
 
 export default gb;

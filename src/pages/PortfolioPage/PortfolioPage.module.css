@@ -1,3 +1,15 @@
+:root {
+  --bg-light: #f9f9f9;
+  --text-light: #222;
+  --bg-dark: #121212;
+  --text-dark: #eee;
+  --primary: #0070f3;
+  --primary-hover: #0059c1;
+  --card-light: #fff;
+  --card-dark: #1e1e1e;
+}
+
+/* Основна сторінка */
 .page {
   padding: 2rem;
   min-height: 100vh;
@@ -6,13 +18,13 @@
 
 /* Теми */
 .light {
-  background: #f9f9f9;
-  color: #222;
+  background: var(--bg-light);
+  color: var(--text-light);
 }
 
 .dark {
-  background: #121212;
-  color: #eee;
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 /* Заголовок */
@@ -21,6 +33,7 @@
   text-align: center;
   margin-bottom: 3rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 /* Сітка */
@@ -33,7 +46,7 @@
 
 /* Картка */
 .card {
-  background: var(--card-bg, #fff);
+  background: var(--card-light);
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
@@ -42,12 +55,8 @@
   flex-direction: column;
 }
 
-.light .card {
-  --card-bg: #fff;
-}
-
 .dark .card {
-  --card-bg: #1e1e1e;
+  background: var(--card-dark);
 }
 
 .card:hover {
@@ -79,11 +88,11 @@
   line-height: 1.5;
 }
 
-/* Лінк */
+/* Посилання */
 .link {
   margin: 0 1rem 1.5rem;
   align-self: flex-start;
-  background: #0070f3;
+  background: var(--primary);
   color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: 0.6rem;
@@ -93,5 +102,28 @@
 }
 
 .link:hover {
-  background: #0059c1;
+  background: var(--primary-hover);
+}
+
+/* Порожній стан */
+.empty {
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  margin-top: 2rem;
+}
+
+/* Адаптивність */
+@media (max-width: 480px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
 }
