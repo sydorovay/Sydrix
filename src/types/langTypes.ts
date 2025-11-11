@@ -30,6 +30,14 @@ export type LangData = {
   images: string[];
   altText: string;
   description: string; // строго string
+  portfolioDescription1: string;
+  portfolioDescription2: string;
+  portfolioDescription3: string;
+  portfolioDescription4: string;
+  portfolioDescription5: string;
+  portfolioDescription6: string;
+
+
   link?: string;
   portfolioDescription: string;
   backToTop: string;

@@ -12,6 +12,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Short description of Project One",
     portfolioDescription: "Full description of Project One", 
     link: "https://sydorovay.github.io/ice-cream-team-project/",
+    viewOnGithub: "",
   },
   {
     id: "2",
@@ -23,10 +24,11 @@ const portfolioItems: PortfolioItem[] = [
     description: "Short description of Project Two",
     portfolioDescription: "Full description of Project Two",
     link: "https://sydorovay.github.io/project-TECHNO12-main-modern/",
+    viewOnGithub: "",
   },
   {
     id: "3",
-    name: "artem-sydorov-frontend-cv",
+    name: "AS-frontend-cv",
     title: "CV",
     images: ["/portfolio/project3.webp"],
     imgSrc: "/portfolio/project3.webp",
@@ -34,6 +36,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Short description of Project Three",
     portfolioDescription: "Full description of Project Three",
     link: "https://artem-sydorov-frontend-cv.vercel.app/",
+    viewOnGithub: "",
   },
   {
     id: "4",
@@ -45,6 +48,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Short description of Project Four",
     portfolioDescription: "Full description of Project Four",
     link: "https://sydorovay.github.io/web-studio/",
+    viewOnGithub: "",
   },
   {
     id: "5",
@@ -56,6 +60,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Short description of Project Five",
     portfolioDescription: "Full description of Project Five",
     link: "https://water-tracker-front.vercel.app/welcome",
+    viewOnGithub: "",
   },
   {
     id: "6",
@@ -67,6 +72,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Short description of Project Six",
     portfolioDescription: "Full description of Project Six",
     link: "https://sydrix.vercel.app/",
+    viewOnGithub: "",
   },
 ];
 

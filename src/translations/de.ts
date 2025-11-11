@@ -7,6 +7,12 @@ const de: LangData = {
   images: [],
   altText: "",
   description: "Deutsche Übersetzung für die Webseite.",
+  portfolioDescription1: "Responsive One-Page-Website für eine Eiskrem-Marke: mit Produkt-Präsentation, „Wie es gemacht wird“-Sektion, Galerie und Kontaktformular. Umgesetzt mit HTML, CSS (mobile-first) und JavaScript.",
+  portfolioDescription2: "",
+  portfolioDescription3: "",
+  portfolioDescription4: "",
+  portfolioDescription5: "",
+  portfolioDescription6: "",
   portfolioDescription: 'Portfolio-Beschreibung',
   backToTop: 'Nach oben',
   mainNavigationLabel: "Hauptnavigation",
@@ -62,7 +68,7 @@ const de: LangData = {
   portfolioLabel: "Portfolio",
   viewOnGithub: "Auf GitHub ansehen",
   noProjectsFound: "Keine Projekte gefunden.",
-  
+
   testimonials: "Kundenstimmen",
   testimonialsText: "Wir danken all unseren Kunden für ihr Feedback!",
   blogTitle: "Blog",
