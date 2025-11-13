@@ -8,7 +8,7 @@ const gb: LangData = {
   altText: '',
   description: '',
   portfolioDescription1: "Responsive single- page website created for an ice - cream brand: features product showcase, how - it's-made section, gallery and contact form. Built with HTML, CSS (mobile-first) and JavaScript.",
-  portfolioDescription2: "",
+  portfolioDescription2: "A modern responsive e-commerce web application built with clean UI/UX, featuring real-time product filtering, cart management and mobile-first layout. Technologies used: React, TypeScript, Redux and SCSS.",
   portfolioDescription3: "",
   portfolioDescription4: "",
   portfolioDescription5: "",

@@ -8,7 +8,7 @@ const it: LangData = {
   altText: '',
   description: "",
   portfolioDescription1: "Sito web responsive a pagina singola creato per un marchio di gelato: include la presentazione dei prodotti, la sezione “come è fatto”, una galleria e un modulo di contatto. Realizzato con HTML, CSS (mobile-first) e JavaScript.",
-  portfolioDescription2: "",
+  portfolioDescription2: "Una moderna applicazione e-commerce responsive con UI/UX pulita, filtraggio prodotti in tempo reale, gestione del carrello e layout mobile-first. Tecnologie impiegate: React, TypeScript, Redux e SCSS.",
   portfolioDescription3: "",
   portfolioDescription4: "",
   portfolioDescription5: "",

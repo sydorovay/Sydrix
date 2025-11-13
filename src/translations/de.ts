@@ -8,7 +8,7 @@ const de: LangData = {
   altText: "",
   description: "Deutsche Übersetzung für die Webseite.",
   portfolioDescription1: "Responsive One-Page-Website für eine Eiskrem-Marke: mit Produkt-Präsentation, „Wie es gemacht wird“-Sektion, Galerie und Kontaktformular. Umgesetzt mit HTML, CSS (mobile-first) und JavaScript.",
-  portfolioDescription2: "",
+  portfolioDescription2: "Eine moderne responsive E-Commerc-Webanwendung mit klarem UI/UX-Design: Echtzeit-Produktfilter, Warenkorb-Management und mobile-first Layout. Eingesetzte Technologien: React, TypeScript, Redux und SCSS.",
   portfolioDescription3: "",
   portfolioDescription4: "",
   portfolioDescription5: "",

@@ -8,7 +8,7 @@ const fr: LangData = {
   altText: "Image de la langue française",
   description: "Traduction française pour l'application.",
   portfolioDescription1: "Site web responsive en one-page pour une marque de glace : présente les produits, une section « comment c’est fait », une galerie et un formulaire de contact. Construit en HTML, CSS (mobile-first) et JavaScript.",
-  portfolioDescription2: "",
+  portfolioDescription2: "Une application web e-commerce moderne et responsive, dotée d’une interface UI/UX épurée, de filtres produits en temps réel, de gestion de panier et d’un design mobile-first. Technologies utilisées : React, TypeScript, Redux et SCSS.",
   portfolioDescription3: "",
   portfolioDescription4: "",
   portfolioDescription5: "",

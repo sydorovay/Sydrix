@@ -8,7 +8,7 @@ const pl: LangData = {
   altText: '',
   description: '',
   portfolioDescription1: 'Responsywna strona typu one-page dla marki lodów: zawiera przegląd produktów, sekcję „jak to powstaje”, galerię oraz formularz kontaktowy. Zbudowana w HTML, CSS (mobile-first) i JavaScript.',
-  portfolioDescription2: "",
+  portfolioDescription2: "Nowoczesna responsywna aplikacja e-commerce z przejrzystym UI/UX, filtrowaniem produktów w czasie rzeczywistym, zarządzaniem koszykiem i układem mobile-first. Wykorzystane technologie: React, TypeScript, Redux oraz SCSS.",
   portfolioDescription3: "",
   portfolioDescription4: "",
   portfolioDescription5: "",

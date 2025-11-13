@@ -9,7 +9,7 @@ const ua: LangData = {
   altText: '',
   description: '',
   portfolioDescription1: 'Респонсивний односторінковий сайт для бренду морозива: демонструє товари, секцію «як це зроблено», галерею та форму контакту. Побудований за допомогою HTML, CSS (mobile-first) та JavaScript.',
-  portfolioDescription2: "",
+  portfolioDescription2: "Сучасний адаптивний і‑комерційний веб‑додаток з чистим UI/UX: фільтрація товарів у реальному часі, керування кошиком та дизайн під mobile-first. Технології: React, TypeScript, Redux та SCSS.",
   portfolioDescription3: "",
   portfolioDescription4: "",
   portfolioDescription5: "",
