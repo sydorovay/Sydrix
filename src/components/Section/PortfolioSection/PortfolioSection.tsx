@@ -6,8 +6,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './PortfolioSection.module.css';
 import { PortfolioItem } from '@/types/portfolio';
-import { Translate } from '@/components/Translate';
 import { TFunction } from '@/types/langTypes';
+import { Translate } from '@/components/Translate';
 
 interface PortfolioSectionProps {
   portfolioItems: PortfolioItem[];

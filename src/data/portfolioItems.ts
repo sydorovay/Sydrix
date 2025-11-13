@@ -4,7 +4,7 @@ import type { PortfolioItem } from '@/types/portfolio';
 const portfolioItems: PortfolioItem[] = [
   {
     id: "1",
-    name: "Project ice-cream shop",
+    name: "Ice-cream shop",
     title: "Ice-cream shop", 
     images: ["/portfolio/project1.webp"],
     imgSrc: "/portfolio/project1.webp",
@@ -52,8 +52,8 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "5",
-    name: "WaterTracker",
-    title: "WaterTracker",
+    name: "Water Tracker",
+    title: "Water Tracker",
     images: ["/portfolio/project5.webp"],
     imgSrc: "/portfolio/project5.webp",
     altText: "Project Five image",
@@ -64,7 +64,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "6",
-    name: "Sydrix",
+    name: "Sydrix.dev",
     title: "Sydrix",
     images: ["/portfolio/project6.webp"],
     imgSrc: "/portfolio/project6.webp",

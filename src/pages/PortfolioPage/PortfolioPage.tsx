@@ -7,7 +7,6 @@ interface Props {
   theme: "light" | "dark";
 }
 
-// Допоміжна функція для безпечного перекладу рядків
 const translateSafe = (
   t: (key: any) => React.ReactNode,
   key: any
@@ -29,30 +28,30 @@ const PortfolioPage: React.FC<Props> = ({ theme }) => {
         <p className={styles.empty}>{translateSafe(t, "noProjectsFound")}</p>
       ) : (
         <section className={styles.grid} aria-label="Portfolio projects">
-          {portfolioItemsData.map((item) => (
-            <article key={`${item.id}-${item.name}`} className={styles.card}>
-              <img
-                src={item.images[0]}
-                alt={item.altText || item.name}
-                className={styles.image}
-                loading="lazy"
-                aria-label={item.altText || item.name}
-              />
-              <h2 className={styles.title}>{item.name}</h2>
-              <p className={styles.description}>{item.description}</p>
-              {item.link && (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.link}
-                  aria-label={`${translateSafe(t, "viewOnGithub")} – ${item.name}`}
-                >
-                  {translateSafe(t, "viewOnGithub")}
-                </a>
-              )}
-            </article>
-          ))}
+            {portfolioItemsData.map((item) => (
+              <article key={`${item.id}-${item.name}`} className={styles.card}>
+                <img
+                  src={item.images[0]}
+                  alt={item.altText || item.name}
+                  className={styles.image}
+                  loading="lazy"
+                  aria-label={item.altText || item.name}
+                />
+                <h2 className={styles.title}>{item.name}</h2>
+                <p className={styles.description}>{translateSafe(t, `portfolioDescription${item.id}`)}</p>
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.link}
+                    aria-label={`${t("viewOnGithub")} – ${item.name}`}
+                  >
+                    {t("viewOnGithub")}
+                  </a>
+                )}
+              </article>
+            ))}
         </section>
       )}
     </main>
