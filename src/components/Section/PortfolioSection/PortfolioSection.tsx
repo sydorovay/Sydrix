@@ -1,3 +1,4 @@
+// src/components/PortfolioSection/PortfolioSection.tsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -25,8 +26,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   if (!portfolioItems || portfolioItems.length === 0) {
     return (
       <section
-        className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark
-          }`}
+        className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark}`}
       >
         <p className={styles.emptyText}>
           <Translate id="noPortfolioItems" />
@@ -37,8 +37,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
   return (
     <section
-      className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark
-        }`}
+      className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark}`}
       aria-label={t('portfolio')}
     >
       {portfolioItems.map((item) => (
@@ -47,6 +46,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           className={styles.card}
           role="region"
           aria-labelledby={`${item.id}-title`}
+          tabIndex={0}
         >
           <h2 id={`${item.id}-title`} className={styles.title}>
             {item.title}
@@ -61,6 +61,9 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             loop
             className={styles.slider}
             aria-label={`${item.title} image slider`}
+            role="region"
+            aria-roledescription="carousel"
+            aria-live="polite"
             breakpoints={{
               320: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
@@ -74,7 +77,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                   <div className={styles.imageWrapper}>
                     <img
                       src={src}
-                      alt={`${item.altText || item.title} ${idx + 1}`}
+                      alt={`Зображення проєкту: ${item.altText || item.title} №${idx + 1}`}
                       className={styles.image}
                       loading="lazy"
                     />
@@ -94,7 +97,13 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             onClick={() => onOpen(item.id)}
             className={styles.button}
             type="button"
-            aria-label={`${t('showAllButton')} ${item.title}`}
+            aria-label={`Відкрити портфоліо: ${item.title}`}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onOpen(item.id);
+              }
+            }}
           >
             <Translate id="showAllButton" />
           </button>

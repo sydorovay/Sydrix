@@ -20,20 +20,17 @@ interface ServiceModalProps {
 const ServiceModal: FC<ServiceModalProps> = ({ service, lang, onClose, theme = 'light' }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Закриття по Escape
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', handleEsc);
     return () => document.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
-  // Фокус на модалку при відкритті
   useEffect(() => {
     const firstFocusable = modalRef.current?.querySelector<HTMLElement>('button, [tabindex="0"]');
     firstFocusable?.focus();
   }, []);
 
-  // Заборона скролу при відкритій модалці
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {

@@ -1,4 +1,4 @@
-// ✅ src/components/HeroSection.tsx
+// src/components/HeroSection.tsx
 import SydrixLogo from '../../SydrixLogo/SydrixLogo';
 import styles from './HeroSection.module.css';
 import { useLanguageContext } from '@/context/LanguageProvider';
@@ -34,8 +34,19 @@ export default function HeroSection({ theme }: HeroSectionProps) {
           ))}
       </div>
 
-      <div className={styles.buttonWrapper}>
-        <button className={`${styles.button} button`} onClick={handleContactClick}>
+      <div>
+        <button
+          className={`${styles.button} button`}
+          onClick={handleContactClick}
+          type="button"
+          aria-label={t('contactsButtonText')}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleContactClick();
+            }
+          }}
+        >
           {t('contactsButtonText')}
         </button>
       </div>

@@ -6,7 +6,7 @@ import styles from './BenefitsSection.module.css';
 import { Translate } from '@/components/Translate';
 
 export interface BenefitsProps {
-  t: TFunction; // функція перекладу
+  t: TFunction;
   benefits: BenefitItem[];
   title: keyof LangData;
   showAllButton: keyof LangData;
@@ -23,19 +23,10 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
   const navigate = useNavigate();
   const previewBenefits = benefits.slice(0, 5);
 
-  // Функція для безпечного отримання рядка для aria-label
   const translateString = (value: ReturnType<TFunction>): string => {
     if (typeof value === 'string') return value;
     if (Array.isArray(value)) {
-      return value
-        .map(v =>
-          typeof v === 'string'
-            ? v
-            : 'label' in v && 'value' in v
-              ? `${v.label}: ${v.value}`
-              : ''
-        )
-        .join(' ');
+      return value.map(v => typeof v === 'string' ? v : 'label' in v && 'value' in v ? `${v.label}: ${v.value}` : '').join(' ');
     }
     if (typeof value === 'object' && 'top' in value && 'bottom' in value) {
       return `${value.top} ${value.bottom}`;

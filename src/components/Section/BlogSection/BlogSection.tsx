@@ -1,3 +1,4 @@
+// src/components/BlogSection.tsx
 import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import Modal from 'react-modal';
@@ -19,7 +20,7 @@ const blogPosts: BlogPost[] = [
     preview: "Уявіть: клієнт відкриває ваш сайт — і одразу розуміє, що це саме те, що йому потрібно...",
     fullText: "Це повний текст статті, який буде відображатися в модальному вікні. Тут можна докладніше описати підхід, стратегії та результат.",
   },
-  // інші пости можна додати тут
+  // інші пости
 ];
 
 Modal.setAppElement('#root');
@@ -51,6 +52,12 @@ const BlogSection = () => {
               className={styles.readMore}
               onClick={() => openModal(post)}
               aria-label={`Читати далі: ${post.title}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openModal(post);
+                }
+              }}
             >
               Читати далі
             </button>

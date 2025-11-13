@@ -1,3 +1,4 @@
+// src/components/ServicesSectionForSlider/ServicesSectionForSlider.tsx
 import React, { FC, useState, useMemo, KeyboardEvent } from 'react';
 import styles from './ServicesSectionForSlider.module.css';
 import services from '@/translations/services/services';
