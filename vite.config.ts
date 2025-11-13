@@ -30,11 +30,13 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: 'dist',
     target: 'esnext',
     minify: 'esbuild',
     sourcemap: true,
     chunkSizeWarningLimit: 600, // збільшив ліміт, щоб не було зайвих попереджень
     rollupOptions: {
+      external: ['@cloudflare/kv-asset-handler'],// не використовує KV Assets
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
@@ -44,7 +46,7 @@ export default defineConfig({
             if (id.includes('lodash')) {
               return 'lodash-vendor';
             }
-            // Тут можеш додати ще великі бібліотеки
+            // Тут можна додати ще великі бібліотеки
             return 'vendor';
           }
         },

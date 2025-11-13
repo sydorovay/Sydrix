@@ -1,0 +1,2 @@
+import{j as t}from"./react-vendor-CZIlSSR-.js";import{c as r,F as i}from"./index-rj47YMR5.js";import"./vendor-CNkn8rF8.js";const c="about__aO3OJ",l="title__bMq9r",n="text__ibHt1",s={about:c,title:l,text:n},m=({t:e,theme:a})=>{const o=r(e);return t.jsxs("div",{className:s.about,"data-theme":a,children:[t.jsx("h1",{className:s.title,children:o("aboutTitle")}),t.jsx("p",{className:s.text,children:o("aboutText")}),t.jsx(i,{t:e,theme:a})]})};export{m as default};
+//# sourceMappingURL=AboutPage-D45RFH0m.js.map
