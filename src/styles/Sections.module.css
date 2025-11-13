@@ -1,0 +1,282 @@
+/* Sections.module.css */
+
+/* ============================== */
+/*         Базові змінні          */
+/* ============================== */
+:root {
+  --transition: 0.3s ease-in-out;
+  --border-radius: 12px;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-dark: 0 4px 12px rgba(0, 212, 255, 0.2);
+  --hover-shadow-light: 0 6px 16px rgba(0, 0, 0, 0.15);
+  --hover-shadow-dark: 0 6px 16px rgba(0, 212, 255, 0.35);
+}
+
+/* ============================== */
+/*       Секція загалом           */
+/* ============================== */
+.section {
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-sizing: border-box;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.section.light {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.section.dark {
+  background-color: #1c1c1c;
+  color: #fef8f6;
+}
+
+/* ============================== */
+/*         Заголовок секції       */
+/* ============================== */
+.sectionTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* ============================== */
+/*        Кнопки уніфіковані      */
+/* ============================== */
+.button {
+  display: inline-block;
+  max-width: 320px;
+  padding: 0.85rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  margin: 2rem auto;
+  border: 2px solid transparent;
+}
+
+.light .button {
+  color: var(--text-color);
+  background: linear-gradient(135deg, #b6faf3bd, #5ee7df);
+  border-color: #0d253a;
+  box-shadow: var(--shadow-light);
+}
+
+.light .button:hover {
+  background: linear-gradient(135deg, #7af5eb, #223d3b);
+  border-color: #144066;
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow-light);
+}
+
+.dark .button {
+  color: #e6faff;
+  background: linear-gradient(135deg, #0d253a, #1a3d5c);
+  border-color: #00d4ff;
+  box-shadow: var(--shadow-dark);
+}
+
+.dark .button:hover {
+  background: linear-gradient(135deg, #144066, #21759b);
+  border-color: #33e1ff;
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow-dark);
+}
+
+/* ============================== */
+/*         Картки / пости         */
+/* ============================== */
+.card,
+.post,
+.benefitItem {
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  background-color: inherit;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.dark .card,
+.dark .post,
+.dark .benefitItem {
+  box-shadow: var(--shadow-dark);
+}
+
+.card:hover,
+.post:hover,
+.benefitItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow-light);
+}
+
+.dark .card:hover,
+.dark .post:hover,
+.dark .benefitItem:hover {
+  box-shadow: var(--hover-shadow-dark);
+}
+
+/* ============================== */
+/*        Списки та елементи      */
+/* ============================== */
+.benefitsList,
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+.benefitItem,
+.post {
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+
+.benefitTitle,
+.postTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin: var(--spacing-xs) 0;
+}
+
+.date,
+.preview {
+  font-size: var(--font-size-base);
+  margin: var(--spacing-xs) 0;
+}
+
+/* ============================== */
+/*         Зображення             */
+/* ============================== */
+.imageWrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+.placeholder {
+  padding: var(--spacing-md);
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/* ============================== */
+/*        Модальні вікна          */
+/* ============================== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--highlight);
+}
+
+.modal {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-light);
+}
+
+.dark .modal {
+  background-color: #1c1c1c;
+  color: #fef8f6;
+  box-shadow: var(--shadow-dark);
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.modalTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.modalDesc,
+.modalText {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+}
+
+.modalDetails {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+/* ============================== */
+/*        Анімації                */
+/* ============================== */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================== */
+/*        Приховані елементи      */
+/* ============================== */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+}

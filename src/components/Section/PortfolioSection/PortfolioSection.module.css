@@ -1,153 +1,89 @@
+/* src/components/PortfolioSection/PortfolioSection.module.css */
+
+/* Секція портфоліо */
 .portfolioSection {
   width: 100%;
-  height: 100vh;
-  /* ✅ рівно під fullpage */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1.5rem;
-  box-sizing: border-box;
-  overflow: hidden;
-  scroll-snap-align: start;
-  transition: background 0.3s ease, color 0.3s ease;
-
+  margin-inline: auto;
+  padding: 2rem 1rem;
 }
 
+/* Світла / темна тема */
 .light {
-  color: #111;
+  background-color: #fff;
+  color: #0b0021;
 }
 
 .dark {
-
-  color: #fff;
+  background-color: #1c1c1c;
+  color: #fef8f6;
 }
 
-.emptyText {
-  text-align: center;
-  font-size: 1.2rem;
-  opacity: 0.7;
-}
-
+/* Карточка проекту */
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1300px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  padding: 1rem;
+  margin-bottom: 3rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
+/* Заголовок карточки */
 .title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.05em;
+  font-size: var(--font-size-xl);
   margin-bottom: 1rem;
-  background: linear-gradient(90deg, #00edf5, #00d9f5);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-/* ====== Swiper ====== */
+/* Слайдер */
 .slider {
-  width: 100%;
-  max-width: 1200px;
-  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
+/* Обгортка зображення */
 .imageWrapper {
-  position: relative;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
-  border-radius: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: var(--radius-md);
 }
 
 .image {
   width: 100%;
-  height: 260px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 1.5rem;
-  transition: transform 0.5s ease, box-shadow 0.4s ease;
-  will-change: transform;
 }
 
-.image:hover {
-  transform: scale(1.3);
-  box-shadow: 0 8px 25px rgba(0, 217, 245, 0.3);
-}
-
-/* ====== Placeholder ====== */
+/* Placeholder при відсутності зображень */
 .placeholder {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 260px;
-  border-radius: 1rem;
-  /* background: rgba(255, 255, 255, 0.05); */
-  /* color: #888; */
-  font-size: 1rem;
+  align-items: center;
+  height: 200px;
+  font-size: var(--font-size-base);
+  color: #888;
 }
 
-/* ====== Button ====== */
+/* Кнопка */
 .button {
-  background: var(--accent);
-  color: var(--button-text);
-  font-weight: 600;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(135deg, #5ee7df, #b6faf3bd);
+  border: 2px solid #0d253a;
+  color: var(--text-color);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 217, 245, 0.3);
-
 }
 
-.button:hover,
-.button:focus-visible {
-  transform: scale(1.05);
-  background-color: #00f5d0;
-  box-shadow: 0 0 20px rgba(0, 217, 245, 0.5);
-  outline: none;
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(13, 37, 58, 0.25);
 }
 
-.button:active {
-  transform: scale(0.97);
-}
-
-/* ====== Responsive ====== */
-@media (max-width: 1024px) {
-  .portfolioSection {
-    height: auto;
-    padding: 4rem 1rem;
-  }
-
-  .image {
-    height: 200px;
-  }
-}
-
-@media (max-width: 768px) {
-  .portfolioSection {
-    height: 100dvh;
-    padding: 2rem 1rem;
-  }
-
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .image {
-    height: 180px;
-  }
-
-  .button {
-    font-size: 0.9rem;
-  }
+/* ============================= */
+/*       Новий клас для пустого */
+.emptyText {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: #888;
+  padding: 2rem 0;
 }

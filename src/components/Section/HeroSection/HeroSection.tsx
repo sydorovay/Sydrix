@@ -18,7 +18,7 @@ export default function HeroSection({ theme }: HeroSectionProps) {
   };
 
   return (
-    <header className={`${styles.header} ${styles[theme]} ${theme}`}>
+    <header className={`${styles.header} ${(styles as Record<string, string>)[theme]} ${theme}`}>
       <h1 className={styles.title}>{t('heroTitle')}</h1>
 
       <div className={styles.topRow}>

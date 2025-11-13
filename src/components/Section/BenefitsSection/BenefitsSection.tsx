@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { BenefitItem, LangData, TFunction } from '@/types/langTypes';
-import styles from './BenefitsSection.module.css';
+import styles from '@/styles/Sections.module.css'; // <- глобальний стиль для всіх секцій
 import { Translate } from '@/components/Translate';
 
 export interface BenefitsProps {
@@ -40,7 +40,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
 
   return (
     <section
-      className={`${styles.benefitsSection} ${theme === 'dark' ? styles.dark : ''}`}
+      className={`${styles.section} ${theme === 'dark' ? styles.dark : styles.light}`}
       aria-labelledby="benefits-title"
     >
       <h2 id="benefits-title" className={styles.sectionTitle}>
@@ -70,7 +70,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
       </ul>
 
       <button
-        className={`${styles.button} button`}
+        className={styles.button}
         onClick={() => handleNavigate()}
         aria-label={translateString(t(showAllButton))}
         type="button"

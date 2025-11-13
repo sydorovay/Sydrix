@@ -1,0 +1,31 @@
+declare const styles: {
+  readonly "benefitItem": string;
+  readonly "benefitTitle": string;
+  readonly "benefitsList": string;
+  readonly "button": string;
+  readonly "card": string;
+  readonly "closeButton": string;
+  readonly "dark": string;
+  readonly "date": string;
+  readonly "fadeIn": string;
+  readonly "icon": string;
+  readonly "image": string;
+  readonly "imageWrapper": string;
+  readonly "light": string;
+  readonly "modal": string;
+  readonly "modalDesc": string;
+  readonly "modalDetails": string;
+  readonly "modalText": string;
+  readonly "modalTitle": string;
+  readonly "overlay": string;
+  readonly "placeholder": string;
+  readonly "post": string;
+  readonly "postTitle": string;
+  readonly "posts": string;
+  readonly "preview": string;
+  readonly "section": string;
+  readonly "sectionTitle": string;
+  readonly "visually-hidden": string;
+};
+export = styles;
+

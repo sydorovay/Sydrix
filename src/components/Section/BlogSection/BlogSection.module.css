@@ -1,45 +1,58 @@
 .blogSection {
-  padding: 4rem 1rem;
-  background-color: #f9f9f9;
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  scroll-snap-align: start;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .title {
+  font-size: var(--font-size-2xl);
   text-align: center;
-  font-size: 2rem;
   margin-bottom: 2rem;
-  color: #222;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--font-size-3xl);
+  }
 }
 
 .posts {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .post {
-  background-color: #fff;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .date {
-  font-size: 0.875rem;
-  color: #888;
+  font-size: var(--font-size-sm);
+  color: var(--highlight);
   margin-bottom: 0.5rem;
 }
 
 .postTitle {
-  font-size: 1.25rem;
-  color: #333;
-  margin-bottom: 0.75rem;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .preview {
-  font-size: 1rem;
-  color: #555;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
   margin-bottom: 1rem;
 }
 
@@ -47,85 +60,121 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #007bff;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--highlight);
+  background-color: transparent;
+  color: var(--text-color);
+  font-weight: 600;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.readMore:hover {
-  background-color: #0056b3;
-}
-
+.readMore:hover,
 .readMore:focus {
-  outline: 2px solid #0056b3;
-  outline-offset: 2px;
+  background-color: var(--highlight);
+  color: var(--background-color);
+  transform: translateY(-2px);
+  outline: none;
 }
 
-/* Модальне вікно */
+.readMore svg {
+  transition: transform 0.3s ease;
+}
+
+.readMore:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================== */
+/*          Модальне вікно        */
+/* ============================== */
 .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 300ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.overlay.light {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.overlay.dark {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  max-width: 700px;
   width: 90%;
-  max-width: 600px;
-  background: #fff;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
   padding: 2rem;
-  border-radius: 16px;
-  transform: translate(-50%, -50%);
-  outline: none;
-  opacity: 0;
-  transition: all 300ms ease-in-out;
-}
-
-.ReactModal__Content--after-open {
-  opacity: 1;
-}
-
-.ReactModal__Content--before-close {
-  opacity: 0;
-  transform: translate(-50%, -40%);
-}
-
-/* Контент модалки */
-.modalContent {
   position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-20px);
+  animation: slideIn 0.3s forwards;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+  }
 }
 
 .closeModal {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border: none;
-  background: transparent;
+  background: none;
   cursor: pointer;
-  color: #888;
-  transition: color 0.2s;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
 }
 
 .closeModal:hover {
-  color: #000;
+  transform: scale(1.2);
 }
 
 .modalTitle {
-  font-size: 1.5rem;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
   margin-bottom: 1rem;
-  color: #222;
 }
 
 .modalText {
-  font-size: 1rem;
-  color: #444;
+  font-size: var(--font-size-base);
   line-height: 1.6;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .modalContent {
+    gap: 2rem;
+  }
 }

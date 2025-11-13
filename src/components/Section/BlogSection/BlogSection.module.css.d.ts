@@ -1,9 +1,10 @@
 declare const styles: {
-  readonly "ReactModal__Content--after-open": string;
-  readonly "ReactModal__Content--before-close": string;
   readonly "blogSection": string;
   readonly "closeModal": string;
+  readonly "dark": string;
   readonly "date": string;
+  readonly "fadeIn": string;
+  readonly "light": string;
   readonly "modal": string;
   readonly "modalContent": string;
   readonly "modalText": string;
@@ -14,6 +15,7 @@ declare const styles: {
   readonly "posts": string;
   readonly "preview": string;
   readonly "readMore": string;
+  readonly "slideIn": string;
   readonly "title": string;
 };
 export = styles;

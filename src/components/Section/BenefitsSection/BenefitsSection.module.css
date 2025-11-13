@@ -1,128 +1,124 @@
+/* src/components/Section/BenefitsSection/BenefitsSection.module.css */
+
+/* ============================== */
+/*       Секція Переваг          */
+/* ============================== */
 .benefitsSection {
+  width: 100%;
   padding: 2rem 1rem;
-  border-radius: 12px;
-  max-width: 1024px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease;
-    
+  text-align: center;
 }
 
-/* Список переваг */
+.dark .benefitsSection {
+  background-color: #1c1c1c;
+  color: #fef8f6;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-2xl);
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* ============================== */
+/*       Список Переваг          */
+/* ============================== */
 .benefitsList {
-  padding: 0;
-  margin: 0 auto 1.5rem;
-  max-width: 800px;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
+  gap: 1.5rem;
   justify-content: center;
-  gap: 1rem;
-  align-items: center;
-}
-.button {
-  display: block;
+  padding: 0;
+  margin: 0 0 2rem 0;
 }
 
 .benefitItem {
-  border-radius: 15px;
-  width: 100%;
-  box-shadow: var(--shadow);
-  max-width: 600px;
+  flex: 1 1 180px;
+  max-width: 220px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: var(--radius-md);
   padding: 1rem;
   cursor: pointer;
-  outline-offset: 2px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all var(--transition);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
 }
 
 .benefitItem:hover,
 .benefitItem:focus {
-  background-color: var(--hover-color);
-  box-shadow: var(--shadow);
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  outline: none;
 }
 
-/* Темна тема — спеціальний стиль тіней */
-.dark .benefitItem {
-  box-shadow: var(--shadow);
-}
-
-.light {
-  list-style: none;
-}
-
-.dark .benefitItem:hover,
-.dark .benefitItem:focus {
-  background-color: var(--hover-color);
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
-}
-
-.sectionTitle {
-  margin-bottom: 2rem;
-  justify-content: center;
-  font-size: 2.2rem;
-  color: var(--text-color);
-}
-
-
-/* Іконка */
 .icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  margin-right: 0.75rem;
-  fill: #4b0676;
-
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--highlight);
 }
 
-.dark .icon {
-  fill: #6fd7f7;
-}
-
-/* Заголовок переваги */
 .benefitTitle {
-  margin: 0;
-  text-align: left;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
 }
 
-.dark .showAllButton {
-  background-color: #07799b;
-  color: var(--button-text);
+/* ============================== */
+/*           Кнопка               */
+/* ============================== */
+.button {
+  max-width: 300px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin: 0 auto;
+  display: inline-block;
 }
 
-.dark .showAllButton:hover,
-.dark .showAllButton:focus {
-  background-color: #003f7f;
+.dark .button {
+  color: #e6faff;
+  background: linear-gradient(135deg, #0d253a, #1a3d5c);
+  border: 2px solid #00d4ff;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
 }
 
+.dark .button:hover {
+  background: linear-gradient(135deg, #144066, #21759b);
+  border-color: #33e1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 212, 255, 0.35);
+}
 
-/* 📱 Адаптивність — mobile-first */
-@media (min-width: 320px) {
+.light .button {
+  color: var(--text-color);
+  background: linear-gradient(135deg, #b6faf3bd, #5ee7df);
+  border: 2px solid #0d253a;
+  box-shadow: 0 4px 12px rgba(13, 37, 58, 0.15);
+}
+
+.light .button:hover {
+  background: linear-gradient(135deg, #7af5eb, #223d3b);
+  border-color: #144066;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(13, 37, 58, 0.25);
+}
+
+/* ============================== */
+/*       Адаптивність             */
+/* ============================== */
+@media (max-width: 640px) {
   .benefitsList {
-    justify-content: flex-start;
     flex-direction: column;
-  }
-
-  .benefitItem {
-    width: 80%;
-    align-items: center;
-  }
-}
-
-@media (min-width: 768px) {
-  .benefitItem {
-    justify-content: flex-start;
-    width: 80%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .benefitItem {
-    width: 80%;
-    height: auto;
-    
+    gap: 1rem;
   }
 }
