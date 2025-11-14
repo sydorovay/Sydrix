@@ -1,5 +1,6 @@
 /* src/components/FullPageSlider/FullPageSlider.module.css */
 
+/* Container scroll system */
 .snapContainer {
   display: flex;
   flex-direction: column;
@@ -29,6 +30,7 @@
   border-radius: 3px;
 }
 
+/* Themings */
 .light {
   color: var(--text-bottom-color);
 }
@@ -37,16 +39,18 @@
   color: var(--text-bottom-color);
 }
 
+/* Snap sections */
 .snapSection {
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   padding: 1.5rem 1rem;
   width: 100%;
-  box-sizing: border-box;
   text-align: center;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -55,21 +59,27 @@
   }
 }
 
+/* Back to top button */
 .topButton {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background-color: rgba(200, 60, 13, 0.525);
-  color: #65fbfe;
-  border: none;
-  border-radius: 50%;
+
   width: 44px;
   height: 44px;
+  border: none;
+  border-radius: 50%;
+
+  background-color: rgba(200, 60, 13, 0.525);
+  color: #65fbfe;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   cursor: pointer;
   z-index: 100;
+
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -90,6 +100,7 @@
   }
 }
 
+/* Titles (left intact for compatibility) */
 .title {
   font-size: 1.75rem;
   margin-bottom: 1rem;
@@ -100,4 +111,3 @@
     font-size: 2rem;
   }
 }
-

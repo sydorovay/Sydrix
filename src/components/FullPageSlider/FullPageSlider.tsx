@@ -1,27 +1,36 @@
 // src/components/FullPageSlider/FullPageSlider.tsx
-import React, { useRef, useCallback, KeyboardEvent, useMemo } from 'react';
+import React, {
+  useRef,
+  useCallback,
+  KeyboardEvent,
+  useMemo,
+} from 'react';
+
 import HeroSection from '../Section/HeroSection/HeroSection';
 import BenefitsSection from '@/components/Section/BenefitsSection/BenefitsSection';
 import PortfolioSection from '@/components/Section/PortfolioSection/PortfolioSection';
 import ContactsSection from '../Section/ContactsSection/ContactsSection';
 import ServicesSectionForSlider from '../Section/ServicesSectionForSlider/ServicesSectionForSlider';
-import styles from './FullPageSlider.module.css';
+
 import { FaArrowUp } from 'react-icons/fa';
-import { LangCode, TFunction } from '@/types/langTypes';
+import styles from './FullPageSlider.module.css';
+
 import { useShowTopButton } from '@/hooks/useShowTopButton';
-import { PortfolioItem } from '@/types/portfolio';
 import useIsDesktop from '@/hooks/useIsDesktop';
 
+import { PortfolioItem } from '@/types/portfolio';
+import { useLanguageContext } from '@/context/LanguageProvider';
+
 interface FullPageSliderProps {
-  t: TFunction;
   theme: 'light' | 'dark';
-  onContact: () => void;
 }
 
-const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) => {
+const FullPageSlider: React.FC<FullPageSliderProps> = ({ theme }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const showTopBtn = useShowTopButton(containerRef);
   const isDesktop = useIsDesktop();
+
+  const { t, lang } = useLanguageContext();
 
   const scrollToTop = useCallback(() => {
     containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
@@ -37,6 +46,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
     [scrollToTop]
   );
 
+  // memoized portfolio data with translations
   const portfolioItems: PortfolioItem[] = useMemo(
     () => [
       {
@@ -55,29 +65,32 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
           '/portfolio/project6.webp',
         ],
         description: t('portfolioDescription'),
-        portfolioDescription: t('portfolioDescription'),
+        portfolioDescription: t('portfolioDescription'), // ← обовʼязково для типу
+        viewOnGithub: t('viewOnGithub'),               // ← обовʼязково для типу
       },
     ],
     [t]
   );
 
+
   return (
     <div
       ref={containerRef}
-      className={`${styles.snapContainer} ${theme === 'light' ? styles.light : styles.dark}`}
+      className={`${styles.snapContainer} ${theme === 'light' ? styles.light : styles.dark
+        }`}
       tabIndex={0}
       aria-label="Full page scroll container"
       onKeyDown={handleKeyDown}
     >
-      {/* Hero Section */}
+      {/* Hero */}
       <section className={styles.snapSection} aria-labelledby="hero-heading">
         <HeroSection theme={theme} />
       </section>
 
-      {/* Services / Benefits Section */}
+      {/* Services or Benefits (mobile) */}
       <section className={styles.snapSection} aria-labelledby="services-heading">
         {isDesktop ? (
-          <ServicesSectionForSlider t={t} lang={LangCode.GB} theme={theme} />
+          <ServicesSectionForSlider t={t} lang={lang} theme={theme} />
         ) : (
           <BenefitsSection
             title="benefitsTitle"
@@ -89,7 +102,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         )}
       </section>
 
-      {/* Portfolio Section */}
+      {/* Portfolio */}
       <section className={styles.snapSection} aria-labelledby="portfolio-heading">
         <PortfolioSection
           portfolioItems={portfolioItems}
@@ -99,7 +112,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
-      {/* Contacts Section */}
+      {/* Contacts */}
       <section className={styles.snapSection} aria-labelledby="contacts-heading">
         <ContactsSection
           phone="phone"
@@ -110,7 +123,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ t, theme, onContact }) 
         />
       </section>
 
-      {/* Back to Top Button */}
+      {/* Back to top */}
       {showTopBtn && (
         <button
           className={styles.topButton}
