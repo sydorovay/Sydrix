@@ -1,4 +1,3 @@
-// src/components/HeroSection.tsx
 import SydrixLogo from '../../SydrixLogo/SydrixLogo';
 import styles from './HeroSection.module.css';
 import { useLanguageContext } from '@/context/LanguageProvider';
@@ -17,8 +16,16 @@ export default function HeroSection({ theme }: HeroSectionProps) {
     }
   };
 
+  // Підготовка рядків під сабтитли
+  const subtitleLines = Array.isArray(t('heroSubtitle'))
+    ? t('heroSubtitle')
+    : [t('heroSubtitle')];
+
   return (
-    <header className={`${styles.header} ${(styles as Record<string, string>)[theme]} ${theme}`}>
+    <header
+      className={`${styles.header} ${styles[theme]}`}
+      aria-label="Hero section"
+    >
       <h1 className={styles.title}>{t('heroTitle')}</h1>
 
       <div className={styles.topRow}>
@@ -26,30 +33,29 @@ export default function HeroSection({ theme }: HeroSectionProps) {
       </div>
 
       <div className={styles.subtitleWrapper}>
-        {Array.isArray(t('heroSubtitle')) &&
-          t('heroSubtitle').map((line, idx) => (
-            <p key={idx} className={styles.line}>
-              {line}
-            </p>
-          ))}
+        {subtitleLines.map((line, idx) => (
+          <p key={idx} className={styles.subtitleText}>
+            {line}
+          </p>
+        ))}
       </div>
 
-      <div>
-        <button
-          className={`${styles.button} button`}
-          onClick={handleContactClick}
-          type="button"
-          aria-label={t('contactsButtonText')}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              handleContactClick();
-            }
-          }}
-        >
-          {t('contactsButtonText')}
-        </button>
-      </div>
+      <div className={styles.divider} aria-hidden="true" />
+
+      <button
+        className={styles.button}
+        onClick={handleContactClick}
+        type="button"
+        aria-label={t('contactsButtonText')}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleContactClick();
+          }
+        }}
+      >
+        {t('contactsButtonText')}
+      </button>
     </header>
   );
 }

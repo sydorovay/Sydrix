@@ -1,18 +1,32 @@
+/* ===== Заголовок HeroSection ===== */
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 2rem 1rem;
-  max-width: 1024px;
+  max-width: 1100px;
   margin: 40px auto 3rem;
-  border-radius: 12px;
+  border-radius: 16px;
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ===== Теми ===== */
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+/* ===== Заголовок ===== */
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
+  /* збережено адаптивність */
   font-weight: 700;
   margin-bottom: 1.2rem;
   background: linear-gradient(90deg, #00edf5, #00d9f5);
@@ -21,35 +35,48 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* ===== Сабтитли ===== */
 .subtitleWrapper {
-  margin-top: 1.6rem;
-  margin-bottom: 3.2rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  font-size: 1.1rem;
-  line-height: 2.4rem;
+  gap: 0.6rem;
 }
 
-.menu {
-  position: absolute;
-  top: 120%;
-  background-color: inherit;
-  border: 1px solid currentColor;
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  list-style: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  min-width: 200px;
-  z-index: 10;
+.subtitleText {
+  font-size: 1.15rem;
+  line-height: 1.7rem;
+  opacity: 0.9;
 }
 
+/* ===== Логотип ===== */
+.topRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  /* відстань між елементами логотипа */
+}
+
+/* ===== Розділювач ===== */
+.divider {
+  width: 90px;
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+  margin: 0 auto 2rem;
+  opacity: 0.6;
+}
+
+/* ===== Кнопка ===== */
 .button {
   background-color: #00d9f5;
   color: #fff;
   font-weight: 600;
   border: none;
   border-radius: 2rem;
-  padding: 0.8rem 2rem;
+  padding: 0.9rem 2.4rem;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -61,45 +88,26 @@
   outline: none;
   transform: scale(1.05);
 }
-.topRow {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
 
-.line {
-  margin: 0 auto;
-  width: 60px;
-  /* приклад ширини лінії */
-  height: 2px;
-  /* приклад товщини */
-  background-color: currentColor;
-  border-radius: 1px;
-}
-
-.menu a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-weight: 500;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
-.menu a:hover,
-.menu a:focus {
-  color: var(--accent-hover);
-}
-
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+
+  .subtitleText {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .subtitleText {
+    font-size: 0.95rem;
   }
 }
+
+
