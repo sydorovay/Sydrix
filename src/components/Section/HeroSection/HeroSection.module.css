@@ -14,13 +14,11 @@
 
 /* ===== Теми ===== */
 .light {
-  background-color: #ffffff;
-  color: #000000;
+color: var(--text-color);
 }
 
 .dark {
-  background-color: #0f0f0f;
-  color: #ffffff;
+color: var(--text-color);
 }
 
 /* ===== Заголовок ===== */
@@ -29,7 +27,7 @@
   /* збережено адаптивність */
   font-weight: 700;
   margin-bottom: 1.2rem;
-  background: linear-gradient(90deg, #00edf5, #00d9f5);
+  background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2 );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

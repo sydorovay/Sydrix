@@ -9,12 +9,11 @@
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  padding-bottom: 4rem;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 
-  scrollbar-width: thin;
-  scrollbar-color: rgba(100, 100, 100, 0.3) transparent;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(117, 40, 195, 0.392) transparent;
 }
 
 .snapContainer::-webkit-scrollbar {
@@ -26,7 +25,6 @@
 }
 
 .snapContainer::-webkit-scrollbar-thumb {
-  background-color: rgba(100, 100, 100, 0.3);
   border-radius: 3px;
 }
 
@@ -67,11 +65,11 @@
 
   width: 44px;
   height: 44px;
-  border: none;
+  border: 1px solid rgba(127, 20, 3, 0.397);
   border-radius: 50%;
 
-  background-color: rgba(200, 60, 13, 0.525);
-  color: #65fbfe;
+  background-color: rgba(170, 58, 21, 0.617);
+  color: rgb(3, 199, 173);
 
   display: flex;
   align-items: center;
@@ -86,9 +84,11 @@
 
 .topButton:hover,
 .topButton:focus-visible {
-  background-color: rgba(0, 0, 0, 0.8);
-  transform: scale(1.1);
+  background-color: rgba(198, 66, 46, 0.397);;
+  transform: scale(1.2);
   outline: none;
+  color:rgb(4, 252, 219);
+  border: 1px solid rgba(1, 234, 251, 0.587)
 }
 
 @media (max-width: 767px) {

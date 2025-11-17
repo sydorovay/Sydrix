@@ -1,20 +1,19 @@
+import React from 'react';
 import FullPageSlider from '@/components/FullPageSlider/FullPageSlider';
-import { LangData } from '@/types/langTypes';
+import styles from './HomePage.module.css';
 
-interface Props {
-  t: <K extends keyof LangData>(key: K) => LangData[K];
+interface HomePageProps {
   theme: 'light' | 'dark';
 }
 
-export default function HomePage({ t, theme }: Props) {
-  const handleContact = (): void => {
-    const email = t('email');
-    if (typeof email === 'string') {
-      window.location.href = `mailto:${email}`;
-    }
-  };
-
+const HomePage: React.FC<HomePageProps> = ({ theme }) => {
   return (
-    <FullPageSlider t={t} theme={theme} onContact={handleContact} />
+    <main className={`${styles.page} ${theme === 'light' ? styles.light : styles.dark}`} role="main">
+      <div className={styles.container}>
+        <FullPageSlider theme={theme} />
+      </div>
+    </main>
   );
-}
+};
+
+export default HomePage;

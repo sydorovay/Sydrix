@@ -1,32 +1,30 @@
-// src/components/FullPageSlider/FullPageSlider.tsx
-import React, {
-  useRef,
-  useCallback,
-  KeyboardEvent,
-  useMemo,
-} from 'react';
-
-import HeroSection from '../Section/HeroSection/HeroSection';
+import React, { useRef, useCallback, KeyboardEvent, useMemo } from 'react';
+import HeroSection from '@/components/Section/HeroSection/HeroSection';
 import BenefitsSection from '@/components/Section/BenefitsSection/BenefitsSection';
 import PortfolioSection from '@/components/Section/PortfolioSection/PortfolioSection';
-import ContactsSection from '../Section/ContactsSection/ContactsSection';
-import ServicesSectionForSlider from '../Section/ServicesSectionForSlider/ServicesSectionForSlider';
+import ContactsSection from '@/components/Section/ContactsSection/ContactsSection';
+import ServicesSectionForSlider from '@/components/Section/ServicesSectionForSlider/ServicesSectionForSlider';
 
 import { FaArrowUp } from 'react-icons/fa';
 import styles from './FullPageSlider.module.css';
 
 import { useShowTopButton } from '@/hooks/useShowTopButton';
 import useIsDesktop from '@/hooks/useIsDesktop';
-
-import { PortfolioItem } from '@/types/portfolio';
 import { useLanguageContext } from '@/context/LanguageProvider';
+import type { PortfolioItem } from '@/types/portfolio';
 
 interface FullPageSliderProps {
   theme: 'light' | 'dark';
 }
 
+/**
+ * FullPageSlider
+ * - scroll container with scroll-snap per section
+ * - accessible keyboard handling (Home/PageUp/ArrowUp -> top)
+ * - uses language context for translations
+ */
 const FullPageSlider: React.FC<FullPageSliderProps> = ({ theme }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const showTopBtn = useShowTopButton(containerRef);
   const isDesktop = useIsDesktop();
 
@@ -46,14 +44,13 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ theme }) => {
     [scrollToTop]
   );
 
-  // memoized portfolio data with translations
   const portfolioItems: PortfolioItem[] = useMemo(
     () => [
       {
         id: 'portfolio-1',
         name: 'Portfolio CV Site',
-        title: t('portfolioTitle'),
-        link: t('portfolioLink'),
+        title: typeof t === 'function' ? (t('portfolioTitle') as string) : 'Portfolio',
+        link: typeof t === 'function' ? (t('portfolioLink') as string) : '#',
         altText: 'Portfolio CV Site',
         imgSrc: '/portfolio/project1.webp',
         images: [
@@ -64,31 +61,30 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ theme }) => {
           '/portfolio/project5.webp',
           '/portfolio/project6.webp',
         ],
-        description: t('portfolioDescription'),
-        portfolioDescription: t('portfolioDescription'), // ← обовʼязково для типу
-        viewOnGithub: t('viewOnGithub'),               // ← обовʼязково для типу
+        description: typeof t === 'function' ? (t('portfolioDescription') as string) : '',
+        portfolioDescription: typeof t === 'function' ? (t('portfolioDescription') as string) : '',
+        viewOnGithub: typeof t === 'function' ? (t('viewOnGithub') as string) : '',
       },
+      // додай інші елементи за потреби...
     ],
     [t]
   );
 
-
   return (
     <div
       ref={containerRef}
-      className={`${styles.snapContainer} ${theme === 'light' ? styles.light : styles.dark
-        }`}
+      className={`${styles.snapContainer} ${theme === 'light' ? styles.light : styles.dark}`}
       tabIndex={0}
       aria-label="Full page scroll container"
       onKeyDown={handleKeyDown}
     >
       {/* Hero */}
-      <section className={styles.snapSection} aria-labelledby="hero-heading">
+      <section className={styles.snapSection} aria-labelledby="hero-heading" role="region">
         <HeroSection theme={theme} />
       </section>
 
-      {/* Services or Benefits (mobile) */}
-      <section className={styles.snapSection} aria-labelledby="services-heading">
+      {/* Services (desktop) or Benefits (mobile) */}
+      <section className={styles.snapSection} aria-labelledby="services-heading" role="region">
         {isDesktop ? (
           <ServicesSectionForSlider t={t} lang={lang} theme={theme} />
         ) : (
@@ -103,7 +99,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ theme }) => {
       </section>
 
       {/* Portfolio */}
-      <section className={styles.snapSection} aria-labelledby="portfolio-heading">
+      <section className={styles.snapSection} aria-labelledby="portfolio-heading" role="region">
         <PortfolioSection
           portfolioItems={portfolioItems}
           t={t}
@@ -113,7 +109,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ theme }) => {
       </section>
 
       {/* Contacts */}
-      <section className={styles.snapSection} aria-labelledby="contacts-heading">
+      <section className={styles.snapSection} aria-labelledby="contacts-heading" role="region">
         <ContactsSection
           phone="phone"
           email="email"
@@ -128,7 +124,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = ({ theme }) => {
         <button
           className={styles.topButton}
           onClick={scrollToTop}
-          aria-label={t('backToTop')}
+          aria-label={typeof t === 'function' ? (t('backToTop') as string) : 'Back to top'}
           type="button"
         >
           <FaArrowUp aria-hidden="true" />
