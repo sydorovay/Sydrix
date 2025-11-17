@@ -1,14 +1,11 @@
-/* ============================== */
-/*          Light Theme           */
-/* ============================== */
 :root {
   --font-primary: 'Poppins', sans-serif;
   --font-secondary: 'Montserrat', sans-serif;
 
-  --text-color: #0b0021;
+  --text-color: #080019;
   --background-color: #fff;
-  --border-color: #ddd;
-  --button-bg: #00bcd4;
+  --border-color: #67eefc;
+  --button-bg: linear-gradient(165deg, #14f6e7df,#18d1f2,#5b24a8c5,#3ffefeb8,#18d1f2);
   --button-text: #fff;
   --link-color: #007bff;
   --highlight: rgba(0, 123, 255, 0.8);
@@ -16,21 +13,18 @@
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   --radius-md: 12px;
   --transition: 0.3s ease-in-out;
-
   --logo-grad-start: #2b1d72e4;
   --logo-grad-middle: #259caf;
   --logo-grad-end: #d57c41d2;
   --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* ============================== */
-/*          Dark Theme            */
-/* ============================== */
+/* Темна тема */
 body.dark {
   --text-color: #fef8f6;
   --background-color: #1c1c1c;
   --border-color: #444;
-  --button-bg: linear-gradient(135deg, #0d253a, #1a3d5c);
+  --button-bg: linear-gradient(145deg, #14949a,#300261bf, #05c0f995);
   --button-text: #e6faff;
   --link-color: #4d94ff;
   --highlight: rgba(0, 123, 255, 1);
@@ -41,4 +35,11 @@ body.dark {
   --logo-grad-middle: #43e4fd;
   --logo-grad-end: #4b1a93d1;
   --logo-shadow: 0 2px 12px #42e3fc43;
+}
+
+/* базові стилі які використовують змінні */
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
 }

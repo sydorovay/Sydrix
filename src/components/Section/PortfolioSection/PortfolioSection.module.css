@@ -8,10 +8,11 @@
 }
 
 /* Світла / темна тема */
-.light {}
+.light {
+color: var(--text-color)
+}
 
 .dark {
-
   color: var(--text-color)
 }
 

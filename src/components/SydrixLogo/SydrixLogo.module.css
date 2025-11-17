@@ -69,7 +69,7 @@
 .logo {
   display: inline-block;
   width: 100%;
-  max-width: 600px;
+  max-width:600px;
   margin: 0 auto;
   pointer-events: none;
   user-select: none;
