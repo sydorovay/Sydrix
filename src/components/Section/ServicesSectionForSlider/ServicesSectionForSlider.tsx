@@ -74,6 +74,9 @@ const ServicesSectionForSlider: FC<ServicesSectionForSliderProps> = ({ t, lang, 
 
       {services.length > 8 && (
         <div className={styles.showMoreWrapper}>
+
+          <div className={styles.divider} aria-hidden="true" />
+          
           <button
             className={styles.showMoreButton}
             onClick={() => setShowAll((p) => !p)}

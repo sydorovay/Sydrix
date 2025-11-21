@@ -21,7 +21,7 @@ const STAR_COLORS = {
 };
 
 const darkStops = ['#000000', '#000010', '#000013', '#000016', '#000019', '#000022', '#000120'];
-const dawnStops = ['#000625', '#6797bb', '#b2d9f6', '#d7f8fb', '#fafffe', '#fff2e2', '#fdeadb', '#ffd4be'];
+const dawnStops = ['#000022', '#014d67', '#b2d9f6', '#fff9f6', '#faf2e2', '#fad4b1'];
 
 function random(min: number, max: number): number {
   return Math.random() * (max - min) + min;

@@ -51,7 +51,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
         <text x="50%" y="10%" className={styles.tagline} fill="url(#grad)">
           {top}
         </text>
-        <text x="50%" y="90%" className={styles.tagline} fill="url(#grad)">
+        <text x="50%" y="85%" className={styles.tagline} fill="url(#grad)">
           {bottom}
         </text>
       </svg>

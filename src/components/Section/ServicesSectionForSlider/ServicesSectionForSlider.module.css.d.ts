@@ -3,6 +3,7 @@ declare const styles: {
   readonly "cardTitle": string;
   readonly "ctaButton": string;
   readonly "dark": string;
+  readonly "divider": string;
   readonly "grid": string;
   readonly "heading": string;
   readonly "icon": string;

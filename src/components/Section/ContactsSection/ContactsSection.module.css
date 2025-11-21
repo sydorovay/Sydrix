@@ -13,9 +13,14 @@
 }
 
 .title {
-  font-size: 1.5rem;
-  margin-bottom: 8.2rem;
-  color: var(--text-primary);
+  font-size: clamp(2rem, 4vw, 3rem);
+  /* збережено адаптивність */
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .list {

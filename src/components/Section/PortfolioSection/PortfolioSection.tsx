@@ -93,6 +93,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             )}
           </Swiper>
 
+          <div className={styles.divider} aria-hidden="true" />
+
           <button
             onClick={() => onOpen(item.id)}
             className={styles.button}

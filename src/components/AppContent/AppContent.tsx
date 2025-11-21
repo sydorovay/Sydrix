@@ -58,7 +58,7 @@ export default function AppContent() {
         <ScrollToTop />
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
-            <Route path="/" element={<HomePage t={t} theme={theme} />} />
+            <Route path="/" element={<HomePage theme={theme} />} />
             <Route path="/about" element={<AboutPage t={t} theme={theme} />} />
             <Route path="/services" element={<ServicesPage t={t} lang={lang} theme={theme} />} />
             <Route id="portfolio" path="/portfolio" element={<PortfolioPage theme={theme} />} />

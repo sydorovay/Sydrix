@@ -18,20 +18,26 @@ color: var(--text-color)
 
 /* Карточка проекту */
 .card {
-  margin-bottom: 3rem;
+  margin-bottom: rem;
   border-radius: var(--radius-md);
   overflow: hidden;
 }
 
 /* Заголовок карточки */
 .title {
-  font-size: var(--font-size-xl);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  /* збережено адаптивність */
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Слайдер */
 .slider {
-  margin-bottom: 1rem;
+  margin-bottom: 6rem;
 }
 
 /* Обгортка зображення */
@@ -58,6 +64,15 @@ color: var(--text-color)
   color: #888;
 }
 
+.divider {
+  width: 90px;
+  height: 2px;
+  background-color: var(--logo-grad-middle);
+  border-radius: 3px;
+  margin: 0 auto 2rem;
+  opacity: 0.6;
+}
+
 /* Кнопка */
 .button {
   /* background підтримує і звичайний колір, і градієнт */
@@ -76,10 +91,12 @@ color: var(--text-color)
     background-size: 200% 200%;
 }
 
-.button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(13, 37, 58, 0.25);
-  background: linear-gradient(125deg, #47978fbd, #5ee7df);
+.button:hover,
+.button:focus-visible {
+  filter: brightness(1.1);
+  background-color: #00f5d0;
+  outline: none;
+  transform: scale(1.05);
 }
 
 /* ============================= */
