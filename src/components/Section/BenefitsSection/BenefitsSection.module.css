@@ -74,15 +74,20 @@
 /*           Кнопка               */
 /* ============================== */
 .button {
-  max-width: 300px;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition);
-  margin: 0 auto;
-  display: inline-block;
+  /* background підтримує і звичайний колір, і градієнт */
+    background: var(--button-bg, #47978fbd);
+    /* дефолтний колір на випадок, якщо змінна не задана */
+    color: var(--button-text, #fff);
+    font-weight: 600;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.9rem 2.4rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  
+    /* додатково для красивого ховера можна зробити: */
+    background-size: 200% 200%;
 }
 
 .dark .button {

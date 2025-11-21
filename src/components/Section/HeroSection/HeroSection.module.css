@@ -50,18 +50,19 @@ color: var(--text-color)
 /* ===== Логотип ===== */
 .topRow {
   display: flex;
+  width: 100%;
+  height: auto;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1.5rem;
-  gap: 1rem;
+
 }
 
 /* ===== Розділювач ===== */
 .divider {
   width: 90px;
-  height: 3px;
+  height: 2px;
   background-color: var(--logo-grad-middle);
-  border-radius: 2px;
+  border-radius: 3px;
   margin: 0 auto 2rem;
   opacity: 0.6;
 }

@@ -17,6 +17,20 @@
   --logo-grad-middle: #259caf;
   --logo-grad-end: #d57c41d2;
   --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* ... твої існуючі змінні ... */
+    
+      /* === Розміри логотипа (відповідно до твоїх вимог) === */
+      --logo-size-large: 6rem;
+      /* S і X */
+      --logo-size-mid: 3rem;
+      /* YDRI */
+      --logo-size-medium: 4rem;
+      /* якщо використовується */
+      --logo-size-small: 1.2rem;
+      /* верхній і нижній рядок */
+    
+      /* Шрифт логотипа */
+      --logo-font: 'Verdana', sans-serif;
 }
 
 /* Темна тема */
