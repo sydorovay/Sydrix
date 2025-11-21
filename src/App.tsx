@@ -6,8 +6,9 @@ import { LanguageProvider } from './context/LanguageProvider';
 import AppContent from './components/AppContent/AppContent';
 import LoadingFallback from './components/LoadingFallback/LoadingFallback';
 
-import './styles/themes.css';
+import './styles/globals.css';
 import './styles/index.css';
+import './styles/variables.css';
 
 function logError(error: Error, info: React.ErrorInfo) {
   console.error('[App Error]', error, info);
