@@ -21,11 +21,10 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 600 300"
+        viewBox="0 0 320 80" /* висота під контент + padding */
         className={styles.svgLogo}
         aria-hidden="true"
         focusable="false"
-        style={{ pointerEvents: 'none', userSelect: 'none' }}
       >
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -37,15 +36,6 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
 
         <text
           x="50%"
-          y="35%"
-          className={styles.tagline}
-          fill="url(#grad)"
-        >
-          {top}
-        </text>
-
-        <text
-          x="50%"
           y="50%"
           className={styles.brand}
           fill="url(#grad)"
@@ -53,17 +43,15 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           textAnchor="middle"
           style={{ filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))' }}
         >
-          <tspan className={styles.big}>S</tspan>
+          <tspan className={styles.mid}>S</tspan>
           <tspan className={styles.mid}>YDRI</tspan>
-          <tspan className={styles.big}>X</tspan>
+          <tspan className={styles.mid}>X</tspan>
         </text>
 
-        <text
-          x="50%"
-          y="65%"
-          className={styles.tagline}
-          fill="url(#grad)"
-        >
+        <text x="50%" y="10%" className={styles.tagline} fill="url(#grad)">
+          {top}
+        </text>
+        <text x="50%" y="90%" className={styles.tagline} fill="url(#grad)">
           {bottom}
         </text>
       </svg>

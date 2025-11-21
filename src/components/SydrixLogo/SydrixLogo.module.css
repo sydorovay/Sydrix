@@ -67,25 +67,25 @@
 
 /* Контейнер логотипу */
 .logo {
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 100%;
-  max-width:600px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 20px auto;
+
+  /* внутрішній padding */
+
   pointer-events: none;
   user-select: none;
-  transition: transform 0.3s ease;
 }
 
-/* SVG повністю адаптивний */
+/* SVG повністю адаптивний, без зайвих відступів */
 .svgLogo {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
 }
 
-/* Анімовані кольори градієнтних стопів */
+/* Градієнтні стопи */
 .stop1 {
   stop-color: var(--logo-grad-start);
   animation: stop1 18s ease-in-out infinite;
@@ -101,42 +101,35 @@
   animation: stop3 15s ease-in-out infinite;
 }
 
-/* Стилі для текстових елементів SVG */
+/* Текстові елементи */
 text {
-   font-family: var(--logo-font);
+  font-family: var(--logo-font, 'Verdana');
   text-anchor: middle;
+  dominant-baseline: middle;
   pointer-events: none;
   user-select: none;
 }
 
 .tagline {
-  font-size: var(--logo-size-small);
-  fill-opacity: 0.85;
-}
+  font-size: var(--logo-size-small, 12px);
 
-.big {
-  font-size: var(--logo-size-large);
-  font-weight: 900;
-}
-
-.midLetters {
-  font-size: var(--logo-size-medium);
-  font-weight: 600;
+    font-weight: 200;
 }
 
 .brand {
-  font-size: var(--logo-size-medium);
-  font-weight: 700;;
+  font-size: var(--logo-size-medium, 24px);
+  font-weight: 500;
+    fill-opacity: 0.85;
 }
 
 .brand tspan:first-child,
 .brand tspan:last-child {
-  font-size: var(--logo-size-large);
-  font-weight: 900;
+  font-size: var(--logo-size-large, 36px);
+  font-weight: 600;
 }
 
 .mid {
-  font-size: var(--logo-size-mid);
+  font-size: var(--logo-size-mid, 28px);
   fill-opacity: 1;
-  font-weight: 600;
+  font-weight: 500;
 }
