@@ -66,6 +66,7 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({ phone, email, portfol
           </li>
         ))}
       </ul>
+      <div className={styles.divider} aria-hidden="true" />
     </section>
   );
 };

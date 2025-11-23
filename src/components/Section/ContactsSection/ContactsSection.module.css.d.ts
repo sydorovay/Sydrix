@@ -1,5 +1,6 @@
 declare const styles: {
   readonly "dark": string;
+  readonly "divider": string;
   readonly "item": string;
   readonly "label": string;
   readonly "light": string;
