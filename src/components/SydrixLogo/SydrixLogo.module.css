@@ -112,24 +112,23 @@ text {
 
 .tagline {
   font-size: var(--logo-size-small, 12px);
-
     font-weight: 200;
 }
 
 .brand {
   font-size: var(--logo-size-medium, 24px);
-  font-weight: 500;
+  font-weight: 400;
     fill-opacity: 0.85;
 }
 
 .brand tspan:first-child,
 .brand tspan:last-child {
   font-size: var(--logo-size-large, 36px);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .mid {
   font-size: var(--logo-size-mid, 28px);
   fill-opacity: 1;
-  font-weight: 500;
+  font-weight: 400;
 }
