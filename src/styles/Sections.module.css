@@ -23,12 +23,10 @@
 }
 
 .section.light {
-  background-color: var(--background-color);
   color: var(--text-color);
 }
 
 .section.dark {
-  background-color: #1c1c1c;
   color: #fef8f6;
 }
 
@@ -52,19 +50,21 @@
 /*        Кнопки уніфіковані      */
 /* ============================== */
 .button {
-  display: inline-block;
-  max-width: 320px;
-  padding: 0.85rem 2.2rem;
-  font-size: 1rem;
+  /* background підтримує і звичайний колір, і градієнт */
+  background: var(--button-bg, #47978fbd);
+  /* дефолтний колір на випадок, якщо змінна не задана */
+  color: var(--button-text, #fff);
   font-weight: 600;
-  text-align: center;
-  border-radius: var(--border-radius);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.9rem 2.4rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.35s ease;
-  margin: 2rem auto;
-  border: 2px solid transparent;
-}
+  transition: all 0.3s ease;
 
+  /* додатково для красивого ховера можна зробити: */
+  background-size: 200% 200%;
+}
 .light .button {
   color: var(--text-color);
   background: linear-gradient(135deg, #b6faf3bd, #5ee7df);
