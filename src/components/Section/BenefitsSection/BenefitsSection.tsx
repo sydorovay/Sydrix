@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { BenefitItem, LangData, TFunction } from '@/types/langTypes';
-import styles from '@/styles/Sections.module.css'; // <- глобальний стиль для всіх секцій
+import styles from './BenefitsSection.module.css'; // <- глобальний стиль для всіх секцій
 import { Translate } from '@/components/Translate';
 
 export interface BenefitsProps {
@@ -40,7 +40,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
 
   return (
     <section
-      className={`${styles.section} ${theme === 'dark' ? styles.dark : styles.light}`}
+      className={`${styles.benefitsSection} ${theme === 'dark' ? styles.dark : styles.light}`}
       aria-labelledby="benefits-title"
     >
       <h2 id="benefits-title" className={styles.sectionTitle}>
