@@ -61,37 +61,11 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-
   /* додатково для красивого ховера можна зробити: */
   background-size: 200% 200%;
 }
-.light .button {
-  color: var(--text-color);
-  background: linear-gradient(135deg, #b6faf3bd, #5ee7df);
-  border-color: #0d253a;
-  box-shadow: var(--shadow-light);
-}
 
-.light .button:hover {
-  background: linear-gradient(135deg, #7af5eb, #223d3b);
-  border-color: #144066;
-  transform: translateY(-2px);
-  box-shadow: var(--hover-shadow-light);
-}
 
-.dark .button {
-  color: #e6faff;
-  background: linear-gradient(135deg, #0d253a, #1a3d5c);
-  border-color: #00d4ff;
-  box-shadow: var(--shadow-dark);
-}
-
-.dark .button:hover {
-  background: linear-gradient(135deg, #144066, #21759b);
-  border-color: #33e1ff;
-  transform: translateY(-2px);
-  box-shadow: var(--hover-shadow-dark);
-}
 
 /* ============================== */
 /*         Картки / пости         */

@@ -6,7 +6,7 @@
   text-align: center;
   padding: 2rem 1rem;
   max-width: 1100px;
-  margin: 40px auto 3rem;
+  margin: 15% auto ;
   border-radius: 16px;
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -63,7 +63,7 @@ color: var(--text-color)
   height: 2px;
   background-color: var(--logo-grad-middle);
   border-radius: 3px;
-  margin: 0 auto 2rem;
+  margin: 2rem auto ;
   opacity: 0.6;
 }
 
