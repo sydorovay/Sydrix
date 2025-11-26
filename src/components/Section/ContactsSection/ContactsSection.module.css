@@ -18,8 +18,8 @@
   font-size: clamp(2rem, 4vw, 3rem);
   /* збережено адаптивність */
   font-weight: 700;
-  margin-bottom: 2.4rem;
-  margin-top: 10%;
+  margin-bottom: 6rem;
+  margin-top: 20%;
   background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
   -webkit-background-clip: text;
   background-clip: text;
@@ -29,7 +29,7 @@
 .list {
   list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 6rem auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;

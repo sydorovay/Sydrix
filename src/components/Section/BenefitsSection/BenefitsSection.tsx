@@ -69,6 +69,7 @@ const BenefitsSection: React.FC<BenefitsProps> = ({
         ))}
       </ul>
 
+      <div className={styles.divider} aria-hidden="true" />
       <button
         className={styles.button}
         onClick={() => handleNavigate()}

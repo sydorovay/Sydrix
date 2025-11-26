@@ -5,6 +5,7 @@ declare const styles: {
   readonly "benefitsSection": string;
   readonly "button": string;
   readonly "dark": string;
+  readonly "divider": string;
   readonly "icon": string;
   readonly "light": string;
   readonly "sectionTitle": string;

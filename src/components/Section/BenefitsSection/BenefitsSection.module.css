@@ -14,8 +14,14 @@
 }
 
 .sectionTitle {
-  font-size: var(--font-size-2xl);
-  margin-bottom: 2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+    /* збережено адаптивність */
+    font-weight: 700;
+    margin: 2rem auto;
+    background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @media (min-width: 768px) {
@@ -34,9 +40,17 @@
   gap: 1.5rem;
   justify-content: center;
   padding: 0;
-  margin: 0 0 2rem 0;
+  margin:  2.4rem auto;
 }
 
+.divider {
+  width: 90px;
+  height: 2px;
+  background-color: var(--logo-grad-middle);
+  border-radius: 3px;
+  margin: 2rem auto;
+  opacity: 0.6;
+}
 /* ------------------------------ */
 /*       MOBILE-FIRST (default)   */
 /*  Іконка + назва в один рядок   */
@@ -101,7 +115,9 @@
 /*           Кнопка               */
 /* ============================== */
 .button {
+  /* background підтримує і звичайний колір, і градієнт */
   background: var(--button-bg, #47978fbd);
+  /* дефолтний колір на випадок, якщо змінна не задана */
   color: var(--button-text, #fff);
   font-weight: 600;
   border: none;
@@ -110,35 +126,22 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  /* додатково для красивого ховера можна зробити: */
   background-size: 200% 200%;
 }
-
-.dark .button {
-  color: #e6faff;
-  background: linear-gradient(135deg, #0d253a, #1a3d5c);
-  border: 2px solid #00d4ff;
-  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+.light{
+color: var(--text-light);
 }
-
-.dark .button:hover {
-  background: linear-gradient(135deg, #144066, #21759b);
-  border-color: #33e1ff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 212, 255, 0.35);
+.dark {
+  color: var(--text-dark);
 }
-
-.light .button {
-  color: var(--text-color);
-  background: linear-gradient(135deg, #b6faf3bd, #5ee7df);
-  border: 2px solid #0d253a;
-  box-shadow: 0 4px 12px rgba(13, 37, 58, 0.15);
-}
-
-.light .button:hover {
-  background: linear-gradient(135deg, #7af5eb, #223d3b);
-  border-color: #144066;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(13, 37, 58, 0.25);
+.button:hover,
+.button:focus-visible {
+  filter: brightness(1.1);
+  background-color: #00f5d0;
+  outline: none;
+  transform: scale(1.05);
 }
 
 /* ============================== */

@@ -33,12 +33,13 @@ color: var(--text-color)
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 6rem;
+
+  margin-top: 20%;
 }
 
 /* Слайдер */
 .slider {
-  margin-bottom: 6rem;
+  margin: 8rem auto;
 }
 
 /* Обгортка зображення */
