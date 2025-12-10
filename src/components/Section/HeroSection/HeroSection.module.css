@@ -88,7 +88,7 @@ color: var(--text-color)
 .button:hover,
 .button:focus-visible {
   filter: brightness(1.1);
-  background-color: #00f5d0;
+  background-color:var(--button-hover);
   outline: none;
   transform: scale(1.05);
 }

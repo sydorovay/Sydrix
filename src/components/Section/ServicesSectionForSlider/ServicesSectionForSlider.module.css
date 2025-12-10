@@ -73,10 +73,11 @@
   transform: scale(1.4);
   transition: transform 4s ease-in-out;
 }
-.card:hover .ctaButton{
+
+.card:hover .ctaButton {
   box-shadow: 0 6px 16px rgba(0, 217, 245, 0.18);
   outline: none;
-  background: linear-gradient(90deg, #00f5d0, var(--accent),rgb(12, 150, 169));
+  background: linear-gradient(90deg, #00f5d0, var(--accent), rgb(12, 150, 169));
 }
 
 /* Title */
@@ -88,13 +89,20 @@
 
 /* CTA button */
 .ctaButton {
-  margin-top: 0.25rem;
-  background: linear-gradient(90deg, #00f5d0, var(--accent));
+  /* background підтримує і звичайний колір, і градієнт */
+  background: var(--button-bg, #47978fbd);
+  /* дефолтний колір на випадок, якщо змінна не задана */
+  color: var(--button-text, #fff);
+  font-weight: 600;
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.55rem 1.25rem;
+  border-radius: 2rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.8rem;
   cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: all 0.3s ease;
+
+  /* додатково для красивого ховера можна зробити: */
+  background-size: 200% 200%;
 }
 
 .ctaButton:hover,
@@ -111,19 +119,19 @@
 
 .showMoreButton {
   /* background підтримує і звичайний колір, і градієнт */
-    background: var(--button-bg, #47978fbd);
-    /* дефолтний колір на випадок, якщо змінна не задана */
-    color: var(--button-text, #fff);
-    font-weight: 600;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.9rem 2.4rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  
-    /* додатково для красивого ховера можна зробити: */
-    background-size: 200% 200%;
+  background: var(--button-bg, #47978fbd);
+  /* дефолтний колір на випадок, якщо змінна не задана */
+  color: var(--button-text, #fff);
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.9rem 2.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* додатково для красивого ховера можна зробити: */
+  background-size: 200% 200%;
 }
 
 .showMoreButton:hover,
@@ -132,7 +140,7 @@
   background-color: #00f5d0;
   outline: none;
   transform: scale(1.05);
-} 
+}
 
 .divider {
   width: 90px;
@@ -142,6 +150,7 @@
   margin: 0 auto 2rem;
   opacity: 0.6;
 }
+
 /* Theme variables */
 .light {
   --text: #111;
