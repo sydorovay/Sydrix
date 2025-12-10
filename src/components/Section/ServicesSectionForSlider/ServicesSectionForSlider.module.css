@@ -137,7 +137,7 @@
 .divider {
   width: 90px;
   height: 2px;
-  background-color: var(--logo-grad-middle);
+  background: var(--divider);
   border-radius: 3px;
   margin: 0 auto 2rem;
   opacity: 0.6;

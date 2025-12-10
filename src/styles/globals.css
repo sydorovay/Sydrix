@@ -17,6 +17,8 @@
   --logo-grad-middle: #259caf;
   --logo-grad-end: #d57c41d2;
   --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --divider:linear-gradient(165deg, #5b24a8c5, #3ffefeb8, #18d1f2);
+
     /* ... твої існуючі змінні ... */
     
       /* === Розміри логотипа (відповідно до твоїх вимог) === */
@@ -33,14 +35,7 @@
       --logo-font: 'Verdana', sans-serif;
 }
 
-.divider {
-  width: 90px;
-  height: 2px;
-  background-color: var(--logo-grad-middle);
-  border-radius: 3px;
-  margin: 2rem auto;
-  opacity: 0.6;
-}
+
 
 /* Темна тема */
 body.dark {

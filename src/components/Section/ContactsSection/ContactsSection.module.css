@@ -1,25 +1,24 @@
 /* Base — Mobile First */
 .section {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1rem;
-    border-radius: 12px;
-    max-width: 1024px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
   /* збережено адаптивність */
   font-weight: 700;
-  margin-bottom: 6rem;
-  margin-top: 20%;
+  margin-top: 5%;
   background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
   -webkit-background-clip: text;
   background-clip: text;
@@ -70,18 +69,18 @@
   background-color: rgba(255, 255, 255, 0.03);
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
 
-.link {
-      color: var(--accent-color, #ccf2fe);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-  
-    .link:hover,
-    .link:focus {
-      color: var(--accent-hover,rgb(250, 235, 195));
-      text-decoration: underline;
-    }
+  .link {
+    color: var(--accent-color, #ccf2fe);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .link:hover,
+  .link:focus {
+    color: var(--accent-hover, rgb(250, 235, 195));
+    text-decoration: underline;
+  }
 }
 
 
@@ -90,27 +89,26 @@
 .divider {
   width: 90px;
   height: 2px;
-  background-color: var(--logo-grad-middle);
+  background: var(--divider);
   border-radius: 3px;
-  margin-top: 70px;
   opacity: 0.6;
 }
 
 /* Desktop */
 @media (min-width: 768px) {
   .section {
-    padding: 3rem;
+    padding: 2rem;
   }
 
   .title {
     font-size: 3rem;
   }
 
-  .label{
-        font-size: 1.8rem;
+  .label {
+    font-size: 2rem;
   }
 
   .link {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }

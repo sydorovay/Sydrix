@@ -4,21 +4,21 @@
 .portfolioSection {
   width: 100%;
   margin-inline: auto;
-  padding: 2rem 1rem;
+  padding: 1rem ;
 }
 
 /* Світла / темна тема */
 .light {
-color: var(--text-color)
+color: var(--text-light)
 }
 
 .dark {
-  color: var(--text-color)
+  color: var(--text-dark)
 }
 
 /* Карточка проекту */
 .card {
-  margin-bottom: rem;
+  margin-bottom: 2rem;
   border-radius: var(--radius-md);
   overflow: hidden;
 }
@@ -33,8 +33,7 @@ color: var(--text-color)
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  margin-top: 20%;
+  margin-top: 5%;
 }
 
 /* Слайдер */
@@ -69,7 +68,7 @@ color: var(--text-color)
 .divider {
   width: 90px;
   height: 2px;
-  background-color: var(--logo-grad-middle);
+  background: var(--divider);
   border-radius: 3px;
   margin: 0 auto 2rem;
   opacity: 0.6;
