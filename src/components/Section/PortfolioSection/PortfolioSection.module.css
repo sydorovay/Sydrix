@@ -4,12 +4,12 @@
 .portfolioSection {
   width: 100%;
   margin-inline: auto;
-  padding: 1rem ;
+  padding: 1rem;
 }
 
 /* Світла / темна тема */
 .light {
-color: var(--text-light)
+  color: var(--text-light)
 }
 
 .dark {
@@ -28,12 +28,11 @@ color: var(--text-light)
   font-size: clamp(2rem, 4vw, 3rem);
   /* збережено адаптивність */
   font-weight: 700;
-  margin-bottom: 1.2rem;
-  background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
+  margin-top: 5%;
+  background: var(--title);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 5%;
 }
 
 /* Слайдер */
@@ -77,19 +76,19 @@ color: var(--text-light)
 /* Кнопка */
 .button {
   /* background підтримує і звичайний колір, і градієнт */
-    background: var(--button-bg, #47978fbd);
-    /* дефолтний колір на випадок, якщо змінна не задана */
-    color: var(--button-text, #fff);
-    font-weight: 600;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.9rem 2.4rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  
-    /* додатково для красивого ховера можна зробити: */
-    background-size: 200% 200%;
+  background: var(--button-bg, #47978fbd);
+  /* дефолтний колір на випадок, якщо змінна не задана */
+  color: var(--button-text, #fff);
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.9rem 2.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* додатково для красивого ховера можна зробити: */
+  background-size: 200% 200%;
 }
 
 .button:hover,

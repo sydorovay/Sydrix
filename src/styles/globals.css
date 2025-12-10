@@ -3,6 +3,7 @@
   --font-secondary: 'Montserrat', sans-serif;
 
   --text-color: #080019;
+  --title : linear-gradient(90deg, #01eff8, #02b1fc, #01f6e2);
   --background-color: #fff;
   --border-color: #67eefc;
   --button-bg: linear-gradient(165deg, #14f6e7df,#18d1f2,#5b24a8c5,#3ffefeb8,#18d1f2);
@@ -19,6 +20,8 @@
   --logo-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   --divider:linear-gradient(165deg, #5b24a8c5, #3ffefeb8, #18d1f2);
   --button-hover: #00ffd95e;
+  --card-bg-dark: rgba(89, 1, 95, 0.21);
+  --card-bg-light: rgba(0, 157, 249, 0.173);;
 
     /* ... твої існуючі змінні ... */
     

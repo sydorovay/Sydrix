@@ -27,7 +27,7 @@ color: var(--text-color)
   /* збережено адаптивність */
   font-weight: 700;
   margin-bottom: 4rem ;
-  background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2 );
+  background: var(--title);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

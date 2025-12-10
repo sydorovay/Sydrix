@@ -15,10 +15,11 @@
   font-size: clamp(1.9rem, 3.6vw, 2.6rem);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: linear-gradient(90deg, #00edf5, var(--accent));
+  background: var(--title);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 10%;
 }
 
 /* Grid: внутрішній скрол якщо контент не влазить */
@@ -38,7 +39,7 @@
 
 /* Card */
 .card {
-  background: var(--card-bg);
+ 
   border: 1px solid var(--card-border);
   border-radius: 1.25rem;
   padding: 1.25rem;
@@ -58,26 +59,29 @@
   box-shadow: 0 10px 22px rgba(0, 217, 245, 0.14);
   border-color: rgba(0, 217, 245, 0.35);
   background: transparent;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 /* Icon */
 .icon {
   font-size: 2.6rem;
   color: var(--accent);
-  transition: color 0.2s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .card:focus-visible .icon,
 .card:hover .icon {
   color: #ffea00;
   transform: scale(1.4);
-  transition: transform 4s ease-in-out;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .card:hover .ctaButton {
-  box-shadow: 0 6px 16px rgba(0, 217, 245, 0.18);
+  box-shadow: 0 1px 2px #ffea00;
+  ;
   outline: none;
-  background: linear-gradient(90deg, #00f5d0, var(--accent), rgb(12, 150, 169));
+  background: var(--divider);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 /* Title */
@@ -99,7 +103,7 @@
   padding: 0.8rem 1.6rem;
   font-size: 0.8rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 
   /* додатково для красивого ховера можна зробити: */
   background-size: 200% 200%;
@@ -114,7 +118,7 @@
 
 /* Show more */
 .showMoreWrapper {
-  margin-top: 1.25rem;
+  margin-top: 6rem;
 }
 
 .showMoreButton {
@@ -128,7 +132,7 @@
   padding: 0.9rem 2.4rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 
   /* додатково для красивого ховера можна зробити: */
   background-size: 200% 200%;
@@ -153,6 +157,7 @@
 
 /* Theme variables */
 .light {
+  .card {background: var(--card-bg-light);}
   --text: #111;
   --card-bg: rgba(1, 219, 253, 0.06);
   --card-border: rgba(0, 0, 0, 0.06);
@@ -160,9 +165,6 @@
 }
 
 .dark {
-  --background: #05060a;
-  --text: #fff;
-  --card-bg: rgba(255, 255, 255, 0.04);
   --card-border: rgba(255, 255, 255, 0.06);
   --accent: #00d9f5;
 }
