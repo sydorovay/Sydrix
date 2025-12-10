@@ -33,9 +33,18 @@
       --logo-font: 'Verdana', sans-serif;
 }
 
+.divider {
+  width: 90px;
+  height: 2px;
+  background-color: var(--logo-grad-middle);
+  border-radius: 3px;
+  margin: 2rem auto;
+  opacity: 0.6;
+}
+
 /* Темна тема */
 body.dark {
-  --text-color: #fef8f6;
+  --text-color: #d5fffa;
   --background-color: #1c1c1c;
   --border-color: #444;
   --button-bg: linear-gradient(145deg, #14949a,#300261bf, #05c0f995);

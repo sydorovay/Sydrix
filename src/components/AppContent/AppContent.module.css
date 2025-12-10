@@ -2,7 +2,6 @@
 .app {
   display: flex;
   flex-direction: column;
-  
   overflow: hidden;
   color: var(--text-color);
 }
@@ -27,22 +26,20 @@
 
 /* ========== Scroll Wrapper ========== */
 .snapContainer {
-  flex: 1 1 auto;
+
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   /* padding-bottom: 4rem; */
-  /* резерв для footer */
-  /* box-sizing: border-box; */
-
+  box-sizing: border-box;
   /* Custom Scrollbar */
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb-color) transparent;
 }
 
 .snapContainer::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 .snapContainer::-webkit-scrollbar-track {
@@ -51,7 +48,7 @@
 
 .snapContainer::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb-color);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 /* ========== Snap Section ========== */
@@ -61,7 +58,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   min-height: 100vh;
   width: 100%;
   text-align: center;
@@ -72,13 +69,13 @@
 
 @media (min-width: 768px) {
   .snapSection {
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
   }
 }
 
 /* ========== Секція (для About, Info тощо) ========== */
 .section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.6rem;
   background: var(--section-bg);
   padding: 1rem;
   border-radius: 8px;
