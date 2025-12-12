@@ -1,6 +1,4 @@
-/* src/components/FullPageSlider/FullPageSlider.module.css */
 
-/* Container scroll system */
 .snapContainer {
   display: flex;
   flex-direction: column;
@@ -11,78 +9,59 @@
   scroll-behavior: smooth;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
-
   scrollbar-width: auto;
   scrollbar-color: rgba(3, 237, 254, 0.328) transparent;
-
 }
-
 .snapContainer::-webkit-scrollbar {
   width: 6px;
 }
-
 .snapContainer::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .snapContainer::-webkit-scrollbar-thumb {
   border-radius: 5px;
 }
-
-/* Themings */
 .light {
   color: var(--text-bottom-color);
 }
-
 .dark {
   color: var(--text-bottom-color);
 }
-
-/* Snap sections */
 .snapSection {
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 1.5rem 1rem;
   width: 100%;
   text-align: center;
   box-sizing: border-box;
 }
-
 @media (min-width: 768px) {
   .snapSection {
     padding: 3rem 2rem;
   }
 }
-
 /* Back to top button */
 .topButton {
   position: fixed;
   bottom: 24px;
   right: 24px;
-
   width: 44px;
   height: 44px;
   border: 1px solid rgba(127, 20, 3, 0.397);
   border-radius: 50%;
-
   background-color: rgba(170, 58, 21, 0.617);
   color: rgb(3, 199, 173);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   z-index: 100;
-
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-
 .topButton:hover,
 .topButton:focus-visible {
   background-color: rgba(198, 66, 46, 0.397);;
@@ -91,7 +70,6 @@
   color:rgb(4, 252, 219);
   border: 1px solid rgba(1, 234, 251, 0.587)
 }
-
 @media (max-width: 767px) {
   .topButton {
     bottom: 16px;
@@ -100,16 +78,12 @@
     height: 36px;
   }
 }
-
-/* Titles (left intact for compatibility) */
 .title {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
-
 @media (min-width: 768px) {
   .title {
     font-size: 2rem;
-
   }
 }

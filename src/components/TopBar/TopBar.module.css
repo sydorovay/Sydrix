@@ -49,6 +49,7 @@
   background-color: rgba(0, 0, 0, 0.05);
   outline: none;
 }
+
 .nav {
   display: flex;
   align-items: center;
@@ -79,19 +80,17 @@
   }
 
 }
+
 @media (min-width: 768px) {
-    .center {
-        order: 3;
-      }
-    
-      .right {
-        order: 2;
-      }
-    
-      .left {
-        order: 1;
-      }
-      .logo {
-          margin-right: 20%;
-      }
+  .center {
+    order: 3;
+  }
+
+  .right {
+    order: 2;
+  }
+
+  .left {
+    order: 1;
+  }
 }

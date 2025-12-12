@@ -1,119 +1,119 @@
-/* ========== Базова структура ========== */
-.app {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  color: var(--text-color);
-}
+  /* ========== Базова структура ========== */
+  .app {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--text-color);
+  }
 
-/* Теми */
-.light {
-  background-color: var(--light-bg);
-  color: var(--light-text);
-}
+  /* Теми */
+  .light {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+  }
 
-.dark {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
+  .dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
 
-/* ========== Header Wrapper ========== */
-.headerArea {
-  display: flex;
-  position: relative;
-  z-index: 10;
-}
+  /* ========== Header Wrapper ========== */
+  .headerArea {
+    display: flex;
+    position: relative;
+    z-index: 10;
+  }
 
-/* ========== Scroll Wrapper ========== */
-.snapContainer {
-
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  /* padding-bottom: 4rem; */
-  box-sizing: border-box;
-  /* Custom Scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb-color) transparent;
-}
-
-.snapContainer::-webkit-scrollbar {
-  width: 5px;
-}
-
-.snapContainer::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.snapContainer::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-color);
-  border-radius: 4px;
-}
-
-/* ========== Snap Section ========== */
-.snapSection {
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 1rem;
-  min-height: 100vh;
+  /* ========== Scroll Wrapper ========== */
+  .snapContainer {
   width: 100%;
-  text-align: center;
-  background-color: inherit;
-  box-sizing: border-box;
-  scroll-margin-top: 0;
-}
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* padding-bottom: 4rem; */
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) transparent;
+  }
 
-@media (min-width: 768px) {
+  .snapContainer::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .snapContainer::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .snapContainer::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: 4px;
+  }
+
   .snapSection {
-    padding: 2rem 2rem;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    background-color: inherit;
+    box-sizing: border-box;
+    scroll-margin-top: 0;
   }
-}
 
-/* ========== Секція (для About, Info тощо) ========== */
-.section {
-  margin-bottom: 2.6rem;
-  background: var(--section-bg);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: 0.3s ease;
-}
-
-/* ========== Кнопка "Вгору" ========== */
-
-@media (max-width: 767px) {
-  .topButton {
-    bottom: 16px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
+  @media (min-width: 768px) {
+    .snapSection {
+      padding: 2rem 2rem;
+    }
   }
-}
 
-/* ========== Fallback для помилок ========== */
-.fallback {
-  padding: 2rem;
-  text-align: center;
-  font-size: 1.25rem;
-}
+  /* ========== Секція (для About, Info тощо) ========== */
+  .section {
+    margin-bottom: 2.6rem;
+    background: var(--section-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+  }
 
-/* ========== Заголовок ========== */
-.title {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: inherit;
-}
+  /* ========== Кнопка "Вгору" ========== */
 
-@media (min-width: 768px) {
+  @media (max-width: 767px) {
+    .topButton {
+      bottom: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  /* ========== Fallback для помилок ========== */
+  .fallback {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+
+  /* ========== Заголовок ========== */
   .title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: inherit;
   }
-}
 
-.topHalf {
-  list-style: none;
-}
+  @media (min-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+  }
+
+  .topHalf {
+    list-style: none;
+  }

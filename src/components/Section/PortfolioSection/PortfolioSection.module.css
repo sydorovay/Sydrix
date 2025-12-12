@@ -4,7 +4,6 @@
 .portfolioSection {
   width: 100%;
   margin-inline: auto;
-  padding: 1rem;
 }
 
 /* Світла / темна тема */
@@ -23,10 +22,8 @@
   overflow: hidden;
 }
 
-/* Заголовок карточки */
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
-  /* збережено адаптивність */
   font-weight: 700;
   margin-top: 5%;
   background: var(--title);
@@ -35,7 +32,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Слайдер */
+
 .slider {
   margin: 8rem auto;
 }

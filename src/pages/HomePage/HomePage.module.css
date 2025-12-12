@@ -1,4 +1,3 @@
-/* Mobile-first styles for HomePage wrapper */
 .page {
   width: 100%;
   min-height: 100vh;
@@ -12,7 +11,7 @@
 /* container constrains content for very wide screens */
 .container {
   width: 100%;
-  max-width: 1600px;
+  max-width: 100%;
   margin: 0 auto;
   display: block;
   flex: 1 1 auto;
@@ -27,7 +26,6 @@
   color: var(--text);
 }
 
-/* small screens padding */
 @media (max-width: 640px) {
   .container {
     padding: 0;
@@ -37,6 +35,6 @@
 /* larger screens add side paddings */
 @media (min-width: 1024px) {
   .container {
-    padding: 0 2rem;
+    padding: 0
   }
 }

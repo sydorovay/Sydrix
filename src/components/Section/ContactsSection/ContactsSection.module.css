@@ -7,7 +7,6 @@
   text-align: center;
   padding: 2rem 1rem;
   border-radius: 12px;
-  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -16,7 +15,6 @@
 
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
-  /* збережено адаптивність */
   font-weight: 700;
   margin-top: 5%;
   background: var(--title);
@@ -59,7 +57,6 @@
   text-decoration: underline;
 }
 
-/* Light/Dark themes */
 .light {
   color: var(--text-color);
 }
@@ -83,9 +80,6 @@
   }
 }
 
-
-
-/* ===== Розділювач ===== */
 .divider {
   width: 90px;
   height: 2px;
@@ -94,7 +88,6 @@
   opacity: 0.6;
 }
 
-/* Desktop */
 @media (min-width: 768px) {
   .section {
     padding: 2rem;

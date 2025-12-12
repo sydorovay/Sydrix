@@ -3,7 +3,6 @@
   position: relative;
   display: inline-block;
 }
-
 /* BUTTON */
 .button {
   display: flex;
@@ -15,25 +14,21 @@
   cursor: pointer;
   transition: background-color var(--transition), box-shadow var(--transition);
 }
-
 .button:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease
 }
-
 .flag {
-
   width: 24px;
   height: auto;
   border-radius: 3px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
-
-
 .dropdown {
   position: absolute;
   top: 26px;
-  right: 26px;
+      right: 0;
+      transform: translateX(26px);    
   background: linear-gradient(#294d76ec 0%,  #8fc2e6e6 20% ,  #caecfaee 40%,#fef9f6 100%) ;
   border: 1px solid var(--dropdown-border);
   border-radius: 0.5rem;
@@ -46,22 +41,17 @@
   z-index: 20;
   border: 1px solid #c4bef8;
 }
-
 .open {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-
 }
-
 .open {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
   z-index: 20;
 }
-
-/* OPTION */
 .option {
   display: flex;
   align-items: center;
@@ -76,12 +66,10 @@
   transition: background-color var(--transition), color var(--transition);
   outline: none;
 }
-
 .option:hover,
 .option:focus-visible {
   background-color: var(--color-hover);
   color: var(--color-accent, #0066cc);
-  /* fallback if accent не заданий */
 }
 .flagSmall {
   width: 22px;
@@ -96,10 +84,8 @@
 /* Responsive */
 @media (max-width: 600px) {
   .dropdown {
-right: 100%;
-    transform: translate(30%, -40%);
+margin-right: 0;
   }
-
   .open {
     transform: translate(20%, 5%);
   }

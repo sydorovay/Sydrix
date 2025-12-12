@@ -22,20 +22,15 @@
   --button-hover: #00ffd95e;
   --card-bg-dark: rgba(89, 1, 95, 0.21);
   --card-bg-light: rgba(0, 157, 249, 0.173);;
-
-    /* ... твої існуючі змінні ... */
     
-      /* === Розміри логотипа (відповідно до твоїх вимог) === */
       --logo-size-large: 5rem;
       /* S і X */
       --logo-size-mid: 2.4rem;
       /* YDRI */
       --logo-size-medium: 3.6vw;
-      /* якщо використовується */
+
       --logo-size-small: 0.8rem;
-      /* верхній і нижній рядок */
-    
-      /* Шрифт логотипа */
+
       --logo-font: 'Verdana', sans-serif;
 }
 

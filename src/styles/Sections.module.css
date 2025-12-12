@@ -1,8 +1,3 @@
-/* Sections.module.css */
-
-/* ============================== */
-/*         Базові змінні          */
-/* ============================== */
 :root {
   --transition: 0.3s ease-in-out;
   --border-radius: 12px;
@@ -12,13 +7,9 @@
   --hover-shadow-dark: 0 6px 16px rgba(0, 212, 255, 0.35);
 }
 
-/* ============================== */
-/*       Секція загалом           */
-/* ============================== */
 .section {
   width: 100%;
-  padding: var(--spacing-lg) var(--spacing-md);
-  box-sizing: border-box;
+
   transition: background-color var(--transition), color var(--transition);
 }
 
@@ -30,9 +21,6 @@
   color: #fef8f6;
 }
 
-/* ============================== */
-/*         Заголовок секції       */
-/* ============================== */
 .sectionTitle {
   font-size: var(--font-size-2xl);
   font-weight: 600;
@@ -46,13 +34,8 @@
   }
 }
 
-/* ============================== */
-/*        Кнопки уніфіковані      */
-/* ============================== */
 .button {
-  /* background підтримує і звичайний колір, і градієнт */
   background: var(--button-bg, #47978fbd);
-  /* дефолтний колір на випадок, якщо змінна не задана */
   color: var(--button-text, #fff);
   font-weight: 600;
   border: none;
@@ -61,15 +44,9 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  /* додатково для красивого ховера можна зробити: */
   background-size: 200% 200%;
 }
 
-
-
-/* ============================== */
-/*         Картки / пости         */
-/* ============================== */
 .card,
 .post,
 .benefitItem {
@@ -100,9 +77,6 @@
   box-shadow: var(--hover-shadow-dark);
 }
 
-/* ============================== */
-/*        Списки та елементи      */
-/* ============================== */
 .benefitsList,
 .posts {
   display: flex;
@@ -132,9 +106,6 @@
   margin: var(--spacing-xs) 0;
 }
 
-/* ============================== */
-/*         Зображення             */
-/* ============================== */
 .imageWrapper {
   width: 100%;
   overflow: hidden;
@@ -160,9 +131,6 @@
   font-style: italic;
 }
 
-/* ============================== */
-/*        Модальні вікна          */
-/* ============================== */
 .overlay {
   position: fixed;
   top: 0;
@@ -198,8 +166,8 @@
 }
 
 .dark .modal {
-  background-color: #1c1c1c;
-  color: #fef8f6;
+  background-color: #0424834e;
+  color: var(--text-dark);
   box-shadow: var(--shadow-dark);
 }
 
@@ -232,18 +200,13 @@
   line-height: 1.5;
 }
 
-/* ============================== */
-/*        Анімації                */
-/* ============================== */
 @keyframes fadeIn {
   to {
     opacity: 1;
   }
 }
 
-/* ============================== */
-/*        Приховані елементи      */
-/* ============================== */
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);

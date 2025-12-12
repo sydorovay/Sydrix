@@ -1,16 +1,13 @@
 .section {
   height: 100vh;
-  /* точно один екран */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
   box-sizing: border-box;
   overflow: hidden;
 }
 
-/* Heading */
 .heading {
   font-size: clamp(1.9rem, 3.6vw, 2.6rem);
   text-transform: uppercase;
@@ -25,15 +22,13 @@
 /* Grid: внутрішній скрол якщо контент не влазить */
 .grid {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1.2rem;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 1rem 0;
   max-height: calc(100vh - 20rem);
-  /* враховує heading + showMore */
   overflow-y: auto;
 }
 
