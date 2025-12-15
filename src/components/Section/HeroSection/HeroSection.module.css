@@ -1,112 +1,134 @@
+/* ========== HERO SECTION (MOBILE FIRST) ========== */
+
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2rem 1rem;
+
+  width: 100%;
   max-width: 1200px;
-  margin: 5% auto ;
-  border-radius: 16px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
   box-sizing: border-box;
+  border-radius: 16px;
+
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.light {
-color: var(--text-color)
+/* Themes */
+.light,
+.dark {
+  color: var(--text-color);
 }
 
-.dark {
-color: var(--text-color)
+/* ========== TOP ROW / LOGO ========== */
+
+.topRow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* ========== TITLE ========== */
+/* Без clamp — Safari стабільніше */
 
 .title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight:700;
-  margin-bottom: 4rem ;
+  margin: 4rem auto;
+  font-size: 1.6rem;
+  /* mobile default */
+  font-weight: 700;
+
   background: var(--title);
+  
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* ========== SUBTITLE ========== */
+
 .subtitleWrapper {
-  margin: 4rem auto;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.75rem;
 }
 
 .subtitleText {
-  font-size: 1.2rem;
-  line-height: 1.7rm;
+  font-size: 0.95rem;
+  line-height: 1.6rem;
+  /* FIX: rm → rem */
   opacity: 0.9;
 }
 
-.topRow {
-  display: flex;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-
-}
+/* ========== DIVIDER ========== */
 
 .divider {
-  width: 90px;
+  width: 80px;
   height: 2px;
+  margin: 1.5rem auto;
   background: var(--divider);
-  border-radius: 3px;
-  margin: 1rem auto ;
+  border-radius: 2px;
   opacity: 0.6;
 }
 
+/* ========== BUTTON ========== */
+
 .button {
-  background: var(--button-bg, #47978fbd);
-  color: var(--button-text, #fff);
+  margin-top: 1.5rem;
+  padding: 0.85rem 2.2rem;
+  font-size: 0.95rem;
   font-weight: 600;
   border: none;
   border-radius: 2rem;
-  padding: 0.9rem 2.4rem;
-  font-size: 1rem;
+  background: var(--button-bg, #47978fbd);
+  color: var(--button-text, #fff);
   cursor: pointer;
-  transition: all 0.3s ease;
-  background-size: 200% 200%;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 .button:hover,
 .button:focus-visible {
-  filter: brightness(1.1);
-  background-color:var(--button-hover);
-  outline: none;
   transform: scale(1.05);
-}
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.8rem;
-  }
-  .subtitleText {
-    font-size: 0.95rem;
-  }
+  filter: brightness(1.1);
+  outline: none;
 }
 
-@media (max-width: 768px) {
+/* ========== SMALL TABLET (≥480px) ========== */
+
+/* @media (min-width: 480px) {
   .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .subtitleText {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
-}
+} */
 
+/* ========== TABLET (≥768px) ========== */
+/* 
 @media (min-width: 768px) {
+  .header {
+    padding:  2rem;
+  }
+
   .title {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
 
   .subtitleText {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
-}
+} */
 
+/* ========== DESKTOP (≥1024px) ========== */
 
+/* @media (min-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+} */

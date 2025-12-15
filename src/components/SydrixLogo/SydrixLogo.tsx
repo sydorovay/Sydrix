@@ -2,7 +2,9 @@ import React from 'react';
 import { LangCode, LangData } from '@/types/langTypes';
 import styles from './SydrixLogo.module.css';
 
-type TranslateFn = <K extends keyof LangData>(key: K) => LangData[K];
+interface TranslateFn {
+  <K extends keyof LangData>(key: K): LangData[K];
+}
 
 interface LogoProps {
   t: TranslateFn;
@@ -21,7 +23,7 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 80" /* висота під контент + padding */
+        viewBox="0 0 320 80"
         className={styles.svgLogo}
         aria-hidden="true"
         focusable="false"
@@ -34,13 +36,25 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           </linearGradient>
         </defs>
 
+        {/* TOP TAGLINE */}
         <text
-          x="50%"
-          y="50%"
+          x="160"
+          y="5"
+          textAnchor="middle"
+          className={styles.tagline}
+          fill="url(#grad)"
+        >
+          {top}
+        </text>
+
+        {/* BRAND */}
+        <text
+          x="160"
+          y="40"
+          dy=".35em"  
+          textAnchor="middle"
           className={styles.brand}
           fill="url(#grad)"
-          dominantBaseline="middle"
-          textAnchor="middle"
           style={{ filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))' }}
         >
           <tspan className={styles.mid}>S</tspan>
@@ -48,10 +62,14 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           <tspan className={styles.mid}>X</tspan>
         </text>
 
-        <text x="50%" y="10%" className={styles.tagline} fill="url(#grad)">
-          {top}
-        </text>
-        <text x="50%" y="85%" className={styles.tagline} fill="url(#grad)">
+        {/* BOTTOM TAGLINE */}
+        <text
+          x="160"
+          y="68"
+          textAnchor="middle"
+          className={styles.tagline}
+          fill="url(#grad)"
+        >
           {bottom}
         </text>
       </svg>

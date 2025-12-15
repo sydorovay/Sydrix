@@ -1,91 +1,62 @@
-/* Анімації градієнту для стопів */
+/* ================== ANIMATIONS (OK, без змін) ================== */
 @keyframes stop1 {
-  0% {
-    stop-color: var(--logo-grad-start);
-  }
-
-  25% {
-    stop-color: var(--logo-grad-middle);
-  }
-
-  50% {
-    stop-color: var(--logo-grad-end);
-  }
-
-  75% {
-    stop-color: var(--logo-grad-middle);
-  }
-
-  100% {
-    stop-color: var(--logo-grad-start);
-  }
+  0% { stop-color: var(--logo-grad-start); }
+  25% { stop-color: var(--logo-grad-middle); }
+  50% { stop-color: var(--logo-grad-end); }
+  75% { stop-color: var(--logo-grad-middle); }
+  100% { stop-color: var(--logo-grad-start); }
 }
 
 @keyframes stop2 {
-  0% {
-    stop-color: var(--logo-grad-middle);
-  }
-
-  25% {
-    stop-color: var(--logo-grad-end);
-  }
-
-  50% {
-    stop-color: var(--logo-grad-start);
-  }
-
-  75% {
-    stop-color: var(--logo-grad-end);
-  }
-
-  100% {
-    stop-color: var(--logo-grad-middle);
-  }
+  0% { stop-color: var(--logo-grad-middle); }
+  25% { stop-color: var(--logo-grad-end); }
+  50% { stop-color: var(--logo-grad-start); }
+  75% { stop-color: var(--logo-grad-end); }
+  100% { stop-color: var(--logo-grad-middle); }
 }
 
 @keyframes stop3 {
-  0% {
-    stop-color: var(--logo-grad-end);
-  }
-
-  25% {
-    stop-color: var(--logo-grad-start);
-  }
-
-  50% {
-    stop-color: var(--logo-grad-middle);
-  }
-
-  75% {
-    stop-color: var(--logo-grad-start);
-  }
-
-  100% {
-    stop-color: var(--logo-grad-end);
-  }
+  0% { stop-color: var(--logo-grad-end); }
+  25% { stop-color: var(--logo-grad-start); }
+  50% { stop-color: var(--logo-grad-middle); }
+  75% { stop-color: var(--logo-grad-start); }
+  100% { stop-color: var(--logo-grad-end); }
 }
 
-/* Контейнер логотипу */
+/* ================== LOGO CONTAINER ================== */
 .logo {
   display: block;
   width: 100%;
-  max-width: 800px;
+  max-width: 360px; /* ✅ FIX: mobile-first */
   margin: 10px auto;
-
-  /* внутрішній padding */
-
   pointer-events: none;
   user-select: none;
 }
 
-/* SVG повністю адаптивний, без зайвих відступів */
+/* Tablet */
+@media (min-width: 768px) {
+  .logo {
+    max-width: 520px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 800px;
+  }
+}
+
+/* ================== SVG ================== */
 .svgLogo {
   display: block;
   width: 100%;
   height: auto;
+
+  overflow: visible; /* ✅ FIX: Safari SVG bug */
 }
 
-/* Градієнтні стопи */
+/* ================== GRADIENT STOPS ================== */
 .stop1 {
   stop-color: var(--logo-grad-start);
   animation: stop1 18s ease-in-out infinite;
@@ -101,24 +72,25 @@
   animation: stop3 15s ease-in-out infinite;
 }
 
-/* Текстові елементи */
+/* ================== TEXT ================== */
 text {
-  font-family: var(--logo-font, 'Verdana');
+  font-family: var(--logo-font, Verdana, system-ui, sans-serif);
   text-anchor: middle;
-  dominant-baseline: middle;
+
   pointer-events: none;
   user-select: none;
 }
 
+/* ================== TYPOGRAPHY ================== */
 .tagline {
   font-size: var(--logo-size-small, 12px);
-    font-weight: 200;
+  font-weight: 200;
 }
 
 .brand {
   font-size: var(--logo-size-medium, 24px);
   font-weight: 400;
-    fill-opacity: 0.85;
+  fill-opacity: 0.85;
 }
 
 .brand tspan:first-child,
