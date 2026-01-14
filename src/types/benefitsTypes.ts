@@ -18,4 +18,5 @@ export interface BenefitItem {
   id: string;
   icon?: React.ComponentType<{ className?: string; 'aria-hidden'?: boolean }>;
   title: string;
+ 
 }

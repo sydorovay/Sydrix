@@ -67,7 +67,7 @@ const fr: LangData = {
   portfolioLabel: "Portfolio",
   viewOnGithub: "Voir sur GitHub",
   noProjectsFound: "Aucun projet trouvé.",
-  
+
   testimonials: "Témoignages",
   testimonialsText: "Merci à tous nos clients pour leurs retours !",
   blogTitle: "Blog",
@@ -207,6 +207,26 @@ const fr: LangData = {
   toggleMenu: "Basculer le menu",
   noPortfolioItems: 'Le portfolio est actuellement vide',
   noImages: 'Aucune image disponible',
+  "impressum.back": "Retour",
+  "impressum.subtitle": "Mentions Légales",
+  "impressum.infoTitle": "Informations selon § 5 TMG",
+  "impressum.owner": "Propriétaire",
+  "impressum.address": "Hochriesstraße 29",
+  "impressum.city": "83209 Prien am Chiemsee, Allemagne",
+  "impressum.contactTitle": "Contact",
+  "impressum.email": "E-mail",
+  "impressum.website": "Site web",
+  "impressum.copyrightTitle": "Droit d'auteur",
+  "impressum.copyrightText": "Le contenu et les œuvres créés par l'exploitant du site sont soumis au droit d'auteur. Toute reproduction nécessite l'accord écrit préalable de l'auteur.",
+  "impressum.rights": "Tous droits réservés.",
+  "impressum.disputeTitle": "Règlement des litiges",
+  "impressum.disputeText": "La Commission européenne propose une plateforme de règlement des litiges en ligne (OS) :",
+  "impressum.disputeFinal": "Je ne suis pas obligé de participer à une procédure de règlement des litiges devant un conseil d'arbitrage.",
+  "impressum.disclaimerTitle": "Clause de non-responsabilité",
+  "impressum.disclaimerText": "Responsabilité relative au contenu : Le contenu de nos pages a été élaboré avec le plus grand soin. Toutefois, nous ne pouvons garantir l'exactitude ou l'exhaustivité des informations. En tant que prestataire de services, nous sommes responsables de nos propres contenus sur ces pages. Responsabilité relative aux liens : Notre offre contient des liens vers des sites web externes de tiers sur lesquels nous n'avons aucune influence et ne pouvons être tenus responsables.",
+  "impressum.taxStatus": "Conformément au § 19 UStG, la TVA n'est pas facturée (statut de petite entreprise).",
+  "impressum.responsible": "Responsable du contenu selon le § 18 MStV",
+  "impressum.phone": "Téléphone"
 };
 
 export default fr;

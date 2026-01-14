@@ -206,6 +206,26 @@ const pl: LangData = {
   cookieConsent: "Ta strona używa plików cookie w celu poprawy komfortu użytkowania.",
   noPortfolioItems: 'Portfolio jest obecnie puste',
   noImages: 'Brak dostępnych obrazów',
+  "impressum.back": "Retour",
+  "impressum.subtitle": "Mentions Légales",
+  "impressum.infoTitle": "Informations selon § 5 TMG",
+  "impressum.owner": "Propriétaire",
+  "impressum.address": "Hochriesstraße 29",
+  "impressum.city": "83209 Prien am Chiemsee, Niemcy",
+  "impressum.contactTitle": "Contact",
+  "impressum.email": "E-mail",
+  "impressum.website": "Site web",
+  "impressum.copyrightTitle": "Droit d'auteur",
+  "impressum.copyrightText": "Le contenu et les œuvres créés par l'exploitant du site sont soumis au droit d'auteur. Toute reproduction nécessite l'accord écrit préalable de l'auteur.",
+  "impressum.rights": "Tous droits réservés.",
+  "impressum.disputeTitle": "Règlement des litiges",
+  "impressum.disputeText": "La Commission européenne propose une plateforme de règlement des litiges en ligne (OS) :",
+  "impressum.disputeFinal": "Je ne suis pas obligé de participer à une procédure de règlement des litiges devant un conseil d'arbitrage.",
+  "impressum.disclaimerTitle": "Wyłączenie odpowiedzialności",
+  "impressum.disclaimerText": "Odpowiedzialność za treści: Treści naszych stron zostały przygotowane z najwyższą starannością. Nie możemy jednak zagwarantować ich poprawności, kompletności ani aktualności. Jako dostawca usług odpowiadamy za własne treści na tych stronach zgodnie z ogólnymi przepisami prawa. Odpowiedzialność за linki: Nasza oferta zawiera linki do zewnętrznych stron internetowych osób trzecich, na których treści nie mamy wpływu i nie ponosimy za nie odpowiedzialności.",
+  "impressum.taxStatus": "Zgodnie з § 19 UStG podatek VAT nie jest naliczany (status małej firmy).",
+  "impressum.responsible": "Osoba odpowiedzialna za treść zgodnie z § 18 MStV",
+  "impressum.phone": "Telefon"
 };
 
 export default pl;

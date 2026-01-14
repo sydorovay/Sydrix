@@ -1,5 +1,5 @@
 import benefitsDataIt from '../data/BenefitsData/benefitsDataIt';
-import { LangData } from '../types/langTypes';
+import { BenefitItem, LangData } from '../types/langTypes';
 
 const it: LangData = {
   id: '',
@@ -64,7 +64,7 @@ const it: LangData = {
   portfolioLabel: "Portfolio",
   viewOnGithub: "Vedi su GitHub",
   noProjectsFound: "Nessun progetto trovato.",
-  
+
   testimonials: "Testimonianze",
   testimonialsText: "Grazie a tutti i nostri clienti per i feedback!",
   blogTitle: "Blog",
@@ -199,6 +199,26 @@ const it: LangData = {
   toggleMenu: "Apri/chiudi menu",
   noPortfolioItems: 'Il portfolio è attualmente vuoto',
   noImages: 'Nessuna immagine disponibile',
+  "impressum.back": "Indietro",
+  "impressum.subtitle": "Note Legali",
+  "impressum.infoTitle": "Informazioni ai sensi del § 5 TMG",
+  "impressum.owner": "Titolare",
+  "impressum.address": "Hochriesstraße 29",
+  "impressum.city": "83209 Prien am Chiemsee, Germania",
+  "impressum.contactTitle": "Contatti",
+  "impressum.email": "E-mail",
+  "impressum.website": "Sito web",
+  "impressum.copyrightTitle": "Diritto d'autore",
+  "impressum.copyrightText": "I contenuti e le opere creati dal gestore del sito su queste pagine sono soggetti alla legge sul diritto d'autore. La riproduzione, l'elaborazione o la distribuzione richiedono il previo consenso scritto dell'autore.",
+  "impressum.rights": "Tutti i diritti riservati.",
+  "impressum.disputeTitle": "Risoluzione delle controversie",
+  "impressum.disputeText": "La Commissione Europea fornisce una piattaforma per la risoluzione delle controversie online (OS):",
+  "impressum.disputeFinal": "Non sono obbligato a partecipare a procedimenti di risoluzione delle controversie dinanzi a un organo di arbitraggio per i consumatori.",
+  "impressum.disclaimerTitle": "Esclusione di responsabilità",
+  "impressum.disclaimerText": "Responsabilità per i contenuti: I contenuti delle nostre pagine sono stati creati con la massima cura. Tuttavia, non possiamo garantire l'accuratezza o l'attualità delle informazioni. Come fornitori di servizi, siamo responsabili dei nostri contenuti su queste pagine. Responsabilità per i link: Il nostro sito contiene link a siti web esterni di terzi, sui cui contenuti non abbiamo alcuna influenza e pertanto non possiamo assumere alcuna responsabilità.", 
+  "impressum.taxStatus": "Ai sensi del § 19 UStG, l'IVA non viene applicata (regime delle piccole imprese).",
+  "impressum.responsible": "Responsabile dei contenuti ai sensi del § 18 MStV",
+  "impressum.phone": "Telefono"
 };
 
 export default it;

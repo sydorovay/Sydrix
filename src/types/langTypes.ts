@@ -37,6 +37,30 @@ export type LangData = {
   portfolioDescription5: string;
   portfolioDescription6: string;
 
+  "impressum.back": string;
+  "impressum.subtitle": string;
+  "impressum.infoTitle": string;
+  "impressum.owner": string;
+  "impressum.address": string;
+  "impressum.city": string;
+  "impressum.contactTitle": string;
+  "impressum.email": string;
+  "impressum.website": string;
+  "impressum.copyrightTitle": string;
+  "impressum.copyrightText": string;
+  "impressum.rights": string;
+  "impressum.disputeTitle": string;
+  "impressum.disputeText": string;
+  "impressum.disputeFinal": string;
+  "impressum.disclaimerTitle": string;
+  "impressum.disclaimerText": string;
+  "impressum.taxStatus": string;
+  "impressum.responsible": string;
+  "impressum.phone": string;
+
+
+
+
 
   link?: string;
   portfolioDescription: string;

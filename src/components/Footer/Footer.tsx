@@ -12,15 +12,23 @@ const Footer: FC<FooterProps> = ({ t, theme }) => {
   const themeClass = theme === 'light' ? styles.light : styles.dark;
   const year = new Date().getFullYear();
 
+
+  const impressumText = "Impressum";
+  const privacyText = "Privacy";
+
   return (
     <footer className={`${styles.footer} ${themeClass}`} role="contentinfo">
-      {typeof footerContent === 'string' || typeof footerContent === 'number' ? (
+      <div className={styles.footerContainer}>
         <p className={styles.footerText}>
-          &copy; {year} {footerContent}
+          &copy; {year} {typeof footerContent === 'string' ? footerContent : 'sydrix.dev'}
         </p>
-      ) : (
-        footerContent
-      )}
+
+        <div className={styles.legalLinks}>
+          <a href="/impressum" className={styles.legalLink}>{impressumText}</a>
+          <span className={styles.divider}>•</span>
+          <a href="/privacy" className={styles.legalLink}>{privacyText}</a>
+        </div>
+      </div>
     </footer>
   );
 };

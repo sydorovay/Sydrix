@@ -209,6 +209,27 @@ const gb: LangData = {
   cookieConsent: "This website uses cookies to improve your experience.",
   noPortfolioItems: 'Portfolio is currently empty',
   noImages: 'No images available',
+
+  "impressum.back": "Back",
+  "impressum.subtitle": "Legal Notice",
+  "impressum.infoTitle": "Information according to § 5 TMG",
+  "impressum.owner": "Owner",
+  "impressum.address": "Hochriesstraße 29",
+  "impressum.city": "83209 Prien am Chiemsee, Germany",
+  "impressum.contactTitle": "Contact",
+  "impressum.email": "Email",
+  "impressum.website": "Website",
+  "impressum.copyrightTitle": "Copyright Notice",
+  "impressum.copyrightText": "The content and works created by the site operator on these pages are subject to copyright law. Duplication or distribution requires prior written consent.",
+  "impressum.rights": "All rights reserved.",
+  "impressum.disputeTitle": "Dispute Resolution",
+  "impressum.disputeText": "The European Commission provides a platform for online dispute resolution (OS):",
+  "impressum.disputeFinal": "I am not obliged to participate in dispute resolution proceedings before an arbitration board.",
+  "impressum.disclaimerTitle": "Legal Disclaimer",
+  "impressum.disclaimerText": "Liability for Content: The contents of our pages were created with great care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general laws. Liability for Links: Our site contains links to external third-party websites, over whose content we have no influence. Therefore, we cannot accept any liability for this external content.",
+  "impressum.taxStatus": "According to § 19 UStG, no VAT is charged (Small Business Status).",
+  "impressum.responsible": "Responsible for content according to § 18 MStV",
+  "impressum.phone": "Phone"
 };
 
 export default gb;
