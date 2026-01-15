@@ -47,19 +47,18 @@ const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
           {top}
         </text>
 
-        {/* BRAND */}
+        {/* BRAND - Збережено твою структуру позиціонування */}
         <text
           x="160"
           y="40"
-          dy=".35em"  
+          dy=".35em"
           textAnchor="middle"
           className={styles.brand}
           fill="url(#grad)"
-          style={{ filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))' }}
         >
-          <tspan className={styles.mid}>S</tspan>
+          <tspan>S</tspan>
           <tspan className={styles.mid}>YDRI</tspan>
-          <tspan className={styles.mid}>X</tspan>
+          <tspan>X</tspan>
         </text>
 
         {/* BOTTOM TAGLINE */}
