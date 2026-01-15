@@ -115,7 +115,7 @@ const Impressum: FC<ImpressumProps> = ({ t }) => {
               </div>
             </div>
             <p className={styles.copyrightBrand}>
-              © {year} SYDRIX.DEV — {t('impressum.rights')}
+              © 2025 - {year} SYDRIX.DEV — {t('impressum.rights')}
             </p>
           </section>
 

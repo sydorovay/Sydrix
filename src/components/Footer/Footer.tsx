@@ -17,7 +17,7 @@ const Footer: FC<FooterProps> = ({ t, theme }) => {
       <div className={styles.footerContainer}>
         {/* Використовуємо твій клас footerText */}
         <p className={styles.footerText}>
-          &copy; {year} sydrix.dev
+          &copy; 2025 - {year} sydrix.dev
         </p>
 
         <div className={styles.legalLinks}>
