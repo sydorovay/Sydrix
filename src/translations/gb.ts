@@ -233,15 +233,15 @@ const gb: LangData = {
   "impressum.copyrightLinkText": "German Copyright Act (UrhG)",
 
   "privacy.title": "Privacy Policy",
-  "privacy.intro": "The protection of your personal data is of particular concern to me. Below, I provide information about data processing on my website.",
-  "privacy.hostingTitle": "1. Hosting and Server Log Files",
-  "privacy.hostingText": "This website is hosted externally. The hoster automatically collects and stores information in so-called server log files (IP address, browser type, date/time). This is technically necessary to ensure the security and stability of the website (Art. 6 Para. 1 lit. f GDPR).",
-  "privacy.dataTitle": "2. Data Collection",
-  "privacy.dataText": "This website is designed purely as a portfolio. No cookies are used, no tracking tools (such as Google Analytics) are employed, and there is no contact form. No personal data is stored beyond the technical server logs.",
-  "privacy.rightsTitle": "3. Your Rights",
-  "privacy.rightsText": "You have the right to information, correction, deletion, and restriction of processing of your personal data, as well as the right to data portability.",
-  "privacy.contactTitle": "4. Controller",
-  "privacy.contactText": "The person responsible for data processing on this website is Artem Sydorov (see Impressum for contact details).",
-};
+  "privacy.intro": "I take the protection of your personal data very seriously. This website is designed to process as little data as possible.",
+  "privacy.hostingTitle": "1. External Hosting",
+  "privacy.hostingText": "This website is hosted by an external service provider (hoster). The personal data collected on this website is stored on the hoster's servers. This primarily includes IP addresses and metadata. The use of the hoster is in the interest of a secure and fast provision of our online service by a professional provider (Art. 6 Para. 1 lit. f GDPR).",
+  "privacy.dataTitle": "2. Data Minimization",
+  "privacy.dataText": "In the spirit of data minimization, this site refrains from using cookies, analysis tools (tracking), and contact forms. No evaluation of your user behavior takes place.",
+  "privacy.rightsTitle": "3. Rights of the Data Subject",
+  "privacy.rightsText": "Under the applicable legal provisions, you have the right at any time to free information about your stored personal data, as well as a right to correction or deletion of this data.",
+  "privacy.contactTitle": "4. Responsible Party",
+  "privacy.contactText": "The party responsible for data processing is Artem Sydorov. Full contact details can be found in the Impressum of this site.",
+}
 
 export default gb;

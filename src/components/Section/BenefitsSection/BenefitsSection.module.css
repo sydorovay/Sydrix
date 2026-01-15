@@ -1,8 +1,4 @@
-/* src/components/Section/BenefitsSection/BenefitsSection.module.css */
 
-/* ============================== */
-/*       Секція Переваг          */
-/* ============================== */
 .benefitsSection {
   width: 100%;
   padding: 2rem 1rem;
@@ -30,9 +26,6 @@
   }
 }
 
-/* ============================== */
-/*       Список Переваг          */
-/* ============================== */
 .benefitsList {
   list-style: none;
   display: flex;
@@ -51,10 +44,7 @@
   margin: 2rem auto;
   opacity: 0.6;
 }
-/* ------------------------------ */
-/*       MOBILE-FIRST (default)   */
-/*  Іконка + назва в один рядок   */
-/* ------------------------------ */
+
 .benefitItem {
   flex: 1 1 180px;
   max-width: 90vh;
@@ -94,10 +84,6 @@
   font-weight: 600;
 }
 
-/* ------------------------------ */
-/*   Tablets / Desktop (≥ 768px)  */
-/*    Іконка + назва в колонку    */
-/* ------------------------------ */
 @media (min-width: 768px) {
   .benefitItem {
     flex-direction: column;
@@ -111,13 +97,9 @@
   }
 }
 
-/* ============================== */
-/*           Кнопка               */
-/* ============================== */
 .button {
-  /* background підтримує і звичайний колір, і градієнт */
   background: var(--button-bg, #47978fbd);
-  /* дефолтний колір на випадок, якщо змінна не задана */
+
   color: var(--button-text, #fff);
   font-weight: 600;
   border: none;
@@ -126,8 +108,6 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-
-  /* додатково для красивого ховера можна зробити: */
   background-size: 200% 200%;
 }
 .light{
@@ -144,9 +124,6 @@ color: var(--text-light);
   transform: scale(1.05);
 }
 
-/* ============================== */
-/*       Адаптивність             */
-/* ============================== */
 @media (max-width: 640px) {
   .benefitsList {
     gap: 1rem;

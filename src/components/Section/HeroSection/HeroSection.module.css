@@ -78,16 +78,18 @@
 /* ========== BUTTON ========== */
 
 .button {
-  margin-top: 1.5rem;
-  padding: 0.85rem 2.2rem;
-  font-size: 0.95rem;
+  /* background підтримує і звичайний колір, і градієнт */
+  background: var(--button-bg, #47978fbd);
+  /* дефолтний колір на випадок, якщо змінна не задана */
+  color: var(--button-text, #fff);
   font-weight: 600;
   border: none;
   border-radius: 2rem;
-  background: var(--button-bg, #47978fbd);
-  color: var(--button-text, #fff);
+  padding: 0.9rem 2.4rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.25s ease, filter 0.25s ease;
+  transition: all 0.3s ease;
+  background-size: 200% 200%;
 }
 
 .button:hover,

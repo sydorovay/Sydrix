@@ -222,15 +222,15 @@ const it: LangData = {
   "impressum.copyrightLinkText": "Legge tedesca sul diritto d'autore (UrhG)",
 
   "privacy.title": "Informativa sulla privacy",
-  "privacy.intro": "La protezione dei vostri dati personali è per me di particolare importanza. Di seguito vi informo sul trattamento dei dati sul mio sito web.",
-  "privacy.hostingTitle": "1. Hosting e file di log del server",
-  "privacy.hostingText": "Questo sito web è ospitato esternamente. L'hoster raccoglie e memorizza automaticamente le informazioni nei cosiddetti file di log del server (indirizzo IP, tipo di browser, data/ora). Ciò è tecnicamente necessario per garantire la sicurezza e la stabilità del sito web (Art. 6 par. 1 lett. f del GDPR).",
-  "privacy.dataTitle": "2. Raccolta dati",
-  "privacy.dataText": "Questo sito è concepito esclusivamente come portfolio. Non vengono utilizzati cookie, non vengono impiegati strumenti di tracciamento (come Google Analytics) e non è presente un modulo di contatto. Non vengono memorizzati dati personali oltre ai log tecnici del server.",
-  "privacy.rightsTitle": "3. I vostri diritti",
-  "privacy.rightsText": "Avete il diritto di accesso, rettifica, cancellazione e limitazione del trattamento dei vostri dati personali, nonché il diritto alla portabilità dei dati.",
+  "privacy.intro": "Prendo molto seriamente la protezione dei vostri dati personali. Questo sito web è progettato per elaborare il minor numero di dati possibile.",
+  "privacy.hostingTitle": "1. Hosting esterno",
+  "privacy.hostingText": "Questo sito web è ospitato da un fornitore di servizi esterno (hoster). I dati personali raccolti su questo sito sono memorizzati sui server dell'hoster. Ciò include principalmente indirizzi IP e metadati. L'impiego dell'hoster avviene nell'interesse di una fornitura sicura e rapida della nostra offerta online da parte di un fornitore professionale (Art. 6 par. 1 lett. f del GDPR).",
+  "privacy.dataTitle": "2. Minimizzazione dei dati",
+  "privacy.dataText": "Nell'ottica della minimizzazione dei dati, questo sito rinuncia all'uso di cookie, strumenti di analisi (tracking) e moduli di contatto. Non viene effettuata alcuna valutazione del comportamento dell'utente.",
+  "privacy.rightsTitle": "3. Diritti dell'interessato",
+  "privacy.rightsText": "Nell'ambito delle disposizioni di legge vigenti, avete il diritto in qualsiasi momento di ricevere informazioni gratuite sui vostri dati personali memorizzati, nonché il diritto alla rettifica o alla cancellazione di tali dati.",
   "privacy.contactTitle": "4. Titolare del trattamento",
-  "privacy.contactText": "Il responsabile del trattamento dei dati su questo sito web è Artem Sydorov (vedi Impressum per i dati di contatto).",
+  "privacy.contactText": "Il responsabile del trattamento dei dati è Artem Sydorov. I dati di contatto completi sono disponibili nell'Impressum di questo sito.",
 };
 
 export default it;

@@ -229,15 +229,15 @@ const pl: LangData = {
   "impressum.copyrightLinkText": "Niemiecka ustawa o prawie autorskim (UrhG)",
 
   "privacy.title": "Polityka prywatności",
-  "privacy.intro": "Ochrona Państwa danych osobowych jest dla mnie priorytetem. Poniżej informuję o przetwarzaniu danych na mojej stronie internetowej.",
-  "privacy.hostingTitle": "1. Hosting i pliki logów serwera",
-  "privacy.hostingText": "Niniejsza strona jest hostowana zewnętrznie. Dostawca hostingu automatycznie zbiera i przechowuje informacje w tzw. plikach logów serwera (adres IP, typ przeglądarki, data/godzina). Jest to technicznie niezbędne dla zapewnienia bezpieczeństwa i stabilności strony (Art. 6 ust. 1 lit. f RODO).",
-  "privacy.dataTitle": "2. Gromadzenie danych",
-  "privacy.dataText": "Ta strona służy wyłącznie jako portfolio. Nie stosuje się plików cookies, nie używa narzędzi śledzących (takich jak Google Analytics) i nie posiada formularza kontaktowego. Żadne dane osobowe nie są przechowywane poza technicznymi logami serwera.",
-  "privacy.rightsTitle": "3. Państwa prawa",
-  "privacy.rightsText": "Mają Państwo prawo do dostępu, sprostowania, usunięcia i ograniczenia przetwarzania swoich danych osobowych, a także prawo do przenoszenia danych.",
-  "privacy.contactTitle": "4. Administrator danych",
-  "privacy.contactText": "Osobą odpowiedzialną za przetwarzanie danych na tej stronie jest Artem Sydorov (dane kontaktowe w sekcji Impressum).",
+  "privacy.intro": "Bardzo poważnie traktuję ochronę Państwa danych osobowych. Niniejsza strona została zaprojektowana tak, aby przetwarzać jak najmniej danych.",
+  "privacy.hostingTitle": "1. Hosting zewnętrzny",
+  "privacy.hostingText": "Niniejsza strona internetowa jest hostowana przez zewnętrznego dostawcę usług (hostera). Dane osobowe gromadzone na tej stronie są przechowywane na serwerach hostera. Obejmuje to głównie adresy IP i metadane. Korzystanie з usług hostera następuje w celu zapewnienia bezpiecznego i szybkiego świadczenia naszych usług online przez profesjonalnego dostawcę (Art. 6 ust. 1 lit. f RODO).",
+  "privacy.dataTitle": "2. Minimalizacja danych",
+  "privacy.dataText": "W trosce o minimalizację danych, niniejsza strona rezygnuje z używania plików cookie, narzędzi analitycznych (trackingu) oraz formularzy kontaktowych. Nie odbywa się żadna ocena zachowań użytkowników.",
+  "privacy.rightsTitle": "3. Prawa osoby, której dane dotyczą",
+  "privacy.rightsText": "W ramach obowiązujących przepisów prawnych mają Państwo w każdej chwili prawo do bezpłatnej informacji o Państwa przechowywanych danych osobowych, a także prawo do ich sprostowania lub usunięcia.",
+  "privacy.contactTitle": "4. Podmiot odpowiedzialny",
+  "privacy.contactText": "Osobą odpowiedzialną za przetwarzanie danych jest Artem Sydorov. Pełne dane kontaktowe znajdują się w sekcji Impressum na tej stronie.",
 };
 
 export default pl;

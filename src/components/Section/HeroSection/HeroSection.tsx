@@ -16,7 +16,6 @@ export default function HeroSection({ theme }: HeroSectionProps) {
     }
   };
 
-  // Підготовка рядків під сабтитли
   const subtitleLines = Array.isArray(t('heroSubtitle'))
     ? t('heroSubtitle')
     : [t('heroSubtitle')];

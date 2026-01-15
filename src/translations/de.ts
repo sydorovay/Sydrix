@@ -232,15 +232,15 @@ const de: LangData = {
   "impressum.copyrightLinkText": "Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG)",
 
   "privacy.title": "Datenschutzerklärung",
-  "privacy.intro": "Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen. Nachfolgend informiere ich Sie über die Datenverarbeitung auf meiner Webseite.",
-  "privacy.hostingTitle": "1. Hosting und Server-Log-Files",
-  "privacy.hostingText": "Diese Webseite wird extern gehostet. Der Hoster erhebt und speichert automatisch Informationen in sogenannten Server-Log-Files (IP-Adresse, Browsertyp, Datum/Uhrzeit). Dies ist technisch notwendig, um die Sicherheit und Stabilität der Webseite zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO).",
-  "privacy.dataTitle": "2. Datenerhebung",
-  "privacy.dataText": "Diese Webseite ist als reines Portfolio konzipiert. Es werden keine Cookies verwendet, keine Tracking-Tools (wie Google Analytics) eingesetzt und es gibt kein Kontaktformular. Es werden keine personenbezogenen Daten über die Server-Logs hinaus gespeichert.",
-  "privacy.rightsTitle": "3. Ihre Rechte",
-  "privacy.rightsText": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit.",
-  "privacy.contactTitle": "4. Verantwortlicher",
-  "privacy.contactText": "Verantwortlich für die Datenverarbeitung auf dieser Webseite ist Artem Sydorov (Kontaktdaten siehe Impressum).",
+  "privacy.intro": "Ich nehme den Schutz Ihrer persönlichen Daten sehr ernst. Diese Webseite ist so konzipiert, dass so wenig Daten wie möglich verarbeitet werden.",
+  "privacy.hostingTitle": "1. Externes Hosting",
+  "privacy.hostingText": "Diese Webseite wird bei einem externen Dienstleister gehostet (Hoster). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Dies umfasst primär IP-Adressen und Metadaten. Der Einsatz des Hosters erfolgt im Interesse einer sicheren und schnellen Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).",
+  "privacy.dataTitle": "2. Datensparsamkeit",
+  "privacy.dataText": "Im Sinne der Datensparsamkeit verzichtet diese Seite auf den Einsatz von Cookies, Analyse-Tools (Tracking) und Kontaktformularen. Es findet keine Auswertung Ihres Nutzerverhaltens statt.",
+  "privacy.rightsTitle": "3. Betroffenenrechte",
+  "privacy.rightsText": "Im Rahmen der geltenden gesetzlichen Bestimmungen haben Sie jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung oder Löschung dieser Daten.",
+  "privacy.contactTitle": "4. Verantwortliche Stelle",
+  "privacy.contactText": "Der Verantwortliche für die Datenverarbeitung ist Artem Sydorov. Die vollständigen Kontaktdaten finden Sie im Impressum dieser Seite.",
 };
 
 export default de;
