@@ -46,10 +46,10 @@
 /* Back to top button */
 .topButton {
   position: fixed;
-  bottom: 24px;
+  bottom: 44px;
   right: 24px;
   width: 44px;
-  height: 44px;
+  height: 50px;
   border: 1px solid rgba(127, 20, 3, 0.397);
   border-radius: 50%;
   background-color: rgba(170, 58, 21, 0.617);
