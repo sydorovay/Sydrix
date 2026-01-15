@@ -96,6 +96,12 @@ export type LangData = {
   aboutPartners: string;
   aboutClients: string;
   aboutHistory: string;
+  aboutmain: string;
+  aboutPhilosophyTitle: string;
+  aboutPhilosophyText: string;
+
+
+  
 
   services: string;
   servicesTitle: string;
