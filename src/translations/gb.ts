@@ -220,7 +220,6 @@ const gb: LangData = {
   "impressum.email": "Email",
   "impressum.website": "Website",
   "impressum.copyrightTitle": "Copyright Notice",
-  "impressum.copyrightText": "The content and works created by the site operator on these pages are subject to copyright law. Duplication or distribution requires prior written consent.",
   "impressum.rights": "All rights reserved.",
   "impressum.disputeTitle": "Dispute Resolution",
   "impressum.disputeText": "The European Commission provides a platform for online dispute resolution (OS):",
@@ -229,7 +228,9 @@ const gb: LangData = {
   "impressum.disclaimerText": "Liability for Content: The contents of our pages were created with great care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general laws. Liability for Links: Our site contains links to external third-party websites, over whose content we have no influence. Therefore, we cannot accept any liability for this external content.",
   "impressum.taxStatus": "According to § 19 UStG, no VAT is charged (Small Business Status).",
   "impressum.responsible": "Responsible for content according to § 18 MStV",
-  "impressum.phone": "Phone"
+  "impressum.phone": "Phone",
+  "impressum.copyrightText": "The content and works created by the site operator on these pages are subject to copyright law. Duplication, processing, distribution, or any form of use beyond the scope of copyright law requires the prior written consent of the author.",
+  "impressum.copyrightLinkText": "German Copyright Act (UrhG)",
 };
 
 export default gb;

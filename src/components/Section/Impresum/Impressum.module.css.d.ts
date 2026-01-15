@@ -10,7 +10,6 @@ declare const styles: {
   readonly "header": string;
   readonly "infoGrid": string;
   readonly "link": string;
-  readonly "linkWrapper": string;
   readonly "ownerName": string;
   readonly "section": string;
   readonly "sectionTitle": string;

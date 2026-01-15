@@ -217,7 +217,6 @@ const fr: LangData = {
   "impressum.email": "E-mail",
   "impressum.website": "Site web",
   "impressum.copyrightTitle": "Droit d'auteur",
-  "impressum.copyrightText": "Le contenu et les œuvres créés par l'exploitant du site sont soumis au droit d'auteur. Toute reproduction nécessite l'accord écrit préalable de l'auteur.",
   "impressum.rights": "Tous droits réservés.",
   "impressum.disputeTitle": "Règlement des litiges",
   "impressum.disputeText": "La Commission européenne propose une plateforme de règlement des litiges en ligne (OS) :",
@@ -226,7 +225,9 @@ const fr: LangData = {
   "impressum.disclaimerText": "Responsabilité relative au contenu : Le contenu de nos pages a été élaboré avec le plus grand soin. Toutefois, nous ne pouvons garantir l'exactitude ou l'exhaustivité des informations. En tant que prestataire de services, nous sommes responsables de nos propres contenus sur ces pages. Responsabilité relative aux liens : Notre offre contient des liens vers des sites web externes de tiers sur lesquels nous n'avons aucune influence et ne pouvons être tenus responsables.",
   "impressum.taxStatus": "Conformément au § 19 UStG, la TVA n'est pas facturée (statut de petite entreprise).",
   "impressum.responsible": "Responsable du contenu selon le § 18 MStV",
-  "impressum.phone": "Téléphone"
+  "impressum.phone": "Téléphone",
+  "impressum.copyrightText": "Le contenu et les œuvres créés par l'exploitant du site sur ces pages sont soumis au droit d'auteur. Toute reproduction, modification ou distribution au-delà des limites du droit d'auteur nécessite l'accord écrit de l'auteur.",
+  "impressum.copyrightLinkText": "Loi allemande sur le droit d'auteur (UrhG)",
 };
 
 export default fr;

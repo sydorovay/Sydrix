@@ -100,7 +100,20 @@ const Impressum: FC<ImpressumProps> = ({ t }) => {
           {/* Section 4: Copyright */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>{t('impressum.copyrightTitle')}</h2>
-            <p className={styles.text}>{t('impressum.copyrightText')}</p>
+            <div className={styles.text}>
+              <p>{t('impressum.copyrightText')}</p>
+              <div style={{ marginTop: '0.5rem' }}>
+                <a
+                  href="https://www.gesetze-im-internet.de/urhg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.externalLink}
+                  style={{ fontSize: '0.85em' }}
+                >
+                  → {t('impressum.copyrightLinkText')}
+                </a>
+              </div>
+            </div>
             <p className={styles.copyrightBrand}>
               © {year} SYDRIX.DEV — {t('impressum.rights')}
             </p>

@@ -219,16 +219,17 @@ const de: LangData = {
   "impressum.email": "E-Mail",
   "impressum.website": "Webseite",
   "impressum.copyrightTitle": "Urheberrecht",
-  "impressum.copyrightText": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung und Verbreitung bedürfen der schriftlichen Zustimmung.",
   "impressum.rights": "Alle Rechte vorbehalten.",
   "impressum.disputeTitle": "Streitbeilegung",
   "impressum.disputeText": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:",
-  "impressum.disputeFinal": "Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
   "impressum.disclaimerTitle": "Haftungsausschluss",
   "impressum.disclaimerText": "Haftung für Inhalte: Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Haftung für Links: Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.",
+  "impressum.phone": "Telefon",
   "impressum.taxStatus": "Gemäß § 19 UStG wird keine Umsatzsteuer erhoben (Kleinunternehmerstatus).",
   "impressum.responsible": "Verantwortlich für den Inhalt nach § 18 MStV",
-  "impressum.phone": "Telefon",
+  "impressum.disputeFinal": "Ich bin nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+  "impressum.copyrightText": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.",
+  "impressum.copyrightLinkText": "Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG)",
 };
 
 export default de;

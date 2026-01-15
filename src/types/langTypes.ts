@@ -57,6 +57,7 @@ export type LangData = {
   "impressum.taxStatus": string;
   "impressum.responsible": string;
   "impressum.phone": string;
+  "impressum.copyrightLinkText": string;
 
 
 
