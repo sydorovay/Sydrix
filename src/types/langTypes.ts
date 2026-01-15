@@ -58,6 +58,16 @@ export type LangData = {
   "impressum.responsible": string;
   "impressum.phone": string;
   "impressum.copyrightLinkText": string;
+  "privacy.title": string;
+  "privacy.intro": string;
+  "privacy.hostingTitle": string;
+  "privacy.hostingText": string;
+  "privacy.dataText": string;
+  "privacy.dataTitle": string;
+  "privacy.rightsTitle": string; 
+  "privacy.rightsText": string; 
+  "privacy.contactTitle": string; 
+  "privacy.contactText": string;
 
 
 

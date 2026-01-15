@@ -214,12 +214,23 @@ const it: LangData = {
   "impressum.disputeText": "La Commissione Europea fornisce una piattaforma per la risoluzione delle controversie online (OS):",
   "impressum.disputeFinal": "Non sono obbligato a partecipare a procedimenti di risoluzione delle controversie dinanzi a un organo di arbitraggio per i consumatori.",
   "impressum.disclaimerTitle": "Esclusione di responsabilità",
-  "impressum.disclaimerText": "Responsabilità per i contenuti: I contenuti delle nostre pagine sono stati creati con la massima cura. Tuttavia, non possiamo garantire l'accuratezza o l'attualità delle informazioni. Come fornitori di servizi, siamo responsabili dei nostri contenuti su queste pagine. Responsabilità per i link: Il nostro sito contiene link a siti web esterni di terzi, sui cui contenuti non abbiamo alcuna influenza e pertanto non possiamo assumere alcuna responsabilità.", 
+  "impressum.disclaimerText": "Responsabilità per i contenuti: I contenuti delle nostre pagine sono stati creati con la massima cura. Tuttavia, non possiamo garantire l'accuratezza o l'attualità delle informazioni. Come fornitori di servizi, siamo responsabili dei nostri contenuti su queste pagine. Responsabilità per i link: Il nostro sito contiene link a siti web esterni di terzi, sui cui contenuti non abbiamo alcuna influenza e pertanto non possiamo assumere alcuna responsabilità.",
   "impressum.taxStatus": "Ai sensi del § 19 UStG, l'IVA non viene applicata (regime delle piccole imprese).",
   "impressum.responsible": "Responsabile dei contenuti ai sensi del § 18 MStV",
   "impressum.phone": "Telefono",
   "impressum.copyrightText": "I contenuti e le opere creati dal gestore del sito su queste pagine sono soggetti al diritto d'autore. La riproduzione, l'elaborazione, la distribuzione e qualsiasi tipo di utilizzo al di fuori dei limiti del diritto d'autore richiedono il consenso scritto dell'autore.",
   "impressum.copyrightLinkText": "Legge tedesca sul diritto d'autore (UrhG)",
+
+  "privacy.title": "Informativa sulla privacy",
+  "privacy.intro": "La protezione dei vostri dati personali è per me di particolare importanza. Di seguito vi informo sul trattamento dei dati sul mio sito web.",
+  "privacy.hostingTitle": "1. Hosting e file di log del server",
+  "privacy.hostingText": "Questo sito web è ospitato esternamente. L'hoster raccoglie e memorizza automaticamente le informazioni nei cosiddetti file di log del server (indirizzo IP, tipo di browser, data/ora). Ciò è tecnicamente necessario per garantire la sicurezza e la stabilità del sito web (Art. 6 par. 1 lett. f del GDPR).",
+  "privacy.dataTitle": "2. Raccolta dati",
+  "privacy.dataText": "Questo sito è concepito esclusivamente come portfolio. Non vengono utilizzati cookie, non vengono impiegati strumenti di tracciamento (come Google Analytics) e non è presente un modulo di contatto. Non vengono memorizzati dati personali oltre ai log tecnici del server.",
+  "privacy.rightsTitle": "3. I vostri diritti",
+  "privacy.rightsText": "Avete il diritto di accesso, rettifica, cancellazione e limitazione del trattamento dei vostri dati personali, nonché il diritto alla portabilità dei dati.",
+  "privacy.contactTitle": "4. Titolare del trattamento",
+  "privacy.contactText": "Il responsabile del trattamento dei dati su questo sito web è Artem Sydorov (vedi Impressum per i dati di contatto).",
 };
 
 export default it;

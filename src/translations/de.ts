@@ -230,6 +230,17 @@ const de: LangData = {
   "impressum.disputeFinal": "Ich bin nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
   "impressum.copyrightText": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.",
   "impressum.copyrightLinkText": "Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG)",
+
+  "privacy.title": "Datenschutzerklärung",
+  "privacy.intro": "Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen. Nachfolgend informiere ich Sie über die Datenverarbeitung auf meiner Webseite.",
+  "privacy.hostingTitle": "1. Hosting und Server-Log-Files",
+  "privacy.hostingText": "Diese Webseite wird extern gehostet. Der Hoster erhebt und speichert automatisch Informationen in sogenannten Server-Log-Files (IP-Adresse, Browsertyp, Datum/Uhrzeit). Dies ist technisch notwendig, um die Sicherheit und Stabilität der Webseite zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO).",
+  "privacy.dataTitle": "2. Datenerhebung",
+  "privacy.dataText": "Diese Webseite ist als reines Portfolio konzipiert. Es werden keine Cookies verwendet, keine Tracking-Tools (wie Google Analytics) eingesetzt und es gibt kein Kontaktformular. Es werden keine personenbezogenen Daten über die Server-Logs hinaus gespeichert.",
+  "privacy.rightsTitle": "3. Ihre Rechte",
+  "privacy.rightsText": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit.",
+  "privacy.contactTitle": "4. Verantwortlicher",
+  "privacy.contactText": "Verantwortlich für die Datenverarbeitung auf dieser Webseite ist Artem Sydorov (Kontaktdaten siehe Impressum).",
 };
 
 export default de;

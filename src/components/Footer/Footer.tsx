@@ -28,7 +28,7 @@ const Footer: FC<FooterProps> = ({ t, theme }) => {
 
           <span className={styles.divider}>•</span>
 
-          <Link to="/privacy" className={styles.legalLink}>
+          <Link to="/Privacy" className={styles.legalLink}>
             {/* Тимчасово текст, поки не зробимо Privacy сторінку */}
             Privacy
           </Link>

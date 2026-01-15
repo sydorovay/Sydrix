@@ -6,7 +6,8 @@ import TopBar from '../TopBar/TopBar';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import StarsBackgroundWithNebula from '../BackgroundFiberCanvas/StarsBackground';
 import Footer from '../Footer/Footer';
-import Impressum from '../Section/Impresum/Impessum';
+import Impressum from '../Impresum/Impessum';
+import Privacy from '../Privacy/Privacy';
 
 import { useThemeContext } from '@/context/ThemeProvider';
 import { useLanguageContext } from '@/context/LanguageProvider';
@@ -67,10 +68,8 @@ export default function AppContent() {
             <Route path="/blog" element={<BlogPage t={typedT} theme={theme} />} />
             <Route path="/contacts" element={<ContactsPage t={typedT} />} />
 
-            {/* ПЕРЕДАЄМО t У КОМПОНЕНТ IMPRESSUM */}
             <Route path="/impressum" element={<Impressum t={t} />} />
-
-            {/* <Route path="/privacy" element={<Privacy t={t} />} /> */}
+            <Route path="/privacy" element={<Privacy t={t} />} />
 
             <Route
               path="/faq"

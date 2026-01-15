@@ -228,6 +228,17 @@ const fr: LangData = {
   "impressum.phone": "Téléphone",
   "impressum.copyrightText": "Le contenu et les œuvres créés par l'exploitant du site sur ces pages sont soumis au droit d'auteur. Toute reproduction, modification ou distribution au-delà des limites du droit d'auteur nécessite l'accord écrit de l'auteur.",
   "impressum.copyrightLinkText": "Loi allemande sur le droit d'auteur (UrhG)",
+
+  "privacy.title": "Politique de confidentialité",
+  "privacy.intro": "La protection de vos données personnelles me tient particulièrement à cœur. Ci-dessous, je vous informe sur le traitement des données sur mon site web.",
+  "privacy.hostingTitle": "1. Hébergement et fichiers journaux du serveur",
+  "privacy.hostingText": "Ce site web est hébergé en externe. L'hébergeur collecte et stocke automatiquement des informations dans des fichiers journaux de serveur (adresse IP, type de navigateur, date/heure). Ceci est techniquement nécessaire pour garantir la sécurité et la stabilité du site (Art. 6, par. 1, point f du RGPD).",
+  "privacy.dataTitle": "2. Collecte de données",
+  "privacy.dataText": "Ce site est conçu exclusivement comme un portfolio. Aucun cookie n'est utilisé, aucun outil de suivi (comme Google Analytics) n'est employé et il n'y a pas de formulaire de contact. Aucune donnée personnelle n'est stockée au-delà des journaux techniques du serveur.",
+  "privacy.rightsTitle": "3. Vos droits",
+  "privacy.rightsText": "Vous disposez d'un droit d'accès, de rectification, de suppression et de limitation du traitement de vos données personnelles, ainsi que d'un droit à la portabilité des données.",
+  "privacy.contactTitle": "4. Responsable du traitement",
+  "privacy.contactText": "Le responsable du traitement des données sur ce site est Artem Sydorov (voir Mentions Légales pour les coordonnées).",
 };
 
 export default fr;

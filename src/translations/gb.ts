@@ -231,6 +231,17 @@ const gb: LangData = {
   "impressum.phone": "Phone",
   "impressum.copyrightText": "The content and works created by the site operator on these pages are subject to copyright law. Duplication, processing, distribution, or any form of use beyond the scope of copyright law requires the prior written consent of the author.",
   "impressum.copyrightLinkText": "German Copyright Act (UrhG)",
+
+  "privacy.title": "Privacy Policy",
+  "privacy.intro": "The protection of your personal data is of particular concern to me. Below, I provide information about data processing on my website.",
+  "privacy.hostingTitle": "1. Hosting and Server Log Files",
+  "privacy.hostingText": "This website is hosted externally. The hoster automatically collects and stores information in so-called server log files (IP address, browser type, date/time). This is technically necessary to ensure the security and stability of the website (Art. 6 Para. 1 lit. f GDPR).",
+  "privacy.dataTitle": "2. Data Collection",
+  "privacy.dataText": "This website is designed purely as a portfolio. No cookies are used, no tracking tools (such as Google Analytics) are employed, and there is no contact form. No personal data is stored beyond the technical server logs.",
+  "privacy.rightsTitle": "3. Your Rights",
+  "privacy.rightsText": "You have the right to information, correction, deletion, and restriction of processing of your personal data, as well as the right to data portability.",
+  "privacy.contactTitle": "4. Controller",
+  "privacy.contactText": "The person responsible for data processing on this website is Artem Sydorov (see Impressum for contact details).",
 };
 
 export default gb;
