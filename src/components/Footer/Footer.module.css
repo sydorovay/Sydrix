@@ -52,12 +52,10 @@
 
 .footer.light {
   --text-secondary: var(--text-light);
-  backdrop-filter: blur(8px);
 }
 
 .footer.dark {
   --text-secondary: var(--text-dark);
-  backdrop-filter: blur(8px);
 }
 
 @media (max-width: 767px) {
