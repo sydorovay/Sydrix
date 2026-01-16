@@ -34,7 +34,6 @@
 }
 
 .legalLink {
-  color: var(--logo-grad-middle);
   text-decoration: none;
   opacity: 0.6;
   transition: opacity 0.2s;
@@ -53,11 +52,16 @@
 .footer.light {
   --text-secondary: var(--text-light);
   backdrop-filter: blur(8px);
+  .legalLink {
+      color: var(--text-light);}
 }
 
 .footer.dark {
   --text-secondary: var(--text-dark);
   backdrop-filter: blur(8px);
+  .legalLink {
+      color: var(--logo-grad-middle);
+    }
 }
 
 @media (max-width: 767px) {

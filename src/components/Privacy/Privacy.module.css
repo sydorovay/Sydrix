@@ -14,7 +14,6 @@
   color: #fff;
   width: 100%;
   box-sizing: border-box;
-  background: radial-gradient(circle at top center, #1a1a2e 0%, #0a0a0f 100%);
 }
 
 .contentCard {
@@ -35,7 +34,7 @@
 }
 
 .backButton {
-  display: inline-flex;
+display: inline-flex;
   align-items: center;
   align-self: flex-end;
   background: rgba(255, 255, 255, 0.05);
@@ -47,7 +46,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.85rem;
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }

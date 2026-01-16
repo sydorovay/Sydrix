@@ -1,9 +1,3 @@
-:root {
-  --accent-color: #4facfe;
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --glass-bg: rgba(10, 10, 15, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
-}
 
 .container {
   min-height: 100vh;
@@ -14,14 +8,14 @@
   color: #fff;
   width: 100%;
   box-sizing: border-box;
-  background: radial-gradient(circle at top center, #1a1a2e 0%, #0a0a0f 100%);
+  
 }
 
 .addressCard {
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
+  border-radius: 15px;
   padding: 1.5rem;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -30,7 +24,6 @@
 .ownerName {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
   letter-spacing: 0.5px;
   margin-bottom: 0.25rem;
 }
@@ -38,7 +31,7 @@
 .taxNote {
   margin-top: 1rem;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
   color: var(--text-muted);
   font-style: italic;
@@ -87,7 +80,6 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.85rem;
   font-weight: 500;
-  margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
