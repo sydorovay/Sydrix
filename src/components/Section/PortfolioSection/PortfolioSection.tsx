@@ -1,4 +1,3 @@
-// src/components/PortfolioSection/PortfolioSection.tsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -17,16 +16,25 @@ interface PortfolioSectionProps {
   onOpen: (id: string) => void;
 }
 
+// Додаємо ту ж утиліту, що й у PortfolioPage
+const translateSafe = (t: TFunction, key: Parameters<TFunction>[0]): string => {
+  const result = t(key);
+  return typeof result === 'string' ? result : '';
+};
+
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   portfolioItems,
   t,
   theme,
   onOpen,
 }) => {
+  // Використовуємо безпечний переклад для атрибутів
+  const portfolioLabel = translateSafe(t, 'portfolio');
+
   if (!portfolioItems || portfolioItems.length === 0) {
     return (
       <section
-        className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark}`}
+        className={`${styles.portfolioSection} ${styles[theme]}`} // Спростили звернення до теми
       >
         <p className={styles.emptyText}>
           <Translate id="noPortfolioItems" />
@@ -37,8 +45,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
   return (
     <section
-      className={`${styles.portfolioSection} ${theme === 'light' ? styles.light : styles.dark}`}
-      aria-label={t('portfolio')}
+      className={`${styles.portfolioSection} ${styles[theme]}`}
+      aria-label={portfolioLabel}
     >
       {portfolioItems.map((item) => (
         <article
@@ -46,7 +54,6 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           className={styles.card}
           role="region"
           aria-labelledby={`${item.id}-title`}
-          tabIndex={0}
         >
           <h2 id={`${item.id}-title`} className={styles.title}>
             {item.title}
@@ -56,20 +63,12 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            autoplay={{ delay: 3500, disableOnInteraction: false }} // Трохи збільшили затримку для комфорту
             spaceBetween={20}
-            loop
+            loop={item.images.length > 1} // Loop тільки якщо більше 1 фото
+            watchSlidesProgress // Покращує продуктивність
             className={styles.slider}
-            aria-label={`${item.title} image slider`}
-            role="region"
-            aria-roledescription="carousel"
-            aria-live="polite"
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1440: { slidesPerView: 4 },
-            }}
+            aria-label={`${item.title} slider`}
           >
             {item.images.length > 0 ? (
               item.images.map((src, idx) => (
@@ -77,7 +76,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                   <div className={styles.imageWrapper}>
                     <img
                       src={src}
-                      alt={`Зображення проєкту: ${item.altText || item.title} №${idx + 1}`}
+                      // Прибрали хардкод мови в alt
+                      alt={`${item.altText || item.title} ${idx + 1}`}
                       className={styles.image}
                       loading="lazy"
                     />
@@ -99,13 +99,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             onClick={() => onOpen(item.id)}
             className={styles.button}
             type="button"
-            aria-label={`Відкрити портфоліо: ${item.title}`}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onOpen(item.id);
-              }
-            }}
+            // aria-label теж через безпечний переклад
+            aria-label={`${translateSafe(t, 'showAllButton')}: ${item.title}`}
           >
             <Translate id="showAllButton" />
           </button>
