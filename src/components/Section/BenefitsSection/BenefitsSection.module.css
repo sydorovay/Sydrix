@@ -11,7 +11,6 @@
 
 .sectionTitle {
   font-size: clamp(2rem, 4vw, 3rem);
-    /* збережено адаптивність */
     font-weight: 700;
     margin: 2rem auto;
     background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
@@ -30,7 +29,7 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1.2rem;
   justify-content: center;
   padding: 0;
   margin:  2.4rem auto;
