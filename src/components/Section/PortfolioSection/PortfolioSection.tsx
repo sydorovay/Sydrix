@@ -1,13 +1,14 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 import styles from './PortfolioSection.module.css';
 import { PortfolioItem } from '@/types/portfolio';
-import { TFunction } from '@/types/langTypes';
-import { Translate } from '@/components/Translate';
+import { TFunction, LangData } from '@/types/langTypes';
 
 interface PortfolioSectionProps {
   portfolioItems: PortfolioItem[];
@@ -16,97 +17,76 @@ interface PortfolioSectionProps {
   onOpen: (id: string) => void;
 }
 
-// Додаємо ту ж утиліту, що й у PortfolioPage
-const translateSafe = (t: TFunction, key: Parameters<TFunction>[0]): string => {
-  const result = t(key);
-  return typeof result === 'string' ? result : '';
-};
-
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   portfolioItems,
   t,
   theme,
   onOpen,
 }) => {
-  // Використовуємо безпечний переклад для атрибутів
-  const portfolioLabel = translateSafe(t, 'portfolio');
+  const themeClass = theme === 'dark' ? styles.dark : styles.light;
 
-  if (!portfolioItems || portfolioItems.length === 0) {
-    return (
-      <section
-        className={`${styles.portfolioSection} ${styles[theme]}`} // Спростили звернення до теми
-      >
-        <p className={styles.emptyText}>
-          <Translate id="noPortfolioItems" />
-        </p>
-      </section>
-    );
-  }
+  if (!portfolioItems || portfolioItems.length === 0) return null;
 
   return (
-    <section
-      className={`${styles.portfolioSection} ${styles[theme]}`}
-      aria-label={portfolioLabel}
-    >
-      {portfolioItems.map((item) => (
-        <article
-          key={item.id}
-          className={styles.card}
-          role="region"
-          aria-labelledby={`${item.id}-title`}
-        >
-          <h2 id={`${item.id}-title`} className={styles.title}>
-            {item.title}
-          </h2>
+    <div className={`${styles.portfolioContainer} ${themeClass}`}>
+      {portfolioItems.map((item) => {
+        const displayImages = item.images.length > 0 && item.images.length < 6
+          ? [...item.images, ...item.images, ...item.images]
+          : item.images;
 
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3500, disableOnInteraction: false }} // Трохи збільшили затримку для комфорту
-            spaceBetween={20}
-            loop={item.images.length > 1} // Loop тільки якщо більше 1 фото
-            watchSlidesProgress // Покращує продуктивність
-            className={styles.slider}
-            aria-label={`${item.title} slider`}
-          >
-            {item.images.length > 0 ? (
-              item.images.map((src, idx) => (
-                <SwiperSlide key={`${src}-${idx}`}>
-                  <div className={styles.imageWrapper}>
-                    <img
-                      src={src}
-                      // Прибрали хардкод мови в alt
-                      alt={`${item.altText || item.title} ${idx + 1}`}
-                      className={styles.image}
-                      loading="lazy"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))
-            ) : (
-              <SwiperSlide>
-                <div className={styles.placeholder}>
-                  <Translate id="noImages" />
-                </div>
-              </SwiperSlide>
-            )}
-          </Swiper>
+        return (
+          <article key={item.id} className={styles.card}>
+            <h2 className={styles.title}>{item.title}</h2>
 
-          <div className={styles.divider} aria-hidden="true" />
+            <div className={styles.sliderWrapper}>
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay]}
+                navigation={true}
+                pagination={{ clickable: true }}
+                nested={true}
+                loop={displayImages.length >= 6}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true
+                }}
+                spaceBetween={20}
+                breakpoints={{
+                  320: { slidesPerView: 1 },
+                  768: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 }
+                }}
+                className={styles.slider}
+              >
+                {displayImages.map((src, idx) => (
+                  <SwiperSlide key={`${item.id}-img-${idx}`}>
+                    <div className={styles.imageWrapper}>
+                      <img
+                        src={src}
+                        alt={`${item.title} ${idx}`}
+                        className={styles.image}
+                        loading="eager"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
 
-          <button
-            onClick={() => onOpen(item.id)}
-            className={styles.button}
-            type="button"
-            // aria-label теж через безпечний переклад
-            aria-label={`${translateSafe(t, 'showAllButton')}: ${item.title}`}
-          >
-            <Translate id="showAllButton" />
-          </button>
-        </article>
-      ))}
-    </section>
+            <div className={styles.divider} aria-hidden="true" />
+
+            {/* ОНОВЛЕНА КНОПКА З КЛАСОМ gradientButton */}
+            <button
+              onClick={() => onOpen(item.id)}
+              className={`${styles.button} ${styles.gradientButton}`}
+              type="button"
+            >
+              {t('showAllButton' as keyof LangData) as string}
+            </button>
+          </article>
+        );
+      })}
+    </div>
   );
 };
 

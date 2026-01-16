@@ -34,7 +34,7 @@
 
 /* Card */
 .card {
- 
+
   border: 1px solid var(--card-border);
   border-radius: 1.25rem;
   padding: 1.25rem;
@@ -152,7 +152,10 @@
 
 /* Theme variables */
 .light {
-  .card {background: var(--card-bg-light);}
+  .card {
+    background: var(--card-bg-light);
+  }
+
   --text: #111;
   --card-bg: rgba(1, 219, 253, 0.06);
   --card-border: rgba(0, 0, 0, 0.06);

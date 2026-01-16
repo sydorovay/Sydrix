@@ -1,130 +1,215 @@
+/* 1. РЕЄСТРАЦІЯ (Для плавності в сучасних браузерах) */
+@property --color-1 {
+  syntax: '<color>';
+  initial-value: #14f6e7;
+  inherits: false;
+}
 
+@property --color-2 {
+  syntax: '<color>';
+  initial-value: #5b24a8;
+  inherits: false;
+}
+
+/* 2. БАЗОВІ КОНТЕЙНЕРИ */
 .benefitsSection {
-  width: 100%;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-.dark .benefitsSection {
-  color: #fef8f6;
-}
-
-.sectionTitle {
-  font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    margin: 2rem auto;
-    background: linear-gradient(90deg, #01eff8, #02c6fc, #01f6e2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-@media (min-width: 768px) {
-  .sectionTitle {
-    font-size: var(--font-size-3xl);
-  }
-}
-
-.benefitsList {
-  list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 0;
-  margin:  2.4rem auto;
+  width: 100%;
+  min-height: 100dvh;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* 3. ЗАГОЛОВОК ТА РОЗДІЛЬНИК */
+.sectionTitle {
+  font-size: clamp(1.8rem, 8vw, 3.5rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  background: var(--title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
 }
 
 .divider {
-  width: 90px;
-  height: 2px;
-  background-color: var(--logo-grad-middle);
-  border-radius: 3px;
-  margin: 2rem auto;
+  width: 100px;
+  height: 3px;
+  background: var(--divider);
+  margin: 3rem auto;
+  border-radius: 10px;
   opacity: 0.6;
 }
 
-.benefitItem {
-  flex: 1 1 180px;
-  max-width: 90vh;
-  color: var(--text-color);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  cursor: pointer;
-  transition: all var(--transition);
+.benefitsList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 1 колонка для мобільних (5 пунктів списком) */
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
 
+.benefitItem {
   display: flex;
-  flex-direction: row;
-  /* <-- головне */
   align-items: center;
-  justify-content: flex-start;
-  text-align: left;
-  /* текст вирівнюється як у рядку */
+  padding: 1.5rem;
+  background-color: var(--card-bg-light, rgba(0, 157, 249, 0.1));
+  border-radius: var(--border-radius, 16px);
+  box-shadow: var(--shadow-light);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.darkTheme .benefitItem {
+  background-color: var(--card-bg-dark, rgba(89, 1, 95, 0.2));
+  box-shadow: var(--shadow-dark);
+}
+
+.benefitItem:hover {
+  transform: translateY(-5px);
+  background-color: rgba(1, 234, 251, 0.1);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 55px;
+  height: 55px;
+  margin-right: 1.25rem;
+  background: rgba(1, 234, 251, 0.1);
+  border-radius: 12px;
+  color: #03c7ad;
 }
 
 .icon {
   font-size: 2rem;
-  margin-right: 1rem;
-  /* відступ у мобільній версії */
-  margin-bottom: 0;
-  /* прибираємо вертикальний */
-  color: var(--highlight);
-}
-
-.benefitItem:hover,
-.benefitItem:focus {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  outline: none;
 }
 
 .benefitTitle {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
 }
 
-@media (min-width: 768px) {
-  .benefitItem {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+.button.gradientButton {
+  all: unset;
 
-  .icon {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
-}
+  position: relative;
+  z-index: 1;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
 
-.button {
-  background: var(--button-bg, #47978fbd);
-
-  color: var(--button-text, #fff);
-  font-weight: 600;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.9rem 2.4rem;
-  font-size: 1rem;
+  padding: 1.2rem 3.5rem;
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background-size: 200% 200%;
-}
-.light{
-color: var(--text-light);
-}
-.dark {
-  color: var(--text-dark);
-}
-.button:hover,
-.button:focus-visible {
-  filter: brightness(1.1);
-  background-color: #00f5d0;
-  outline: none;
-  transform: scale(1.05);
+  overflow: hidden;
+
+  color: #fff;
+  font-family: var(--font-secondary, sans-serif);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+
+  background: linear-gradient(165deg, #14f6e7, #5b24a8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px -10px rgba(66, 227, 252, 0.6);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
 }
 
-@media (max-width: 640px) {
-  .benefitsList {
-    gap: 1rem;
+.button.gradientButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(165deg, #5b24a8, #14f6e7) !important;
+
+
+  animation: liquidShift 15s ease-in-out infinite !important;
+  opacity: 0;
+}
+
+.button.gradientButton:hover {
+  transform: translateY(-5px) scale(1.03) !important;
+  box-shadow: 0 15px 35px -10px rgba(66, 227, 252, 0.8) !important;
+}
+
+@keyframes liquidShift {
+
+  0%,
+  100% {
+    opacity: 0;
   }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Адаптація внутрішнього контенту карток */
+@media (min-width: 768px) {
+.benefitItem {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    justify-content: center;
+  }
+  .iconWrapper {
+    margin-right: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefitTitle {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+    /* Перелом на Планшет (4 пункти) */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .benefitsList {
+        grid-template-columns: repeat(2, 1fr);
+        /* Сітка 2х2 для 4 пунктів */
+        gap: 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .benefitsList {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 в ряд */
+        gap: 2rem;
+      }
+    }
+  
+    .benefitItem {
+      display: flex;
+      align-items: center;
+      padding: 1.25rem;
+      background-color: var(--card-bg-light, rgba(0, 157, 249, 0.05));
+      border-radius: 16px;
+      border: 1px solid rgba(20, 246, 231, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
 }

@@ -1,106 +1,187 @@
-/* src/components/PortfolioSection/PortfolioSection.module.css */
-
-/* Секція портфоліо */
-.portfolioSection {
-  width: 100%;
-  margin-inline: auto;
+/* 1. РЕЄСТРАЦІЯ КОЛЬОРІВ ДЛЯ ПЛАВНОСТІ */
+@property --color-1 {
+  syntax: '<color>';
+  initial-value: #14f6e7;
+  inherits: false;
 }
 
-/* Світла / темна тема */
+@property --color-2 {
+  syntax: '<color>';
+  initial-value: #5b24a8;
+  inherits: false;
+}
+
+.portfolioContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
 .light {
-  color: var(--text-light)
+  --text-color: #1a1a1a;
 }
 
 .dark {
-  color: var(--text-dark)
+  --text-color: #ffffff;
 }
 
-/* Карточка проекту */
 .card {
-  margin-bottom: 2rem;
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding: 0 1.5rem;
 }
 
 .title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  margin-top: 5%;
-  background: var(--title);
+  font-size: clamp(1.6rem, 7vw, 3rem);
+  margin: 1.5rem 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #14f6e7, #5b24a8);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: 1px;
 }
 
-
-.slider {
-  margin: 8rem auto;
+.sliderWrapper {
+  width: 100%;
+  position: relative;
+  padding-bottom: 50px;
 }
 
-/* Обгортка зображення */
 .imageWrapper {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 10;
+  border-radius: 24px;
   overflow: hidden;
-  border-radius: var(--radius-md);
+  border: 1px solid rgba(20, 246, 231, 0.1);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-/* Placeholder при відсутності зображень */
-.placeholder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  font-size: var(--font-size-base);
-  color: #888;
-}
-
-.divider {
-  width: 90px;
-  height: 2px;
-  background: var(--divider);
-  border-radius: 3px;
-  margin: 0 auto 2rem;
-  opacity: 0.6;
-}
-
-/* Кнопка */
-.button {
-  /* background підтримує і звичайний колір, і градієнт */
-  background: var(--button-bg, #47978fbd);
-  /* дефолтний колір на випадок, якщо змінна не задана */
-  color: var(--button-text, #fff);
-  font-weight: 600;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.9rem 2.4rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  /* додатково для красивого ховера можна зробити: */
-  background-size: 200% 200%;
-}
-
-.button:hover,
-.button:focus-visible {
-  filter: brightness(1.1);
-  background-color: #00f5d0;
-  outline: none;
+.imageWrapper:hover .image {
   transform: scale(1.05);
 }
 
-/* ============================= */
-/*       Новий клас для пустого */
-.emptyText {
-  text-align: center;
-  font-size: var(--font-size-base);
-  color: #888;
-  padding: 2rem 0;
+.divider {
+  width: 100px;
+  height: 3px;
+  background: #03c7ad;
+  margin: 1rem auto 2.5rem;
+  border-radius: 10px;
+  opacity: 0.6;
+}
+
+/* 3. КНОПКА – ПОВНИЙ ГРАДІЄНТ-СТАЙЛ */
+.button.gradientButton {
+  all: unset;
+  /* Очищення від сторонніх стилів */
+
+  position: relative;
+  z-index: 1;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.1rem 3.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+
+  color: #fff !important;
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+
+  /* Шар 1: Базовий градієнт */
+  background: linear-gradient(165deg, #14f6e7, #5b24a8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px -10px rgba(66, 227, 252, 0.5);
+
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+}
+
+/* Шар 2: Анімований перелив */
+.button.gradientButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(165deg, #5b24a8, #14f6e7) !important;
+
+  /* СИНХРОННА АНІМАЦІЯ (15с) */
+  animation: smoothGradientFade 15s ease-in-out infinite !important;
+  opacity: 0;
+}
+
+/* Світловий ефект при наведенні */
+.button.gradientButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.6s;
+  transform: skewX(-25deg);
+}
+
+.button.gradientButton:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 30px -10px rgba(66, 227, 252, 0.7) !important;
+}
+
+.button.gradientButton:hover::after {
+  left: 100%;
+}
+
+@keyframes smoothGradientFade {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Swiper кастомізація */
+.slider :global(.swiper-pagination-bullet-active) {
+  background: #14f6e7 !important;
+}
+
+.slider :global(.swiper-button-next),
+.slider :global(.swiper-button-prev) {
+  color: #14f6e7 !important;
+}
+
+@media (min-width: 1025px) {
+
+  .button.gradientButton,
+  .button.gradientButton::before {
+    display: inline-flex !important;
+    visibility: visible !important;
+  }
 }

@@ -1,75 +1,64 @@
 import React from 'react';
-import { LangCode, LangData } from '@/types/langTypes';
 import styles from './SydrixLogo.module.css';
-
-interface TranslateFn {
-  <K extends keyof LangData>(key: K): LangData[K];
-}
+import { LangCode, LangData } from '@/types/langTypes';
 
 interface LogoProps {
-  t: TranslateFn;
+  t: <K extends keyof LangData>(key: K) => any;
   language: LangCode;
 }
 
-const SydrixLogo: React.FC<LogoProps> = ({ t, language }) => {
-  const { top, bottom } = t('logoTaglines');
+const SydrixLogo: React.FC<LogoProps> = ({ t }) => {
+  const taglines = t('logoTaglines') as { top: string; bottom: string };
 
   return (
-    <div
-      className={styles.logo}
-      role="img"
-      aria-label={`SYDRIX logo, language ${language.toUpperCase()}`}
-      tabIndex={-1}
-    >
+    <div className={styles.logo} role="img" aria-label="SYDRIX Logo">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 80"
+        viewBox="0 0 320 140" /* Збільшена висота для ідеальних відступів */
         className={styles.svgLogo}
-        aria-hidden="true"
-        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
       >
         <defs>
-          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" className={styles.stop1} />
             <stop offset="50%" className={styles.stop2} />
             <stop offset="100%" className={styles.stop3} />
           </linearGradient>
         </defs>
 
-        {/* TOP TAGLINE */}
+        {/* Top Tagline - y=25 */}
         <text
-          x="160"
-          y="5"
+          x="50%" y="25"
           textAnchor="middle"
+          dominantBaseline="middle"
           className={styles.tagline}
-          fill="url(#grad)"
+          fill="url(#logoGrad)"
         >
-          {top}
+          {taglines.top}
         </text>
 
-        {/* BRAND - Збережено твою структуру позиціонування */}
+        {/* Brand Name - y=70 (центр полотна 140) */}
         <text
-          x="160"
-          y="40"
-          dy=".35em"
+          x="50%" y="70"
           textAnchor="middle"
+          dominantBaseline="middle"
           className={styles.brand}
-          fill="url(#grad)"
+          fill="url(#logoGrad)"
         >
-          <tspan>S</tspan>
+          <tspan className={styles.sideLetter}>S</tspan>
           <tspan className={styles.mid}>YDRI</tspan>
-          <tspan>X</tspan>
+          <tspan className={styles.sideLetter}>X</tspan>
         </text>
 
-        {/* BOTTOM TAGLINE */}
+        {/* Bottom Tagline - y=115 (рівновіддалено від центру) */}
         <text
-          x="160"
-          y="68"
+          x="50%" y="115"
           textAnchor="middle"
+          dominantBaseline="middle"
           className={styles.tagline}
-          fill="url(#grad)"
+          fill="url(#logoGrad)"
         >
-          {bottom}
+          {taglines.bottom}
         </text>
       </svg>
     </div>

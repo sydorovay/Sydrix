@@ -1,60 +1,67 @@
+import React from 'react';
 import SydrixLogo from '../../SydrixLogo/SydrixLogo';
 import styles from './HeroSection.module.css';
 import { useLanguageContext } from '@/context/LanguageProvider';
+import { LangData } from '@/types/langTypes';
 
 interface HeroSectionProps {
   theme: 'light' | 'dark';
 }
 
-export default function HeroSection({ theme }: HeroSectionProps) {
+const HeroSection: React.FC<HeroSectionProps> = ({ theme }) => {
   const { lang, t } = useLanguageContext();
 
   const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    const container = document.querySelector('[class*="snapContainer"]');
+    if (container) {
+      container.scrollTo({
+        top: container.scrollHeight,
+        behavior: 'smooth'
+      });
     }
   };
 
-  const subtitleLines = Array.isArray(t('heroSubtitle'))
-    ? t('heroSubtitle')
-    : [t('heroSubtitle')];
+  const getTranslation = (key: keyof LangData): string => {
+    const value = t(key);
+    return typeof value === 'string' ? value : '';
+  };
+
+  const subtitleData = t('heroSubtitle' as keyof LangData);
+  const subtitleLines: string[] = Array.isArray(subtitleData)
+    ? subtitleData.filter((item): item is string => typeof item === 'string')
+    : typeof subtitleData === 'string' ? [subtitleData] : [];
+
+  const themeClass = theme === 'dark' ? styles.dark : styles.light;
 
   return (
-    <header
-      className={`${styles.header} ${styles[theme]}`}
-      aria-label="Hero section"
-    >
-      <h1 className={styles.title}>{t('heroTitle')}</h1>
+    <header className={`${styles.header} ${themeClass}`} aria-label="Hero section">
+      <div className={styles.contentWrapper}>
+        <div className={styles.logoRow}>
+          <SydrixLogo t={t} language={lang} />
+        </div>
 
-      <div className={styles.topRow}>
-        <SydrixLogo t={t} language={lang} />
+        <h1 className={styles.title}>{getTranslation('heroTitle')}</h1>
+
+        <div className={styles.divider} aria-hidden="true" />
+
+        <div className={styles.subtitleWrapper}>
+          {subtitleLines.map((line, idx) => (
+            <p key={idx} className={styles.subtitleText}>
+              {line}
+            </p>
+          ))}
+        </div>
+
+        <button
+          className={`${styles.button} ${styles.gradientButton}`}
+          onClick={handleContactClick}
+          type="button"
+        >
+          {getTranslation('contactsButtonText')}
+        </button>
       </div>
-
-      <div className={styles.subtitleWrapper}>
-        {subtitleLines.map((line, idx) => (
-          <p key={idx} className={styles.subtitleText}>
-            {line}
-          </p>
-        ))}
-      </div>
-
-      <div className={styles.divider} aria-hidden="true" />
-
-      <button
-        className={styles.button}
-        onClick={handleContactClick}
-        type="button"
-        aria-label={t('contactsButtonText')}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handleContactClick();
-          }
-        }}
-      >
-        {t('contactsButtonText')}
-      </button>
     </header>
   );
-}
+};
+
+export default HeroSection;

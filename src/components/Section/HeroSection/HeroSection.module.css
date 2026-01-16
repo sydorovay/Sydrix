@@ -1,136 +1,207 @@
-/* ========== HERO SECTION (MOBILE FIRST) ========== */
+/* 1. РЕЄСТРАЦІЯ КОЛЬОРІВ ДЛЯ ПЛАВНОЇ АНІМАЦІЇ */
+@property --color-1 {
+  syntax: '<color>';
+  initial-value: #14f6e7;
+  inherits: false;
+}
+
+@property --color-2 {
+  syntax: '<color>';
+  initial-value: #5b24a8;
+  inherits: false;
+}
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
   text-align: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
 
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-
-  box-sizing: border-box;
-  border-radius: 16px;
-
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Themes */
-.light,
+.light {
+  --text-color: #1a1a1a;
+  background-color: transparent;
+}
+
 .dark {
-  color: var(--text-color);
+  --text-color: #ffffff;
+  background-color: transparent;
 }
 
-/* ========== TOP ROW / LOGO ========== */
-
-.topRow {
+.logoRow {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 2.5rem;
+  animation: fadeInDown 1.2s ease-out;
 }
-
-/* ========== TITLE ========== */
-/* Без clamp — Safari стабільніше */
 
 .title {
-  margin: 4rem auto;
-  font-size: 1.6rem;
-  /* mobile default */
-  font-weight: 700;
-
+  font-size: clamp(1.6rem, 7vw, 3rem);
+  margin: 1.5rem 0;
+  font-weight: 600;
+  /* Зробив 600 для кращої читаності градієнта */
+  text-transform: uppercase;
   background: var(--title);
-  
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: 1px;
 }
 
-/* ========== SUBTITLE ========== */
+.divider {
+  width: 80px;
+  height: 2px;
+  background: var(--divider);
+  margin: 1rem auto 2rem;
+  border-radius: 10px;
+  opacity: 0.6;
+}
 
 .subtitleWrapper {
-  margin-top: 4rem;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
 .subtitleText {
-  font-size: 0.95rem;
-  line-height: 1.6rem;
-  /* FIX: rm → rem */
-  opacity: 0.9;
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  line-height: 1.6;
+  opacity: 0.85;
+  font-weight: 300;
+  color: var(--text-color);
 }
 
-/* ========== DIVIDER ========== */
+/* 3. ОНОВЛЕНА КНОПКА (СИНХРОНІЗОВАНА) */
+.button.gradientButton {
+  all: unset;
+  /* Повна ізоляція */
 
-.divider {
-  width: 80px;
-  height: 2px;
-  margin: 1.5rem auto;
-  background: var(--divider);
-  border-radius: 2px;
-  opacity: 0.6;
-}
+  position: relative;
+  z-index: 1;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
 
-/* ========== BUTTON ========== */
-
-.button {
-  /* background підтримує і звичайний колір, і градієнт */
-  background: var(--button-bg, #47978fbd);
-  /* дефолтний колір на випадок, якщо змінна не задана */
-  color: var(--button-text, #fff);
-  font-weight: 600;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.9rem 2.4rem;
-  font-size: 1rem;
+  padding: 1.1rem 3.2rem;
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background-size: 200% 200%;
+  overflow: hidden;
+
+  color: #fff !important;
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+
+  /* Перший градієнт */
+  background: linear-gradient(165deg, #14f6e7, #5b24a8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px -10px rgba(66, 227, 252, 0.5);
+
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
 }
 
-.button:hover,
-.button:focus-visible {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-  outline: none;
+/* Другий градієнт (Анімований) */
+.button.gradientButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(165deg, #5b24a8, #14f6e7) !important;
+
+  /* СИНХРОННА АНІМАЦІЯ (15 секунд як у лого) */
+  animation: liquidShift 15s ease-in-out infinite !important;
+  opacity: 0;
 }
 
-/* ========== SMALL TABLET (≥480px) ========== */
+/* Ефект променя при наведенні */
+.button.gradientButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.6s;
+  transform: skewX(-25deg);
+}
 
-@media (min-width: 480px) {
-  .title {
-    font-size: 2.2rem;
+.button.gradientButton:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 30px -10px rgba(66, 227, 252, 0.7) !important;
+}
+
+.button.gradientButton:hover::after {
+  left: 100%;
+}
+
+@keyframes liquidShift {
+
+  0%,
+  100% {
+    opacity: 0;
   }
 
-  .subtitleText {
-    font-size: 1.05rem;
+  50% {
+    opacity: 1;
   }
 }
 
-/* ========== TABLET (≥768px) ========== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптив під планшети та десктоп */
 @media (min-width: 768px) {
-  .header {
-    padding:  2rem;
+  .logoRow {
+    margin: 0 auto 2rem;
   }
 
   .title {
-    font-size: 2.8rem;
+    margin: 0 auto;
   }
 
-  .subtitleText {
-    font-size: 1.3rem;
+  .divider {
+    width: 120px;
+    margin: 2rem auto;
   }
 }
 
-/* ========== DESKTOP (≥1024px) ========== */
+/* Фікс для великих екранів */
+@media (min-width: 1025px) {
 
-@media (min-width: 1024px) {
-  .title {
-    font-size: 3rem;
+  .button.gradientButton,
+  .button.gradientButton::before {
+    display: inline-flex !important;
+    visibility: visible !important;
   }
 }

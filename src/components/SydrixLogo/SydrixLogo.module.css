@@ -1,147 +1,130 @@
-/* ================== ANIMATIONS (Без змін) ================== */
+/* Твої оригінальні анімації (15с) без змін */
 @keyframes stop1 {
-  0% {
+
+  0%,
+  100% {
     stop-color: var(--logo-grad-start);
   }
 
-  25% {
+  25%,
+  75% {
     stop-color: var(--logo-grad-middle);
   }
 
   50% {
     stop-color: var(--logo-grad-end);
-  }
-
-  75% {
-    stop-color: var(--logo-grad-middle);
-  }
-
-  100% {
-    stop-color: var(--logo-grad-start);
   }
 }
 
 @keyframes stop2 {
-  0% {
+
+  0%,
+  100% {
     stop-color: var(--logo-grad-middle);
   }
 
-  25% {
+  25%,
+  75% {
     stop-color: var(--logo-grad-end);
   }
 
   50% {
     stop-color: var(--logo-grad-start);
-  }
-
-  75% {
-    stop-color: var(--logo-grad-end);
-  }
-
-  100% {
-    stop-color: var(--logo-grad-middle);
   }
 }
 
 @keyframes stop3 {
-  0% {
+
+  0%,
+  100% {
     stop-color: var(--logo-grad-end);
   }
 
-  25% {
+  25%,
+  75% {
     stop-color: var(--logo-grad-start);
   }
 
   50% {
     stop-color: var(--logo-grad-middle);
   }
-
-  75% {
-    stop-color: var(--logo-grad-start);
-  }
-
-  100% {
-    stop-color: var(--logo-grad-end);
-  }
 }
 
-/* ================== LOGO CONTAINER (Гнучкість) ================== */
 .logo {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 360px;
-  margin: 10px auto;
-  pointer-events: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .logo {
-    max-width: 520px;
-  };
-}
-
-@media (min-width: 1024px) {
-  .logo {
-    max-width: 800px;
-    .tagline{
-        transform: translateY(18px);
-      }
-  }
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .svgLogo {
-  display: block;
   width: 100%;
   height: auto;
   overflow: visible;
+  display: block;
 }
 
-/* ================== GRADIENT STOPS ================== */
+.tagline {
+  font-family: var(--logo-font, Verdana, sans-serif);
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.brand {
+  font-family: var(--logo-font, Verdana, sans-serif);
+  filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.3));
+}
+
+.sideLetter {
+  font-size: 52px;
+  font-weight:400;
+}
+
+.mid {
+  font-size: 38px;
+  font-weight:200;
+}
+
 .stop1 {
   stop-color: var(--logo-grad-start);
-  animation: stop1 18s ease-in-out infinite;
+  animation: stop1 15s infinite;
 }
 
 .stop2 {
   stop-color: var(--logo-grad-middle);
-  animation: stop2 21s ease-in-out infinite;
+  animation: stop2 15s infinite;
 }
 
 .stop3 {
   stop-color: var(--logo-grad-end);
-  animation: stop3 15s ease-in-out infinite;
+  animation: stop3 15s infinite;
 }
 
-/* ================== TYPOGRAPHY & POSITIONING ================== */
-text {
-  font-family: var(--logo-font, Verdana, system-ui, sans-serif);
-  text-anchor: middle;
+@media (min-width: 768px) {
+  .logo {
+    max-width: 700px;
+  }
+
+  /* На десктопі він тепер дійсно великий */
+  .sideLetter {
+    font-size: 76px;
+  }
+
+  .mid {
+    font-size: 42px;
+  }
+
+  .tagline {
+    font-size: 12px;
+  }
 }
 
-.tagline {
-  font-size: var(--logo-size-small, 12px);
-  font-weight: 200;
-}
-
-.brand {
-  font-size: var(--logo-size-medium, 24px);
-  font-weight: 400;
-  fill-opacity: 0.85;
-  /* Тінь перенесена сюди */
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
-}
-
-/* Вигляд першої (S) та останньої (X) літери */
-.brand tspan:first-child,
-.brand tspan:last-child {
-  font-size: var(--logo-size-large, 36px);
-  font-weight: 500;
-}
-
-/* Вигляд середньої частини (YDRI) */
-.mid {
-  font-size: var(--logo-size-mid, 28px);
-  fill-opacity: 1;
-  font-weight: 400;
+@media (min-width: 1440px) {
+  .logo {
+    max-width: 800px;
+  }
 }

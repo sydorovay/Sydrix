@@ -3,7 +3,6 @@ declare const styles: {
   readonly "light": string;
   readonly "snapContainer": string;
   readonly "snapSection": string;
-  readonly "title": string;
   readonly "topButton": string;
 };
 export = styles;
