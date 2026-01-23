@@ -1,130 +1,89 @@
-/* Твої оригінальні анімації (15с) без змін */
-@keyframes stop1 {
-
-  0%,
-  100% {
-    stop-color: var(--logo-grad-start);
-  }
-
-  25%,
-  75% {
-    stop-color: var(--logo-grad-middle);
-  }
-
-  50% {
-    stop-color: var(--logo-grad-end);
-  }
-}
-
-@keyframes stop2 {
-
-  0%,
-  100% {
-    stop-color: var(--logo-grad-middle);
-  }
-
-  25%,
-  75% {
-    stop-color: var(--logo-grad-end);
-  }
-
-  50% {
-    stop-color: var(--logo-grad-start);
-  }
-}
-
-@keyframes stop3 {
-
-  0%,
-  100% {
-    stop-color: var(--logo-grad-end);
-  }
-
-  25%,
-  75% {
-    stop-color: var(--logo-grad-start);
-  }
-
-  50% {
-    stop-color: var(--logo-grad-middle);
-  }
-}
-
-.logo {
+.logoContainer {
+  width: 100%;
+  /* Збільшено: було 550px, стало 700px для десктопа */
+  max-width: clamp(280px, 65vw, 700px);
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
 }
 
 .svgLogo {
   width: 100%;
   height: auto;
   overflow: visible;
-  display: block;
+  /* geometricPrecision робить тонкі лінії чіткими на Retina */
+  shape-rendering: geometricPrecision;
 }
 
 .tagline {
-  font-family: var(--logo-font, Verdana, sans-serif);
-  font-size: 14px;
-  font-weight: 200;
-  letter-spacing: 0.2em;
+  font-family: inherit;
+  font-size: 13px;
+  /* Збільшено для читабельності */
+  font-weight: 400;
+  /* Трохи товстіший шрифт */
+  letter-spacing: 0.5em;
   text-transform: uppercase;
 }
 
 .brand {
-  font-family: var(--logo-font, Verdana, sans-serif);
-  filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.3));
+  font-family: inherit;
+  /* Додаємо легке світіння для глибини */
+  filter: drop-shadow(0 4px 12px rgba(20, 246, 231, 0.2));
 }
 
 .sideLetter {
-  font-size: 52px;
-  font-weight:400;
+  font-size: 72px;
+  /* Значно збільшено */
+  font-weight: 700;
 }
 
 .mid {
-  font-size: 38px;
-  font-weight:200;
+  font-size: 46px;
+  /* Значно збільшено */
+  font-weight: 300;
+  letter-spacing: 0.08em;
 }
 
+/* СИНХРОНІЗАЦІЯ 15s */
 .stop1 {
-  stop-color: var(--logo-grad-start);
-  animation: stop1 15s infinite;
+  stop-color: #14f6e7;
+  animation: gradSync 15s infinite ease-in-out;
 }
 
 .stop2 {
-  stop-color: var(--logo-grad-middle);
-  animation: stop2 15s infinite;
+  stop-color: #5b24a8;
+  animation: gradSync 15s infinite ease-in-out -7.5s;
 }
 
 .stop3 {
-  stop-color: var(--logo-grad-end);
-  animation: stop3 15s infinite;
+  stop-color: #14f6e7;
+  animation: gradSync 15s infinite ease-in-out -15s;
 }
 
-@media (min-width: 768px) {
-  .logo {
-    max-width: 700px;
+@keyframes gradSync {
+
+  0%,
+  100% {
+    stop-color: #14f6e7;
   }
 
-  /* На десктопі він тепер дійсно великий */
+  50% {
+    stop-color: #5b24a8;
+  }
+}
+
+@media (max-width: 768px) {
   .sideLetter {
-    font-size: 76px;
+    font-size: 58px;
   }
 
   .mid {
-    font-size: 42px;
+    font-size: 38px;
   }
 
   .tagline {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .logo {
-    max-width: 800px;
+    font-size: 11px;
+    letter-spacing: 0.4em;
   }
 }
