@@ -3,8 +3,8 @@ declare const styles: {
   readonly "contentWrapper": string;
   readonly "dark": string;
   readonly "divider": string;
+  readonly "elegantShift": string;
   readonly "gradientButton": string;
-  readonly "gradientShift": string;
   readonly "header": string;
   readonly "light": string;
   readonly "logoRow": string;

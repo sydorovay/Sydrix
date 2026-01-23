@@ -1,4 +1,4 @@
-/* РЕЄСТРАЦІЯ ЗМІННИХ */
+/* РЕЄСТРАЦІЯ ЗМІННИХ ДЛЯ ПЛАВНОГО РЕНДЕРУ */
 @property --logo-grad-start {
   syntax: '<color>';
   initial-value: #14f6e7;
@@ -27,14 +27,17 @@
   padding: env(safe-area-inset-top) 1.5rem env(safe-area-inset-bottom);
   box-sizing: border-box;
   text-align: center;
+  overflow: hidden;
 }
 
-/* КЛАСИ ТЕМИ */
+/* ТЕМИ */
 .light {
+  background-color: #ffffff;
   --text-color: #1a1a1a;
 }
 
 .dark {
+  background-color: #0b0b0b;
   --text-color: #ffffff;
 }
 
@@ -44,38 +47,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 }
 
-/* --- LOGO ROW --- */
+/* --- LOGO --- */
 .logoRow {
   width: 100%;
-  max-width: clamp(280px, 75vw, 750px);
-  margin-bottom: 2rem;
-  /* Логотип вважаємо точкою 0 (без затримки в його внутрішніх стилях) */
+  max-width: clamp(290px, 75vw, 780px);
+  margin-bottom: 2.5rem;
+  transition: transform 0.4s ease;
 }
 
-/* --- TITLE --- */
+/* --- TITLE (Асинхронний перелив) --- */
 .title {
-  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-size: clamp(1.6rem, 5vw, 3.4rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   line-height: 1.1;
   margin: 0 0 1.5rem 0;
 
   background: linear-gradient(120deg,
       var(--logo-grad-start),
       var(--logo-grad-middle),
-      var(--logo-grad-end),
       var(--logo-grad-start));
-  background-size: 300% 100%;
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: gradientShift 15s linear infinite;
-  /* Асинхронний зсув: заголовок на 3 секунди попереду лого */
-  animation-delay: -3s;
+  animation: elegantShift 18s ease-in-out infinite;
+  animation-delay: -4s;
+  /* Зсув фази відносно лого */
 }
 
 /* --- DIVIDER --- */
@@ -83,77 +86,78 @@
   width: 60px;
   height: 2px;
   background: linear-gradient(90deg, var(--logo-grad-start), var(--logo-grad-middle));
-  margin: 0 auto 1.5rem;
-  opacity: 0.6;
+  margin: 0 auto 2.5rem;
+  opacity: 0.5;
 }
 
 /* --- SUBTITLE --- */
 .subtitleWrapper {
-  margin-bottom: 3rem;
-  max-width: 580px;
+  margin-bottom: 3.5rem;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 100%;
+  gap: 1.2rem;
 }
 
 .subtitleText {
   font-size: clamp(0.95rem, 2vw, 1.15rem);
-  line-height: 1.6;
+  line-height: 1.7;
   font-weight: 300;
   color: var(--text-color);
   opacity: 0.8;
-  max-width: 540px;
   margin: 0 auto;
 }
 
-/* --- BUTTON --- */
+/* --- BUTTON (Асинхронний перелив + Тінь) --- */
 .button.gradientButton {
   all: unset;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 3.5rem;
+  padding: 1.1rem 4.2rem;
   border-radius: 100px;
   cursor: pointer;
 
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   font-size: 0.9rem;
 
   background: linear-gradient(120deg,
       var(--logo-grad-start),
       var(--logo-grad-middle),
-      var(--logo-grad-end),
       var(--logo-grad-start));
-  background-size: 300% 100%;
-  box-shadow: 0 10px 25px -8px rgba(20, 246, 231, 0.5);
+  background-size: 200% auto;
+  box-shadow: 0 12px 30px -10px rgba(20, 246, 231, 0.4);
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: gradientShift 15s linear infinite;
-  /* Асинхронний зсув: кнопка на 6 секунд попереду лого */
-  animation-delay: -6s;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  animation: elegantShift 18s ease-in-out infinite;
+  animation-delay: -9s;
+  /* Зсув фази відносно титулу */
 }
 
-/* УНІФІКОВАНА АНІМАЦІЯ ПЕРЕЛИВУ */
-@keyframes gradientShift {
+/* СПІЛЬНА АНІМАЦІЯ */
+@keyframes elegantShift {
   0% {
     background-position: 0% 50%;
   }
 
+  50% {
+    background-position: 100% 50%;
+  }
+
   100% {
-    background-position: 300% 50%;
+    background-position: 0% 50%;
   }
 }
 
 .button.gradientButton:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px -10px rgba(20, 246, 231, 0.7);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px -12px rgba(20, 246, 231, 0.6);
 }
 
 .button.gradientButton:active {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(0.98);
 }

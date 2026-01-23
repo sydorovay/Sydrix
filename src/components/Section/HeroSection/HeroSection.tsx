@@ -11,31 +11,31 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = memo(({ theme }) => {
   const { lang, t } = useLanguageContext();
 
-  // Використовуємо Record для безпечного доступу до стилів за ключем
+  // Безпечний доступ до стилів для TS
   const s = styles as Record<string, string>;
-
-  const handleContactClick = () => {
-    const container = document.querySelector('[class*="snapContainer"]');
-    container?.scrollTo({ top: 9999, behavior: 'smooth' });
-  };
 
   const subtitleLines = useMemo(() => {
     const data = t('heroSubtitle' as keyof LangData);
     return Array.isArray(data) ? data : [data];
   }, [t]);
 
+  const handleScroll = () => {
+    const nextSection = document.querySelector('[class*="snapContainer"]');
+    nextSection?.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  };
+
   return (
-    <section className={`${s.header} ${theme === 'dark' ? s.dark : s.light}`} aria-labelledby="hero-title">
+    <section className={`${s.header} ${theme === 'dark' ? s.dark : s.light}`}>
       <div className={s.contentWrapper}>
         <div className={s.logoRow}>
           <SydrixLogo t={t} language={lang} />
         </div>
 
-        <h1 id="hero-title" className={s.title}>
+        <h1 className={s.title}>
           {(t('heroTitle') as string) || ''}
         </h1>
 
-        <div className={s.divider} role="presentation" />
+        <div className={s.divider} />
 
         <div className={s.subtitleWrapper}>
           {subtitleLines.map((line, idx) => (
@@ -47,7 +47,7 @@ const HeroSection: React.FC<HeroSectionProps> = memo(({ theme }) => {
 
         <button
           className={`${s.button} ${s.gradientButton}`}
-          onClick={handleContactClick}
+          onClick={handleScroll}
           type="button"
         >
           {(t('contactsButtonText') as string) || ''}
@@ -56,5 +56,7 @@ const HeroSection: React.FC<HeroSectionProps> = memo(({ theme }) => {
     </section>
   );
 });
+
+HeroSection.displayName = 'HeroSection';
 
 export default HeroSection;
