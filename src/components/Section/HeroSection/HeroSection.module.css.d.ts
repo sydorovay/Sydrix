@@ -4,12 +4,12 @@ declare const styles: {
   readonly "dark": string;
   readonly "divider": string;
   readonly "gradientButton": string;
+  readonly "gradientShift": string;
   readonly "header": string;
   readonly "light": string;
   readonly "logoRow": string;
   readonly "subtitleText": string;
   readonly "subtitleWrapper": string;
-  readonly "syncPulse": string;
   readonly "title": string;
 };
 export = styles;
