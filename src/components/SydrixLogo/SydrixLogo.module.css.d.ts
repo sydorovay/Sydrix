@@ -1,7 +1,6 @@
 declare const styles: {
   readonly "brand": string;
-  readonly "gradSync": string;
-  readonly "logoContainer": string;
+  readonly "logo": string;
   readonly "mid": string;
   readonly "sideLetter": string;
   readonly "stop1": string;
