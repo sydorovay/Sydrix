@@ -32,12 +32,10 @@
 
 /* ТЕМИ */
 .light {
-  background-color: #ffffff;
   --text-color: #1a1a1a;
 }
 
 .dark {
-  background-color: #0b0b0b;
   --text-color: #ffffff;
 }
 
