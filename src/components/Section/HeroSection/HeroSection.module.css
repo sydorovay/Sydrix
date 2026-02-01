@@ -52,13 +52,13 @@
 .logoRow {
   width: 100%;
   max-width: clamp(290px, 75vw, 780px);
-  margin-bottom: 2.5rem;
+
   transition: transform 0.4s ease;
 }
 
 /* --- TITLE (Асинхронний перелив) --- */
 .title {
-  font-size: clamp(1.6rem, 5vw, 3.4rem);
+  font-size: clamp(1.4rem, 5vw, 3.2rem);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -66,17 +66,17 @@
   margin: 0 0 1.5rem 0;
 
   background: linear-gradient(120deg,
+      var(--logo-grad-end),
       var(--logo-grad-start),
       var(--logo-grad-middle),
-      var(--logo-grad-start));
+      var(--logo-grad-end));
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
   animation: elegantShift 18s ease-in-out infinite;
-  animation-delay: -4s;
-  /* Зсув фази відносно лого */
+  animation-delay: 1s;
+
 }
 
 /* --- DIVIDER --- */
