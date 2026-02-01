@@ -1,4 +1,3 @@
-// src/components/LangSwitcher/LangSwitcher.tsx
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Flag from 'react-world-flags';
 import styles from './Langswitcher.module.css';
@@ -17,80 +16,73 @@ const LANGUAGES: { code: LangCode; label: string }[] = [
 export default function LangSwitcher() {
   const [open, setOpen] = useState(false);
   const { lang, setLang } = useLanguageContext();
+  const s = styles as Record<string, string>;
 
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const selected = LANGUAGES.find(item => item.code === lang) ?? LANGUAGES[0];
 
-  const toggleDropdown = useCallback(() => setOpen(prev => !prev), []);
+  // Закриття дропдауну
   const closeDropdown = useCallback(() => {
     setOpen(false);
     buttonRef.current?.focus();
   }, []);
 
-  const handleSelect = useCallback(
-    (code: LangCode) => {
-      setLang(code);
-      closeDropdown();
-    },
-    [setLang, closeDropdown]
-  );
+  // Обробка вибору мови
+  const handleSelect = (code: LangCode) => {
+    setLang(code);
+    setOpen(false);
+  };
 
+  // Слухачі для Escape та кліку поза межами
   useEffect(() => {
-    const onClickOutside = (e: MouseEvent) => {
+    if (!open) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
-        closeDropdown();
+        setOpen(false);
       }
     };
 
-    const onEscapePress = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeDropdown();
-      }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeDropdown();
     };
 
-    document.addEventListener('mousedown', onClickOutside);
-    document.addEventListener('keydown', onEscapePress);
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+
     return () => {
-      document.removeEventListener('mousedown', onClickOutside);
-      document.removeEventListener('keydown', onEscapePress);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [closeDropdown]);
+  }, [open, closeDropdown]);
 
   return (
-    <div ref={rootRef} className={styles.wrapper}>
+    <div ref={rootRef} className={s.wrapper}>
       <button
         ref={buttonRef}
-        onClick={toggleDropdown}
-        className={styles.button}
-        aria-label="Select Language"
+        onClick={() => setOpen(!open)}
+        className={s.button}
+        type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-controls="language-listbox"
-        type="button"
       >
-        <Flag code={selected.code.toUpperCase()} className={styles.flag} alt={selected.label} />
+        <Flag code={selected.code.toUpperCase()} className={s.flag} />
       </button>
 
-      <div
-        id="language-listbox"
-        className={`${styles.dropdown} ${open ? styles.open : ''}`}
-        role="listbox"
-        tabIndex={-1}
-        aria-activedescendant={selected.code}
-      >
-        {LANGUAGES.filter(l => l.code !== selected.code).map(({ code, label }) => (
+      <div className={`${s.dropdown} ${open ? s.open : ''}`} role="listbox">
+        {LANGUAGES.map(({ code, label }) => (
           <button
             key={code}
-            id={code}
-            className={styles.option}
-            role="option"
+            className={`${s.option} ${lang === code ? s.active : ''}`}
             onClick={() => handleSelect(code)}
             type="button"
+            role="option"
+            aria-selected={lang === code}
           >
-            <Flag code={code.toUpperCase()} className={styles.flagSmall} alt={label} />
-            <span>{label}</span>
+            <Flag code={code.toUpperCase()} className={s.flagSmall} />
+            <span className={s.labelText}>{label}</span>
           </button>
         ))}
       </div>

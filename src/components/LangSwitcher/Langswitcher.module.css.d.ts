@@ -1,9 +1,11 @@
 declare const styles: {
+  readonly "active": string;
   readonly "button": string;
   readonly "dropdown": string;
+  readonly "elegantShift": string;
   readonly "flag": string;
   readonly "flagSmall": string;
-  readonly "label": string;
+  readonly "labelText": string;
   readonly "open": string;
   readonly "option": string;
   readonly "wrapper": string;
