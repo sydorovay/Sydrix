@@ -34,9 +34,6 @@ const HeroSection: React.FC<HeroSectionProps> = memo(({ theme }) => {
         <h1 className={s.title}>
           {(t('heroTitle') as string) || ''}
         </h1>
-
-        <div className={s.divider} />
-
         <div className={s.subtitleWrapper}>
           {subtitleLines.map((line, idx) => (
             <p key={idx} className={s.subtitleText}>
@@ -44,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = memo(({ theme }) => {
             </p>
           ))}
         </div>
-
+        <div className={s.divider} />
         <button
           className={`${s.button} ${s.gradientButton}`}
           onClick={handleScroll}

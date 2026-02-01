@@ -1,7 +1,7 @@
 /* РЕЄСТРАЦІЯ ЗМІННИХ ДЛЯ ПЛАВНОГО РЕНДЕРУ */
 @property --logo-grad-start {
   syntax: '<color>';
-  initial-value: #14f6e7;
+  initial-value: #12d2c5;
   inherits: true;
 }
 
@@ -13,7 +13,7 @@
 
 @property --logo-grad-end {
   syntax: '<color>';
-  initial-value: #14f6e7;
+  initial-value: #1890a3;
   inherits: true;
 }
 
@@ -24,7 +24,6 @@
   justify-content: center;
   width: 100%;
   min-height: 100dvh;
-  padding: env(safe-area-inset-top) 1.5rem env(safe-area-inset-bottom);
   box-sizing: border-box;
   text-align: center;
   overflow: hidden;
@@ -51,19 +50,19 @@
 /* --- LOGO --- */
 .logoRow {
   width: 100%;
-  max-width: clamp(290px, 75vw, 780px);
-
+  /* max-width: clamp(290px, 75vw, 780px); */
+  margin-top: 20%;
   transition: transform 0.4s ease;
 }
 
 /* --- TITLE (Асинхронний перелив) --- */
 .title {
   font-size: clamp(1.4rem, 5vw, 3.2rem);
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
-  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  margin: 2rem auto;
 
   background: linear-gradient(120deg,
       var(--logo-grad-end),
@@ -79,60 +78,58 @@
 
 }
 
-/* --- DIVIDER --- */
 .divider {
   width: 60px;
   height: 2px;
   background: linear-gradient(90deg, var(--logo-grad-start), var(--logo-grad-middle));
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 2rem;
   opacity: 0.5;
 }
 
-/* --- SUBTITLE --- */
+
 .subtitleWrapper {
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .subtitleText {
   font-size: clamp(0.95rem, 2vw, 1.15rem);
-  line-height: 1.7;
-  font-weight: 300;
+  line-height: 1.8;
+  font-weight: 400;
   color: var(--text-color);
   opacity: 0.8;
   margin: 0 auto;
 }
 
-/* --- BUTTON (Асинхронний перелив + Тінь) --- */
 .button.gradientButton {
   all: unset;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem 4.2rem;
+  padding: 1rem 2rem;
   border-radius: 100px;
   cursor: pointer;
-
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
+  letter-spacing: 1.2px;
+  font-size: 0.8rem;
 
   background: linear-gradient(120deg,
+      var(--logo-grad-end),
       var(--logo-grad-start),
       var(--logo-grad-middle),
-      var(--logo-grad-start));
+      var(--logo-grad-end));
   background-size: 200% auto;
   box-shadow: 0 12px 30px -10px rgba(20, 246, 231, 0.4);
 
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
   animation: elegantShift 18s ease-in-out infinite;
-  animation-delay: -9s;
+  animation-delay: 2s;
   /* Зсув фази відносно титулу */
 }
 
