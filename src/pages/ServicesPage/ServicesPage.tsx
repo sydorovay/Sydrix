@@ -56,22 +56,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ t, lang, theme, compact = false }
         ))}
       </section>
 
-      {!compact && (
-        <section className={s.ctaFormSection}>
-          <h3 className={s.formTitle}>{t('servicesFormTitle') as string}</h3>
-          <form className={s.form} onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder={t('servicesFormPlaceholder') as string}
-              className={s.input}
-              required
-            />
-            <button type="submit" className={s.ctaButton}>
-              {t('servicesFormButton') as string}
-            </button>
-          </form>
-        </section>
-      )}
+     
     </main>
   );
 };
