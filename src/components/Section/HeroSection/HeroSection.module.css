@@ -49,15 +49,13 @@
 
 /* --- LOGO --- */
 .logoRow {
-  width: 100%;
-  /* max-width: clamp(290px, 75vw, 780px); */
-  margin-top: 20%;
+  width: 50%;
+  max-width: clamp(290px, 75vw, 780px);
   transition: transform 0.4s ease;
 }
 
-/* --- TITLE (Асинхронний перелив) --- */
 .title {
-  font-size: clamp(1.4rem, 5vw, 3.2rem);
+  font-size: clamp(1.4rem, 1.6vw, 3rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -96,7 +94,7 @@
 }
 
 .subtitleText {
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.8;
   font-weight: 400;
   color: var(--text-color);
