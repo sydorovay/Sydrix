@@ -49,13 +49,13 @@
 
 /* --- LOGO --- */
 .logoRow {
-  width: 50%;
+  width:50%;
   max-width: clamp(290px, 75vw, 780px);
   transition: transform 0.4s ease;
 }
 
 .title {
-  font-size: clamp(1.4rem, 1.6vw, 3rem);
+  font-size: clamp(1.4rem, 2vw, 3rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
