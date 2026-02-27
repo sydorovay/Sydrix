@@ -10,61 +10,53 @@ export default function ThemeToggle() {
     return 'light';
   });
 
-  const resolvedTheme = (() => {
-    if (typeof window === 'undefined') return 'light';
+  const isDark = (() => {
+    if (typeof window === 'undefined') return false;
     if (theme === 'system') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
-    return theme;
+    return theme === 'dark';
   })();
 
   useEffect(() => {
-    document.body.classList.remove('light', 'dark');
-    document.body.classList.add(resolvedTheme);
+    const root = document.body;
+    root.classList.remove('light', 'dark');
+    root.classList.add(isDark ? 'dark' : 'light');
 
     if (theme === 'system') {
       const media = window.matchMedia('(prefers-color-scheme: dark)');
       const handler = () => {
-        const systemTheme = media.matches ? 'dark' : 'light';
-        document.body.classList.remove('light', 'dark');
-        document.body.classList.add(systemTheme);
+        root.classList.remove('light', 'dark');
+        root.classList.add(media.matches ? 'dark' : 'light');
       };
       media.addEventListener('change', handler);
       return () => media.removeEventListener('change', handler);
     }
-  }, [theme, resolvedTheme]);
+  }, [theme, isDark]);
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'light'
-      ? 'dark'
-      : theme === 'dark'
-        ? 'system'
-        : 'light';
-
+    const modes = ['light', 'dark', 'system'];
+    const nextTheme = modes[(modes.indexOf(theme) + 1) % modes.length];
     setTheme(nextTheme);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('theme', nextTheme);
-    }
+    localStorage.setItem('theme', nextTheme);
   };
 
-  const themeLabel = theme === 'system'
-    ? 'System'
-    : theme.charAt(0).toUpperCase() + theme.slice(1);
-
   return (
-    <div
-      className={styles.toggleBtn}
-      onClick={toggleTheme}
-      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleTheme()}
-      role="button"
-      tabIndex={0}
-      title={`Current: ${themeLabel}. Click to change theme`}
-      aria-label="Toggle theme"
-    >
+    <div className={styles.toggleBtn} onClick={toggleTheme} role="button" tabIndex={0}>
       <div className={styles.track}>
-        <FaSun className={`${styles.sun} ${resolvedTheme === 'light' ? styles.visible : styles.hidden}`} />
-        <FaMoon className={`${styles.moon} ${resolvedTheme === 'dark' ? styles.visible : styles.hidden}`} />
-        <div className={`${styles.thumb} ${styles[resolvedTheme as 'dark' | 'light']}`}></div>
+        {/* Сонце та його ореол */}
+        <div className={styles.iconWrapper}>
+          <FaSun className={styles.sun} />
+          <div className={`${styles.glow} ${styles.sunGlow}`} />
+        </div>
+
+        {/* Місяць та його ореол */}
+        <div className={styles.iconWrapper}>
+          <FaMoon className={styles.moon} />
+          <div className={`${styles.glow} ${styles.moonGlow}`} />
+        </div>
+
+        <div className={styles.thumb}></div>
       </div>
     </div>
   );

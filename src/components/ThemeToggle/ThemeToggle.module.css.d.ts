@@ -1,14 +1,14 @@
 declare const styles: {
-  readonly "dark": string;
-  readonly "hidden": string;
-  readonly "light": string;
+  readonly "glow": string;
+  readonly "iconWrapper": string;
   readonly "moon": string;
+  readonly "moonGlow": string;
+  readonly "pulseGlow": string;
   readonly "sun": string;
+  readonly "sunGlow": string;
   readonly "thumb": string;
   readonly "toggleBtn": string;
-  readonly "toggling": string;
   readonly "track": string;
-  readonly "visible": string;
 };
 export = styles;
 

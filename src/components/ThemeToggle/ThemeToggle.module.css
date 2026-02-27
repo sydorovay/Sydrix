@@ -7,132 +7,151 @@
   outline: none;
 }
 
-
-
-/* Основа-перемикач */
 .track {
   position: relative;
-  width: 40px;
-  height: 16px;
+  width: 44px;
+  height: 20px;
   border-radius: 30px;
-    box-shadow: inset -2px -2px 4px rgba(0, 139, 252, 0.31),
-        inset 2px 2px 6px rgba(0, 0, 0, 0.2),
-        0 1px 2px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow:
-      inset -2px -2px 4px rgba(255, 255, 255, 0.4),
-      inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.1);
+  /* Твої оригінальні тіні */
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.4),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.track:hover {
-    transform: scale(1.05);
-      box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.312),
-        inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease-in-out, ;
+.iconWrapper {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.iconWrapper:first-of-type {
+  left: 0;
+}
 
-/* Іконки */
+.iconWrapper:last-of-type {
+  right: 0;
+}
+
 .sun,
 .moon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   font-size: 10px;
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-
+  z-index: 3;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .sun {
-  left: 4px;
   color: #f9eb93;
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .moon {
-  right: 4px;
   color: #58696b;
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Thumb */
+/* М'ЯКЕ ПУЛЬСУЮЧЕ СЯЙВО */
+.glow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  filter: blur(8px);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.sunGlow {
+  background: #f9eb93;
+  box-shadow: 0 0 10px #f9eb93;
+}
+
+.moonGlow {
+  background: #14f6e7;
+  box-shadow: 0 0 10px #14f6e7;
+}
+
+/* THUMB (Твої градієнти) */
 .thumb {
   position: absolute;
-  left: 3px;
+  left: 2px;
   width: 16px;
   height: 16px;
-  border: 1px solid fff;
   border-radius: 50%;
-
-  background: linear-gradient(to right, #f6fdeb, #07344a);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease,  box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 4;
+  /* Пружиниста анімація руху */
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
-/* Тема */
-.thumb.light {
+/* ЛОГІКА СВІТЛОЇ ТЕМИ */
+:global(body.light) .sun {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+:global(body.light) .sunGlow {
+  opacity: 0.3;
+}
+
+:global(body.light) .moon {
+  opacity: 0.1;
+  transform: scale(0.7);
+}
+
+:global(body.light) .thumb {
   transform: translateX(0);
+  background: linear-gradient(to right, #f6fdeb, #07344a);
+  /* Твій колір */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-.thumb.dark {
-  transform: translateX(20px);
+/* ЛОГІКА ТЕМНОЇ ТЕМИ */
+:global(body.dark) .sun {
+  opacity: 0.1;
+  transform: scale(0.7);
+}
+
+:global(body.dark) .moon {
+  opacity: 1;
+  transform: scale(1.1);
+  color: #14f6e7;
+}
+
+:global(body.dark) .moonGlow {
+  opacity: 0.4;
+}
+
+:global(body.dark) .thumb {
+  transform: translateX(24px);
   background: linear-gradient(to right, #fffea5, #703807c6);
+  /* Твій колір */
+  box-shadow: 0 0 8px rgba(20, 246, 231, 0.3);
 }
 
-/* Натиск */
-.toggling .thumb {
-  transform: scale(1.05) translateY(-50%);
-    box-shadow:
-      inset -1px -1px 2px rgba(0, 0, 0, 0.2),
-      0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.visible {
-  opacity: 1;
-  transition: opacity 0.2s;
-}
-
-.hidden {
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-
-/* Динаміка теми */
-body.light .sun {
-  opacity: 1;
-
-    transform: translateY(-50%) scale(1);
-}
-
-body.light .moon {
-  opacity: 0;
-  transform: translateY(-50%) scale(0.8);;
-}
-
-body.dark .sun {
-  opacity: 0;
-  transform: translateY(-50%) scale(0.8);
-}
-
-body.dark .moon {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
-}
-
-body.light .thumb {
-  transform: translate(3px, -50%);
-}
-
-body.dark .thumb {
-  transform: translate(33px, -50%);
-}
-
-/* Темна тема для треку */
-body.dark .track {
+:global(body.dark) .track {
   background: linear-gradient(to bottom, #555, #333);
+  /* Твій колір треку */
   box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
     inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.4;
+  }
 }
