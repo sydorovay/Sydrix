@@ -66,6 +66,7 @@ const ua: LangData = {
   servicesFormPlaceholder: "Ваш email",
   servicesFormButton: "Надіслати",
   showLessButton: "Показати менше",
+  showMoreButton: "Показати більше",
   noProjectsFound: "Проєкти не знайдено.",
 
   portfolio: "Портфоліо",

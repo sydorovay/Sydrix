@@ -55,6 +55,7 @@ const fr: LangData = {
   servicesFormPlaceholder: "Votre e-mail",
   servicesFormButton: "Envoyer",
   showLessButton: "Afficher moins",
+  showMoreButton: "Afficher plus",
 
   portfolio: "Portfolio",
   portfolioTitle: "Portfolio",

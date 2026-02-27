@@ -72,6 +72,7 @@ const gb: LangData = {
   faq: "FAQ",
   partnership: "Partnership",
   showAllButton: "Show All",
+  showMoreButton: "Show More",
   hideAllButton: "Hide",
   title: "Frontend Development for Your Business",
   subtitle: [

@@ -1,17 +1,17 @@
 declare const styles: {
-  readonly "banner": string;
   readonly "card": string;
+  readonly "cardContent": string;
+  readonly "cardDescription": string;
+  readonly "cardGlow": string;
   readonly "cardTitle": string;
   readonly "ctaButton": string;
-  readonly "ctaForm": string;
-  readonly "focusZoom": string;
-  readonly "form": string;
+  readonly "dark": string;
+  readonly "elegantShift": string;
   readonly "grid": string;
   readonly "icon": string;
-  readonly "input": string;
+  readonly "light": string;
   readonly "page": string;
-  readonly "title": string;
-  readonly "toggle": string;
+  readonly "textWrapper": string;
 };
 export = styles;
 

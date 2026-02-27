@@ -1,203 +1,219 @@
+@property --logo-grad-start {
+  syntax: '<color>';
+  initial-value: #14f6e7;
+  inherits: true;
+}
+
+@property --logo-grad-middle {
+  syntax: '<color>';
+  initial-value: #5b24a8;
+  inherits: true;
+}
+
 .page {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  transition: background 0.4s ease;
+}
+
+.light {
+  --text-color: #1a1a1a;
+  --card-bg: rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  --text-color: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.06);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(2rem, 6vw, 6rem);
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* КАРТКА */
+.card {
+  position: relative;
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(20, 246, 231, 0.1);
+  border-radius: 30px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  /* Плавний перехід для всієї картки */
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 100%;
-  padding: 4rem 2rem;
-  transition: background 0.3s ease, color 0.3s ease;
-  overflow-x: hidden;
+  justify-content: center;
+  min-height: 350px;
+  /* Фіксована висота, щоб текст вмістився */
 }
 
-/* ====== Banner Section ====== */
-.banner {
-  text-align: center;
-  margin-bottom: 5rem;
-  position: relative;
+/* Стан наведення для картки */
+.card:hover,
+.card:focus-within {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--logo-grad-start);
+  background: rgba(20, 246, 231, 0.05);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.3);
 }
 
-.title {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  background: linear-gradient(180deg, #0043ec,#39d7ff,#4afcf0,#0043ec);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 0.08em;
+.cardContent {
   position: relative;
   z-index: 2;
-}
-
-.banner::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60%;
-  height: 60%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center,
-      rgba(0, 217, 245, 0.1),
-      transparent 70%);
-  filter: blur(60px);
-  z-index: 1;
-}
-
-/* ====== Grid Section ====== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
   width: 100%;
-  max-width: 1300px;
-  margin-bottom: 5rem;
-}
-
-.card {
-  background: rgba(0, 151, 245, 0.096);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.2rem;
-  padding: 2rem;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
-  position: relative;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(0, 217, 245, 0.2);
-  border: 1px solid rgba(0, 217, 245, 0.4);
-}
-
-.focusZoom {
-  transform: scale(1.06);
-  box-shadow: 0 0 30px rgba(0, 217, 245, 0.25);
-  border: 1px solid rgba(0, 217, 245, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #00d9f5;
-  transition: color 0.3s ease;
+  font-size: 3.5rem;
+  color: var(--logo-grad-start);
+  margin-bottom: 2rem;
+  transition: all 0.5s ease;
 }
 
-.card:hover .icon {
-  color:yellow;
+.card:hover .icon,
+.card:focus-within .icon {
+  filter: drop-shadow(0 0 15px var(--logo-grad-start));
+  transform: scale(1.1) translateY(-5px);
 }
 
+/* ОБГОРТКА ДЛЯ ТЕКСТУ */
+.textWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  /* Висота, достатня для опису */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ЗАГОЛОВОК (За замовчуванням видимий) */
 .cardTitle {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
+  color: var(--text-color);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  position: absolute;
+  /* Щоб опис міг стати на його місце */
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ====== Buttons ====== */
+/* Ховаємо заголовок при hover */
+.card:hover .cardTitle,
+.card:focus-within .cardTitle {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.9);
+}
+
+/* ОПИС (За замовчуванням прихований) */
+.cardDescription {
+  color: var(--text-color);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  font-weight: 400;
+  opacity: 0.8;
+  margin: 0;
+  /* Початковий стан: прихований і зсунутий вниз */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.1s;
+  /* Легка затримка появи */
+}
+
+/* Показуємо опис при hover */
+.card:hover .cardDescription,
+.card:focus-within .cardDescription {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ДЕКОРАТИВНЕ СЯЙВО (Твій існуючий стиль) */
+.cardGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, var(--logo-grad-start) 0%, transparent 60%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: all 0.6s ease;
+  z-index: 1;
+}
+
+.card:hover .cardGlow,
+.card:focus-within .cardGlow {
+  opacity: 0.1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ФОРМА (Стиль твоєї CTA кнопки) */
 .ctaButton {
-  background: linear-gradient(90deg, #00f5d0, #00d9f5);
-  color: #0b0b0f;
-  font-weight: 600;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.8rem 1.8rem;
-  font-size: 1rem;
+  all: unset;
+  padding: 1rem 3rem;
+  border-radius: 100px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, var(--logo-grad-start), var(--logo-grad-middle), var(--logo-grad-start));
+  background-size: 200% auto;
+  animation: elegantShift 15s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
 
 .ctaButton:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 217, 245, 0.4);
+  transform: translateY(-3px);
 }
 
-/* ====== CTA Form Section ====== */
-.ctaForm {
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.5rem;
-  padding: 2.5rem;
-  backdrop-filter: blur(12px);
-  transition: background 0.3s ease;
-}
-.ctaForm h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, #00f5e9, #00d9f5);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes elegantShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.ctaButton.toggle {
-  background: linear-gradient(90deg, #ff6a00, #ee0979);
-}
-
-.ctaButton.toggle:hover {
-  box-shadow: 0 0 20px rgba(255, 106, 0, 0.4);
-  transform: scale(1.05);
-}
-.form {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.input {
-  flex: 1;
-  min-width: 220px;
-  padding: 0.9rem 1.2rem;
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.06);
-  outline: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.input:focus {
-  border-color: #00d9f5;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-/* ====== Dark & Light Themes ====== */
-:global(.light) .page {
-
-  --text: #111;
-}
-
-/* ====== Desktop enhancements ====== */
-@media (min-width: 1200px) {
+/* МОБІЛЬНІ КОРЕКЦІЇ */
+@media (max-width: 600px) {
   .grid {
-    gap: 2rem;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
   }
 
   .card {
-    padding: 2rem;
+    padding: 3rem 1.5rem;
+    min-height: 300px;
   }
 
-  .cardTitle {
-    font-size: 1.4rem;
+  .textWrapper {
+    min-height: 80px;
   }
-}
-
-/* ====== Scrollbar Customization (optional aesthetic) ====== */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(36, 0, 78, 0.293);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00e1ff, #00e9f5);
-  border-radius: 10px;
 }

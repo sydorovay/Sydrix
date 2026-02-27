@@ -73,6 +73,7 @@ const it: LangData = {
   faq: "Domande frequenti",
   partnership: "Collaborazione",
   showAllButton: "Mostra tutto",
+  showMoreButton: "Mostra di più",
   hideAllButton: "Nascondi",
   title: "Sviluppo frontend per la tua azienda",
   subtitle: [
